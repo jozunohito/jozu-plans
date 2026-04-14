@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>90-Day Revenue Architecture Plan - JustAI | JEFF ARAGON</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    @page {
+        size: letter;
+        margin: 0;
+    }
+    :root {
+        --bg: #0a0e17;
+        --bg-card: rgba(255,255,255,0.03);
+        --bg-card-border: rgba(255,255,255,0.06);
+        --red: #e34115;
+        --red-dim: rgba(227,65,21,0.12);
+        --gold: #c9a84c;
+        --gold-dim: rgba(201,168,76,0.10);
+        --slate: #64748b;
+        --white: #ffffff;
+        --gray: #cbd5e1;
+        --bright: #e2e8f0;
+        --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: var(--bg);
+        color: var(--gray);
+        font-family: 'Open Sans', sans-serif;
+        font-size: 11pt;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+
+    /* Page container */
+    .page {
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0 auto;
+        padding: 48px 56px;
+        background: var(--bg);
+        position: relative;
+        overflow: hidden;
+        page-break-after: always;
+    }
+    .page:last-child { page-break-after: auto; }
+
+    /* Subtle background glow */
+    .page::before {
+        content: '';
+        position: absolute;
+        top: -150px; right: -150px;
+        width: 500px; height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--red-dim) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+    }
+    .page > * { position: relative; z-index: 1; }
+
+    /* Header */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 36px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--red);
+    }
+    .header-left { flex: 1; }
+    .header-logo { width: 140px; opacity: 0.9; }
+    .doc-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9pt;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 6px;
+    }
+    .doc-title {
+        font-size: 22pt;
+        font-weight: 700;
+        line-height: 1.15;
+        margin-bottom: 4px;
+    }
+    .doc-title .accent { color: var(--red); }
+    .doc-subtitle {
+        font-family: 'Poppins', sans-serif;
+        font-size: 11pt;
+        font-weight: 300;
+        color: var(--slate);
+    }
+    .doc-date {
+        font-size: 9pt;
+        color: var(--slate);
+        margin-top: 8px;
+    }
+
+    /* Section headers */
+    .section-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 8pt;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .section-label::before {
+        content: '';
+        width: 24px; height: 2px;
+        background: var(--red);
+    }
+    h2 { font-size: 16pt; font-weight: 600; margin-bottom: 14px; }
+    h3 { font-size: 12pt; font-weight: 500; color: var(--red); margin-bottom: 8px; }
+    h4 { font-size: 10pt; font-weight: 500; color: var(--gold); margin-bottom: 6px; }
+
+    /* Cards */
+    .card {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 18px 20px;
+        margin-bottom: 12px;
+    }
+    .card-red { border-left: 3px solid var(--red); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+
+    .card-grid { display: grid; gap: 12px; margin-bottom: 16px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    /* Phase timeline */
+    .phase-block {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        margin-bottom: 16px;
+        position: relative;
+    }
+    .phase-block::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 4px; height: 100%;
+        border-radius: 4px 0 0 4px;
+    }
+    .phase-1::before { background: var(--red); }
+    .phase-2::before { background: var(--gold); }
+    .phase-3::before { background: var(--slate); }
+    .phase-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9pt;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+    }
+    .phase-1 .phase-number { color: var(--red); }
+    .phase-2 .phase-number { color: var(--gold); }
+    .phase-3 .phase-number { color: var(--slate); }
+    .phase-title {
+        font-family: 'Poppins', sans-serif;
+        font-size: 13pt;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 10px;
+    }
+
+    /* Deliverable list */
+    .deliverable {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+    .deliverable-check {
+        color: var(--red);
+        font-size: 11pt;
+        margin-top: 1px;
+        flex-shrink: 0;
+    }
+
+    /* Stats row */
+    .stat-row {
+        display: flex;
+        gap: 16px;
+        margin: 16px 0;
+    }
+    .stat-box {
+        flex: 1;
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 16px;
+        text-align: center;
+    }
+    .stat-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 20pt;
+        font-weight: 700;
+        color: var(--red);
+    }
+    .stat-label {
+        font-size: 8.5pt;
+        color: var(--slate);
+        margin-top: 2px;
+    }
+
+    /* Table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+        font-size: 10pt;
+    }
+    th {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 8.5pt;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--red);
+        text-align: left;
+        padding: 10px 14px;
+        border-bottom: 1px solid rgba(227,65,21,0.2);
+        background: var(--red-dim);
+    }
+    td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--bg-card-border);
+        color: var(--gray);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    /* Engagement options */
+    .engagement-option {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        margin-bottom: 12px;
+        position: relative;
+    }
+    .engagement-option.featured {
+        border-color: var(--red);
+        background: var(--red-dim);
+    }
+    .featured-badge {
+        position: absolute;
+        top: -1px; right: 20px;
+        background: var(--red);
+        color: var(--white);
+        font-family: 'Poppins', sans-serif;
+        font-size: 7.5pt;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 4px 12px;
+        border-radius: 0 0 6px 6px;
+    }
+    .option-name {
+        font-family: 'Poppins', sans-serif;
+        font-size: 13pt;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 4px;
+    }
+    .option-price {
+        font-family: 'Poppins', sans-serif;
+        font-size: 11pt;
+        font-weight: 500;
+        color: var(--red);
+        margin-bottom: 8px;
+    }
+
+    /* Divider */
+    .divider { width: 50px; height: 2px; background: var(--red); margin: 16px 0; opacity: 0.5; }
+
+    /* Footer */
+    .footer {
+        margin-top: 32px;
+        padding-top: 16px;
+        border-top: 1px solid var(--bg-card-border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8.5pt;
+        color: var(--slate);
+    }
+    .footer a { color: var(--red); text-decoration: none; }
+
+    /* Confidential banner */
+    .confidential {
+        font-family: 'Poppins', sans-serif;
+        font-size: 7pt;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--slate);
+        text-align: center;
+        margin-top: 12px;
+    }
+
+    /* Print optimization */
+    @media print {
+        body { background: var(--bg); }
+        .page { margin: 0; box-shadow: none; }
+    }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: Cover + Diagnosis -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">90-Day Revenue Architecture Plan</div>
+            <h1 class="doc-title">
+                <span class="accent">JustAI</span>
+            </h1>
+            <div class="doc-subtitle">Agentic Marketing Platform</div>
+            <div class="doc-date">Prepared by Jeff Aragon | April 2026</div>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <!-- Situation Assessment -->
+    <div class="section-label">Situation Assessment</div>
+    <h2>Where JustAI Is Right Now</h2>
+
+    <div class="card-grid cols-2">
+        <div class="card card-red">
+            <h4 style="color:var(--red)">What You Have</h4>
+            <p>An AI-powered marketing platform built on agentic architecture that automates marketing workflows. A 4-person team with YC backing (W24). A product entering a market where marketing leaders are actively experimenting with AI but struggling to find tools that deliver measurable results beyond content generation.</p>
+        </div>
+        <div class="card card-gold">
+            <h4>What You Need</h4>
+            <p>A competitive position that rises above the noise of AI marketing tools. A message that connects to marketing leader KPIs - pipeline generated, CAC reduced, conversion rates improved - not AI features. A sales process for your Founding AE that navigates a market where marketing buyers are excited about AI but burned by tools that overpromise.</p>
+        </div>
+    </div>
+
+    <div class="card card-slate">
+        <h4 style="color:var(--slate)">The Core Challenge</h4>
+        <p>Marketing leaders are drowning in AI tool pitches. Every vendor claims AI-powered marketing automation. JustAI needs a commercial motion that proves measurable business impact, not just another AI demo. Your Founding AE needs a clear, differentiated position and a sales process that builds credibility with skeptical marketing buyers who have already been disappointed by AI tools that did not deliver.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Why This Matters Now -->
+    <div class="section-label">Why This Matters Now</div>
+    <h2>The Cost of Waiting</h2>
+
+    <div class="stat-row">
+        <div class="stat-box">
+            <div class="stat-number">82%</div>
+            <div class="stat-label">of marketing leaders plan to increase AI tool spending in the next 12 months</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">$127K</div>
+            <div class="stat-label">average annual marketing tool contract at the mid-market level</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">3.1</div>
+            <div class="stat-label">average number of AI tools a marketing team evaluates before buying</div>
+        </div>
+    </div>
+
+    <p>Marketing AI budgets are being allocated right now. Marketing leaders are evaluating tools this quarter for deployment in the back half of 2026. JustAI needs to be in those evaluation cycles, which means having a structured sales motion and a clear differentiated message within the next 60 days. The companies that capture marketing AI budgets first will build the switching costs that keep competitors out. Late movers in this space become commoditized.</p>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffaragon">linkedin.com/in/jeffaragon</a></span>
+        <span>Page 1 of 3</span>
+    </div>
+</div>
+
+<!-- PAGE 2: The 90-Day Plan -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">The Plan</div>
+            <h1 class="doc-title">90 Days to a <span class="accent">Working Sales Engine</span></h1>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <!-- Phase 1 -->
+    <div class="phase-block phase-1">
+        <div class="phase-number">Phase 1: Days 1-30</div>
+        <div class="phase-title">Foundation</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Buyer definition.</strong> Define the marketing buyer persona with precision - VP Marketing, Head of Demand Gen, or CMO at what company size and stage. Identify which marketing functions (demand gen, content ops, campaign management) drive the purchase decision and which use cases create the most urgency.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Power Message.</strong> Build a message that goes beyond AI marketing automation. Connect JustAI's agentic capabilities to specific marketing outcomes - pipeline attribution, campaign ROI, and the operational cost of marketing workflows that currently require 3-4 point solutions.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Discovery framework.</strong> Create a discovery framework that uncovers the prospect's current marketing stack, what is working, what is not, and where manual effort creates bottlenecks. Focus on quantifying the cost of their current approach so the value of switching becomes obvious.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Pipeline architecture.</strong> Design a pipeline for marketing tech sales. Marketing buyers evaluate tools through demos, trials, and team feedback. Build stages that track these buyer actions and flag deals that stall in evaluation without progressing to team adoption.</span>
+        </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="phase-block phase-2">
+        <div class="phase-number">Phase 2: Days 31-60</div>
+        <div class="phase-title">Execution</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Outbound activation.</strong> Launch outbound targeting VP Marketing and Demand Gen leaders at companies with 50-500 employees. Sequences built around the specific pain of fragmented marketing stacks and the promise of consolidated, AI-driven execution.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Live deal work.</strong> Work live deals with the founding team. Focus on demonstrating measurable impact during the evaluation period. Build a 2-week proof-of-value framework that shows JustAI delivering results on a real marketing campaign, not just a product demo.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Sequence of Events.</strong> Map the marketing tech buying journey from first demo to signed contract. Include the trial period, team feedback loop, stack integration review, and budget approval. Marketing buyers want consensus from their team before committing.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Forecast discipline.</strong> Implement pipeline reviews with martech-specific qualification criteria. Track trial engagement, team adoption signals, and competitive evaluation status. Marketing tool deals die when the trial does not show clear results - build early warning triggers.</span>
+        </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="phase-block phase-3">
+        <div class="phase-number">Phase 3: Days 61-90</div>
+        <div class="phase-title">Scale Readiness</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Closed revenue.</strong> Close 3-5 early customers with documented marketing impact metrics. These accounts become proof points that differentiate JustAI from every other AI marketing tool making unsubstantiated claims.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Repeatable process.</strong> Package the complete martech sales playbook - buyer personas, competitive positioning, discovery framework, proof-of-value methodology, and deal progression criteria. This is the system your Founding AE runs from day one.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Hiring blueprint.</strong> Define the Founding AE profile for martech sales. This person needs to understand marketing operations, speak credibly to marketing leaders, and sell against a crowded field of AI tools. Write the scorecard and interview process to find that person.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Handoff.</strong> Transfer the complete sales system, active pipeline, and proof-of-value materials to your Founding AE. Provide 30 days of deal coaching to ensure they can replicate results independently.</span>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffaragon">linkedin.com/in/jeffaragon</a></span>
+        <span>Page 2 of 3</span>
+    </div>
+</div>
+
+<!-- PAGE 3: Why Jeff + Next Steps -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">Why Me</div>
+            <h1 class="doc-title">What I <span class="accent">Bring</span></h1>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <div class="card card-red" style="margin-bottom:16px;">
+        <h4 style="color:var(--red); margin-bottom:10px;">I close complex deals.</h4>
+        <p style="color:var(--bright);">25 years of enterprise sales. 8-figure contracts for early-stage SaaS companies. Pipeline built from zero in 5 different markets: enterprise SaaS, healthcare tech, security, infrastructure software. Not inherited. Built.</p>
+    </div>
+
+    <div class="card card-gold" style="margin-bottom:16px;">
+        <h4 style="color:var(--gold); margin-bottom:10px;">I convert inventions into revenue.</h4>
+        <p>My job is to link what you built to buyer problems quantified in real economic terms. That is the difference between a demo that gets a "cool, thanks" and a deal that closes. I do this by working inside live deals, not by handing you a playbook.</p>
+    </div>
+
+    <div class="card card-slate" style="margin-bottom:16px;">
+        <h4 style="color:var(--slate); margin-bottom:10px;">I build and I stay.</h4>
+        <p>I am not looking to advise from the sidelines. I want to embed with a team, own the revenue motion, and build something that works. Whether that is as a founding GTM leader, a fractional CRO, or a full-time hire, the structure matters less than the fit and the mission.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- The Ask -->
+    <div class="section-label">One Question</div>
+    <div style="margin-top:8px; margin-bottom:24px;">
+        <p style="font-family:Poppins,sans-serif; font-size:14pt; font-weight:400; color:var(--white); line-height:1.6;">I put real thought into this plan. It is based on what I know so far about your product, your market, and the stage you are at. I look forward to the chance to discuss and refine with you soon.</p>
+        <p style="font-family:Poppins,sans-serif; font-size:14pt; font-weight:400; color:var(--bright); line-height:1.6; margin-top:12px;">In the meantime, is there anything in here you disagree with or wish to change?</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Contact -->
+    <div style="text-align:center; margin-top:16px;">
+        <p style="font-family:Poppins,sans-serif; font-size:15pt; font-weight:600; color:var(--white); margin-bottom:8px;">Let us talk.</p>
+        <p style="color:var(--gray); font-size:11pt;">Jeff Aragon</p>
+        <p style="margin-top:6px;"><a href="mailto:jeff@jozuconsultinggroup.com" style="color:var(--red); text-decoration:none;">jeff@jozuconsultinggroup.com</a></p>
+        <p style="margin-top:4px;"><a href="https://www.linkedin.com/in/jeffaragon" style="color:var(--red); text-decoration:none;">linkedin.com/in/jeffaragon</a></p>
+    </div>
+
+    <div class="footer">
+        <span>Jeff Aragon</span>
+        <span>Page 3 of 3</span>
+    </div>
+    <div class="confidential">Prepared exclusively for JustAI</div>
+</div>
+
+</body>
+</html>

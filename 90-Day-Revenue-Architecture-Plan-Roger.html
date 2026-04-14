@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>90-Day Revenue Architecture Plan - Roger | JEFF ARAGON</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    @page { size: letter; margin: 0; }
+    :root { --bg: #0a0e17; --bg-card: rgba(255,255,255,0.03); --bg-card-border: rgba(255,255,255,0.06); --red: #e34115; --red-dim: rgba(227,65,21,0.12); --gold: #c9a84c; --gold-dim: rgba(201,168,76,0.10); --slate: #64748b; --white: #ffffff; --gray: #cbd5e1; --bright: #e2e8f0; --radius: 10px; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--gray); font-family: 'Open Sans', sans-serif; font-size: 11pt; line-height: 1.55; -webkit-font-smoothing: antialiased; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+    .page { width: 8.5in; min-height: 11in; margin: 0 auto; padding: 48px 56px; background: var(--bg); position: relative; overflow: hidden; page-break-after: always; }
+    .page:last-child { page-break-after: auto; }
+    .page::before { content: ''; position: absolute; top: -150px; right: -150px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, var(--red-dim) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+    .page > * { position: relative; z-index: 1; }
+    .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 36px; padding-bottom: 20px; border-bottom: 2px solid var(--red); }
+    .header-left { flex: 1; }
+    .header-logo { width: 140px; opacity: 0.9; }
+    .doc-label { font-family: 'Poppins', sans-serif; font-size: 9pt; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
+    .doc-title { font-size: 22pt; font-weight: 700; line-height: 1.15; margin-bottom: 4px; }
+    .doc-title .accent { color: var(--red); }
+    .doc-subtitle { font-family: 'Poppins', sans-serif; font-size: 11pt; font-weight: 300; color: var(--slate); }
+    .doc-date { font-size: 9pt; color: var(--slate); margin-top: 8px; }
+    .section-label { font-family: 'Poppins', sans-serif; font-size: 8pt; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--red); margin-bottom: 6px; display: flex; align-items: center; gap: 10px; }
+    .section-label::before { content: ''; width: 24px; height: 2px; background: var(--red); }
+    h2 { font-size: 16pt; font-weight: 600; margin-bottom: 14px; }
+    h3 { font-size: 12pt; font-weight: 500; color: var(--red); margin-bottom: 8px; }
+    h4 { font-size: 10pt; font-weight: 500; color: var(--gold); margin-bottom: 6px; }
+    .card { background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 12px; }
+    .card-red { border-left: 3px solid var(--red); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+    .card-grid { display: grid; gap: 12px; margin-bottom: 16px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .phase-block { background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius); padding: 22px 24px; margin-bottom: 16px; position: relative; }
+    .phase-block::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; border-radius: 4px 0 0 4px; }
+    .phase-1::before { background: var(--red); }
+    .phase-2::before { background: var(--gold); }
+    .phase-3::before { background: var(--slate); }
+    .phase-number { font-family: 'Poppins', sans-serif; font-size: 9pt; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+    .phase-1 .phase-number { color: var(--red); }
+    .phase-2 .phase-number { color: var(--gold); }
+    .phase-3 .phase-number { color: var(--slate); }
+    .phase-title { font-family: 'Poppins', sans-serif; font-size: 13pt; font-weight: 600; color: var(--white); margin-bottom: 10px; }
+    .deliverable { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+    .deliverable-check { color: var(--red); font-size: 11pt; margin-top: 1px; flex-shrink: 0; }
+    .stat-row { display: flex; gap: 16px; margin: 16px 0; }
+    .stat-box { flex: 1; background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius); padding: 16px; text-align: center; }
+    .stat-number { font-family: 'Poppins', sans-serif; font-size: 20pt; font-weight: 700; color: var(--red); }
+    .stat-label { font-size: 8.5pt; color: var(--slate); margin-top: 2px; }
+    .engagement-option { background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius); padding: 22px 24px; margin-bottom: 12px; position: relative; }
+    .engagement-option.featured { border-color: var(--red); background: var(--red-dim); }
+    .featured-badge { position: absolute; top: -1px; right: 20px; background: var(--red); color: var(--white); font-family: 'Poppins', sans-serif; font-size: 7.5pt; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 0 0 6px 6px; }
+    .option-name { font-family: 'Poppins', sans-serif; font-size: 13pt; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+    .option-price { font-family: 'Poppins', sans-serif; font-size: 11pt; font-weight: 500; color: var(--red); margin-bottom: 8px; }
+    .divider { width: 50px; height: 2px; background: var(--red); margin: 16px 0; opacity: 0.5; }
+    .footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--bg-card-border); display: flex; justify-content: space-between; align-items: center; font-size: 8.5pt; color: var(--slate); }
+    .footer a { color: var(--red); text-decoration: none; }
+    .confidential { font-family: 'Poppins', sans-serif; font-size: 7pt; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--slate); text-align: center; margin-top: 12px; }
+    @media print { body { background: var(--bg); } .page { margin: 0; box-shadow: none; } }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">90-Day Revenue Architecture Plan</div>
+            <h1 class="doc-title"><span class="accent">Roger</span></h1>
+            <div class="doc-subtitle">AI SDR that automates outbound sales</div>
+            <div class="doc-date">Prepared by Jeff Aragon | April 2026</div>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <div class="section-label">Situation Assessment</div>
+    <h2>Where Roger Is Right Now</h2>
+
+    <div class="card-grid cols-2">
+        <div class="card card-red">
+            <h4 style="color:var(--red)">What You Have</h4>
+            <p>A 2-person team with an AI SDR product that automates outbound sales for B2B companies. You have product-market insight from building in the sales automation space and likely some early customers or design partners. You are hiring a Head of Sales, which is telling: a company that sells sales automation does not yet have its own structured sales operation.</p>
+        </div>
+        <div class="card card-gold">
+            <h4>What You Need</h4>
+            <p>A sales process that proves your own product's thesis. Your buyers are sales leaders and founders who will judge your credibility by how you sell to them. You need a disciplined outbound motion, sharp discovery, and a clear economic argument that connects AI SDR automation to revenue outcomes, not just "time saved" or "more emails sent."</p>
+        </div>
+    </div>
+
+    <div class="card card-slate">
+        <h4 style="color:var(--slate)">The Core Challenge</h4>
+        <p>You sell to people who know sales. Your prospects will evaluate your product by evaluating your sales process. If your outreach is sloppy, your discovery is shallow, or your follow-up is inconsistent, it directly undermines the credibility of what you are selling. The irony is real: you need a polished, human-led sales motion to sell an AI-driven one. Your Head of Sales hire will either accelerate or stall the company depending on whether they walk into a system or a blank canvas.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">Why This Matters Now</div>
+    <h2>The Cost of Waiting</h2>
+
+    <div class="stat-row">
+        <div class="stat-box">
+            <div class="stat-number">73%</div>
+            <div class="stat-label">of AI SDR tools evaluated and rejected within 60 days</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">$240K</div>
+            <div class="stat-label">average cost of a mis-hired Head of Sales at seed stage</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">14 mo</div>
+            <div class="stat-label">median time to replace a failed first sales leader</div>
+        </div>
+    </div>
+
+    <p>The AI SDR market is getting crowded fast. Every quarter you operate without a repeatable sales motion is a quarter where competitors with better go-to-market discipline take share. Your Head of Sales needs to walk into a defined ICP, a tested message, and an active pipeline. Without that, you are paying $200K+ for someone to spend their first 6 months figuring out what you should have figured out already.</p>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffaragon">linkedin.com/in/jeffaragon</a></span>
+        <span>Page 1 of 3</span>
+    </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">The Plan</div>
+            <h1 class="doc-title">90 Days to a <span class="accent">Working Sales Engine</span></h1>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <div class="phase-block phase-1">
+        <div class="phase-number">Phase 1: Days 1-30</div>
+        <div class="phase-title">Foundation</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Buyer definition.</strong> Segment your ICP by company stage, sales team size, and outbound maturity. A 5-person startup buying AI SDR has different needs than a 50-person sales org replacing manual BDRs. Define who buys, who influences, and what triggers the purchase decision.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Power Message.</strong> Build a message that quantifies the economics of AI-driven outbound versus human BDRs. Not "save time on prospecting." Instead: the cost per qualified meeting, ramp time eliminated, and pipeline generated per dollar spent. Your buyers think in sales metrics. Speak their language.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Discovery framework.</strong> Design questions that expose the real cost of manual outbound: How many BDRs do you have? What is your cost per qualified meeting? What percentage of outbound sequences get a response? These questions build the business case for Roger inside the conversation.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Pipeline architecture.</strong> Build stages that match how sales leaders evaluate new tools: initial demo, pilot with a subset of reps, results review, full rollout. Define what evidence moves a deal forward at each stage.</span>
+        </div>
+    </div>
+
+    <div class="phase-block phase-2">
+        <div class="phase-number">Phase 2: Days 31-60</div>
+        <div class="phase-title">Execution</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Outbound activation.</strong> Launch outbound to VP Sales, Heads of Revenue, and founders at B2B companies with 10-100 person sales teams. Use Roger's own product as the outbound engine where possible. Your outreach quality is your product demo.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Live deal work.</strong> Run discovery calls and demos with real prospects. Test which economic arguments land: BDR cost replacement, speed to pipeline, or meeting quality improvement. Iterate the pitch based on buyer reactions, not assumptions.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Sequence of Events.</strong> Build a buyer-facing evaluation timeline: pilot setup, success metrics definition, results review, procurement. Sales leaders expect a structured evaluation process. Give them one.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Forecast discipline.</strong> Implement evidence-based pipeline tracking. A deal advances when a pilot is live with defined success criteria, not when a prospect says "this looks cool." Build the forecast rigor that your Head of Sales will inherit.</span>
+        </div>
+    </div>
+
+    <div class="phase-block phase-3">
+        <div class="phase-number">Phase 3: Days 61-90</div>
+        <div class="phase-title">Scale Readiness</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Closed revenue.</strong> Target 3-6 paying customers across different company sizes to validate pricing and packaging. At least 2 should be converting from pilot to annual contract with measurable ROI data you can use in future sales conversations.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Repeatable process.</strong> Document the full sales motion: which ICP segments convert fastest, what objections come up, how to run a pilot that leads to conversion, and what the average deal cycle looks like. This is the operating system for your Head of Sales.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Hiring blueprint.</strong> Define the Head of Sales profile based on 90 days of live selling. You will know whether you need a builder who can scale outbound, a closer who can run enterprise deals, or a player-coach who does both. Write the scorecard from evidence, not hope.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Handoff.</strong> Transfer the complete system: CRM pipeline, message library, discovery framework, objection handling guide, pilot playbook, and forecast model. Your Head of Sales inherits a working machine, not a theory deck.</span>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffaragon">linkedin.com/in/jeffaragon</a></span>
+        <span>Page 2 of 3</span>
+    </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">Engagement Options</div>
+            <h1 class="doc-title">Three Ways to <span class="accent">Start</span></h1>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <div class="engagement-option">
+        <div class="option-name">GTM Diagnostic</div>
+        <div class="option-price">$2,500 one-time</div>
+        <p>A focused, one-week assessment of your current sales motion. You get a written diagnostic covering buyer definition, message quality, pipeline structure, and a prioritized list of what to fix first. If you move to a sprint or fractional engagement within 30 days, the $2,500 is credited toward the first month.</p>
+    </div>
+
+    <div class="engagement-option featured">
+        <div class="featured-badge">Recommended</div>
+        <div class="option-name">90-Day Commercialization Sprint</div>
+        <div class="option-price">$8,000-$15,000/month</div>
+        <p>The full plan on the previous page, executed. I work inside your live deals 2-3 days per week, build the sales architecture, close alongside your team, and hand you a working system at the end. This is for companies that know they need to move now but are not ready for a full-time sales leader.</p>
+    </div>
+
+    <div class="engagement-option">
+        <div class="option-name">Fractional CRO / Founding GTM Leader</div>
+        <div class="option-price">$12,000-$20,000/month</div>
+        <p>I embed as your operating sales leader 4-5 days per week. I own the pipeline, run deal reviews, coach the team, and build the process from zero. This is for companies that need a revenue leader now but want to build the system before committing to a $300K+ full-time hire. Typical engagement: 6-12 months.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">About Jeff Aragon</div>
+    <div class="card" style="margin-top:8px;">
+        <p style="color:var(--bright); margin-bottom:8px;">25 years closing complex enterprise deals. 8-figure contracts for early-stage SaaS companies. Pipeline built from zero in 5 different markets spanning enterprise SaaS, healthcare tech, security, and infrastructure software.</p>
+        <p style="margin-bottom:8px;">I convert founder inventions into revenue by linking unique capabilities to buyer problems quantified in real economic terms. I do not hand you a playbook. I work inside your live deals, build the sales architecture, and close alongside your team.</p>
+        <p style="color:var(--white);">I do not do dashboards, motivational coaching, or slide decks that collect dust. I build revenue engines that work because they were built on real pipeline, not theory.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div style="margin-top:8px; margin-bottom:24px;">
+        <p style="font-family:Poppins,sans-serif; font-size:14pt; font-weight:400; color:var(--white); line-height:1.6;">I put real thought into this plan. It is based on what I know so far about your product, your market, and the stage you are at. I look forward to the chance to discuss and refine with you soon.</p>
+        <p style="font-family:Poppins,sans-serif; font-size:14pt; font-weight:400; color:var(--bright); line-height:1.6; margin-top:12px;">In the meantime, is there anything in here you disagree with or wish to change?</p>
+    </div>
+
+    <div style="text-align:center; margin-top:12px;">
+        <p style="font-family:'Poppins',sans-serif; font-size:13pt; font-weight:600; color:var(--white); margin-bottom:6px;">Let us talk.</p>
+        <p style="color:var(--gray);">Jeff Aragon</p>
+        <p style="margin-top:6px;"><a href="mailto:jeff@jozuconsultinggroup.com" style="color:var(--red); text-decoration:none;">jeff@jozuconsultinggroup.com</a></p>
+        <p style="margin-top:4px;"><a href="https://www.linkedin.com/in/jeffaragon" style="color:var(--red); text-decoration:none;">linkedin.com/in/jeffaragon</a></p>
+    </div>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffaragon">linkedin.com/in/jeffaragon</a></span>
+        <span>Page 3 of 3</span>
+    </div>
+    <div class="confidential">Confidential - Prepared exclusively for Roger</div>
+</div>
+
+</body>
+</html>

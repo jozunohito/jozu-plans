@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>90-Day Revenue Architecture Plan - Asteroid | JEFF ARAGON</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    @page {
+        size: letter;
+        margin: 0;
+    }
+    :root {
+        --bg: #0a0e17;
+        --bg-card: rgba(255,255,255,0.03);
+        --bg-card-border: rgba(255,255,255,0.06);
+        --red: #e34115;
+        --red-dim: rgba(227,65,21,0.12);
+        --gold: #c9a84c;
+        --gold-dim: rgba(201,168,76,0.10);
+        --slate: #64748b;
+        --white: #ffffff;
+        --gray: #cbd5e1;
+        --bright: #e2e8f0;
+        --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: var(--bg);
+        color: var(--gray);
+        font-family: 'Open Sans', sans-serif;
+        font-size: 11pt;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+
+    /* Page container */
+    .page {
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0 auto;
+        padding: 48px 56px;
+        background: var(--bg);
+        position: relative;
+        overflow: hidden;
+        page-break-after: always;
+    }
+    .page:last-child { page-break-after: auto; }
+
+    /* Subtle background glow */
+    .page::before {
+        content: '';
+        position: absolute;
+        top: -150px; right: -150px;
+        width: 500px; height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--red-dim) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+    }
+    .page > * { position: relative; z-index: 1; }
+
+    /* Header */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 36px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--red);
+    }
+    .header-left { flex: 1; }
+    .header-logo { width: 140px; opacity: 0.9; }
+    .doc-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9pt;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 6px;
+    }
+    .doc-title {
+        font-size: 22pt;
+        font-weight: 700;
+        line-height: 1.15;
+        margin-bottom: 4px;
+    }
+    .doc-title .accent { color: var(--red); }
+    .doc-subtitle {
+        font-family: 'Poppins', sans-serif;
+        font-size: 11pt;
+        font-weight: 300;
+        color: var(--slate);
+    }
+    .doc-date {
+        font-size: 9pt;
+        color: var(--slate);
+        margin-top: 8px;
+    }
+
+    /* Section headers */
+    .section-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 8pt;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .section-label::before {
+        content: '';
+        width: 24px; height: 2px;
+        background: var(--red);
+    }
+    h2 { font-size: 16pt; font-weight: 600; margin-bottom: 14px; }
+    h3 { font-size: 12pt; font-weight: 500; color: var(--red); margin-bottom: 8px; }
+    h4 { font-size: 10pt; font-weight: 500; color: var(--gold); margin-bottom: 6px; }
+
+    /* Cards */
+    .card {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 18px 20px;
+        margin-bottom: 12px;
+    }
+    .card-red { border-left: 3px solid var(--red); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+
+    .card-grid { display: grid; gap: 12px; margin-bottom: 16px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    /* Phase timeline */
+    .phase-block {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        margin-bottom: 16px;
+        position: relative;
+    }
+    .phase-block::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 4px; height: 100%;
+        border-radius: 4px 0 0 4px;
+    }
+    .phase-1::before { background: var(--red); }
+    .phase-2::before { background: var(--gold); }
+    .phase-3::before { background: var(--slate); }
+    .phase-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9pt;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+    }
+    .phase-1 .phase-number { color: var(--red); }
+    .phase-2 .phase-number { color: var(--gold); }
+    .phase-3 .phase-number { color: var(--slate); }
+    .phase-title {
+        font-family: 'Poppins', sans-serif;
+        font-size: 13pt;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 10px;
+    }
+
+    /* Deliverable list */
+    .deliverable {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+    .deliverable-check {
+        color: var(--red);
+        font-size: 11pt;
+        margin-top: 1px;
+        flex-shrink: 0;
+    }
+
+    /* Stats row */
+    .stat-row {
+        display: flex;
+        gap: 16px;
+        margin: 16px 0;
+    }
+    .stat-box {
+        flex: 1;
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 16px;
+        text-align: center;
+    }
+    .stat-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 20pt;
+        font-weight: 700;
+        color: var(--red);
+    }
+    .stat-label {
+        font-size: 8.5pt;
+        color: var(--slate);
+        margin-top: 2px;
+    }
+
+    /* Table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+        font-size: 10pt;
+    }
+    th {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 8.5pt;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--red);
+        text-align: left;
+        padding: 10px 14px;
+        border-bottom: 1px solid rgba(227,65,21,0.2);
+        background: var(--red-dim);
+    }
+    td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--bg-card-border);
+        color: var(--gray);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    /* Engagement options */
+    .engagement-option {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        margin-bottom: 12px;
+        position: relative;
+    }
+    .engagement-option.featured {
+        border-color: var(--red);
+        background: var(--red-dim);
+    }
+    .featured-badge {
+        position: absolute;
+        top: -1px; right: 20px;
+        background: var(--red);
+        color: var(--white);
+        font-family: 'Poppins', sans-serif;
+        font-size: 7.5pt;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 4px 12px;
+        border-radius: 0 0 6px 6px;
+    }
+    .option-name {
+        font-family: 'Poppins', sans-serif;
+        font-size: 13pt;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 4px;
+    }
+    .option-price {
+        font-family: 'Poppins', sans-serif;
+        font-size: 11pt;
+        font-weight: 500;
+        color: var(--red);
+        margin-bottom: 8px;
+    }
+
+    /* Divider */
+    .divider { width: 50px; height: 2px; background: var(--red); margin: 16px 0; opacity: 0.5; }
+
+    /* Footer */
+    .footer {
+        margin-top: 32px;
+        padding-top: 16px;
+        border-top: 1px solid var(--bg-card-border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8.5pt;
+        color: var(--slate);
+    }
+    .footer a { color: var(--red); text-decoration: none; }
+
+    /* Confidential banner */
+    .confidential {
+        font-family: 'Poppins', sans-serif;
+        font-size: 7pt;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--slate);
+        text-align: center;
+        margin-top: 12px;
+    }
+
+    /* Print optimization */
+    @media print {
+        body { background: var(--bg); }
+        .page { margin: 0; box-shadow: none; }
+    }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: Cover + Diagnosis -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">90-Day Revenue Architecture Plan</div>
+            <h1 class="doc-title">
+                <span class="accent">Asteroid</span>
+            </h1>
+            <div class="doc-subtitle">Computer-Use Agents for Mission-Critical Workflows</div>
+            <div class="doc-date">Prepared by Jeff Aragon | April 2026</div>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <!-- Situation Assessment -->
+    <div class="section-label">Situation Assessment</div>
+    <h2>Where Asteroid Is Right Now</h2>
+
+    <div class="card-grid cols-2">
+        <div class="card card-red">
+            <h4 style="color:var(--red)">What You Have</h4>
+            <p>Computer-use agents executing thousands of mission-critical tasks daily in production. First to deploy in healthcare: patient records, insurance quotes, real workflows with real consequences. Strong customer pull. YC-backed with angels from OpenAI and Hugging Face. A 5-person team of deeply technical founders and engineers who have built agents that run at scale in the wild. The product is not a demo. It is running.</p>
+        </div>
+        <div class="card card-gold">
+            <h4>What You Need</h4>
+            <p>A first commercial leader who can turn early traction into a repeatable enterprise sales motion. Someone who prospects, qualifies, runs demos, navigates technical and economic buyers, negotiates, and closes six-figure deals. Then builds the outbound engine, owns the pipeline, manages accounts post-sale, and helps build the inbound content strategy. The full commercial function, one person.</p>
+        </div>
+    </div>
+
+    <div class="card card-slate">
+        <h4 style="color:var(--slate)">The Core Challenge</h4>
+        <p>Asteroid sells AI agents that touch mission-critical workflows. The buyer is not buying software. They are trusting an autonomous system with patient records, insurance data, and operational processes where errors have real consequences. The sale requires technical credibility, operational understanding, and the ability to build trust with stakeholders who are rightly cautious about letting AI agents into their core systems. This is a trust sale, not a feature sale.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Why This Matters Now -->
+    <div class="section-label">Why This Matters Now</div>
+    <h2>The Cost of Waiting</h2>
+
+    <div class="stat-row">
+        <div class="stat-box">
+            <div class="stat-number">1000s</div>
+            <div class="stat-label">mission-critical tasks executed daily by Asteroid agents</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">First</div>
+            <div class="stat-label">to deploy computer-use agents in healthcare</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">$0</div>
+            <div class="stat-label">spent on dedicated commercial function until now</div>
+        </div>
+    </div>
+
+    <p>Asteroid has first-mover advantage in computer-use agents for healthcare and operations. The product is in production. Customers are pulling. But product-market fit is a moving target, and the window to convert early traction into defensible market position is narrow. Competitors with larger teams and more capital are entering this space. The commercial function needs to start now, not after the next funding round.</p>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffaragon">linkedin.com/in/jeffaragon</a></span>
+        <span>Page 1 of 3</span>
+    </div>
+</div>
+
+<!-- PAGE 2: The 90-Day Plan -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">The Plan</div>
+            <h1 class="doc-title">90 Days to a <span class="accent">Working Sales Engine</span></h1>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <!-- Phase 1 -->
+    <div class="phase-block phase-1">
+        <div class="phase-number">Phase 1: Days 1-30</div>
+        <div class="phase-title">Close Deals, Learn the Agent</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Sell from day one.</strong> Take ownership of existing pipeline and new inbound. Prospect, qualify, run demos, and push deals toward close. Learn the product by selling it, not by reading docs. Understand what objections come up, what builds trust, and what makes a buyer say yes to autonomous agents in their workflows.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Learn to build agents on the platform.</strong> Get hands-on with the Asteroid platform. Scope customer workflows end to end. Assess implementation complexity. The credibility to sell this product comes from being able to sit with engineering and articulate exactly what the agent will do and how.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Map the healthcare buyer.</strong> Asteroid was first in healthcare. Define the buying process: Heads of Operations, Practice Managers, Clinicians, IT leaders. Who has budget authority? What triggers an evaluation? What compliance and security requirements gate the deal?</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Product feedback from the front lines.</strong> Aggregate every customer conversation into actionable product insights. What features close deals? What gaps lose them? What do buyers wish the agents could do? Feed this directly to engineering.</span>
+        </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="phase-block phase-2">
+        <div class="phase-number">Phase 2: Days 31-60</div>
+        <div class="phase-title">Build the Outbound Engine and Close Six Figures</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Launch outbound.</strong> Build and run the outbound engine end to end. ICP experiments across healthcare operations, insurance, and other verticals with mission-critical workflows. Test messaging, channels, and sequences. Find the repeatable customer pockets.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Close a six-figure deal.</strong> Navigate the full enterprise cycle: technical evaluation, operational scoping, security and compliance review, economic buyer alignment, negotiation, close. Prove the six-figure motion works.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Content and inbound strategy.</strong> Own the content strategy for LinkedIn, X, and SEO/GEO. Publish insights from real customer deployments. Position Asteroid as the authority on computer-use agents for mission-critical operations. Inbound is a compound investment. Start now.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Account management.</strong> Be the commercial face post-sale. Manage relationships, support agent launches, stay close to customers as they expand. Happy customers become references, which is the most powerful sales tool in a trust sale.</span>
+        </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="phase-block phase-3">
+        <div class="phase-number">Phase 3: Days 61-90</div>
+        <div class="phase-title">Repeatable Motion, Defensible Position</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Pipeline is predictable.</strong> Outbound generating consistent qualified meetings. Inbound starting to compound. CRM is clean, pipeline is visible, forecast is data-driven. The commercial function runs.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">PMF iteration.</strong> Based on 90 days of live selling, refine the ICP, positioning, and messaging. PMF is a moving target at every stage. Document what changed and why so the next iteration is faster.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Expansion revenue from existing accounts.</strong> Current customers expanding usage. Account expansion playbook documented: new workflows, new departments, increased volume. Land and expand is working.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Pricing and packaging validated.</strong> Pricing tested against real deals. Packaging optimized for conversion and expansion. Compliance and operational pricing considerations documented. Ready to scale.</span>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffaragon">linkedin.com/in/jeffaragon</a></span>
+        <span>Page 2 of 3</span>
+    </div>
+</div>
+
+<!-- PAGE 3: Why Jeff + Next Steps -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">Why Me</div>
+            <h1 class="doc-title">What I <span class="accent">Bring</span></h1>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <div class="card card-red" style="margin-bottom:16px;">
+        <h4 style="color:var(--red); margin-bottom:10px;">I close complex deals.</h4>
+        <p style="color:var(--bright);">25 years of enterprise sales. 8-figure contracts for early-stage SaaS companies. Pipeline built from zero in 5 different markets: enterprise SaaS, healthcare tech, security, infrastructure software. Not inherited. Built.</p>
+    </div>
+
+    <div class="card card-gold" style="margin-bottom:16px;">
+        <h4 style="color:var(--gold); margin-bottom:10px;">I convert inventions into revenue.</h4>
+        <p>My job is to link what you built to buyer problems quantified in real economic terms. That is the difference between a demo that gets a "cool, thanks" and a deal that closes. I do this by working inside live deals, not by handing you a playbook.</p>
+    </div>
+
+    <div class="card card-slate" style="margin-bottom:16px;">
+        <h4 style="color:var(--slate); margin-bottom:10px;">I build and I stay.</h4>
+        <p>I am not looking to advise from the sidelines. I want to embed with a team, own the revenue motion, and build something that works. Whether that is as a founding GTM leader, a fractional CRO, or a full-time hire, the structure matters less than the fit and the mission.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- The Ask -->
+    <div class="section-label">One Question</div>
+    <div style="margin-top:8px; margin-bottom:24px;">
+        <p style="font-family:Poppins,sans-serif; font-size:14pt; font-weight:400; color:var(--white); line-height:1.6;">I put real thought into this plan. It is based on what I know so far about your product, your market, and the stage you are at. I look forward to the chance to discuss and refine with you soon.</p>
+        <p style="font-family:Poppins,sans-serif; font-size:14pt; font-weight:400; color:var(--bright); line-height:1.6; margin-top:12px;">In the meantime, is there anything in here you disagree with or wish to change?</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Contact -->
+    <div style="text-align:center; margin-top:16px;">
+        <p style="font-family:Poppins,sans-serif; font-size:15pt; font-weight:600; color:var(--white); margin-bottom:8px;">Let us talk.</p>
+        <p style="color:var(--gray); font-size:11pt;">Jeff Aragon</p>
+        <p style="margin-top:6px;"><a href="mailto:jeff@jozuconsultinggroup.com" style="color:var(--red); text-decoration:none;">jeff@jozuconsultinggroup.com</a></p>
+        <p style="margin-top:4px;"><a href="https://www.linkedin.com/in/jeffaragon" style="color:var(--red); text-decoration:none;">linkedin.com/in/jeffaragon</a></p>
+    </div>
+
+    <div class="footer">
+        <span>Jeff Aragon</span>
+        <span>Page 3 of 3</span>
+    </div>
+    <div class="confidential">Prepared exclusively for Asteroid</div>
+</div>
+
+</body>
+</html>

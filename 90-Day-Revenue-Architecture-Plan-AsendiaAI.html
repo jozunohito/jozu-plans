@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>90-Day Revenue Architecture Plan - Asendia AI | JEFF ARAGON</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    @page {
+        size: letter;
+        margin: 0;
+    }
+    :root {
+        --bg: #0a0e17;
+        --bg-card: rgba(255,255,255,0.03);
+        --bg-card-border: rgba(255,255,255,0.06);
+        --red: #e34115;
+        --red-dim: rgba(227,65,21,0.12);
+        --gold: #c9a84c;
+        --gold-dim: rgba(201,168,76,0.10);
+        --slate: #64748b;
+        --white: #ffffff;
+        --gray: #cbd5e1;
+        --bright: #e2e8f0;
+        --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: var(--bg);
+        color: var(--gray);
+        font-family: 'Open Sans', sans-serif;
+        font-size: 11pt;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+
+    /* Page container */
+    .page {
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0 auto;
+        padding: 48px 56px;
+        background: var(--bg);
+        position: relative;
+        overflow: hidden;
+        page-break-after: always;
+    }
+    .page:last-child { page-break-after: auto; }
+
+    /* Subtle background glow */
+    .page::before {
+        content: '';
+        position: absolute;
+        top: -150px; right: -150px;
+        width: 500px; height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--red-dim) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+    }
+    .page > * { position: relative; z-index: 1; }
+
+    /* Header */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 36px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--red);
+    }
+    .header-left { flex: 1; }
+    .header-logo { width: 140px; opacity: 0.9; }
+    .doc-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9pt;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 6px;
+    }
+    .doc-title {
+        font-size: 22pt;
+        font-weight: 700;
+        line-height: 1.15;
+        margin-bottom: 4px;
+    }
+    .doc-title .accent { color: var(--red); }
+    .doc-subtitle {
+        font-family: 'Poppins', sans-serif;
+        font-size: 11pt;
+        font-weight: 300;
+        color: var(--slate);
+    }
+    .doc-date {
+        font-size: 9pt;
+        color: var(--slate);
+        margin-top: 8px;
+    }
+
+    /* Section headers */
+    .section-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 8pt;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .section-label::before {
+        content: '';
+        width: 24px; height: 2px;
+        background: var(--red);
+    }
+    h2 { font-size: 16pt; font-weight: 600; margin-bottom: 14px; }
+    h3 { font-size: 12pt; font-weight: 500; color: var(--red); margin-bottom: 8px; }
+    h4 { font-size: 10pt; font-weight: 500; color: var(--gold); margin-bottom: 6px; }
+
+    /* Cards */
+    .card {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 18px 20px;
+        margin-bottom: 12px;
+    }
+    .card-red { border-left: 3px solid var(--red); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+
+    .card-grid { display: grid; gap: 12px; margin-bottom: 16px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    /* Phase timeline */
+    .phase-block {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        margin-bottom: 16px;
+        position: relative;
+    }
+    .phase-block::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 4px; height: 100%;
+        border-radius: 4px 0 0 4px;
+    }
+    .phase-1::before { background: var(--red); }
+    .phase-2::before { background: var(--gold); }
+    .phase-3::before { background: var(--slate); }
+    .phase-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9pt;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+    }
+    .phase-1 .phase-number { color: var(--red); }
+    .phase-2 .phase-number { color: var(--gold); }
+    .phase-3 .phase-number { color: var(--slate); }
+    .phase-title {
+        font-family: 'Poppins', sans-serif;
+        font-size: 13pt;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 10px;
+    }
+
+    /* Deliverable list */
+    .deliverable {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+    .deliverable-check {
+        color: var(--red);
+        font-size: 11pt;
+        margin-top: 1px;
+        flex-shrink: 0;
+    }
+
+    /* Stats row */
+    .stat-row {
+        display: flex;
+        gap: 16px;
+        margin: 16px 0;
+    }
+    .stat-box {
+        flex: 1;
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 16px;
+        text-align: center;
+    }
+    .stat-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 20pt;
+        font-weight: 700;
+        color: var(--red);
+    }
+    .stat-label {
+        font-size: 8.5pt;
+        color: var(--slate);
+        margin-top: 2px;
+    }
+
+    /* Table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+        font-size: 10pt;
+    }
+    th {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 8.5pt;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--red);
+        text-align: left;
+        padding: 10px 14px;
+        border-bottom: 1px solid rgba(227,65,21,0.2);
+        background: var(--red-dim);
+    }
+    td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--bg-card-border);
+        color: var(--gray);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    /* Engagement options */
+    .engagement-option {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        margin-bottom: 12px;
+        position: relative;
+    }
+    .engagement-option.featured {
+        border-color: var(--red);
+        background: var(--red-dim);
+    }
+    .featured-badge {
+        position: absolute;
+        top: -1px; right: 20px;
+        background: var(--red);
+        color: var(--white);
+        font-family: 'Poppins', sans-serif;
+        font-size: 7.5pt;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 4px 12px;
+        border-radius: 0 0 6px 6px;
+    }
+    .option-name {
+        font-family: 'Poppins', sans-serif;
+        font-size: 13pt;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 4px;
+    }
+    .option-price {
+        font-family: 'Poppins', sans-serif;
+        font-size: 11pt;
+        font-weight: 500;
+        color: var(--red);
+        margin-bottom: 8px;
+    }
+
+    /* Divider */
+    .divider { width: 50px; height: 2px; background: var(--red); margin: 16px 0; opacity: 0.5; }
+
+    /* Footer */
+    .footer {
+        margin-top: 32px;
+        padding-top: 16px;
+        border-top: 1px solid var(--bg-card-border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8.5pt;
+        color: var(--slate);
+    }
+    .footer a { color: var(--red); text-decoration: none; }
+
+    /* Confidential banner */
+    .confidential {
+        font-family: 'Poppins', sans-serif;
+        font-size: 7pt;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--slate);
+        text-align: center;
+        margin-top: 12px;
+    }
+
+    /* Print optimization */
+    @media print {
+        body { background: var(--bg); }
+        .page { margin: 0; box-shadow: none; }
+    }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: Cover + Diagnosis -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">90-Day Revenue Architecture Plan</div>
+            <h1 class="doc-title">
+                <span class="accent">Asendia AI</span>
+            </h1>
+            <div class="doc-subtitle">Agentic Recruitment Platform</div>
+            <div class="doc-date">Prepared by Jeff Aragon | April 2026</div>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <!-- Situation Assessment -->
+    <div class="section-label">Situation Assessment</div>
+    <h2>Where Asendia AI Is Right Now</h2>
+
+    <div class="card-grid cols-2">
+        <div class="card card-red">
+            <h4 style="color:var(--red)">What You Have</h4>
+            <p>A YC P25 company with real revenue, real customers, and years of runway. An AI agent ("Sarah") that conducts live phone interviews, detects fraud, evaluates candidate fit, and hands recruiters a scored shortlist. Already running thousands of automated screens for staffing agencies across the US and Europe. Healthcare, IT, and blue-collar verticals live. 3-week sales cycle. 90% screening cost reduction for clients. AI penetration in staffing is under 1%. The market is wide open.</p>
+        </div>
+        <div class="card card-gold">
+            <h4>What You Need</h4>
+            <p>A GTM leader who builds the entire commercial function from zero: ICP definition, outbound engine, event strategy, ATS partnerships (Bullhorn, JobDiva, Avionté, Tracker), demand generation, CRM infrastructure, and a repeatable sales motion that scales the 3-week cycle across hundreds of agencies. Not someone who runs a playbook. Someone who writes it.</p>
+        </div>
+    </div>
+
+    <div class="card card-slate">
+        <h4 style="color:var(--slate)">The Core Challenge</h4>
+        <p>Staffing agencies are traditional operators. They run on relationships, phone calls, and gut feel. They are skeptical of AI replacing their recruiters. The sale is not "here is a better tool." The sale is "your recruiters spend 60% of their time on phone screens that an AI agent can do better, faster, and 24/7 - so your recruiters can focus on the part that actually requires a human: placing candidates and building client relationships." Position AI as a revenue multiplier, not a threat.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Why This Matters Now -->
+    <div class="section-label">Why This Matters Now</div>
+    <h2>The Cost of Waiting</h2>
+
+    <div class="stat-row">
+        <div class="stat-box">
+            <div class="stat-number">$600B+</div>
+            <div class="stat-label">global staffing industry being rebuilt by AI right now</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number"><1%</div>
+            <div class="stat-label">AI penetration in staffing - the land grab is happening now</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">3 wks</div>
+            <div class="stat-label">sales cycle - this scales fast with the right engine</div>
+        </div>
+    </div>
+
+    <p>There is no dominant AI platform in staffing yet. No "Salesforce of AI recruitment." The closest comps (Bullhorn, HireVue, Veritone) are legacy platforms bolting on AI. Asendia is AI-native from day one. The company that builds the GTM engine first and captures agency relationships at scale will own this category. Every month without a dedicated commercial function is market share left on the table.</p>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffaragon">linkedin.com/in/jeffaragon</a></span>
+        <span>Page 1 of 3</span>
+    </div>
+</div>
+
+<!-- PAGE 2: The 90-Day Plan -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">The Plan</div>
+            <h1 class="doc-title">90 Days to a <span class="accent">Working Sales Engine</span></h1>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <!-- Phase 1 -->
+    <div class="phase-block phase-1">
+        <div class="phase-number">Phase 1: Days 1-30</div>
+        <div class="phase-title">Learn the Agency, Close Deals, Define the ICP</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Sell immediately.</strong> Take ownership of active pipeline. Run the full sales cycle with staffing agency owners and VPs of Operations. Learn the 3-week cycle by closing deals personally. Understand what objections come up, what proof points land, and where deals stall.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Talk to agencies.</strong> Get deep into the staffing world. Attend conversations with healthcare, IT, and blue-collar agency operators. Understand their workflows, their ATS setup, their recruiter economics. The GTM must speak their language, not SaaS language.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">ICP segmentation.</strong> Not all agencies are the same buyer. Segment by vertical (healthcare vs. IT vs. light industrial), size (100 placements/month vs. 1000), ATS platform, and AI readiness. Define who buys fast and who needs more proof.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Messaging that converts.</strong> Build the core message: "Your recruiters are spending 60% of their time on screens. Sarah does it 24/7, scores every candidate, and hands your team a shortlist. Your best recruiters focus on placing, not screening." Test in live conversations.</span>
+        </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="phase-block phase-2">
+        <div class="phase-number">Phase 2: Days 31-60</div>
+        <div class="phase-title">Build the Engine - Outbound, Events, Partnerships</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Outbound at scale.</strong> Design and launch targeted outbound campaigns to staffing agency executives. Email sequences, LinkedIn, phone. Test messaging across verticals. Build the repeatable pipeline generation system.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Event and trade show strategy.</strong> Asendia already exhibits at TechServe Alliance, Staffing World, Executive Forum, and Collaboration X. Build the event playbook: pre-event outreach, booth strategy, post-event follow-up sequence. Every event should generate 20+ qualified conversations.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">ATS partnerships.</strong> Build co-marketing and integration relationships with Bullhorn, JobDiva, Avionté, and Tracker. These partnerships are distribution channels. An agency using Bullhorn who hears "Asendia integrates natively" is 3x more likely to take a meeting.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Case studies and content.</strong> Turn early customer wins into case studies with real numbers: screens automated, time saved, cost reduced, placements accelerated. Publish across LinkedIn, staffing industry publications, and the website. Content that positions AI as a revenue multiplier, not a recruiter replacement.</span>
+        </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="phase-block phase-3">
+        <div class="phase-number">Phase 3: Days 61-90</div>
+        <div class="phase-title">Scale the Motion, Own the Category</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Revenue scaling.</strong> Multiple agencies closing per month. Pipeline predictable. The 3-week sales cycle is repeatable and documented. Revenue trajectory supports the next phase of growth.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">CRM and reporting infrastructure.</strong> Clean pipeline, accurate forecasting, conversion metrics by segment and channel. The data tells us exactly where to invest next: more outbound, more events, more partnerships, or a combination.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Demand generation running.</strong> Inbound leads growing from content, SEO, and partner referrals. Outbound producing consistent meetings. Events generating qualified pipeline. Multiple channels working, not just one.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Product feedback shaping roadmap.</strong> Customer insights feeding directly into product development. Feature requests prioritized by revenue impact. Competitive positioning sharp and current. The GTM function is not just selling; it is shaping what gets built next.</span>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffaragon">linkedin.com/in/jeffaragon</a></span>
+        <span>Page 2 of 3</span>
+    </div>
+</div>
+
+<!-- PAGE 3: Why Jeff + Next Steps -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">Why Me</div>
+            <h1 class="doc-title">What I <span class="accent">Bring</span></h1>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <div class="card card-red" style="margin-bottom:16px;">
+        <h4 style="color:var(--red); margin-bottom:10px;">I close complex deals.</h4>
+        <p style="color:var(--bright);">25 years of enterprise sales. 8-figure contracts for early-stage SaaS companies. Pipeline built from zero in 5 different markets: enterprise SaaS, healthcare tech, security, infrastructure software. Not inherited. Built.</p>
+    </div>
+
+    <div class="card card-gold" style="margin-bottom:16px;">
+        <h4 style="color:var(--gold); margin-bottom:10px;">I convert inventions into revenue.</h4>
+        <p>My job is to link what you built to buyer problems quantified in real economic terms. That is the difference between a demo that gets a "cool, thanks" and a deal that closes. I do this by working inside live deals, not by handing you a playbook.</p>
+    </div>
+
+    <div class="card card-slate" style="margin-bottom:16px;">
+        <h4 style="color:var(--slate); margin-bottom:10px;">I build and I stay.</h4>
+        <p>I am not looking to advise from the sidelines. I want to embed with a team, own the revenue motion, and build something that works. Whether that is as a founding GTM leader, a fractional CRO, or a full-time hire, the structure matters less than the fit and the mission.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- The Ask -->
+    <div class="section-label">One Question</div>
+    <div style="margin-top:8px; margin-bottom:24px;">
+        <p style="font-family:Poppins,sans-serif; font-size:14pt; font-weight:400; color:var(--white); line-height:1.6;">I put real thought into this plan. It is based on what I know so far about your product, your market, and the stage you are at. I look forward to the chance to discuss and refine with you soon.</p>
+        <p style="font-family:Poppins,sans-serif; font-size:14pt; font-weight:400; color:var(--bright); line-height:1.6; margin-top:12px;">In the meantime, is there anything in here you disagree with or wish to change?</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Contact -->
+    <div style="text-align:center; margin-top:16px;">
+        <p style="font-family:Poppins,sans-serif; font-size:15pt; font-weight:600; color:var(--white); margin-bottom:8px;">Let us talk.</p>
+        <p style="color:var(--gray); font-size:11pt;">Jeff Aragon</p>
+        <p style="margin-top:6px;"><a href="mailto:jeff@jozuconsultinggroup.com" style="color:var(--red); text-decoration:none;">jeff@jozuconsultinggroup.com</a></p>
+        <p style="margin-top:4px;"><a href="https://www.linkedin.com/in/jeffaragon" style="color:var(--red); text-decoration:none;">linkedin.com/in/jeffaragon</a></p>
+    </div>
+
+    <div class="footer">
+        <span>Jeff Aragon</span>
+        <span>Page 3 of 3</span>
+    </div>
+    <div class="confidential">Prepared exclusively for AsendiaAI</div>
+</div>
+
+</body>
+</html>
