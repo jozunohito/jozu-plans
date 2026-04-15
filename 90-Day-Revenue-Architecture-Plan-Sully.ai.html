@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>90-Day Revenue Architecture Plan - Sully.ai | JEFF ARAGON</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    @page {
+        size: letter;
+        margin: 0;
+    }
+    :root {
+        --bg: #0a0e17;
+        --bg-card: rgba(255,255,255,0.03);
+        --bg-card-border: rgba(255,255,255,0.06);
+        --red: #e34115;
+        --red-dim: rgba(227,65,21,0.12);
+        --gold: #c9a84c;
+        --gold-dim: rgba(201,168,76,0.10);
+        --slate: #64748b;
+        --green: #22c55e;
+        --green-dim: rgba(34,197,94,0.10);
+        --white: #ffffff;
+        --gray: #cbd5e1;
+        --bright: #e2e8f0;
+        --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: var(--bg);
+        color: var(--gray);
+        font-family: 'Open Sans', sans-serif;
+        font-size: 10.5pt;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+
+    .page {
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0 auto;
+        padding: 44px 52px;
+        background: var(--bg);
+        position: relative;
+        overflow: hidden;
+        page-break-after: always;
+    }
+    .page:last-child { page-break-after: auto; }
+    .page::before {
+        content: '';
+        position: absolute;
+        top: -150px; right: -150px;
+        width: 500px; height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--red-dim) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+    }
+    .page > * { position: relative; z-index: 1; }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 32px;
+        padding-bottom: 18px;
+        border-bottom: 2px solid var(--red);
+    }
+    .header-left { flex: 1; }
+    .doc-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 8.5pt;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 5px;
+    }
+    .doc-title {
+        font-size: 21pt;
+        font-weight: 700;
+        line-height: 1.15;
+        margin-bottom: 4px;
+    }
+    .doc-title .accent { color: var(--red); }
+    .doc-subtitle {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10pt;
+        font-weight: 300;
+        color: var(--slate);
+    }
+    .doc-date {
+        font-size: 8.5pt;
+        color: var(--slate);
+        margin-top: 6px;
+    }
+    .jeff-mark {
+        font-family: Poppins, sans-serif;
+        font-size: 13pt;
+        font-weight: 700;
+        color: var(--red);
+        letter-spacing: 2px;
+        text-align: right;
+    }
+    .jeff-mark span { color: var(--gray); font-weight: 300; }
+
+    .section-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 7.5pt;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .section-label::before {
+        content: '';
+        width: 24px; height: 2px;
+        background: var(--red);
+    }
+    h2 { font-size: 15pt; font-weight: 600; margin-bottom: 12px; }
+    h3 { font-size: 11pt; font-weight: 500; color: var(--red); margin-bottom: 6px; }
+    h4 { font-size: 9.5pt; font-weight: 500; color: var(--gold); margin-bottom: 5px; }
+
+    .card {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 16px 18px;
+        margin-bottom: 10px;
+    }
+    .card-red { border-left: 3px solid var(--red); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+    .card-green { border-left: 3px solid var(--green); }
+
+    .card-grid { display: grid; gap: 10px; margin-bottom: 14px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    .phase-block {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 18px 20px;
+        margin-bottom: 12px;
+        position: relative;
+    }
+    .phase-block::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 4px; height: 100%;
+        border-radius: 4px 0 0 4px;
+    }
+    .phase-1::before { background: var(--red); }
+    .phase-2::before { background: var(--gold); }
+    .phase-3::before { background: var(--slate); }
+    .phase-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 8.5pt;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 3px;
+    }
+    .phase-1 .phase-number { color: var(--red); }
+    .phase-2 .phase-number { color: var(--gold); }
+    .phase-3 .phase-number { color: var(--slate); }
+    .phase-title {
+        font-family: 'Poppins', sans-serif;
+        font-size: 12pt;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 8px;
+    }
+
+    .deliverable {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 7px;
+    }
+    .deliverable-check {
+        color: var(--red);
+        font-size: 10pt;
+        margin-top: 1px;
+        flex-shrink: 0;
+    }
+
+    .stat-row {
+        display: flex;
+        gap: 12px;
+        margin: 14px 0;
+    }
+    .stat-box {
+        flex: 1;
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 14px;
+        text-align: center;
+    }
+    .stat-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 18pt;
+        font-weight: 700;
+        color: var(--red);
+    }
+    .stat-label {
+        font-size: 8pt;
+        color: var(--gray);
+        margin-top: 2px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px 0;
+        font-size: 9.5pt;
+    }
+    th {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 8pt;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--red);
+        text-align: left;
+        padding: 8px 12px;
+        border-bottom: 1px solid rgba(227,65,21,0.2);
+        background: var(--red-dim);
+    }
+    td {
+        padding: 8px 12px;
+        border-bottom: 1px solid var(--bg-card-border);
+        color: var(--gray);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .divider { width: 50px; height: 2px; background: var(--red); margin: 14px 0; opacity: 0.5; }
+
+    .footer {
+        margin-top: 24px;
+        padding-top: 14px;
+        border-top: 1px solid var(--bg-card-border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: var(--slate);
+    }
+    .footer a { color: var(--red); text-decoration: none; }
+
+    .confidential {
+        font-family: 'Poppins', sans-serif;
+        font-size: 7pt;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--slate);
+        text-align: center;
+        margin-top: 12px;
+    }
+
+    @media print {
+        body { background: var(--bg); }
+        .page { margin: 0; box-shadow: none; }
+    }
+</style>
+</head>
+<body>
+
+<!-- ================================================================ -->
+<!-- PAGE 1: THE SITUATION -->
+<!-- ================================================================ -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">90-Day Revenue Architecture Plan</div>
+            <h1 class="doc-title"><span class="accent">Sully.ai</span></h1>
+            <div class="doc-subtitle">Autonomous AI Medical Agents for Healthcare Operations</div>
+            <div class="doc-date">Prepared by Jeff Aragon | April 2026</div>
+        </div>
+        <div class="jeff-mark">JEFF<br><span>ARAGON</span></div>
+    </div>
+
+    <div class="section-label">Situation Assessment</div>
+    <h2>Where Sully.ai Is Right Now</h2>
+
+    <div class="card-grid cols-2">
+        <div class="card card-red">
+            <h4 style="color:var(--red)">What You Have Built</h4>
+            <p>Six autonomous AI agents covering the full clinical workflow: Scribe, Receptionist, Nurse, Consultant, Coder, Pharmacist. Proprietary models outperforming GPT-4o on healthcare benchmarks. HIPAA-compliant. Integrated with Epic, Cerner, NextGen. 300+ organizations, 100K+ providers, 100% pilot-to-paid conversion, 30M+ clinical minutes returned. The product works. Now you need the sales engine to match.</p>
+        </div>
+        <div class="card card-gold">
+            <h4>What You Need Next</h4>
+            <p>You have proven the product works. Individual clinics and small groups are buying at $199/doctor/month. But the next phase of growth is enterprise: multi-location health systems, academic medical centers, and large physician groups with 500+ providers. That sale is fundamentally different. The buyer is a CFO, COO, or VP of Operations managing millions in labor costs, not a solo practitioner paying with a credit card. You need a sales engine built specifically for this transition.</p>
+        </div>
+    </div>
+
+    <div class="card card-slate">
+        <h4 style="color:var(--slate)">The Core Transition</h4>
+        <p>Sully is at the exact inflection point where product-led growth meets enterprise sales complexity. Your 21x ROAS, 2.4 hours saved per physician per day, and 18.5% increase in patient capacity are powerful proof points. But enterprise health system buyers do not buy based on product demos alone. They buy based on operational business cases, clinical validation data, compliance attestation, and quantified ROI presented to a committee of 8-12 stakeholders across clinical, financial, operational, IT, and procurement functions. The sale requires a different architecture. That is what I build.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">The Numbers</div>
+    <h2>Why This Market Is Yours to Take</h2>
+
+    <div class="stat-row">
+        <div class="stat-box">
+            <div class="stat-number">$800B</div>
+            <div class="stat-label">Healthcare labor market being reshaped by AI</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">$148B</div>
+            <div class="stat-label">Healthcare AI market by 2029 (37% CAGR)</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">6,000+</div>
+            <div class="stat-label">US hospitals, most without an AI operations strategy</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">$4.7B</div>
+            <div class="stat-label">Annual physician burnout cost (turnover and reduced hours)</div>
+        </div>
+    </div>
+
+    <p>Nuance DAX (Microsoft/Epic) owns the scribe conversation. But Nuance is a single-agent point solution. Sully has six agents covering the full patient journey. No one else has this. The competitive window is now, before Epic embeds its own agents deeper into the workflow.</p>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffreyaragon">linkedin.com/in/jeffreyaragon</a></span>
+        <span>Page 1 of 6</span>
+    </div>
+</div>
+
+<!-- ================================================================ -->
+<!-- PAGE 2: THE ENTERPRISE TARGET MAP -->
+<!-- ================================================================ -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">Target Architecture</div>
+            <h1 class="doc-title">Who Buys <span class="accent">and Why</span></h1>
+        </div>
+        <div class="jeff-mark">JEFF<br><span>ARAGON</span></div>
+    </div>
+
+    <div class="section-label">Ideal Customer Profile</div>
+    <h2>Three Enterprise Segments, Prioritized</h2>
+
+    <div class="card card-red">
+        <h3>Segment 1: Multi-Location Physician Groups (200-1,000+ providers)</h3>
+        <p style="margin-bottom:8px;">This is where Sully should attack first for enterprise. These groups have standardized workflows, centralized decision-making, and acute staffing pain. They are large enough that the ROI calculation is massive but not so complex that the sale takes 18 months.</p>
+        <table>
+            <tr><th>Attribute</th><th>Detail</th></tr>
+            <tr><td>Decision Maker</td><td>CEO or COO of the physician group</td></tr>
+            <tr><td>Economic Buyer</td><td>CFO (labor cost reduction is the business case)</td></tr>
+            <tr><td>Clinical Champion</td><td>Medical Director or Department Chief who validates clinical accuracy</td></tr>
+            <tr><td>Deal Size (Annual)</td><td>$500K - $2M+ (200-1,000 providers at scaled enterprise pricing)</td></tr>
+            <tr><td>Cycle Time</td><td>3-6 months (faster than hospitals, slower than SMB)</td></tr>
+            <tr><td>Entry Point</td><td>AI Scribe + AI Coder as the wedge. Expand to Receptionist, Nurse, Consultant.</td></tr>
+        </table>
+    </div>
+
+    <div class="card card-gold">
+        <h3 style="color:var(--gold)">Segment 2: Community and Regional Hospital Systems (200-1,000 beds)</h3>
+        <p style="margin-bottom:8px;">These systems are large enough to generate $1M+ deals but not so bureaucratic that decisions stall for years. They are under intense financial pressure from labor costs, Medicare reimbursement compression, and staffing shortages. They need operational automation now.</p>
+        <table>
+            <tr><th>Attribute</th><th>Detail</th></tr>
+            <tr><td>Decision Maker</td><td>COO or VP of Operations</td></tr>
+            <tr><td>Economic Buyer</td><td>CFO (staffing cost reduction, overtime elimination)</td></tr>
+            <tr><td>IT Gatekeeper</td><td>CIO/CISO (Epic/Cerner integration, security review)</td></tr>
+            <tr><td>Deal Size (Annual)</td><td>$1M - $5M+ (hospital-wide deployment across departments)</td></tr>
+            <tr><td>Cycle Time</td><td>6-12 months with a pilot phase</td></tr>
+            <tr><td>Entry Point</td><td>Single department pilot (e.g., primary care or urgent care) with defined success metrics, then expand.</td></tr>
+        </table>
+    </div>
+
+    <div class="card card-slate">
+        <h3 style="color:var(--slate)">Segment 3: Academic Medical Centers and Large IDNs (1,000+ beds)</h3>
+        <p>The largest deals ($5M+) but the longest cycles (12-24 months). These require clinical research validation, IRB consideration, and board-level approval. Build relationships now. Close in Year 2. The proof points from Segments 1 and 2 are the ammunition that opens these doors.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">The Buyer Committee</div>
+    <h2>Who Is in the Room</h2>
+
+    <table>
+        <tr><th>Stakeholder</th><th>Their Question</th><th>What They Need to Hear</th></tr>
+        <tr><td><strong style="color:var(--white)">CFO</strong></td><td>"What does this save me?"</td><td>FTE equivalents automated. Overtime reduction. Revenue per provider increase from 18.5% capacity gain. Payback period under 6 months.</td></tr>
+        <tr><td><strong style="color:var(--white)">COO / VP Ops</strong></td><td>"Will this actually work at scale?"</td><td>100% pilot-to-paid conversion. 300+ orgs live. 30M clinical minutes returned. Implementation timeline and support model.</td></tr>
+        <tr><td><strong style="color:var(--white)">CMO / CMIO</strong></td><td>"Is this clinically safe?"</td><td>Proprietary models, not generic LLMs. 93% real-time accuracy, 96% medical keyword recall. Outperforms GPT-4o on clinical benchmarks. Patented clinical decision support.</td></tr>
+        <tr><td><strong style="color:var(--white)">CIO / CISO</strong></td><td>"Is this secure? Does it integrate?"</td><td>HIPAA compliant. Epic, Cerner, NextGen integration. SOC 2. On-prem option if required. No PHI used for model training.</td></tr>
+        <tr><td><strong style="color:var(--white)">Physicians</strong></td><td>"Will I actually use this?"</td><td>2.4 hours/day saved. 92% say they would be "very disappointed" if Sully was removed. Ambient capture, no extra clicks.</td></tr>
+        <tr><td><strong style="color:var(--white)">Procurement</strong></td><td>"Is this a proven vendor?"</td><td>YC-backed. $22M raised. 100K+ providers. Named references. Contractual SLAs.</td></tr>
+    </table>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffreyaragon">linkedin.com/in/jeffreyaragon</a></span>
+        <span>Page 2 of 6</span>
+    </div>
+</div>
+
+<!-- ================================================================ -->
+<!-- PAGE 3: THE 90-DAY PLAN - PHASE 1 -->
+<!-- ================================================================ -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">The Plan</div>
+            <h1 class="doc-title">90 Days to <span class="accent">$10M+ Pipeline</span></h1>
+        </div>
+        <div class="jeff-mark">JEFF<br><span>ARAGON</span></div>
+    </div>
+
+    <div class="phase-block phase-1">
+        <div class="phase-number">Phase 1: Days 1-30</div>
+        <div class="phase-title">Audit, Architect, Attack</div>
+
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Audit the existing pipeline.</strong> Day 1. Open the CRM, inspect every opportunity. Where did it come from? Who is the economic buyer? What is the quantified business case? What is the next verifiable buyer action? By end of day, I will have separated real pipeline from friendly conversations and identified the deals that can close fastest.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Define the enterprise sales process.</strong> Build a stage-gated pipeline architecture calibrated for healthcare: Initial Discovery, Operational Assessment, Clinical Validation, IT/Security Review, Pilot Agreement, Pilot Execution, Full Deployment Contract. Every stage gate requires mutual alignment - a confirmed Sequence of Events agreed to by both sides, with the buyer validating that we are executing against it together. No stage advances on seller activity alone.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Build the economic value model.</strong> Create a quantified ROI calculator specific to Sully: FTE equivalents automated per agent, overtime reduction, revenue per provider increase from capacity gains, documentation quality improvement (fewer denials, faster coding), patient throughput lift. Every demo ends with a number the CFO can take to the board.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Develop enterprise pricing architecture.</strong> The $199/doctor/month model works for SMB. Enterprise needs tiered pricing by deployment size, multi-agent bundles (Scribe + Coder as the entry, full AutonomousOS as the platform deal), and annual contract structures with expansion triggers. Design pricing that creates land-and-expand dynamics.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Launch targeted outbound.</strong> I have already built the initial target list: 25 multi-location physician groups (TeamHealth, SCP Health, Privia Health, US Oncology Network, Sound Physicians, and others ranging from 400 to 18,000 providers) and 25 community and regional hospital systems (Baystate Health, BayCare, Novant, Piedmont, Inova, and others with 200-4,000 beds and acute financial and staffing pressure). Lead with operational pain, not AI features: "Your physicians are losing 2+ hours per day to documentation. Your coders are backlogged. Your call center is understaffed. What if you could staff 30% of those functions with AI that actually works?" Open 15-20 conversations in the first 30 days.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Craft the competitive narrative.</strong> Nuance DAX is the incumbent. Abridge and DeepScribe are the other AI scribes. But none of them offer six integrated agents. The message: "You can buy a scribe from Microsoft, or you can deploy an autonomous operations layer that handles documentation, coding, triage, scheduling, and clinical decision support from a single platform." Make the comparison unwinnable for point solutions.</span>
+        </div>
+    </div>
+
+    <div class="card card-red">
+        <h3>Day 30 Checkpoint</h3>
+        <p><strong style="color:var(--white)">Deliverables:</strong> Pipeline audit complete (day 1). Enterprise sales process defined and in CRM. Economic value model built and tested. Enterprise pricing framework proposed. 50-account target list already built - outbound launched immediately. 15-20 conversations opened. Competitive battle cards drafted. First qualified enterprise opportunities identified.</p>
+    </div>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffreyaragon">linkedin.com/in/jeffreyaragon</a></span>
+        <span>Page 3 of 6</span>
+    </div>
+</div>
+
+<!-- ================================================================ -->
+<!-- PAGE 4: PHASES 2 AND 3 -->
+<!-- ================================================================ -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">Execution and Scale</div>
+            <h1 class="doc-title">Close Deals, <span class="accent">Build the Machine</span></h1>
+        </div>
+        <div class="jeff-mark">JEFF<br><span>ARAGON</span></div>
+    </div>
+
+    <div class="phase-block phase-2">
+        <div class="phase-number">Phase 2: Days 31-60</div>
+        <div class="phase-title">Live Deals, First Enterprise Revenue</div>
+
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Work 5-10 live enterprise opportunities through the full committee process.</strong> Run discovery with the COO or VP Ops. Build the operational business case with the CFO. Coordinate clinical validation with the CMIO. Navigate IT security review with the CIO. I have done this exact motion hundreds of times in healthcare.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Close first enterprise deals.</strong> Target: 2-3 signed enterprise contracts or paid pilots with defined success metrics and contractual paths to full deployment. These are the proof points that unlock everything that follows. Each deal should include multi-agent deployment, not just Scribe.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Build the demo-to-close playbook.</strong> Document every step: how to run an enterprise discovery call, how to present the economic value model, how to handle the "we already use Nuance" objection, how to structure a pilot proposal, how to navigate procurement. This is the playbook the next 10 AEs will follow.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Install forecast discipline.</strong> Evidence-based forecasting built on a plan letter methodology. After every meaningful meeting, I document and confirm with the buyer: the value being delivered, the economics of the problem being solved, and the timeline. The buyer signs off. If there is no confirmed plan letter, there was no real meeting. No deal moves to "Commit" without: economic buyer identified and engaged, business case validated and agreed to by all parties, clinical champion active, IT security review completed, budget confirmed, purchase process confirmed, and timeline agreed. If a rep cannot produce the confirmed plan letter, they cannot forecast. This is how I built 150%+ attainment at UKG and $24M TCV at Ushur.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Develop the customer expansion motion.</strong> Sully's architecture is built for land-and-expand. A physician group that deploys Scribe and Coder in month one should be deploying Receptionist and Nurse by month six. Build the expansion trigger framework: usage thresholds, satisfaction scores, and operational metrics that signal readiness for additional agents.</span>
+        </div>
+    </div>
+
+    <div class="card card-gold">
+        <h3 style="color:var(--gold)">Day 60 Checkpoint</h3>
+        <p><strong style="color:var(--white)">Deliverables:</strong> 2-3 signed enterprise deals or paid pilots. $500K-$2M in closed or committed ARR. 10+ qualified opportunities in pipeline. Demo-to-close playbook documented. Forecast model operational. Expansion framework built. Competitive win/loss data collected from first deals.</p>
+    </div>
+
+    <div class="phase-block phase-3" style="margin-top:16px;">
+        <div class="phase-number">Phase 3: Days 61-90</div>
+        <div class="phase-title">Scale the Engine, Build the Team</div>
+
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Drive pipeline to $10M+.</strong> By day 90, the pipeline should reflect the trajectory to $10M+ ARR within 12 months. This means 20+ qualified enterprise opportunities at various stages, with clear line-of-sight on deal sizes, timelines, and probability-weighted revenue.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Hire and onboard the first AEs.</strong> Define the profile: healthcare enterprise sales experience, comfort with 6-12 month cycles, ability to present to C-suite clinical and operational leaders. Hire 2-3 AEs. Onboard them using the playbook built in Phase 2. Get them into live deals within their first two weeks.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Build a comprehensive partner strategy.</strong> Identify and engage every category of partner that touches the healthcare operations buyer:
+            <br><br>
+            <strong style="color:var(--red)">Healthcare IT consulting firms</strong> (Nordic, Tegria, Impact Advisors, Chartis Group, Huron) - they advise COOs and CIOs on technology strategy and are the first call when a health system wants to evaluate AI. Get Sully into their recommendation set.
+            <br>
+            <strong style="color:var(--red)">EHR implementation and optimization partners</strong> (Epic/Cerner consulting firms, Accenture Health, Deloitte Health) - they are already inside the health system during go-lives and optimization projects. Bundle Sully into EHR deployment workflows.
+            <br>
+            <strong style="color:var(--red)">Revenue cycle management companies</strong> (Optum360, R1 RCM, Ensemble Health Partners, Conifer Health) - they own the coding and billing relationship. Sully's AI Coder directly augments their operations. Co-sell or embed.
+            <br>
+            <strong style="color:var(--red)">Healthcare staffing agencies</strong> (AMN Healthcare, Cross Country, Aya Healthcare) - they are losing contracts as health systems cut travel nurse spend. They need an AI partner to stay relevant. Position Sully as the automation layer they offer alongside staffing.
+            <br>
+            <strong style="color:var(--red)">Medical scribing companies</strong> (ScribeAmerica, Aquity Solutions, DeepScribe) - these companies employ thousands of human scribes being displaced by AI. Some will fight it. Others will want to partner and offer AI-augmented scribing through Sully.
+            <br>
+            <strong style="color:var(--red)">Health plan and payer partners</strong> - payers have a direct financial incentive to reduce administrative burden on their provider networks. Position Sully as a value-add they bring to provider relationships.
+            <br>
+            <strong style="color:var(--red)">GPO and purchasing organizations</strong> (Vizient, Premier, HealthTrust) - these organizations aggregate purchasing for thousands of hospitals. Getting Sully on a GPO contract means pre-negotiated pricing and procurement fast-tracking across their entire membership.
+            <br><br>
+            Critical advantage: leveraging partner MSAs (Master Service Agreements) that are already in place at target health systems accelerates the sales cycle dramatically. Instead of 3-6 months of legal and procurement review, Sully can be added as a line item under an existing partner contract. This is how enterprise healthcare deals close in weeks instead of quarters.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Open the health plan and payer market.</strong> This is a strategic expansion most people will miss. Sully's agent architecture is not limited to provider operations. Health plans run massive clinical-administrative workforces doing utilization review, prior authorization, claims adjudication, care management, and member services. These are exactly the workflows Sully's agents are built to automate:
+            <br><br>
+            <strong style="color:var(--red)">AI Nurse</strong> → Utilization review, prior authorization clinical review, care management outreach
+            <br>
+            <strong style="color:var(--red)">AI Medical Consultant</strong> → Medical necessity determinations, clinical policy application, peer-to-peer review support
+            <br>
+            <strong style="color:var(--red)">AI Coder</strong> → Claims adjudication accuracy, coding review, denial management
+            <br>
+            <strong style="color:var(--red)">AI Receptionist</strong> → Member services call handling, benefits inquiries, provider directory navigation
+            <br><br>
+            Payer deal sizes are typically 2-5x larger than provider deals. A single health plan covers millions of members and employs thousands of clinical reviewers, care managers, and claims processors. The TAM expands dramatically.
+            <br><br>
+            The payer-provider convergence accelerates this further. Optum/UnitedHealth, CVS/Aetna, Elevance/Carelon - these organizations operate on both sides and need AI that works across the entire care continuum. A Sully deployment on the provider side becomes the entry point for a much larger payer-side engagement within the same parent organization.
+            <br><br>
+            I have sold into both sides. My $24M TCV at Ushur was selling AI-powered automation into health plans and providers. I know the payer buyer: VP of Medical Management (owns UM and prior auth), SVP of Clinical Operations (owns care management), VP of Utilization Management, Chief Medical Officer, VP of Quality and Stars (critical at Medicare Advantage plans like Humana where Stars ratings directly drive revenue), and VP of Claims Operations. I know that at Elevance, clinical ops now live inside Carelon. I know that Centene is decentralized to state plans and you sell at the subsidiary level, not just corporate. I know that at CVS/Aetna, pharmacy prior authorization is a massive volume area and the Chief Pharmacy Officer is a buyer most people miss. This is a market Sully can own before anyone else realizes the agents translate.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Map additional provider vertical expansion.</strong> Beyond the initial physician group and hospital targets: behavioral health, dental, urgent care chains, skilled nursing, and ambulatory surgery centers. Each vertical has different buyers, different workflows, and different agent configurations. Prioritize based on product readiness and market size.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Present the 12-month revenue plan.</strong> Deliver a data-backed plan to the executive team: target ARR, pipeline coverage ratio, team size, cost of acquisition, expansion revenue assumptions, and investment required. This is the plan you take to the board and to investors.</span>
+        </div>
+    </div>
+
+    <div class="card card-slate">
+        <h3 style="color:var(--slate)">Day 90 Checkpoint</h3>
+        <p><strong style="color:var(--white)">Deliverables:</strong> $10M+ qualified pipeline. $1-3M in closed or committed ARR. 2-3 AEs hired and onboarded. Partnership agreements initiated. Vertical expansion roadmap delivered. 12-month revenue plan presented. The sales engine is running.</p>
+    </div>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffreyaragon">linkedin.com/in/jeffreyaragon</a></span>
+        <span>Page 4 of 6</span>
+    </div>
+</div>
+
+<!-- ================================================================ -->
+<!-- PAGE 5: COMPETITIVE LANDSCAPE AND GTM STRATEGY -->
+<!-- ================================================================ -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">Competitive Strategy</div>
+            <h1 class="doc-title">How Sully <span class="accent">Wins</span></h1>
+        </div>
+        <div class="jeff-mark">JEFF<br><span>ARAGON</span></div>
+    </div>
+
+    <div class="section-label">The Landscape</div>
+    <h2>Point Solutions vs. Platform - Sully Wins on Architecture</h2>
+
+    <table>
+        <tr><th>Competitor</th><th>What They Do</th><th>Limitation</th><th>Sully's Advantage</th></tr>
+        <tr>
+            <td><strong style="color:var(--white)">Nuance DAX (Microsoft)</strong></td>
+            <td>AI clinical documentation, embedded in Epic</td>
+            <td>Scribe only. No coding, no scheduling, no triage. Epic-dependent.</td>
+            <td>6 agents vs. 1. Platform vs. feature. EHR-agnostic.</td>
+        </tr>
+        <tr>
+            <td><strong style="color:var(--white)">Abridge</strong></td>
+            <td>AI medical documentation</td>
+            <td>Documentation only. $150M raised but single use case.</td>
+            <td>Same scribe capability plus 5 more operational agents.</td>
+        </tr>
+        <tr>
+            <td><strong style="color:var(--white)">DeepScribe</strong></td>
+            <td>Ambient AI scribe</td>
+            <td>Documentation only. Smaller scale.</td>
+            <td>Broader platform, stronger benchmarks, more traction.</td>
+        </tr>
+        <tr>
+            <td><strong style="color:var(--white)">Hyro / Notable</strong></td>
+            <td>AI patient engagement and intake</td>
+            <td>Front-office only. No clinical workflow.</td>
+            <td>Sully covers front-office AND clinical AND back-office.</td>
+        </tr>
+        <tr>
+            <td><strong style="color:var(--white)">Thoughtful AI</strong></td>
+            <td>Revenue cycle automation</td>
+            <td>Billing/coding only. No clinical agents.</td>
+            <td>Sully's AI Coder + 5 clinical/operational agents.</td>
+        </tr>
+    </table>
+
+    <div class="card card-red" style="margin-top:14px;">
+        <h3>The Positioning Statement I Would Use</h3>
+        <p style="color:var(--bright);">"Every other vendor in this space sells you a tool. A scribe. A chatbot. A coding assistant. Sully is the only platform that staffs 30% of your workforce with AI agents that handle the full patient journey, from the phone call to the chart note to the bill, all from one system. You do not need five vendors. You need one operating layer."</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">Go-to-Market Channels</div>
+    <h2>How I Would Build Pipeline</h2>
+
+    <div class="card-grid cols-2">
+        <div class="card card-red">
+            <h4 style="color:var(--red)">Direct Outbound (60% of pipeline)</h4>
+            <p>Targeted outreach to CFOs, COOs, and VP Ops at multi-location physician groups and community health systems. Lead with the economic case: "Your documentation costs $X per provider per year. Your call center costs $Y. Your coding backlog is costing you $Z in delayed revenue. What if 30% of that was handled by AI that actually works?" Use Sully's existing case studies (Apogee: $1M incremental revenue, 92% time reduction) as proof.</p>
+        </div>
+        <div class="card card-gold">
+            <h4>Conference and Event Strategy (20% of pipeline)</h4>
+            <p>Two tiers. First: major industry conferences (HIMSS, ViVE, MGMA, Becker's, HFMA) - but not booth-sitting. Executive meetings scheduled in advance, breakfast briefings with targeted CFOs and COOs, on-site demos. The goal is 10-15 qualified executive meetings per event, not badge scans. Second, and more powerful: Millennium Alliance healthcare assemblies. These are pre-confirmed, 45-minute one-on-one sessions with senior healthcare executives who are actively evaluating technology. No cold introductions. Every meeting is with a decision-maker who has already expressed interest in the category. I have used this channel before. It is the highest-conversion event format in enterprise healthcare sales.</p>
+        </div>
+    </div>
+
+    <div class="card-grid cols-2">
+        <div class="card card-slate">
+            <h4 style="color:var(--slate)">Partnership Channel (15% of pipeline, accelerating to 30%+ in Year 2)</h4>
+            <p>Seven distinct partner categories: healthcare IT consultants, EHR implementation firms, RCM companies, staffing agencies, scribing companies, payer partners, and GPOs. Each has existing buyer relationships and, critically, existing MSAs at target health systems. Leveraging partner MSAs collapses the procurement cycle from months to weeks. By Year 2, the partner channel should be generating 30%+ of enterprise pipeline as agreements mature and co-sell motions take hold.</p>
+        </div>
+        <div class="card card-green">
+            <h4 style="color:var(--green)">Expansion Revenue and Payer Market (ongoing)</h4>
+            <p>Two expansion engines. First: every single-agent provider customer is a multi-agent opportunity - Scribe today, Coder and Receptionist tomorrow. Second: health plans and payers represent a parallel market where Sully's agents automate utilization review, prior auth, claims, and member services. Payer deals are 2-5x larger than provider deals. Provider deployments inside converged organizations (Optum, CVS/Aetna, Elevance) become the entry point to the payer side. Combined expansion should generate 50%+ of Year 2 revenue.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffreyaragon">linkedin.com/in/jeffreyaragon</a></span>
+        <span>Page 5 of 6</span>
+    </div>
+</div>
+
+<!-- ================================================================ -->
+<!-- PAGE 6: WHY JEFF + REVENUE MODEL + CLOSE -->
+<!-- ================================================================ -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">Why Me</div>
+            <h1 class="doc-title">What I <span class="accent">Bring</span></h1>
+        </div>
+        <div class="jeff-mark">JEFF<br><span>ARAGON</span></div>
+    </div>
+
+    <div class="card card-red" style="margin-bottom:12px;">
+        <h3>I have done exactly this before.</h3>
+        <p style="color:var(--bright);">At Ushur, I was a founding member of the Healthcare vertical. There was no pipeline, no playbook, no healthcare customers. I built it from zero. Within two years, I generated $24M in total contract value selling AI-powered automation into health plans and providers, including closing the largest deal in company history - approximately $10M TCV through a formal government procurement process with a public health authority. I did this as an individual contributor, not as a manager watching from the sidelines.</p>
+    </div>
+
+    <div class="card card-gold" style="margin-bottom:12px;">
+        <h3 style="color:var(--gold)">I know the healthcare buyer.</h3>
+        <p>I have spent the last decade selling enterprise technology into healthcare organizations. UKG (workforce management into health systems, 150%+ quota attainment), Ushur (AI automation into health plans and providers), Insightin Health (AI-driven member engagement), OnShift (SaaS into post-acute care and senior living). I know how hospital procurement works. I know the compliance requirements. I know the stakeholders. I know the objections. I know how to get a deal through a 12-person committee and onto a board agenda.</p>
+    </div>
+
+    <div class="card card-slate" style="margin-bottom:12px;">
+        <h3 style="color:var(--slate)">I close and I build.</h3>
+        <p>I am not a strategist who hands you a playbook. I am a closer who builds the engine while running live deals. Day 1, I am on the phone with prospects. Day 30, I am presenting business cases to CFOs. Day 60, I am signing enterprise contracts. Day 90, I am onboarding the AEs who will follow the playbook I built by doing the work myself first. That is the only way to build a sales function that actually works.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">Revenue Trajectory</div>
+    <h2>What I Am Committing To</h2>
+
+    <table>
+        <tr><th>Milestone</th><th>Day 30</th><th>Day 60</th><th>Day 90</th><th>Month 12</th></tr>
+        <tr>
+            <td><strong style="color:var(--white)">Qualified Pipeline</strong></td>
+            <td>$3-5M</td>
+            <td>$7-10M</td>
+            <td>$10M+</td>
+            <td>$30-50M</td>
+        </tr>
+        <tr>
+            <td><strong style="color:var(--white)">Closed / Committed ARR</strong></td>
+            <td>Pipeline building</td>
+            <td>$500K-$2M</td>
+            <td>$1-3M</td>
+            <td>$10M+</td>
+        </tr>
+        <tr>
+            <td><strong style="color:var(--white)">Enterprise Deals Signed</strong></td>
+            <td>0 (qualifying)</td>
+            <td>2-3</td>
+            <td>5-8</td>
+            <td>20+</td>
+        </tr>
+        <tr>
+            <td><strong style="color:var(--white)">Team Size</strong></td>
+            <td>Just me</td>
+            <td>Hiring 2-3 AEs</td>
+            <td>3-4 AEs ramping</td>
+            <td>8-10 person sales org</td>
+        </tr>
+        <tr>
+            <td><strong style="color:var(--white)">Expansion Revenue</strong></td>
+            <td>Framework built</td>
+            <td>Triggers defined</td>
+            <td>First expansions</td>
+            <td>40-60% of new ARR</td>
+        </tr>
+    </table>
+
+    <div class="divider"></div>
+
+    <div style="margin-top:8px; margin-bottom:20px;">
+        <p style="font-family:Poppins,sans-serif; font-size:13pt; font-weight:400; color:var(--white); line-height:1.6;">Ahmed, I built this plan because Sully.ai is solving a problem I have watched destroy healthcare organizations from the inside. I have sat across the table from the COOs and CFOs who are drowning in labor costs, losing physicians to burnout, and struggling to keep their operations staffed. I know what they need to hear, I know how they buy, and I know how to close them.</p>
+        <p style="font-family:Poppins,sans-serif; font-size:13pt; font-weight:400; color:var(--bright); line-height:1.6; margin-top:10px;">This plan is built from the outside looking in. I would love the chance to refine it with you. Is there anything in here you disagree with or want to change?</p>
+    </div>
+
+    <div style="text-align:center; margin-top:12px;">
+        <p style="font-family:Poppins,sans-serif; font-size:14pt; font-weight:600; color:var(--white); margin-bottom:6px;">Let us talk.</p>
+        <p style="color:var(--gray); font-size:10pt;">Jeff Aragon | 303-638-1390</p>
+        <p style="margin-top:4px;"><a href="mailto:jeff@jozuconsultinggroup.com" style="color:var(--red); text-decoration:none;">jeff@jozuconsultinggroup.com</a></p>
+        <p style="margin-top:3px;"><a href="https://www.linkedin.com/in/jeffreyaragon" style="color:var(--red); text-decoration:none;">linkedin.com/in/jeffreyaragon</a></p>
+    </div>
+
+    <div class="footer">
+        <span>Jeff Aragon</span>
+        <span>Page 6 of 6</span>
+    </div>
+    <div class="confidential">Prepared exclusively for Sully.ai</div>
+</div>
+
+</body>
+</html>
