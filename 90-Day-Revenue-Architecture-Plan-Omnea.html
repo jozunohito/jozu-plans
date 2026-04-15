@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>90-Day Revenue Architecture Plan - Omnea | JEFF ARAGON</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    @page {
+        size: letter;
+        margin: 0;
+    }
+    :root {
+        --bg: #0a0e17;
+        --bg-card: rgba(255,255,255,0.03);
+        --bg-card-border: rgba(255,255,255,0.06);
+        --red: #e34115;
+        --red-dim: rgba(227,65,21,0.12);
+        --gold: #c9a84c;
+        --gold-dim: rgba(201,168,76,0.10);
+        --slate: #64748b;
+        --white: #ffffff;
+        --gray: #cbd5e1;
+        --bright: #e2e8f0;
+        --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: var(--bg);
+        color: var(--gray);
+        font-family: 'Open Sans', sans-serif;
+        font-size: 11pt;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+
+    /* Page container */
+    .page {
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0 auto;
+        padding: 48px 56px;
+        background: var(--bg);
+        position: relative;
+        overflow: hidden;
+        page-break-after: always;
+    }
+    .page:last-child { page-break-after: auto; }
+
+    /* Subtle background glow */
+    .page::before {
+        content: '';
+        position: absolute;
+        top: -150px; right: -150px;
+        width: 500px; height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--red-dim) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+    }
+    .page > * { position: relative; z-index: 1; }
+
+    /* Header */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 36px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--red);
+    }
+    .header-left { flex: 1; }
+    .header-logo { width: 140px; opacity: 0.9; }
+    .doc-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9pt;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 6px;
+    }
+    .doc-title {
+        font-size: 22pt;
+        font-weight: 700;
+        line-height: 1.15;
+        margin-bottom: 4px;
+    }
+    .doc-title .accent { color: var(--red); }
+    .doc-subtitle {
+        font-family: 'Poppins', sans-serif;
+        font-size: 11pt;
+        font-weight: 300;
+        color: var(--slate);
+    }
+    .doc-date {
+        font-size: 9pt;
+        color: var(--slate);
+        margin-top: 8px;
+    }
+
+    /* Section headers */
+    .section-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 8pt;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .section-label::before {
+        content: '';
+        width: 24px; height: 2px;
+        background: var(--red);
+    }
+    h2 { font-size: 16pt; font-weight: 600; margin-bottom: 14px; }
+    h3 { font-size: 12pt; font-weight: 500; color: var(--red); margin-bottom: 8px; }
+    h4 { font-size: 10pt; font-weight: 500; color: var(--gold); margin-bottom: 6px; }
+
+    /* Cards */
+    .card {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 18px 20px;
+        margin-bottom: 12px;
+    }
+    .card-red { border-left: 3px solid var(--red); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+
+    .card-grid { display: grid; gap: 12px; margin-bottom: 16px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    /* Phase timeline */
+    .phase-block {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        margin-bottom: 16px;
+        position: relative;
+    }
+    .phase-block::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 4px; height: 100%;
+        border-radius: 4px 0 0 4px;
+    }
+    .phase-1::before { background: var(--red); }
+    .phase-2::before { background: var(--gold); }
+    .phase-3::before { background: var(--slate); }
+    .phase-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9pt;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+    }
+    .phase-1 .phase-number { color: var(--red); }
+    .phase-2 .phase-number { color: var(--gold); }
+    .phase-3 .phase-number { color: var(--slate); }
+    .phase-title {
+        font-family: 'Poppins', sans-serif;
+        font-size: 13pt;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 10px;
+    }
+
+    /* Deliverable list */
+    .deliverable {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+    .deliverable-check {
+        color: var(--red);
+        font-size: 11pt;
+        margin-top: 1px;
+        flex-shrink: 0;
+    }
+
+    /* Stats row */
+    .stat-row {
+        display: flex;
+        gap: 16px;
+        margin: 16px 0;
+    }
+    .stat-box {
+        flex: 1;
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 16px;
+        text-align: center;
+    }
+    .stat-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 20pt;
+        font-weight: 700;
+        color: var(--red);
+    }
+    .stat-label {
+        font-size: 8.5pt;
+        color: var(--slate);
+        margin-top: 2px;
+    }
+
+    /* Table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+        font-size: 10pt;
+    }
+    th {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 8.5pt;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--red);
+        text-align: left;
+        padding: 10px 14px;
+        border-bottom: 1px solid rgba(227,65,21,0.2);
+        background: var(--red-dim);
+    }
+    td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--bg-card-border);
+        color: var(--gray);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    /* Engagement options */
+    .engagement-option {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        margin-bottom: 12px;
+        position: relative;
+    }
+    .engagement-option.featured {
+        border-color: var(--red);
+        background: var(--red-dim);
+    }
+    .featured-badge {
+        position: absolute;
+        top: -1px; right: 20px;
+        background: var(--red);
+        color: var(--white);
+        font-family: 'Poppins', sans-serif;
+        font-size: 7.5pt;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 4px 12px;
+        border-radius: 0 0 6px 6px;
+    }
+    .option-name {
+        font-family: 'Poppins', sans-serif;
+        font-size: 13pt;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 4px;
+    }
+    .option-price {
+        font-family: 'Poppins', sans-serif;
+        font-size: 11pt;
+        font-weight: 500;
+        color: var(--red);
+        margin-bottom: 8px;
+    }
+
+    /* Divider */
+    .divider { width: 50px; height: 2px; background: var(--red); margin: 16px 0; opacity: 0.5; }
+
+    /* Footer */
+    .footer {
+        margin-top: 32px;
+        padding-top: 16px;
+        border-top: 1px solid var(--bg-card-border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8.5pt;
+        color: var(--slate);
+    }
+    .footer a { color: var(--red); text-decoration: none; }
+
+    /* Confidential banner */
+    .confidential {
+        font-family: 'Poppins', sans-serif;
+        font-size: 7pt;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--slate);
+        text-align: center;
+        margin-top: 12px;
+    }
+
+    /* Print optimization */
+    @media print {
+        body { background: var(--bg); }
+        .page { margin: 0; box-shadow: none; }
+    }
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-343BVDJ9KX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-343BVDJ9KX");
+</script>
+</head>
+<body>
+
+<!-- PAGE 1: Cover + Situation Assessment -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">90-Day Revenue Architecture Plan</div>
+            <h1 class="doc-title">
+                <span class="accent">Omnea</span>
+            </h1>
+            <div class="doc-subtitle">AI-Native Enterprise Procurement Intake and Orchestration</div>
+            <div class="doc-date">Prepared by Jeff Aragon | April 2026</div>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <!-- Situation Assessment -->
+    <div class="section-label">Situation Assessment</div>
+    <h2>Where Omnea Is Right Now</h2>
+
+    <div class="card-grid cols-2">
+        <div class="card card-red">
+            <h4 style="color:var(--red)">What You Have</h4>
+            <p>Product-market fit in enterprise procurement orchestration. $75M raised from Insight Partners, Khosla Ventures, Accel, Point Nine, and First Round Capital. Fortune 500 customers including Spotify, MongoDB, Albertsons, Wise, and Adecco Group. 5x revenue growth in the past 12 months. Gartner Cool Vendor 2025. G2 Leader Spring 2026. A CEO in Ben Freeman who scaled Tessian from $0 to $30M ARR. And a product that sits on top of existing P2P systems rather than ripping them out - the right architectural bet for enterprise buyers.</p>
+        </div>
+        <div class="card card-gold">
+            <h4>What You Need</h4>
+            <p>A founding US GTM leader to build the enterprise sales engine in New York. Someone who can define the US ICP, build pipeline into CFOs and CPOs at large enterprises, navigate multi-stakeholder procurement cycles, close complex deals, and establish the playbook that scales the US operation from Arie's leadership down through the next wave of hires.</p>
+        </div>
+    </div>
+
+    <div class="card card-slate">
+        <h4 style="color:var(--slate)">The Core Challenge</h4>
+        <p>Omnea is a UK-born company entering the US enterprise market at scale. The product is proven, the funding is in place, and the NYC office is open. The challenge is converting product traction and brand credibility into a repeatable US enterprise revenue motion. The buyer is a CFO, CPO, or VP of Procurement at a large enterprise who is drowning in intake requests, manual approvals, and disconnected P2P workflows. The sale is showing them that Omnea orchestrates all of it on top of their existing systems - no rip-and-replace required - and that the ROI is measurable within weeks.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">Why This Matters Now</div>
+    <h2>The US Enterprise Window</h2>
+
+    <div class="stat-row">
+        <div class="stat-box">
+            <div class="stat-number">$75M</div>
+            <div class="stat-label">raised - Series B led by Insight and Khosla</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">5x</div>
+            <div class="stat-label">revenue growth in the past 12 months</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">10x</div>
+            <div class="stat-label">ARR target in 18 months</div>
+        </div>
+    </div>
+
+    <p>Zip has raised $100M+ and is running a rip-and-replace strategy against legacy procurement systems. Coupa and SAP Ariba are entrenched but aging. Omnea's overlay approach is the right answer for enterprise buyers who will not tear out their existing P2P stack, but the US market will not wait. The companies that establish enterprise relationships and referenceable logos first will own the category. Omnea has the product edge and the customer proof. The gap is a US sales engine that systematically reaches procurement leaders and converts them before Zip consolidates the market.</p>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffreyaragon">linkedin.com/in/jeffreyaragon</a></span>
+        <span>Page 1 of 3</span>
+    </div>
+</div>
+
+<!-- PAGE 2: The 90-Day Plan -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">The Plan</div>
+            <h1 class="doc-title">90 Days to a <span class="accent">US Revenue Engine</span></h1>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <!-- Phase 1 -->
+    <div class="phase-block phase-1">
+        <div class="phase-number">Phase 1: Days 1-30</div>
+        <div class="phase-title">Learn the Product, Map the US Market</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Deep product immersion.</strong> Learn the platform end to end. Understand how Omnea sits on top of Coupa, SAP Ariba, and other P2P systems. Know every integration, every workflow, every competitive differentiation point cold.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Define the US ICP.</strong> Work with Ben, Arie, and the UK sales team to translate the existing customer profile into a US enterprise target list. Map industries, company sizes, and procurement maturity levels where Omnea wins fastest. Build the first 200-account target list.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Develop CFO and CPO messaging.</strong> Procurement leaders in US enterprises think differently than UK buyers. Build messaging frameworks that lead with intake chaos, approval bottlenecks, and P2P fragmentation - the problems that keep CFOs and CPOs up at night.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Study existing wins.</strong> Dissect how Spotify, MongoDB, and Albertsons were sold and onboarded. Identify patterns in deal cycle, stakeholder map, objections, and time to value. These stories become the foundation for every US conversation.</span>
+        </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="phase-block phase-2">
+        <div class="phase-number">Phase 2: Days 31-60</div>
+        <div class="phase-title">Launch Outbound, Close First US Deals</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Launch enterprise outbound.</strong> Execute multi-channel campaigns targeting CFOs, CPOs, and VPs of Procurement at target accounts. Email sequences, LinkedIn, warm introductions, and strategic cold outreach. Lead with the overlay story - no rip-and-replace.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Navigate multi-stakeholder deals.</strong> Enterprise procurement purchases involve procurement, finance, IT, and compliance. Run discovery across all stakeholders, build internal champions, and manage the buying committee through evaluation to close.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Close first US enterprise deals.</strong> Push qualified opportunities through the full cycle. Build the ROI case for each buyer: current cost of manual intake and approval workflows vs. Omnea automation. Make the business case undeniable.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Run C-suite events.</strong> Organize intimate executive roundtables and dinners in New York targeting procurement and finance leaders. Build the peer network that accelerates enterprise trust and shortens deal cycles.</span>
+        </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="phase-block phase-3">
+        <div class="phase-number">Phase 3: Days 61-90</div>
+        <div class="phase-title">Scale Pipeline, Build the Playbook</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Scale US pipeline.</strong> Multiple enterprise opportunities in play across verticals. Pipeline growing predictably through outbound, events, and referrals from early customers. Revenue trajectory validated with real data.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Build the playbook for next hires.</strong> Document the entire US GTM motion: ICP criteria, outbound sequences, discovery frameworks, demo flows, competitive positioning against Zip, objection handling, and close process. Everything the next AE needs to ramp fast.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Define vertical focus.</strong> Based on 90 days of real selling, identify which US verticals convert fastest and have the highest ACV. Financial services, healthcare, technology, retail - the data will show where to concentrate.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Present the US revenue plan.</strong> Deliver a data-backed plan to Ben and Arie covering pipeline projections, hiring needs, territory strategy, and the path to the 10x ARR target. Not a slide deck - a working model built from real pipeline data.</span>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffreyaragon">linkedin.com/in/jeffreyaragon</a></span>
+        <span>Page 2 of 3</span>
+    </div>
+</div>
+
+<!-- PAGE 3: Why Jeff + Next Steps -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">Why Me</div>
+            <h1 class="doc-title">What I <span class="accent">Bring</span></h1>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <div class="card card-red" style="margin-bottom:16px;">
+        <h4 style="color:var(--red); margin-bottom:10px;">25 years selling into procurement committees.</h4>
+        <p style="color:var(--bright);">The buyers who purchase Omnea - CFOs, CPOs, VPs of Procurement - are the same stakeholders I have been selling to for my entire career. I know how procurement committees evaluate, how they buy, and how to navigate the politics that kill deals. This is not a new buyer persona for me. It is the one I know best.</p>
+    </div>
+
+    <div class="card card-gold" style="margin-bottom:16px;">
+        <h4 style="color:var(--gold); margin-bottom:10px;">Multi-stakeholder deal navigation is my specialty.</h4>
+        <p>Enterprise procurement deals involve 6 to 12 stakeholders across procurement, finance, IT, compliance, and business units. I have spent 25 years running these buying committees - building champions, neutralizing blockers, and aligning decision-makers around a business case. This is not something I learned from a playbook. It is how I have closed every major deal in my career.</p>
+    </div>
+
+    <div class="card card-slate" style="margin-bottom:16px;">
+        <h4 style="color:var(--slate); margin-bottom:10px;">Built GTM from zero in new markets.</h4>
+        <p>I have built go-to-market engines from scratch for companies entering new markets - defining ICP, building pipeline, closing first deals, and documenting the playbook for the team that follows. Omnea's US expansion is exactly this motion. The product is proven. The funding is in place. What is needed is someone who can build the revenue engine on the ground in New York.</p>
+    </div>
+
+    <div class="card card-red" style="margin-bottom:16px;">
+        <h4 style="color:var(--red); margin-bottom:10px;">C-suite relationships and executive events.</h4>
+        <p style="color:var(--bright);">I build relationships with CFOs and procurement leaders through direct outreach, executive roundtables, and targeted events. These are not networking happy hours. They are structured conversations that create pipeline and accelerate enterprise trust. I have run these programs before and I will build one for Omnea in New York.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- The Ask -->
+    <div class="section-label">Next Step</div>
+    <div style="margin-top:8px; margin-bottom:24px;">
+        <p style="font-family:Poppins,sans-serif; font-size:14pt; font-weight:400; color:var(--white); line-height:1.6;">I put real thought into this plan. It is based on what I know about Omnea's product, your market position, and the US expansion challenge in front of you. I would welcome the chance to discuss and refine it together.</p>
+        <p style="font-family:Poppins,sans-serif; font-size:14pt; font-weight:400; color:var(--bright); line-height:1.6; margin-top:12px;">What would you change?</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Contact -->
+    <div style="text-align:center; margin-top:16px;">
+        <p style="font-family:Poppins,sans-serif; font-size:15pt; font-weight:600; color:var(--white); margin-bottom:8px;">Let us talk.</p>
+        <p style="color:var(--gray); font-size:11pt;">Jeff Aragon</p>
+        <p style="margin-top:6px;"><a href="mailto:jeff@jozuconsultinggroup.com" style="color:var(--red); text-decoration:none;">jeff@jozuconsultinggroup.com</a></p>
+        <p style="margin-top:4px;"><a href="https://www.linkedin.com/in/jeffreyaragon" style="color:var(--red); text-decoration:none;">linkedin.com/in/jeffreyaragon</a></p>
+    </div>
+
+    <div class="footer">
+        <span>Jeff Aragon</span>
+        <span>Page 3 of 3</span>
+    </div>
+    <div class="confidential">Prepared exclusively for Omnea</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>90-Day Revenue Architecture Plan - Outseer | JEFF ARAGON</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    @page {
+        size: letter;
+        margin: 0;
+    }
+    :root {
+        --bg: #0a0e17;
+        --bg-card: rgba(255,255,255,0.03);
+        --bg-card-border: rgba(255,255,255,0.06);
+        --red: #e34115;
+        --red-dim: rgba(227,65,21,0.12);
+        --gold: #c9a84c;
+        --gold-dim: rgba(201,168,76,0.10);
+        --slate: #64748b;
+        --white: #ffffff;
+        --gray: #cbd5e1;
+        --bright: #e2e8f0;
+        --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: var(--bg);
+        color: var(--gray);
+        font-family: 'Open Sans', sans-serif;
+        font-size: 11pt;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+
+    /* Page container */
+    .page {
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0 auto;
+        padding: 48px 56px;
+        background: var(--bg);
+        position: relative;
+        overflow: hidden;
+        page-break-after: always;
+    }
+    .page:last-child { page-break-after: auto; }
+
+    /* Subtle background glow */
+    .page::before {
+        content: '';
+        position: absolute;
+        top: -150px; right: -150px;
+        width: 500px; height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--red-dim) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+    }
+    .page > * { position: relative; z-index: 1; }
+
+    /* Header */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 36px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--red);
+    }
+    .header-left { flex: 1; }
+    .header-logo { width: 140px; opacity: 0.9; }
+    .doc-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9pt;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 6px;
+    }
+    .doc-title {
+        font-size: 22pt;
+        font-weight: 700;
+        line-height: 1.15;
+        margin-bottom: 4px;
+    }
+    .doc-title .accent { color: var(--red); }
+    .doc-subtitle {
+        font-family: 'Poppins', sans-serif;
+        font-size: 11pt;
+        font-weight: 300;
+        color: var(--slate);
+    }
+    .doc-date {
+        font-size: 9pt;
+        color: var(--slate);
+        margin-top: 8px;
+    }
+
+    /* Section headers */
+    .section-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 8pt;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .section-label::before {
+        content: '';
+        width: 24px; height: 2px;
+        background: var(--red);
+    }
+    h2 { font-size: 16pt; font-weight: 600; margin-bottom: 14px; }
+    h3 { font-size: 12pt; font-weight: 500; color: var(--red); margin-bottom: 8px; }
+    h4 { font-size: 10pt; font-weight: 500; color: var(--gold); margin-bottom: 6px; }
+
+    /* Cards */
+    .card {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 18px 20px;
+        margin-bottom: 12px;
+    }
+    .card-red { border-left: 3px solid var(--red); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+
+    .card-grid { display: grid; gap: 12px; margin-bottom: 16px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    /* Phase timeline */
+    .phase-block {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        margin-bottom: 16px;
+        position: relative;
+    }
+    .phase-block::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 4px; height: 100%;
+        border-radius: 4px 0 0 4px;
+    }
+    .phase-1::before { background: var(--red); }
+    .phase-2::before { background: var(--gold); }
+    .phase-3::before { background: var(--slate); }
+    .phase-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9pt;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+    }
+    .phase-1 .phase-number { color: var(--red); }
+    .phase-2 .phase-number { color: var(--gold); }
+    .phase-3 .phase-number { color: var(--slate); }
+    .phase-title {
+        font-family: 'Poppins', sans-serif;
+        font-size: 13pt;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 10px;
+    }
+
+    /* Deliverable list */
+    .deliverable {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+    .deliverable-check {
+        color: var(--red);
+        font-size: 11pt;
+        margin-top: 1px;
+        flex-shrink: 0;
+    }
+
+    /* Stats row */
+    .stat-row {
+        display: flex;
+        gap: 16px;
+        margin: 16px 0;
+    }
+    .stat-box {
+        flex: 1;
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 16px;
+        text-align: center;
+    }
+    .stat-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 20pt;
+        font-weight: 700;
+        color: var(--red);
+    }
+    .stat-label {
+        font-size: 8.5pt;
+        color: var(--gray);
+        margin-top: 2px;
+    }
+
+    /* Table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+        font-size: 10pt;
+    }
+    th {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 8.5pt;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--red);
+        text-align: left;
+        padding: 10px 14px;
+        border-bottom: 1px solid rgba(227,65,21,0.2);
+        background: var(--red-dim);
+    }
+    td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--bg-card-border);
+        color: var(--gray);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    /* Engagement options */
+    .engagement-option {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        margin-bottom: 12px;
+        position: relative;
+    }
+    .engagement-option.featured {
+        border-color: var(--red);
+        background: var(--red-dim);
+    }
+    .featured-badge {
+        position: absolute;
+        top: -1px; right: 20px;
+        background: var(--red);
+        color: var(--white);
+        font-family: 'Poppins', sans-serif;
+        font-size: 7.5pt;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 4px 12px;
+        border-radius: 0 0 6px 6px;
+    }
+    .option-name {
+        font-family: 'Poppins', sans-serif;
+        font-size: 13pt;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 4px;
+    }
+    .option-price {
+        font-family: 'Poppins', sans-serif;
+        font-size: 11pt;
+        font-weight: 500;
+        color: var(--red);
+        margin-bottom: 8px;
+    }
+
+    /* Divider */
+    .divider { width: 50px; height: 2px; background: var(--red); margin: 16px 0; opacity: 0.5; }
+
+    /* Footer */
+    .footer {
+        margin-top: 32px;
+        padding-top: 16px;
+        border-top: 1px solid var(--bg-card-border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8.5pt;
+        color: var(--slate);
+    }
+    .footer a { color: var(--red); text-decoration: none; }
+
+    /* Confidential banner */
+    .confidential {
+        font-family: 'Poppins', sans-serif;
+        font-size: 7pt;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--slate);
+        text-align: center;
+        margin-top: 12px;
+    }
+
+    /* Print optimization */
+    @media print {
+        body { background: var(--bg); }
+        .page { margin: 0; box-shadow: none; }
+    }
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-343BVDJ9KX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-343BVDJ9KX");
+</script>
+</head>
+<body>
+
+<!-- PAGE 1: Cover + Situation Assessment -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">90-Day Revenue Architecture Plan</div>
+            <h1 class="doc-title">
+                <span class="accent">Outseer</span>
+            </h1>
+            <div class="doc-subtitle">Digital Fraud Prevention and Payment Authentication</div>
+            <div class="doc-date">Prepared by Jeff Aragon | April 2026</div>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <!-- Situation Assessment -->
+    <div class="section-label">Situation Assessment</div>
+    <h2>Where Outseer Is Right Now</h2>
+
+    <div class="card-grid cols-2">
+        <div class="card card-red">
+            <h4 style="color:var(--red)">What You Have</h4>
+            <p>The RSA Security heritage and a data network built on 20+ years of protecting the world's largest financial institutions. Over 6,000 FI customers across 50+ countries. Fraud Manager delivers 99%+ detection rates with under 5% false positives. 3-D Secure protects $195B in payment volume. $5T+ in transactions protected annually. Named customers include BMO, ING, Santander, and HDFC Bank. The product works at massive scale. The data moat is real.</p>
+        </div>
+        <div class="card card-gold">
+            <h4>What You Need</h4>
+            <p>Americas revenue acceleration under an entirely new GTM leadership team. Shane Cumming joined as CRO in December 2025. Chris Willis arrived as CMO in August 2025. Mark Hallam came on as CSO in January 2025. The strategy is being rebuilt. Now you need a VP Sales who can translate that strategy into pipeline, deals, and predictable Americas revenue growth - fast.</p>
+        </div>
+    </div>
+
+    <div class="card card-slate">
+        <h4 style="color:var(--slate)">The Core Challenge</h4>
+        <p>Outseer is a PE-backed company in transformation mode. Symphony Technology Group expects growth. The competitive landscape has shifted - BioCatch holds a 4.9/5 Gartner rating versus Outseer's 3.7/5. Meanwhile, the Nacha March 2026 mandate requiring proactive fraud monitoring at all banks creates an urgent demand catalyst. The opportunity is clear: align the new GTM leadership, activate the regulatory tailwind, and drive aggressive Americas expansion before competitors capture the compliance-driven pipeline.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">Why This Matters Now</div>
+    <h2>The Market Opportunity</h2>
+
+    <div class="stat-row">
+        <div class="stat-box">
+            <div class="stat-number">$5T+</div>
+            <div class="stat-label">transactions protected annually</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">6,000+</div>
+            <div class="stat-label">financial institutions across 50+ countries</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">$35B</div>
+            <div class="stat-label">payment security market growing to $145B by 2034</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">120B+</div>
+            <div class="stat-label">annual transactions flowing through the network</div>
+        </div>
+    </div>
+
+    <p>The fraud detection market is projected to reach $244B by 2034. Regulatory pressure is accelerating buyer urgency. The Nacha mandate alone forces thousands of US financial institutions to implement proactive fraud monitoring. Outseer has the product, the data, and the customer base. The gap is a sales leader in the Americas who can convert this moment into revenue before BioCatch, Featurespace, and Feedzai take the territory.</p>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffreyaragon">linkedin.com/in/jeffreyaragon</a></span>
+        <span>Page 1 of 3</span>
+    </div>
+</div>
+
+<!-- PAGE 2: The 90-Day Plan -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">The Plan</div>
+            <h1 class="doc-title">90 Days to <span class="accent">Americas Revenue Growth</span></h1>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <!-- Phase 1 -->
+    <div class="phase-block phase-1">
+        <div class="phase-number">Phase 1: Days 1-30</div>
+        <div class="phase-title">Audit, Align, Accelerate</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Audit Americas pipeline and team.</strong> Complete assessment of existing pipeline quality, stage accuracy, and velocity. Evaluate current team capabilities, territory coverage, and quota attainment trends. Identify what is real, what is stalled, and what needs to be rebuilt.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Analyze win/loss data.</strong> Review the last 12 months of closed-won and closed-lost deals. Where is Outseer winning against BioCatch and NICE Actimize? Where is it losing? Map the patterns to inform competitive positioning and deal strategy.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Define account tiering.</strong> Segment the Americas book into tiers based on revenue potential, competitive exposure, and Nacha compliance urgency. Prioritize the accounts that can move fastest and deliver the most revenue impact.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Align with CRO on targets.</strong> Build a working cadence with Shane Cumming. Agree on Americas revenue targets, pipeline coverage ratios, forecasting methodology, and reporting structure. Ensure full alignment before scaling execution.</span>
+        </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="phase-block phase-2">
+        <div class="phase-number">Phase 2: Days 31-60</div>
+        <div class="phase-title">Activate Demand, Build Competitive Edge</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Activate the Nacha compliance mandate.</strong> The March 2026 rule requiring proactive fraud monitoring is a demand catalyst. Build targeted outreach and deal strategy around compliance urgency. Every bank that has not implemented proactive monitoring is a prospect with a deadline.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Accelerate enterprise pipeline.</strong> Focus on large FI opportunities where Outseer's data network and scale create a defensible advantage. Drive multi-product deals combining Fraud Manager, 3-D Secure, and FraudAction for maximum deal size and stickiness.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Build competitive positioning against BioCatch.</strong> BioCatch leads in analyst perception. Outseer leads in transaction volume, data breadth, and installed base. Build battle cards, proof points, and competitive displacement playbooks that shift the conversation to where Outseer wins.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Drive cross-sell across the installed base.</strong> 6,000+ FIs already use Outseer products. Many use only one. Identify cross-sell opportunities for Fraud Manager, 3-D Secure, and FraudAction within existing accounts. Fastest path to revenue growth.</span>
+        </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="phase-block phase-3">
+        <div class="phase-number">Phase 3: Days 61-90</div>
+        <div class="phase-title">Scale the Engine</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Deliver Americas revenue plan.</strong> Present a data-backed plan for the next 4 quarters. Pipeline targets by segment, territory assignments, conversion benchmarks, and revenue forecast. Built on 60 days of real pipeline data, not assumptions.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Establish partnership channel.</strong> Identify and activate partnerships with payment processors, banking technology consultants, and compliance advisory firms. These partners are already in conversations with the buyers Outseer needs to reach.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Define team expansion needs.</strong> Based on pipeline analysis and territory coverage gaps, recommend hiring plan for the Americas sales organization. Roles, profiles, territories, and comp structures. Built to support the growth trajectory STG expects.</span>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffreyaragon">linkedin.com/in/jeffreyaragon</a></span>
+        <span>Page 2 of 3</span>
+    </div>
+</div>
+
+<!-- PAGE 3: Why Jeff + Next Steps -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">Why Me</div>
+            <h1 class="doc-title">What I <span class="accent">Bring</span></h1>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <div class="card card-red" style="margin-bottom:16px;">
+        <h4 style="color:var(--red); margin-bottom:10px;">Enterprise security and infrastructure selling.</h4>
+        <p style="color:var(--bright);">25 years selling complex enterprise technology to security-conscious, compliance-driven buyers. I have sold into financial institutions, healthcare systems, and Fortune 500 enterprises where procurement cycles are long, stakeholder maps are deep, and trust is the currency that closes deals. This is Outseer's buyer profile.</p>
+    </div>
+
+    <div class="card card-gold" style="margin-bottom:16px;">
+        <h4 style="color:var(--gold); margin-bottom:10px;">Cross-cultural leadership with Japan experience.</h4>
+        <p>I have lived and worked in Japan and bring direct experience navigating cross-cultural business relationships across Asia-Pacific. Outseer has a meaningful presence in Japan, Australia, and Singapore. I understand the nuances of building trust and closing deals across these markets, not just the Americas.</p>
+    </div>
+
+    <div class="card card-slate" style="margin-bottom:16px;">
+        <h4 style="color:var(--slate); margin-bottom:10px;">Regulated industries and complex procurement.</h4>
+        <p>Financial services procurement is not a standard enterprise sale. It involves security reviews, compliance validation, vendor risk assessments, and multi-layered approval chains. I have spent 25 years navigating exactly this kind of procurement. I know how to keep deals moving through the process without stalling.</p>
+    </div>
+
+    <div class="card card-red" style="margin-bottom:16px;">
+        <h4 style="color:var(--red); margin-bottom:10px;">Pipeline built under PE growth expectations.</h4>
+        <p style="color:var(--bright);">I understand the urgency and accountability that comes with PE-backed growth targets. I have built pipeline from zero in multiple markets, created forecasting discipline, and delivered revenue against aggressive timelines. STG expects growth. I know how to deliver it.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- The Ask -->
+    <div class="section-label">Next Step</div>
+    <div style="margin-top:8px; margin-bottom:24px;">
+        <p style="font-family:Poppins,sans-serif; font-size:14pt; font-weight:400; color:var(--white); line-height:1.6;">I put real thought into this plan. It is based on what I know about Outseer's products, market position, competitive landscape, and the transformation underway. I would welcome the chance to discuss and refine it with you.</p>
+        <p style="font-family:Poppins,sans-serif; font-size:14pt; font-weight:400; color:var(--bright); line-height:1.6; margin-top:12px;">Where would you want to start?</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Contact -->
+    <div style="text-align:center; margin-top:16px;">
+        <p style="font-family:Poppins,sans-serif; font-size:15pt; font-weight:600; color:var(--white); margin-bottom:8px;">Let us talk.</p>
+        <p style="color:var(--gray); font-size:11pt;">Jeff Aragon</p>
+        <p style="margin-top:6px;"><a href="mailto:jeff@jozuconsultinggroup.com" style="color:var(--red); text-decoration:none;">jeff@jozuconsultinggroup.com</a></p>
+        <p style="margin-top:4px;"><a href="https://www.linkedin.com/in/jeffreyaragon" style="color:var(--red); text-decoration:none;">linkedin.com/in/jeffreyaragon</a></p>
+    </div>
+
+    <div class="footer">
+        <span>Jeff Aragon</span>
+        <span>Page 3 of 3</span>
+    </div>
+    <div class="confidential">Prepared exclusively for Outseer</div>
+</div>
+
+</body>
+</html>
