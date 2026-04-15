@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Go-to-Market Sales Plan - Barti | JEFF ARAGON</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    @page { size: letter; margin: 0; }
+    :root {
+        --bg: #0a0e17; --bg-card: rgba(255,255,255,0.03); --bg-card-border: rgba(255,255,255,0.06);
+        --red: #e34115; --red-dim: rgba(227,65,21,0.12); --gold: #c9a84c; --gold-dim: rgba(201,168,76,0.10);
+        --slate: #64748b; --white: #ffffff; --gray: #cbd5e1; --bright: #e2e8f0; --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--gray); font-family: 'Open Sans', sans-serif; font-size: 11pt; line-height: 1.55; -webkit-font-smoothing: antialiased; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+    .page { width: 8.5in; min-height: 11in; margin: 0 auto; padding: 48px 56px; background: var(--bg); position: relative; overflow: hidden; page-break-after: always; }
+    .page:last-child { page-break-after: auto; }
+    .page::before { content: ''; position: absolute; top: -150px; right: -150px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, var(--red-dim) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+    .page > * { position: relative; z-index: 1; }
+    .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 36px; padding-bottom: 20px; border-bottom: 2px solid var(--red); }
+    .header-left { flex: 1; }
+    .doc-label { font-family: 'Poppins', sans-serif; font-size: 9pt; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
+    .doc-title { font-size: 22pt; font-weight: 700; line-height: 1.15; margin-bottom: 4px; }
+    .doc-title .accent { color: var(--red); }
+    .doc-subtitle { font-family: 'Poppins', sans-serif; font-size: 11pt; font-weight: 300; color: var(--slate); }
+    .doc-date { font-size: 9pt; color: var(--slate); margin-top: 8px; }
+    .section-label { font-family: 'Poppins', sans-serif; font-size: 8pt; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--red); margin-bottom: 6px; display: flex; align-items: center; gap: 10px; }
+    .section-label::before { content: ''; width: 24px; height: 2px; background: var(--red); }
+    h2 { font-size: 16pt; font-weight: 600; margin-bottom: 14px; }
+    h3 { font-size: 12pt; font-weight: 500; color: var(--red); margin-bottom: 8px; }
+    h4 { font-size: 10pt; font-weight: 500; color: var(--gold); margin-bottom: 6px; }
+    .card { background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 12px; }
+    .card-red { border-left: 3px solid var(--red); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+    .card-grid { display: grid; gap: 12px; margin-bottom: 16px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .phase-block { background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius); padding: 22px 24px; margin-bottom: 16px; position: relative; }
+    .phase-block::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; border-radius: 4px 0 0 4px; }
+    .phase-1::before { background: var(--red); }
+    .phase-2::before { background: var(--gold); }
+    .phase-3::before { background: var(--slate); }
+    .phase-number { font-family: 'Poppins', sans-serif; font-size: 9pt; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+    .phase-1 .phase-number { color: var(--red); }
+    .phase-2 .phase-number { color: var(--gold); }
+    .phase-3 .phase-number { color: var(--slate); }
+    .phase-title { font-family: 'Poppins', sans-serif; font-size: 13pt; font-weight: 600; color: var(--white); margin-bottom: 10px; }
+    .deliverable { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+    .deliverable-check { color: var(--red); font-size: 11pt; margin-top: 1px; flex-shrink: 0; }
+    .stat-row { display: flex; gap: 16px; margin: 16px 0; }
+    .stat-box { flex: 1; background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius); padding: 16px; text-align: center; }
+    .stat-number { font-family: 'Poppins', sans-serif; font-size: 20pt; font-weight: 700; color: var(--red); }
+    .stat-label { font-size: 8.5pt; color: var(--gray); margin-top: 2px; }
+    .divider { width: 50px; height: 2px; background: var(--red); margin: 16px 0; opacity: 0.5; }
+    .footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--bg-card-border); display: flex; justify-content: space-between; align-items: center; font-size: 8.5pt; color: var(--slate); }
+    .footer a { color: var(--red); text-decoration: none; }
+    .confidential { font-family: 'Poppins', sans-serif; font-size: 7pt; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--slate); text-align: center; margin-top: 12px; }
+    @media print { body { background: var(--bg); } .page { margin: 0; box-shadow: none; } }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: Cover + Diagnosis -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">Go-to-Market Sales Plan</div>
+            <h1 class="doc-title"><span class="accent">Barti</span></h1>
+            <div class="doc-subtitle">AI-Powered EHR and Practice Management for Eye Care</div>
+            <div class="doc-date">Prepared by Jeff Aragon | April 2026</div>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <div class="section-label">Situation Assessment</div>
+    <h2>Where Barti Is Right Now</h2>
+
+    <div class="card-grid cols-2">
+        <div class="card card-red">
+            <h4 style="color:var(--red)">What You Have Built</h4>
+            <p>The only cloud-native, AI-first EHR built exclusively for eye care. 12 AI tools including Scribe, AI Receptionist, and Quinn AI Agent. 200+ practices onboarded. $3.7M in revenue. $12M Series A led by Five Elms Capital. The AOA's for-profit subsidiary invested in and endorsed Barti - the first and only EHR to receive this. That is a competitive moat no one else can replicate. You reduced 100+ clicks per eye exam to a fraction of that. The product is proven and the market endorsement is in place.</p>
+        </div>
+        <div class="card card-gold">
+            <h4>What You Need Next</h4>
+            <p>200 practices is less than 1% of the 40,000+ eye care locations in the US. The product works. The AOA endorsement opens doors. Now you need a sales engine that systematically reaches the other 99% before RevolutionEHR, Compulink, and ModMed figure out how to bolt AI onto their legacy platforms. The window is open, but it will not stay open forever.</p>
+        </div>
+    </div>
+
+    <div class="card card-slate">
+        <h4 style="color:var(--slate)">The Core Challenge</h4>
+        <p>Eye care practices are running on fragmented systems that were never designed to work together. The optometrist toggles between an EHR, a billing platform, a scheduler, a phone system, and a patient messaging tool. The practice manager reconciles data across all of them. Doctors stay late doing notes. 30% of calls go unanswered. Staff leave not because of the work but because the tools make everything harder. Barti replaces all of it with one platform. The sale is not "switch your EHR." The sale is "stop running your practice on duct tape."</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">The Market</div>
+    <h2>Why This Window Matters</h2>
+
+    <div class="stat-row">
+        <div class="stat-box">
+            <div class="stat-number">40,000+</div>
+            <div class="stat-label">Eye care practice locations in the US</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">$800M+</div>
+            <div class="stat-label">Eye care EHR and practice management market</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">200</div>
+            <div class="stat-label">Barti practices today (less than 1% penetration)</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">AOA</div>
+            <div class="stat-label">First and only EHR endorsed by American Optometric Association</div>
+        </div>
+    </div>
+
+    <p>The incumbents (RevolutionEHR, Compulink, ModMed, Nextech) are legacy systems with decades of technical debt. They cannot deliver AI-native workflows without rebuilding from scratch. Barti was born cloud-native and AI-first. That is a structural advantage. But legacy vendors have existing relationships and switching costs on their side. The next 12-18 months determine whether Barti captures this market or whether the incumbents buy enough time to catch up.</p>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffreyaragon">linkedin.com/in/jeffreyaragon</a></span>
+        <span>Page 1 of 3</span>
+    </div>
+</div>
+
+<!-- PAGE 2: The Plan -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">The Plan</div>
+            <h1 class="doc-title">From 200 Practices to <span class="accent">2,000</span></h1>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <div class="phase-block phase-1">
+        <div class="phase-number">Phase 1: Days 1-30</div>
+        <div class="phase-title">Audit, Segment, Launch</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Audit the existing sales motion.</strong> Day 1. How are the current 200 practices finding Barti? What is the conversion rate from demo to signed? What is the average deal size and cycle time? Where are deals stalling? Extract the patterns that drive the next 2,000.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Segment the market.</strong> Three tiers. Tier 1: Multi-location eye care groups and private equity-backed optometry platforms (10-100+ locations, $100K-$500K+ annual contracts). Tier 2: Independent practices with 2-5 doctors (the volume play, $15-25K annual contracts). Tier 3: Solo practitioners (highest volume, lowest touch, product-led conversion). Build the ICP and sales motion for each tier.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Develop the ROI messaging.</strong> Quantify the value in terms practice owners care about: staff hours saved per week, additional patients per day from AI Scribe and Quinn (1-2 more patients daily), revenue recovered from AI Receptionist (30% of calls currently go unanswered, 10-20% more appointments booked), billing accuracy improvement, and total system cost reduction from replacing 10+ tools with one.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Activate the AOA channel.</strong> The AOA endorsement is your most powerful asset. Build a co-marketing and co-selling motion with AOAExcel. Every AOA member who evaluates an EHR should see Barti first. Conference sponsorships, AOA newsletter placements, state association events. Make the endorsement a pipeline engine, not just a badge.</span>
+        </div>
+    </div>
+
+    <div class="phase-block phase-2">
+        <div class="phase-number">Phase 2: Days 31-60</div>
+        <div class="phase-title">Enterprise Deals, Repeatable Process</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Target multi-location groups.</strong> PE-backed optometry platforms (MyEyeDr, EyeCare Partners, Total Vision, Clarkson Eyecare) and large independent groups are the enterprise play. These are $100K-$500K+ annual deals with centralized decision-making. Build the business case for standardizing on Barti across all locations: unified patient records, consistent clinical workflows, centralized billing and reporting.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Close first enterprise deals.</strong> Work live opportunities through the full cycle. Discovery with the practice group CEO or VP of Operations. Clinical validation with the lead optometrist or medical director. IT review for integration requirements. Procurement and contract. Install forecast discipline with a plan letter methodology - every meeting produces a confirmed document the buyer validates.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Build the demo-to-close playbook.</strong> Document the discovery framework, demo flow, objection handling (switching costs, data migration, staff retraining), proposal structure, and implementation timeline. The Dr. Shyu result (78% increase in patient visits, 36%+ revenue boost) is your proof point. Make it repeatable.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Launch outbound to independent practices.</strong> Build a target list of the top 500 independent multi-doctor practices. Lead with the operational pain, not the technology: "How many hours a week does your staff spend toggling between systems? How many calls are you missing? What would 1-2 more patients per day mean for your revenue?"</span>
+        </div>
+    </div>
+
+    <div class="phase-block phase-3">
+        <div class="phase-number">Phase 3: Days 61-90</div>
+        <div class="phase-title">Scale the Engine</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Hire and onboard AEs.</strong> Define the profile based on 60 days of real selling data. Hire 2-3 AEs who can run the playbook from day one. Onboard them using the documented process. Get them into live deals within their first two weeks.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Build the partnership channel.</strong> ACQUIOS Advisors is already a partner - expand this model. Optical equipment distributors, practice management consultants, optometry buying groups, and ophthalmology ASC management companies all have existing relationships with your buyers. Structure referral agreements. Leverage partner MSAs to accelerate procurement at larger groups.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Map the ophthalmology expansion.</strong> Barti started in optometry. The $12M raise is partly to expand into ophthalmology. Ophthalmology practices are larger, higher revenue, and more complex (surgical workflows). Define the ICP, the buyer (practice administrator, medical director, ASC director), and the messaging for this segment. Build the roadmap for Year 2.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Present the 12-month revenue plan.</strong> Grounded in 90 days of real data: conversion rates, deal sizes, cycle lengths, channel performance. A roadmap for scaling from 200 to 2,000+ practices with clear hiring, pipeline, and partnership milestones.</span>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffreyaragon">linkedin.com/in/jeffreyaragon</a></span>
+        <span>Page 2 of 3</span>
+    </div>
+</div>
+
+<!-- PAGE 3: Why Jeff -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">Why Me</div>
+            <h1 class="doc-title">What I <span class="accent">Bring</span></h1>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <div class="card card-red" style="margin-bottom:16px;">
+        <h4 style="color:var(--red); margin-bottom:10px;">I have sold healthcare technology my entire career.</h4>
+        <p style="color:var(--bright);">$24M in total contract value at Ushur selling AI-powered automation into health plans and providers. 150%+ quota at UKG selling enterprise workforce management into hospital systems. Enterprise SaaS into post-acute care and senior living at OnShift. I know how healthcare organizations evaluate, buy, and implement technology. I know the practice administrator who controls the budget, the lead physician who needs clinical validation, and the office manager who needs to see operational ROI on day one.</p>
+    </div>
+
+    <div class="card card-gold" style="margin-bottom:16px;">
+        <h4 style="color:var(--gold); margin-bottom:10px;">I build sales engines from zero.</h4>
+        <p>Barti has 200 practices and needs 2,000. That means building the outbound motion, the enterprise sales process, the partnership channels, and the team - all while closing deals myself. I have done this multiple times. At Ushur, there were zero healthcare customers when I started. I built the pipeline, the process, and the deals from scratch. I do not hand you a playbook. I build it by selling, learning what works, and documenting as I go.</p>
+    </div>
+
+    <div class="card card-slate" style="margin-bottom:16px;">
+        <h4 style="color:var(--slate); margin-bottom:10px;">I know how to scale a platform sale, not just a feature sale.</h4>
+        <p>The biggest risk for Barti is being reduced to "another EHR" in the buyer's mind. You are not selling an EHR. You are selling the elimination of 10+ disconnected systems and the recovery of hours every day. That is a platform value proposition, and it requires a different sales conversation than a feature comparison. I have built this type of positioning before - at Ushur, I developed pricing and positioning strategies that enabled platform-level enterprise deals rather than transactional purchases. The same discipline applies here.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">One Question</div>
+    <div style="margin-top:8px; margin-bottom:24px;">
+        <p style="font-family:Poppins,sans-serif; font-size:14pt; font-weight:400; color:var(--white); line-height:1.6;">I put real thought into this plan. It is based on what I know so far about your product, your market, and the stage you are at. I would welcome the chance to refine it with you.</p>
+        <p style="font-family:Poppins,sans-serif; font-size:14pt; font-weight:400; color:var(--bright); line-height:1.6; margin-top:12px;">Is there anything in here you disagree with or want to change?</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div style="text-align:center; margin-top:16px;">
+        <p style="font-family:Poppins,sans-serif; font-size:15pt; font-weight:600; color:var(--white); margin-bottom:8px;">Let us talk.</p>
+        <p style="color:var(--gray); font-size:11pt;">Jeff Aragon | 303-638-1390</p>
+        <p style="margin-top:6px;"><a href="mailto:jeff@jozuconsultinggroup.com" style="color:var(--red); text-decoration:none;">jeff@jozuconsultinggroup.com</a></p>
+        <p style="margin-top:4px;"><a href="https://www.linkedin.com/in/jeffreyaragon" style="color:var(--red); text-decoration:none;">linkedin.com/in/jeffreyaragon</a></p>
+    </div>
+
+    <div class="footer">
+        <span>Jeff Aragon</span>
+        <span>Page 3 of 3</span>
+    </div>
+    <div class="confidential">Prepared exclusively for Barti</div>
+</div>
+
+</body>
+</html>
