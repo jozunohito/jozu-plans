@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jozu Consulting Group - Revenue Architecture for Early-Stage and International Companies</title>
+<meta name="description" content="Jozu Consulting Group builds US sales engines from zero. Fractional revenue architecture for early-stage and international companies. 90 days. Measurable.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #0a0e17;
+        --bg-card: rgba(255,255,255,0.03);
+        --bg-card-border: rgba(255,255,255,0.06);
+        --red: #e34115;
+        --red-dim: rgba(227,65,21,0.12);
+        --gold: #c9a84c;
+        --gold-dim: rgba(201,168,76,0.10);
+        --slate: #94a3b8;
+        --white: #ffffff;
+        --gray: #cbd5e1;
+        --bright: #e2e8f0;
+        --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+        background: var(--bg);
+        color: var(--gray);
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+
+    /* Layout */
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 32px;
+    }
+
+    /* Hero */
+    .hero {
+        position: relative;
+        padding: 80px 0 64px;
+        overflow: hidden;
+    }
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: -200px; right: -200px;
+        width: 600px; height: 600px;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--red-dim) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .hero::after {
+        content: '';
+        position: absolute;
+        bottom: -100px; left: -150px;
+        width: 400px; height: 400px;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--gold-dim) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .hero .container { position: relative; z-index: 1; }
+    .hero-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .hero-label::before {
+        content: '';
+        width: 32px; height: 2px;
+        background: var(--red);
+    }
+    .hero h1 {
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 16px;
+        max-width: 750px;
+    }
+    .hero h1 .accent { color: var(--red); }
+    .hero-sub {
+        font-family: 'Poppins', sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        color: var(--bright);
+        max-width: 650px;
+        line-height: 1.6;
+    }
+    .hero-divider {
+        width: 60px; height: 3px;
+        background: var(--red);
+        margin-top: 40px;
+    }
+
+    /* Sections */
+    .section {
+        padding: 56px 0;
+        position: relative;
+    }
+    .section + .section {
+        border-top: 1px solid var(--bg-card-border);
+    }
+    .section-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .section-label::before {
+        content: '';
+        width: 24px; height: 2px;
+        background: var(--red);
+    }
+    .section h2 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 24px;
+    }
+
+    /* Problem bullets */
+    .problem-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    .problem-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        font-size: 15px;
+        line-height: 1.65;
+    }
+    .problem-list li::before {
+        content: '';
+        flex-shrink: 0;
+        width: 8px; height: 8px;
+        margin-top: 8px;
+        background: var(--red);
+        border-radius: 50%;
+    }
+
+    /* Tier cards */
+    .tier-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 16px;
+    }
+    .tier-card {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 28px 24px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+    .tier-card.featured {
+        border-color: var(--red);
+        background: var(--red-dim);
+    }
+    .featured-badge {
+        position: absolute;
+        top: -1px; right: 20px;
+        background: var(--red);
+        color: var(--white);
+        font-family: 'Poppins', sans-serif;
+        font-size: 8px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 4px 12px;
+        border-radius: 0 0 6px 6px;
+    }
+    .tier-card h3 {
+        font-size: 17px;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+    .tier-price {
+        font-family: 'Poppins', sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--red);
+        margin-bottom: 14px;
+    }
+    .tier-card p {
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--gray);
+        flex: 1;
+    }
+    .tier-term {
+        margin-top: 14px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--slate);
+    }
+
+    /* Stat boxes */
+    .stat-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+    .stat-box {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 24px;
+        border-left: 3px solid var(--red);
+    }
+    .stat-box:nth-child(2) { border-left-color: var(--gold); }
+    .stat-box:nth-child(3) { border-left-color: var(--slate); }
+    .stat-box:nth-child(4) { border-left-color: var(--red); }
+    .stat-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--red);
+        margin-bottom: 6px;
+    }
+    .stat-box:nth-child(2) .stat-number { color: var(--gold); }
+    .stat-box:nth-child(3) .stat-number { color: var(--slate); }
+    .stat-box:nth-child(4) .stat-number { color: var(--red); }
+    .stat-desc {
+        font-size: 14px;
+        line-height: 1.55;
+        color: var(--gray);
+    }
+
+    /* Who hires us */
+    .who-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+    .who-card {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        font-size: 15px;
+        line-height: 1.6;
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+    }
+    .who-icon {
+        flex-shrink: 0;
+        width: 6px; height: 6px;
+        margin-top: 9px;
+        background: var(--gold);
+        border-radius: 50%;
+    }
+
+    /* Contact */
+    .contact-section {
+        padding: 56px 0 72px;
+        border-top: 1px solid var(--bg-card-border);
+        text-align: center;
+    }
+    .contact-name {
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 20px;
+    }
+    .contact-grid {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+    }
+    .contact-item {
+        font-size: 14px;
+        color: var(--gray);
+    }
+    .contact-item a {
+        color: var(--red);
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    .contact-item a:hover {
+        color: var(--gold);
+    }
+    .contact-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--slate);
+        margin-bottom: 4px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 24px 0;
+        border-top: 1px solid var(--bg-card-border);
+        text-align: center;
+        font-size: 12px;
+        color: var(--slate);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .hero h1 { font-size: 26px; }
+        .hero-sub { font-size: 16px; }
+        .tier-grid { grid-template-columns: 1fr; }
+        .stat-grid { grid-template-columns: 1fr; }
+        .who-grid { grid-template-columns: 1fr; }
+        .contact-grid { flex-direction: column; align-items: center; gap: 20px; }
+        .container { padding: 0 20px; }
+        .hero { padding: 48px 0 40px; }
+        .section { padding: 40px 0; }
+    }
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-343BVDJ9KX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-343BVDJ9KX");
+</script>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+    <div class="container">
+        <div class="hero-label">Jozu Consulting Group</div>
+        <h1>Revenue Architecture for <span class="accent">Early-Stage</span> and <span class="accent">International</span> Companies</h1>
+        <p class="hero-sub">We build US sales engines from zero. Fractional. 90 days. Measurable.</p>
+        <div class="hero-divider"></div>
+    </div>
+</div>
+
+<!-- The Problem We Solve -->
+<div class="section">
+    <div class="container">
+        <div class="section-label">What We Fix</div>
+        <h2>The Problem We Solve</h2>
+        <ul class="problem-list">
+            <li>Your portfolio company has product-market fit but no sales architecture</li>
+            <li>They are about to hire their first sales leader but have no process for that person to run</li>
+            <li>They are entering the US market from Israel, Europe, or Japan and need someone who knows the buyer</li>
+            <li>Every month without a structured sales engine is a month of lost pipeline and founder time burned on deals that go nowhere</li>
+        </ul>
+    </div>
+</div>
+
+<!-- How We Work -->
+<div class="section">
+    <div class="container">
+        <div class="section-label">Engagement Models</div>
+        <h2>How We Work</h2>
+        <div class="tier-grid">
+            <div class="tier-card">
+                <h3>System Install</h3>
+                <div class="tier-price">$2,500/mo</div>
+                <p>ICP definition, messaging, discovery framework, qualification criteria, pipeline scoring. Weekly 30-minute call plus async support.</p>
+                <div class="tier-term">3-month engagement</div>
+            </div>
+            <div class="tier-card featured">
+                <div class="featured-badge">Most Popular</div>
+                <h3>System + Operator</h3>
+                <div class="tier-price">$5,000/mo</div>
+                <p>Everything in System Install plus weekly deal inspection, pipeline review, rep coaching, and call reviews. Hands-on operating support.</p>
+                <div class="tier-term">3-month engagement</div>
+            </div>
+            <div class="tier-card">
+                <h3>Fractional CRO</h3>
+                <div class="tier-price">$12,000 - $20,000/mo</div>
+                <p>Embedded operating revenue leader. Pipeline ownership, forecast discipline, team building, and full GTM accountability.</p>
+                <div class="tier-term">90 days to 12 months</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Proof -->
+<div class="section">
+    <div class="container">
+        <div class="section-label">Track Record</div>
+        <h2>Proof</h2>
+        <div class="stat-grid">
+            <div class="stat-box">
+                <div class="stat-number">$24M TCV</div>
+                <div class="stat-desc">Generated at Ushur building the Healthcare vertical from zero</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">150%+ Quota</div>
+                <div class="stat-desc">Consistent attainment at UKG across 5.5 years</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">25 Years</div>
+                <div class="stat-desc">Enterprise sales across healthcare, SaaS, security, and infrastructure</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">Int'l Specialist</div>
+                <div class="stat-desc">Market entry expertise for companies expanding from Japan, Israel, and Europe to the US</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Who Hires Us -->
+<div class="section">
+    <div class="container">
+        <div class="section-label">Our Clients</div>
+        <h2>Who Hires Us</h2>
+        <div class="who-grid">
+            <div class="who-card">
+                <div class="who-icon"></div>
+                <span>Founder-led companies preparing to hire their first sales leader</span>
+            </div>
+            <div class="who-card">
+                <div class="who-icon"></div>
+                <span>Post-funding companies that need to prove GTM velocity to investors</span>
+            </div>
+            <div class="who-card">
+                <div class="who-icon"></div>
+                <span>International companies entering the US market</span>
+            </div>
+            <div class="who-card">
+                <div class="who-icon"></div>
+                <span>VCs who want to accelerate GTM for portfolio companies</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact -->
+<div class="contact-section">
+    <div class="container">
+        <div class="section-label" style="justify-content:center;">Get Started</div>
+        <div class="contact-name">Jeff Aragon, Founder</div>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <div class="contact-label">Email</div>
+                <a href="mailto:jeff@jozuconsultinggroup.com">jeff@jozuconsultinggroup.com</a>
+            </div>
+            <div class="contact-item">
+                <div class="contact-label">Phone</div>
+                <a href="tel:3036381390">303-638-1390</a>
+            </div>
+            <div class="contact-item">
+                <div class="contact-label">LinkedIn</div>
+                <a href="https://www.linkedin.com/in/jeffreyaragon" target="_blank">linkedin.com/in/jeffreyaragon</a>
+            </div>
+            <div class="contact-item">
+                <div class="contact-label">Web</div>
+                <a href="https://www.jozuconsultinggroup.com" target="_blank">jozuconsultinggroup.com</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <div class="container">
+        Jozu Consulting Group | Revenue Architecture for Growth-Stage Companies
+    </div>
+</div>
+
+</body>
+</html>
