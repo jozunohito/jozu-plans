@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vidext - US Market GTM Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #0a0e17;
+        --bg-card: rgba(255,255,255,0.03);
+        --bg-card-border: rgba(255,255,255,0.06);
+        --accent: #e34115;
+        --accent-dim: rgba(227,65,21,0.12);
+        --gold: #c9a84c;
+        --gold-dim: rgba(201,168,76,0.10);
+        --green: #22c55e;
+        --green-dim: rgba(34,197,94,0.10);
+        --slate: #64748b;
+        --white: #ffffff;
+        --gray: #cbd5e1;
+        --bright: #e2e8f0;
+        --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: var(--bg);
+        color: var(--gray);
+        font-family: 'Open Sans', sans-serif;
+        font-size: 15px;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        padding: 50px 40px;
+    }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+    .container { max-width: 1060px; margin: 0 auto; }
+    .header { margin-bottom: 48px; padding-bottom: 28px; border-bottom: 2px solid var(--accent); }
+    .doc-label { font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .doc-title { font-size: 30px; font-weight: 700; line-height: 1.2; margin-bottom: 6px; }
+    .doc-subtitle { font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 300; color: var(--gray); margin-bottom: 4px; }
+    .doc-meta { font-size: 12px; color: var(--gray); margin-top: 8px; }
+    .section { margin-bottom: 44px; }
+    .section-label { font-family: 'Poppins', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+    .section-label::before { content: ''; width: 24px; height: 2px; background: var(--accent); }
+    h2 { font-size: 20px; font-weight: 600; margin-bottom: 16px; }
+    h3 { font-size: 15px; font-weight: 500; color: var(--accent); margin-bottom: 8px; }
+    h4 { font-size: 13px; font-weight: 500; color: var(--gold); margin-bottom: 6px; }
+    .card { background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius); padding: 22px 26px; margin-bottom: 14px; }
+    .card-red { border-left: 3px solid var(--accent); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+    .card-green { border-left: 3px solid var(--green); }
+    .card-grid { display: grid; gap: 14px; margin-bottom: 16px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .divider { width: 60px; height: 2px; background: var(--accent); margin: 32px 0; opacity: 0.4; }
+    ul { padding-left: 20px; margin: 8px 0; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--white); font-weight: 600; }
+    .stat-row { display: flex; gap: 14px; margin: 16px 0; }
+    .stat-box { flex: 1; background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius); padding: 18px; text-align: center; }
+    .stat-number { font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 700; color: var(--accent); }
+    .stat-number.gold { color: var(--gold); }
+    .stat-number.green { color: var(--green); }
+    .stat-label { font-size: 11px; color: var(--gray); margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+    th { font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); text-align: left; padding: 10px 14px; border-bottom: 1px solid rgba(227,65,21,0.2); background: var(--accent-dim); }
+    td { padding: 10px 14px; border-bottom: 1px solid var(--bg-card-border); color: var(--gray); }
+    tr:last-child td { border-bottom: none; }
+    .callout { background: rgba(227,65,21,0.06); border: 1px solid rgba(227,65,21,0.15); border-radius: var(--radius); padding: 18px 24px; margin: 14px 0; color: var(--bright); }
+    .callout-label { font-family: 'Poppins', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 2px; color: var(--accent); margin-bottom: 6px; }
+    .callout-gold { background: rgba(201,168,76,0.06); border: 1px solid rgba(201,168,76,0.15); border-radius: var(--radius); padding: 18px 24px; margin: 14px 0; color: var(--bright); }
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), var(--gold), var(--green)); opacity: 0.4; }
+    .timeline-item { position: relative; margin-bottom: 20px; }
+    .timeline-item::before { content: ''; position: absolute; left: -24px; top: 6px; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--accent); background: var(--bg); }
+    .timeline-item.gold::before { border-color: var(--gold); }
+    .timeline-item.green::before { border-color: var(--green); }
+    .phase-label { font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+    .phase-red { color: var(--accent); }
+    .phase-gold { color: var(--gold); }
+    .phase-green { color: var(--green); }
+    .footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--bg-card-border); text-align: center; color: var(--gray); font-size: 13px; }
+    .footer strong { color: var(--white); }
+    p { margin-bottom: 10px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="doc-label">US Market GTM Plan</div>
+        <h1 class="doc-title">Vidext US Market GTM Plan</h1>
+        <div class="doc-subtitle">Launching AI Video Automation into the US Enterprise L&D Market</div>
+        <div class="doc-meta">Prepared by Jeff Aragon, Jozu Consulting Group | April 2026</div>
+    </div>
+
+    <!-- SECTION 1: COMPANY PROFILE -->
+    <div class="section">
+        <div class="section-label">01 - Company Profile</div>
+        <h2>Vidext at a Glance</h2>
+
+        <div class="stat-row">
+            <div class="stat-box">
+                <div class="stat-number">EUR 6M</div>
+                <div class="stat-label">Series A Funding</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number gold">250+</div>
+                <div class="stat-label">Enterprise Clients</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number green">Spain</div>
+                <div class="stat-label">Headquarters</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">2021</div>
+                <div class="stat-label">Founded</div>
+            </div>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>Company Overview</h3>
+                <p>Vidext is a Spanish AI startup redefining business process automation through artificial intelligence. The platform transforms written content into professional, personalized videos using AI, enabling companies to automate repetitive tasks, increase operational efficiency, and gain actionable insights from their content workflows.</p>
+                <p>The EUR 6M Series A was led by Flashpoint, an international tech investment firm with approximately $500M in AUM. HWK, 4Founders Capital, Sabadell Venture Capital, and DraperB1 also participated. The company has publicly stated that the US is the 2026 expansion priority.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Leadership</h3>
+                <ul>
+                    <li><strong>Jon Enriquez, Co-Founder and CEO</strong> - Leading commercial expansion and the US market entry strategy</li>
+                    <li><strong>Benat Arrizabalaga, Co-Founder and CSO</strong> - Driving sales strategy and customer acquisition</li>
+                    <li><strong>Andoni Enriquez, Co-Founder and CPTO</strong> - Leading product development and technical platform architecture</li>
+                </ul>
+                <h4>Expansion Timeline</h4>
+                <p>UK operations opened in 2025. US market entry planned for 2026. The company is building toward becoming a global player in AI business automation.</p>
+            </div>
+        </div>
+
+        <div class="card card-slate">
+            <h3>Product Platform</h3>
+            <div class="card-grid cols-3" style="margin-top: 12px;">
+                <div>
+                    <h4>AI Video Generation</h4>
+                    <p>Converts written content, documents, and training materials into professional video presentations with AI-generated presenters. Supports multiple languages and personalization at scale.</p>
+                </div>
+                <div>
+                    <h4>Enterprise L&D Automation</h4>
+                    <p>Purpose-built for corporate training, onboarding, and compliance video production. Eliminates the cost and time of traditional video production while maintaining professional quality.</p>
+                </div>
+                <div>
+                    <h4>Business Process Automation</h4>
+                    <p>Goes beyond video creation to automate entire content workflows, from document ingestion to multi-format output distribution across internal communications channels.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 2: MARKET ANALYSIS -->
+    <div class="section">
+        <div class="section-label">02 - Market Analysis</div>
+        <h2>US AI Video and Enterprise L&D Landscape</h2>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>Market Sizing</h3>
+                <div class="stat-row">
+                    <div class="stat-box">
+                        <div class="stat-number">$3.9B</div>
+                        <div class="stat-label">AI Video Market (2024)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number gold">$42B</div>
+                        <div class="stat-label">Projected by 2033</div>
+                    </div>
+                </div>
+                <p>The AI video generation market is growing at over 30% annually. Within this, the enterprise segment focused on training, L&D, and internal communications represents the fastest-growing category. US enterprises spend over $100B annually on employee training, with video becoming the dominant delivery format.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Market Tailwinds</h3>
+                <ul>
+                    <li><strong>Remote and hybrid workforce</strong> - Distributed teams need scalable video content for training and communication. Traditional in-person training does not reach remote employees effectively</li>
+                    <li><strong>L&D budget growth</strong> - US companies increased L&D spending 8% year-over-year in 2025. Video-based training shows 65% higher retention than text-based materials</li>
+                    <li><strong>Compliance training mandates</strong> - Regulated industries require documented training completion. AI video production reduces the cost of creating and updating compliance content by 80%+</li>
+                    <li><strong>Content velocity pressure</strong> - Product updates, policy changes, and market shifts require constant training updates. Manual video production cannot keep pace with the speed of change in modern enterprises</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card card-slate">
+            <h3>Buyer Landscape</h3>
+            <table>
+                <tr>
+                    <th>Segment</th>
+                    <th>Primary Buyer</th>
+                    <th>Key Pain Point</th>
+                    <th>Vidext Fit</th>
+                </tr>
+                <tr>
+                    <td><strong>Enterprise (5,000+ employees)</strong></td>
+                    <td>VP Learning and Development, CHRO</td>
+                    <td>Training content production is slow, expensive, and cannot scale across global teams</td>
+                    <td>Enterprise-grade AI video at scale, multilingual support, LMS integration</td>
+                </tr>
+                <tr>
+                    <td><strong>Mid-Market (500-5,000)</strong></td>
+                    <td>Director of L&D, Director of HR</td>
+                    <td>Cannot afford video production teams but need professional training content</td>
+                    <td>Self-service platform eliminating need for production resources</td>
+                </tr>
+                <tr>
+                    <td><strong>Regulated Industries</strong></td>
+                    <td>Compliance Officer, VP Operations</td>
+                    <td>Compliance training must be updated frequently, documented, and trackable</td>
+                    <td>Rapid content updates, version control, completion tracking</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="callout">
+            <div class="callout-label">Core Market Thesis</div>
+            Every US enterprise with more than 500 employees produces training content. Most of it is either expensive video (produced by agencies at $5K-$50K per video), low-engagement text documents, or outdated slide decks recorded over Zoom. Vidext sits at the intersection of quality and scalability, delivering professional video content at the cost of a document and the speed of a template. The US market is ready for this because the alternatives all have obvious limitations.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 3: COMPETITIVE LANDSCAPE -->
+    <div class="section">
+        <div class="section-label">03 - Competitive Landscape</div>
+        <h2>Where Vidext Wins and Where the Pressure Is</h2>
+
+        <table>
+            <tr>
+                <th>Competitor</th>
+                <th>Category</th>
+                <th>Strength</th>
+                <th>Vidext Advantage</th>
+            </tr>
+            <tr>
+                <td><strong>Synthesia</strong></td>
+                <td>Enterprise AI Video</td>
+                <td>Market leader in enterprise AI video. SCORM export for LMS integration. Strong brand with L&D buyers. Compliance and governance features</td>
+                <td>Vidext offers broader business automation beyond video creation. Competitive on multilingual capabilities with a more flexible platform architecture that adapts to diverse content workflows</td>
+            </tr>
+            <tr>
+                <td><strong>HeyGen</strong></td>
+                <td>AI Avatar Video</td>
+                <td>15M+ users, 100K+ teams. Strong creator-friendly UX. Dominant in social media and marketing video</td>
+                <td>HeyGen focuses on marketing and social content. Vidext is purpose-built for enterprise L&D and business process automation. Different buyer, different use case, different budget</td>
+            </tr>
+            <tr>
+                <td><strong>VEED</strong></td>
+                <td>Video Editing Platform</td>
+                <td>Broad video editing capabilities. Strong self-serve adoption. Growing enterprise presence</td>
+                <td>VEED is an editing tool. Vidext is a content automation platform. The difference matters when buyers need to produce hundreds of training videos from existing documents, not edit individual clips</td>
+            </tr>
+            <tr>
+                <td><strong>Colossyan</strong></td>
+                <td>AI Video for Training</td>
+                <td>L&D focused competitor with strong compliance training positioning</td>
+                <td>Vidext's business process automation capabilities extend beyond pure video into workflow automation, providing a broader value proposition</td>
+            </tr>
+            <tr>
+                <td><strong>Traditional Video Production</strong></td>
+                <td>Agencies and In-House Teams</td>
+                <td>Highest quality output. Custom creative direction. Established vendor relationships</td>
+                <td>10-50x cost reduction. Days instead of weeks for production. Instant updates without reshoots. The economic argument is overwhelming for recurring training content</td>
+            </tr>
+        </table>
+
+        <div class="card-grid cols-2" style="margin-top: 20px;">
+            <div class="card card-red">
+                <h3>Competitive Positioning Strategy</h3>
+                <p>Vidext should not position against Synthesia on features. The winning message: "Synthesia is a video creation tool. Vidext is a business automation platform that happens to produce video." This positions Vidext as the solution for buyers who need to transform entire content workflows, not just create individual videos. The platform story is bigger than the video story.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Competitive Moat</h3>
+                <ul>
+                    <li><strong>Business process automation</strong> - Goes beyond video to automate end-to-end content workflows, creating switching costs that pure video tools cannot match</li>
+                    <li><strong>250+ enterprise clients</strong> - Proven at scale with real enterprise deployments, not just self-serve signups</li>
+                    <li><strong>Multilingual from day one</strong> - Built for international enterprises, a natural advantage for US companies with global workforces</li>
+                    <li><strong>Document-to-video pipeline</strong> - Unique capability to ingest existing documents and automatically generate training content, reducing the content creation burden</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 4: BUYER SEGMENTS -->
+    <div class="section">
+        <div class="section-label">04 - Buyer Segments</div>
+        <h2>Target Segments, Decision Makers, and Deal Economics</h2>
+
+        <div class="card card-red">
+            <h3>Segment 1: Enterprise L&D (5,000+ employees)</h3>
+            <div class="card-grid cols-3" style="margin-top: 12px;">
+                <div>
+                    <h4>Decision Makers</h4>
+                    <ul>
+                        <li>VP Learning and Development (champion)</li>
+                        <li>CHRO (economic buyer)</li>
+                        <li>Director of Training Operations (evaluator)</li>
+                        <li>IT/Security (technical approval)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Deal Economics</h4>
+                    <ul>
+                        <li>ACV: $50K - $200K</li>
+                        <li>Sales cycle: 3 - 6 months</li>
+                        <li>Pilot: Yes, typically 30-60 days</li>
+                        <li>Procurement: HR tech stack review</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Buying Triggers</h4>
+                    <ul>
+                        <li>L&D team overwhelmed by content requests</li>
+                        <li>Video production budget cuts</li>
+                        <li>Global rollout of new training programs</li>
+                        <li>LMS modernization initiative</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-gold">
+            <h3>Segment 2: Mid-Market HR and Operations (500 - 5,000 employees)</h3>
+            <div class="card-grid cols-3" style="margin-top: 12px;">
+                <div>
+                    <h4>Decision Makers</h4>
+                    <ul>
+                        <li>Director of HR (champion and buyer)</li>
+                        <li>VP Operations (budget holder)</li>
+                        <li>Training Manager (evaluator)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Deal Economics</h4>
+                    <ul>
+                        <li>ACV: $15K - $50K</li>
+                        <li>Sales cycle: 1 - 3 months</li>
+                        <li>Pilot: Sometimes, 14-30 days</li>
+                        <li>Procurement: Simplified approval</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Buying Triggers</h4>
+                    <ul>
+                        <li>High employee turnover driving onboarding costs</li>
+                        <li>No dedicated L&D team or video resources</li>
+                        <li>Compliance training deadlines approaching</li>
+                        <li>Remote workforce expansion</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-green">
+            <h3>Segment 3: Regulated Industries (Healthcare, Finance, Manufacturing)</h3>
+            <div class="card-grid cols-3" style="margin-top: 12px;">
+                <div>
+                    <h4>Decision Makers</h4>
+                    <ul>
+                        <li>Chief Compliance Officer (champion)</li>
+                        <li>VP Operations (budget holder)</li>
+                        <li>Regulatory Affairs Director (evaluator)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Deal Economics</h4>
+                    <ul>
+                        <li>ACV: $30K - $150K</li>
+                        <li>Sales cycle: 2 - 5 months</li>
+                        <li>Pilot: Yes, compliance review required</li>
+                        <li>Security review: SOC 2, data residency</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Buying Triggers</h4>
+                    <ul>
+                        <li>Regulatory changes requiring training updates</li>
+                        <li>Audit findings on training documentation</li>
+                        <li>Multilingual compliance requirements</li>
+                        <li>Cost reduction mandate on training operations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 5: PARTNERSHIP CHANNEL -->
+    <div class="section">
+        <div class="section-label">05 - Partnership Channel Strategy</div>
+        <h2>Building US Revenue Through L&D and HR Tech Ecosystem</h2>
+
+        <p>The US L&D technology market is driven by ecosystem relationships. HR buyers trust recommendations from their existing LMS, HCM, and consulting partners. For Vidext, channel partnerships are the fastest path to credibility and pipeline in a market where Synthesia has a head start.</p>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>LMS and HCM Integration Partners</h3>
+                <h4>Priority Partners</h4>
+                <ul>
+                    <li><strong>Workday Learning</strong> - Largest enterprise HCM platform. SCORM-compatible video content flows directly into Workday Learning modules</li>
+                    <li><strong>Cornerstone OnDemand</strong> - Leading LMS for enterprise training. Integration enables seamless content delivery and completion tracking</li>
+                    <li><strong>SAP SuccessFactors</strong> - Enterprise HCM with strong mid-market and enterprise adoption. Video training integration adds immediate value</li>
+                    <li><strong>Docebo</strong> - AI-powered LMS growing rapidly in the US market. Natural partnership for AI-generated video content</li>
+                </ul>
+                <h4>Value Exchange</h4>
+                <p>LMS partners need content to fill their platforms. Most L&D teams struggle to produce enough quality video. Vidext solves the content bottleneck for LMS partners, making their platforms more valuable. Joint customers get content creation and delivery in a single workflow.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>HR Consulting and L&D Advisory Firms</h3>
+                <h4>Target Partners</h4>
+                <ul>
+                    <li><strong>Deloitte Human Capital</strong> - Workforce transformation practice recommending L&D technology to enterprise clients</li>
+                    <li><strong>Korn Ferry</strong> - Leadership development and talent management advisory with deep enterprise relationships</li>
+                    <li><strong>GP Strategies</strong> - Managed learning services provider handling L&D operations for Fortune 500 companies</li>
+                    <li><strong>Training Industry consultants</strong> - Influencer network that shapes enterprise L&D technology decisions</li>
+                </ul>
+                <h4>Value Exchange</h4>
+                <p>Consulting firms earn implementation and optimization revenue. Vidext earns trusted recommendations from advisors who are already in the room when L&D technology decisions are made.</p>
+            </div>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-green">
+                <h3>Content and Communications Partners</h3>
+                <h4>Target Partners</h4>
+                <ul>
+                    <li><strong>Internal communications platforms</strong> - Staffbase, Simpplr, and Firstup distribute video content to employees. Integration creates a content-to-distribution pipeline</li>
+                    <li><strong>Knowledge management tools</strong> - Guru, Notion, and Confluence hold the source content that Vidext transforms into video</li>
+                    <li><strong>Compliance platforms</strong> - ComplianceWire, SAI360, and Diligent handle compliance training workflows. Video integration improves completion rates</li>
+                </ul>
+                <h4>Value Exchange</h4>
+                <p>Content and communications partners need engaging formats to drive employee adoption. Video consistently outperforms text in engagement metrics. Vidext transforms their existing content into higher-performing formats.</p>
+            </div>
+            <div class="card card-slate">
+                <h3>Industry-Specific Channel Partners</h3>
+                <h4>Vertical Focus</h4>
+                <ul>
+                    <li><strong>Healthcare training providers</strong> - Clinical training, safety protocols, and HIPAA compliance require frequent video updates. Healthcare-specific partners provide domain credibility</li>
+                    <li><strong>Financial services compliance</strong> - SEC, FINRA, and AML training mandates create recurring content needs. Regulated industries pay premium pricing</li>
+                    <li><strong>Manufacturing safety training</strong> - OSHA compliance and safety protocol videos are required by law. Multilingual support is essential for diverse factory workforces</li>
+                </ul>
+                <h4>Value Exchange</h4>
+                <p>Industry-specific partners bring domain expertise and buyer trust. Vidext brings the technology platform. Together they create vertical solutions that command higher pricing and longer contracts than horizontal tools.</p>
+            </div>
+        </div>
+
+        <div class="callout-gold">
+            <div class="callout-label" style="color: var(--gold);">Channel Revenue Target</div>
+            Within 12 months of US market entry, LMS integrations and consulting partnerships should generate 20-30% of new pipeline. A single LMS integration partnership (Cornerstone or Docebo) can influence 200+ enterprise accounts annually. This is higher-leverage than hiring 5 additional sales reps.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 6: 90-DAY GTM EXECUTION PLAN -->
+    <div class="section">
+        <div class="section-label">06 - 90-Day GTM Execution Plan</div>
+        <h2>From European Traction to US Market Entry</h2>
+
+        <p>This plan builds the commercial foundation for Vidext's US market entry. The priority is not hiring a large US team immediately. It is validating positioning against US competitors, building initial pipeline in high-value segments, and establishing the LMS partnerships that will generate demand before a permanent sales organization is in place.</p>
+
+        <div class="timeline" style="margin-top: 24px;">
+
+            <div class="timeline-item">
+                <div class="phase-label phase-red">Phase 1: Days 1-30, Positioning and Market Validation</div>
+                <div class="card card-red" style="margin-top: 8px;">
+                    <h4>US Market Positioning</h4>
+                    <ul>
+                        <li>Reframe messaging for US L&D buyers. European SaaS messaging often leads with technology. US L&D buyers care about time-to-content, cost per video, completion rates, and LMS compatibility. Every piece of messaging should tie to one of these metrics</li>
+                        <li>Build competitive positioning against Synthesia, HeyGen, and Colossyan. Synthesia is the primary competitor in the US enterprise L&D space. The battle card must address their SCORM advantage and show how Vidext's broader automation platform provides more value</li>
+                        <li>Develop ROI calculators comparing Vidext to traditional video production. US enterprise buyers need to justify spend to finance. A clear "cost per video" comparison that shows 10-50x savings is the fastest path to budget approval</li>
+                    </ul>
+                </div>
+                <div class="card card-red" style="margin-top: 8px;">
+                    <h4>Target Account Development</h4>
+                    <ul>
+                        <li>Build a named account list of 150 US enterprises with 1,000+ employees in healthcare, financial services, manufacturing, and technology. These verticals have the highest training content volume and budget</li>
+                        <li>Map VP L&D, Director of Training, and CHRO contacts at top 75 accounts. L&D buyers are accessible through LinkedIn, industry conferences, and professional associations</li>
+                        <li>Identify 25 accounts currently using Synthesia or HeyGen as competitive displacement targets. These buyers already understand the category, making the sales conversation about differentiation rather than education</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item gold">
+                <div class="phase-label phase-gold">Phase 2: Days 31-60, Pipeline Generation and Partnerships</div>
+                <div class="card card-gold" style="margin-top: 8px;">
+                    <h4>Outbound Pipeline Generation</h4>
+                    <ul>
+                        <li>Launch targeted outbound sequences to VP L&D and Director of Training personas. Lead message: "Your L&D team gets 50 training video requests per quarter and can produce 5. Vidext closes that gap without hiring a production team"</li>
+                        <li>Execute account-based campaigns in healthcare and financial services, where compliance training volume creates the strongest ROI case</li>
+                        <li>Attend ATD (Association for Talent Development) conference and Learning Technologies events. US L&D buyers rely heavily on industry events and peer recommendations for technology decisions</li>
+                    </ul>
+                </div>
+                <div class="card card-gold" style="margin-top: 8px;">
+                    <h4>LMS Partnership Activation</h4>
+                    <ul>
+                        <li>Initiate integration partnerships with Cornerstone OnDemand and Docebo. Both have partner programs designed for content creation tools. Getting listed in their marketplace creates passive demand generation</li>
+                        <li>Build SCORM-compatible output to match Synthesia's LMS integration advantage. This is a table-stakes requirement for enterprise L&D buyers</li>
+                        <li>Develop a partner demo environment showing the document-to-video-to-LMS workflow. Partners need to see the complete value chain to recommend Vidext to their clients</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item green">
+                <div class="phase-label phase-green">Phase 3: Days 61-90, Close First Deals and Scale</div>
+                <div class="card card-green" style="margin-top: 8px;">
+                    <h4>Deal Progression</h4>
+                    <ul>
+                        <li>Convert pilot programs into annual contracts. Target 5-8 pilots in progress by day 45, with at least 3 converting by day 90</li>
+                        <li>Close first US mid-market deals ($15K-$50K ACV) to prove the sales motion before pursuing larger enterprise opportunities</li>
+                        <li>Document first US customer case studies with measurable outcomes: videos produced per month, cost savings, time reduction, and completion rate improvements</li>
+                    </ul>
+                </div>
+                <div class="card card-green" style="margin-top: 8px;">
+                    <h4>US Infrastructure</h4>
+                    <ul>
+                        <li>Hire first US-based Account Executive with L&D or HR tech sales experience. Location in New York or Chicago, where L&D buyer density is highest</li>
+                        <li>Establish US data residency capabilities if not already in place. Enterprise L&D buyers in healthcare and financial services require US-based data processing</li>
+                        <li>Set up US entity for direct contracting and payment processing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout" style="margin-top: 24px;">
+            <div class="callout-label">Expected Outcomes at Day 90</div>
+            <div class="card-grid cols-3" style="margin-top: 10px;">
+                <div style="text-align: center;">
+                    <div style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: var(--accent);">$500K-$1M</div>
+                    <div style="font-size: 12px; color: var(--gray);">Qualified US Pipeline</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: var(--gold);">5-8</div>
+                    <div style="font-size: 12px; color: var(--gray);">Active Pilots</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: var(--green);">2+</div>
+                    <div style="font-size: 12px; color: var(--gray);">LMS Integration Partnerships</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 7: WHY JEFF -->
+    <div class="section">
+        <div class="section-label">07 - Why Jeff Aragon</div>
+        <h2>Building US Sales Motions for Enterprise SaaS</h2>
+
+        <div class="card card-red">
+            <h3>Career Revenue</h3>
+            <p>$150M+ in career revenue across enterprise software and technical sales. This is not marketing experience or advisory work. It is direct pipeline creation, deal execution, and revenue generation across multiple market categories, buyer personas, and company stages.</p>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-gold">
+                <h3>Series A Startup: $24M TCV in Under 2 Years</h3>
+                <p>Built and closed $24M in total contract value in less than 2 years at a Series A startup. Created pipeline from zero in a market with limited brand recognition. This is the exact challenge Vidext faces: entering the US against an established competitor (Synthesia) with a better product story but no US sales infrastructure. I have navigated this exact scenario before.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>UKG: Nearly 6 Years, Award-Winning</h3>
+                <p>Nearly six years at UKG, recognized as an award-winning top performer multiple times. UKG sells into the same HR and L&D buyer personas that Vidext needs to reach. I understand how CHROs make technology decisions, how L&D budgets are structured, and what evidence VP-level HR buyers need to approve a new platform.</p>
+            </div>
+        </div>
+
+        <div class="card card-green">
+            <h3>HR and L&D Buyer Expertise</h3>
+            <p>Years of selling into HR, L&D, and workforce management buyers. Understand the procurement dynamics, budget cycles, and decision-making structures that govern enterprise HR technology purchases. Vidext's US success depends entirely on reaching the right buyers with the right message at the right time. I know these buyers because I have sold to them for years.</p>
+        </div>
+
+        <div class="card card-slate">
+            <h3>Why This Matters for Vidext Specifically</h3>
+            <ul>
+                <li><strong>European to US market entry</strong> - Understand the go-to-market translation required to bring a European product to US enterprise buyers. Positioning, pricing, procurement processes, and buyer expectations differ fundamentally between European and American markets</li>
+                <li><strong>Competitive displacement experience</strong> - Have entered markets with established incumbents and won. Know how to position against a larger competitor (Synthesia) by focusing on differentiated value rather than feature-by-feature comparison</li>
+                <li><strong>Enterprise HR tech relationships</strong> - Existing relationships with HR technology buyers, consultants, and ecosystem partners from nearly six years at UKG. These relationships accelerate time to first meetings</li>
+                <li><strong>Methodology over motivation</strong> - Build repeatable sales processes that produce consistent results. The goal is a system that works regardless of which rep is running it</li>
+            </ul>
+        </div>
+
+        <div class="callout" style="margin-top: 20px;">
+            <div class="callout-label">Operating Philosophy</div>
+            Most European companies entering the US hire a salesperson and hope they figure it out. The ones that succeed build the foundation first: positioning, target accounts, competitive playbook, and initial pipeline. Then they hire into a proven motion instead of asking someone to build the plane while flying it. I build the foundation.
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <strong>Jeff Aragon</strong> | jeff@jozuconsultinggroup.com | +1 303-638-1390 (mobile and WhatsApp)
+    </div>
+
+</div>
+</body>
+</html>

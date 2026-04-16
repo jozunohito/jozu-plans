@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mews - US Market GTM Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #0a0e17;
+        --bg-card: rgba(255,255,255,0.03);
+        --bg-card-border: rgba(255,255,255,0.06);
+        --accent: #e34115;
+        --accent-dim: rgba(227,65,21,0.12);
+        --gold: #c9a84c;
+        --gold-dim: rgba(201,168,76,0.10);
+        --green: #22c55e;
+        --green-dim: rgba(34,197,94,0.10);
+        --slate: #64748b;
+        --white: #ffffff;
+        --gray: #cbd5e1;
+        --bright: #e2e8f0;
+        --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--gray); font-family: 'Open Sans', sans-serif; font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; padding: 50px 40px; }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+    .container { max-width: 1060px; margin: 0 auto; }
+    .header { margin-bottom: 48px; padding-bottom: 28px; border-bottom: 2px solid var(--accent); }
+    .doc-label { font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .doc-title { font-size: 30px; font-weight: 700; line-height: 1.2; margin-bottom: 6px; }
+    .doc-subtitle { font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 300; color: var(--gray); margin-bottom: 4px; }
+    .doc-meta { font-size: 12px; color: var(--gray); margin-top: 8px; }
+    .section { margin-bottom: 44px; }
+    .section-label { font-family: 'Poppins', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+    .section-label::before { content: ''; width: 24px; height: 2px; background: var(--accent); }
+    h2 { font-size: 20px; font-weight: 600; margin-bottom: 16px; }
+    h3 { font-size: 15px; font-weight: 500; color: var(--accent); margin-bottom: 8px; }
+    h4 { font-size: 13px; font-weight: 500; color: var(--gold); margin-bottom: 6px; }
+    .card { background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius); padding: 22px 26px; margin-bottom: 14px; }
+    .card-red { border-left: 3px solid var(--accent); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+    .card-green { border-left: 3px solid var(--green); }
+    .card-grid { display: grid; gap: 14px; margin-bottom: 16px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .divider { width: 60px; height: 2px; background: var(--accent); margin: 32px 0; opacity: 0.4; }
+    ul { padding-left: 20px; margin: 8px 0; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--white); font-weight: 600; }
+    .stat-row { display: flex; gap: 14px; margin: 16px 0; }
+    .stat-box { flex: 1; background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius); padding: 18px; text-align: center; }
+    .stat-number { font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 700; color: var(--accent); }
+    .stat-number.gold { color: var(--gold); }
+    .stat-number.green { color: var(--green); }
+    .stat-label { font-size: 11px; color: var(--gray); margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+    th { font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); text-align: left; padding: 10px 14px; border-bottom: 1px solid rgba(227,65,21,0.2); background: var(--accent-dim); }
+    td { padding: 10px 14px; border-bottom: 1px solid var(--bg-card-border); color: var(--gray); }
+    tr:last-child td { border-bottom: none; }
+    .callout { background: rgba(227,65,21,0.06); border: 1px solid rgba(227,65,21,0.15); border-radius: var(--radius); padding: 18px 24px; margin: 14px 0; color: var(--bright); }
+    .callout-label { font-family: 'Poppins', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 2px; color: var(--accent); margin-bottom: 6px; }
+    .callout-gold { background: rgba(201,168,76,0.06); border: 1px solid rgba(201,168,76,0.15); border-radius: var(--radius); padding: 18px 24px; margin: 14px 0; color: var(--bright); }
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), var(--gold), var(--green)); opacity: 0.4; }
+    .timeline-item { position: relative; margin-bottom: 20px; }
+    .timeline-item::before { content: ''; position: absolute; left: -24px; top: 6px; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--accent); background: var(--bg); }
+    .timeline-item.gold::before { border-color: var(--gold); }
+    .timeline-item.green::before { border-color: var(--green); }
+    .phase-label { font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+    .phase-red { color: var(--accent); }
+    .phase-gold { color: var(--gold); }
+    .phase-green { color: var(--green); }
+    .footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--bg-card-border); text-align: center; color: var(--gray); font-size: 13px; }
+    .footer strong { color: var(--white); }
+    p { margin-bottom: 10px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="doc-label">US Market GTM Plan</div>
+        <h1 class="doc-title">Mews US Market GTM Plan</h1>
+        <div class="doc-subtitle">Scaling the Dallas Commercial Hub into a US Revenue Engine</div>
+        <div class="doc-meta">Prepared by Jeff Aragon, Jozu Consulting Group | April 2026</div>
+    </div>
+
+    <!-- SECTION 1: COMPANY PROFILE -->
+    <div class="section">
+        <div class="section-label">01 - Company Profile</div>
+        <h2>Mews at a Glance</h2>
+
+        <div class="stat-row">
+            <div class="stat-box">
+                <div class="stat-number">$300M</div>
+                <div class="stat-label">Series D Funding</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number gold">$2.5B</div>
+                <div class="stat-label">Valuation</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number green">Dallas</div>
+                <div class="stat-label">US Hub (WeWork Uptown)</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">2012</div>
+                <div class="stat-label">Founded (Amsterdam)</div>
+            </div>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>Company Overview</h3>
+                <p>Mews is an Amsterdam-based hospitality operating system serving hotels, hostels, and accommodation providers worldwide. The company raised $300M in Series D funding led by EQT Growth, valuing the business at $2.5B. The funding is accelerating North American expansion through a new commercial hub in Dallas, Texas.</p>
+                <p>Mews focuses on automation, mobility, and open API architecture, offering contactless check-in, digital guest tools, and a marketplace of integrated hospitality applications. The platform is designed for modern hotel operations that prioritize self-service guest experiences and operational efficiency.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Leadership</h3>
+                <ul>
+                    <li><strong>Michael Coscetta, President</strong> - Leads North American commercial expansion. Based in Miami. Previously CRO at Paxos, CCO at Compass, Head of Global Sales at Square. Overseeing the Dallas office buildout and US team scaling</li>
+                </ul>
+                <h4>Dallas Hub Status</h4>
+                <ul>
+                    <li>Launched October 2025 in WeWork Uptown</li>
+                    <li>Currently staffed with SDRs, BDRs, and inside sales reps</li>
+                    <li>Room for approximately 25 employees</li>
+                    <li>Planning to hire at least 20 employees in the region</li>
+                    <li>Early performance metrics already showing higher productivity and efficiency</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card card-slate">
+            <h3>Product Platform</h3>
+            <div class="card-grid cols-3" style="margin-top: 12px;">
+                <div>
+                    <h4>Property Management System</h4>
+                    <p>Cloud-native PMS built for modern hotel operations. Contactless check-in, mobile-first design, automated reservation management, and real-time reporting dashboards.</p>
+                </div>
+                <div>
+                    <h4>Guest Experience Tools</h4>
+                    <p>Digital guest journey from pre-arrival through checkout. Mobile keys, self-service kiosks, automated communications, and personalized upsell capabilities throughout the stay.</p>
+                </div>
+                <div>
+                    <h4>Open API Marketplace</h4>
+                    <p>Extensive integration marketplace connecting to 700+ hospitality applications. Revenue management, channel management, accounting, and operations tools plugged into a single platform.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-label">Market Position</div>
+            Ranked #2 on Hotel Tech Report's top PMS list for 2026, behind only Cloudbeds. Mews has strong European market presence and is now executing an aggressive US expansion through the Dallas hub, led by a President with deep US sales leadership experience at Square, Compass, and Paxos.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 2: MARKET ANALYSIS -->
+    <div class="section">
+        <div class="section-label">02 - Market Analysis</div>
+        <h2>US Hospitality Technology Landscape</h2>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>Market Sizing</h3>
+                <div class="stat-row">
+                    <div class="stat-box">
+                        <div class="stat-number">$5.4B</div>
+                        <div class="stat-label">US Hospitality Tech Market</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number gold">55,000+</div>
+                        <div class="stat-label">US Hotels (Independent + Chain)</div>
+                    </div>
+                </div>
+                <p>The US hospitality technology market is in transition. Legacy PMS systems (Oracle OPERA, on-premises solutions) are being replaced by cloud-native platforms. The independent and boutique hotel segment is growing faster than chain hotels, and these properties are actively seeking modern technology that major chain-mandated systems do not provide.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Market Tailwinds</h3>
+                <ul>
+                    <li><strong>Cloud migration wave</strong> - US hotels still running on-premises PMS systems face rising maintenance costs and staffing challenges. Cloud-native platforms like Mews offer lower TCO and faster feature deployment</li>
+                    <li><strong>Labor shortage in hospitality</strong> - US hotels cannot find enough front desk staff. Self-service check-in, mobile keys, and automated guest communication directly address the labor gap</li>
+                    <li><strong>Guest expectation shift</strong> - US travelers expect digital-first experiences. Mobile check-in, digital keys, and contactless service are baseline expectations, not premium features</li>
+                    <li><strong>Independent hotel growth</strong> - Boutique and lifestyle hotel brands are the fastest-growing US segment. These properties need modern PMS platforms but are underserved by chain-focused solutions like Oracle OPERA</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card card-slate">
+            <h3>Buyer Landscape</h3>
+            <table>
+                <tr>
+                    <th>Segment</th>
+                    <th>Primary Buyer</th>
+                    <th>Key Pain Point</th>
+                    <th>Mews Fit</th>
+                </tr>
+                <tr>
+                    <td><strong>Independent Hotels (50-500 rooms)</strong></td>
+                    <td>Owner/GM, VP Operations</td>
+                    <td>Legacy PMS limiting guest experience, high front desk labor costs, no mobile capabilities</td>
+                    <td>Modern cloud PMS with automation, self-service guest tools, and open API integration</td>
+                </tr>
+                <tr>
+                    <td><strong>Boutique Hotel Groups (5-50 properties)</strong></td>
+                    <td>VP Operations, CTO, COO</td>
+                    <td>Need multi-property management without Oracle-level complexity and cost</td>
+                    <td>Scalable cloud platform with centralized reporting and per-property customization</td>
+                </tr>
+                <tr>
+                    <td><strong>Hostels and Alternative Accommodation</strong></td>
+                    <td>Owner, Operations Manager</td>
+                    <td>Traditional PMS designed for hotels, not alternative accommodation models</td>
+                    <td>Flexible architecture supporting varied room types, shared spaces, and mixed-use properties</td>
+                </tr>
+                <tr>
+                    <td><strong>Enterprise Hotel Chains</strong></td>
+                    <td>VP Technology, CIO</td>
+                    <td>Oracle OPERA costs escalating, slow innovation cycle, complex integration requirements</td>
+                    <td>API-first platform enabling faster innovation and lower integration costs than legacy PMS</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="callout">
+            <div class="callout-label">Core Market Thesis</div>
+            The US hotel PMS market is ripe for disruption. Oracle OPERA still holds the largest market share by rooms, but the cloud challengers have captured the growth and the narrative. Mews is entering at the right time: cloud-native PMS adoption is accelerating, labor shortages are making automation essential, and independent hotels need platforms purpose-built for modern guest expectations. The question is not whether cloud PMS will win. It is which cloud platform captures the next 10,000 US hotel properties.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 3: COMPETITIVE LANDSCAPE -->
+    <div class="section">
+        <div class="section-label">03 - Competitive Landscape</div>
+        <h2>Where Mews Wins and Where the Pressure Is</h2>
+
+        <table>
+            <tr>
+                <th>Competitor</th>
+                <th>Category</th>
+                <th>Strength</th>
+                <th>Mews Advantage</th>
+            </tr>
+            <tr>
+                <td><strong>Cloudbeds</strong></td>
+                <td>Cloud PMS (#1 Ranked)</td>
+                <td>Top-ranked PMS on Hotel Tech Report. Strong independent hotel adoption. Signals AI for demand prediction and pricing. Broad feature set</td>
+                <td>Mews offers a more open API architecture and marketplace ecosystem. Cloudbeds is building a walled garden; Mews empowers hotels to choose best-of-breed integrations. For tech-savvy hotel operators, platform flexibility matters</td>
+            </tr>
+            <tr>
+                <td><strong>Oracle OPERA</strong></td>
+                <td>Legacy Enterprise PMS</td>
+                <td>Largest installed base by rooms. Deep enterprise chain penetration. Oracle Cloud Infrastructure backing. Global compliance capabilities</td>
+                <td>Oracle is expensive, complex, and slow to innovate. Mews offers 10x faster implementation, lower TCO, and modern guest experience features that Oracle has taken years to deliver. Every Oracle renewal is a competitive opportunity</td>
+            </tr>
+            <tr>
+                <td><strong>Apaleo</strong></td>
+                <td>API-First PMS</td>
+                <td>Most open architecture in the market. First to launch AI agent marketplace. Infrastructure layer approach</td>
+                <td>Apaleo is infrastructure; Mews is a complete platform. Hotels that want a turnkey solution with out-of-the-box functionality choose Mews. Hotels that want to build custom solutions from scratch choose Apaleo. Most US hotels want turnkey</td>
+            </tr>
+            <tr>
+                <td><strong>StayNTouch</strong></td>
+                <td>Mobile-First PMS</td>
+                <td>Strong mobile capabilities. Shiji Group backing. Good mid-market US presence</td>
+                <td>Mews matches on mobile capabilities and exceeds on marketplace breadth, automation features, and guest experience tools. StayNTouch is a solid mid-market option; Mews scales from mid-market to enterprise</td>
+            </tr>
+            <tr>
+                <td><strong>Hotelogix / RoomRaccoon</strong></td>
+                <td>SMB Cloud PMS</td>
+                <td>Low-cost solutions for small independent hotels. Easy to implement. Affordable pricing</td>
+                <td>Different segment. Mews targets properties that need enterprise-grade capabilities without enterprise complexity. Properties outgrowing SMB tools are natural Mews prospects</td>
+            </tr>
+        </table>
+
+        <div class="card-grid cols-2" style="margin-top: 20px;">
+            <div class="card card-red">
+                <h3>Competitive Positioning Strategy</h3>
+                <p>Mews should position as "the platform for hotels that want modern technology without the complexity of Oracle or the limitations of smaller solutions." Against Cloudbeds, emphasize open architecture and marketplace flexibility. Against Oracle, emphasize speed, cost, and guest experience innovation. The message should be: "Your PMS should be as modern as your guests expect your hotel to be."</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Competitive Moat</h3>
+                <ul>
+                    <li><strong>700+ marketplace integrations</strong> - Largest open ecosystem in cloud PMS. Hotels can build their ideal tech stack without vendor lock-in</li>
+                    <li><strong>$2.5B valuation and $300M Series D</strong> - Resources to invest in US sales team, product development, and customer success at a scale that smaller competitors cannot match</li>
+                    <li><strong>Michael Coscetta's US playbook</strong> - A President with Square, Compass, and Paxos experience running the US expansion brings operational credibility that European-led expansions typically lack</li>
+                    <li><strong>Contactless guest experience</strong> - Purpose-built for the post-COVID hospitality reality where digital-first guest interactions are the standard</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 4: BUYER SEGMENTS -->
+    <div class="section">
+        <div class="section-label">04 - Buyer Segments</div>
+        <h2>Target Segments, Decision Makers, and Deal Economics</h2>
+
+        <div class="card card-red">
+            <h3>Segment 1: Independent Hotels (50 - 500 rooms)</h3>
+            <div class="card-grid cols-3" style="margin-top: 12px;">
+                <div>
+                    <h4>Decision Makers</h4>
+                    <ul>
+                        <li>Owner or General Manager (champion and buyer)</li>
+                        <li>Revenue Manager (evaluator)</li>
+                        <li>Front Office Manager (user champion)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Deal Economics</h4>
+                    <ul>
+                        <li>ACV: $12K - $60K (per property)</li>
+                        <li>Sales cycle: 1 - 3 months</li>
+                        <li>Demo: Standard, 1-2 sessions</li>
+                        <li>Implementation: 2-6 weeks</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Buying Triggers</h4>
+                    <ul>
+                        <li>Current PMS contract expiring</li>
+                        <li>Front desk staffing crisis</li>
+                        <li>Guest review scores declining</li>
+                        <li>Property renovation or rebrand</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-gold">
+            <h3>Segment 2: Boutique Hotel Groups (5 - 50 properties)</h3>
+            <div class="card-grid cols-3" style="margin-top: 12px;">
+                <div>
+                    <h4>Decision Makers</h4>
+                    <ul>
+                        <li>VP Operations or COO (champion)</li>
+                        <li>CTO or IT Director (technical eval)</li>
+                        <li>CFO (ROI and budget approval)</li>
+                        <li>Property GMs (user validation)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Deal Economics</h4>
+                    <ul>
+                        <li>ACV: $100K - $500K (group deal)</li>
+                        <li>Sales cycle: 3 - 6 months</li>
+                        <li>Pilot: 1-2 property trial</li>
+                        <li>Implementation: Phased rollout</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Buying Triggers</h4>
+                    <ul>
+                        <li>Portfolio expansion requiring scalable PMS</li>
+                        <li>Multi-property reporting gaps</li>
+                        <li>Integration limitations with current PMS</li>
+                        <li>Brand standardization initiative</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-green">
+            <h3>Segment 3: Enterprise Chains and Management Companies</h3>
+            <div class="card-grid cols-3" style="margin-top: 12px;">
+                <div>
+                    <h4>Decision Makers</h4>
+                    <ul>
+                        <li>VP Technology or CIO (strategic buyer)</li>
+                        <li>SVP Operations (operational champion)</li>
+                        <li>CEO (executive sponsor for platform change)</li>
+                        <li>Revenue and distribution team (evaluator)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Deal Economics</h4>
+                    <ul>
+                        <li>ACV: $500K - $2M+ (enterprise)</li>
+                        <li>Sales cycle: 6 - 18 months</li>
+                        <li>Pilot: Multi-property evaluation</li>
+                        <li>Procurement: Formal RFP process</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Buying Triggers</h4>
+                    <ul>
+                        <li>Oracle OPERA contract renewal (price shock)</li>
+                        <li>Technology modernization mandate</li>
+                        <li>Acquisition integration requirement</li>
+                        <li>Guest satisfaction score improvement goal</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 5: PARTNERSHIP CHANNEL -->
+    <div class="section">
+        <div class="section-label">05 - Partnership Channel Strategy</div>
+        <h2>Building US Revenue Through Hospitality Ecosystem Partners</h2>
+
+        <p>The US hospitality technology ecosystem is relationship-driven. Hotels choose PMS platforms based on consultant recommendations, technology integrations, management company mandates, and peer referrals at industry events. Mews needs to be embedded in every channel where hotel technology decisions are influenced.</p>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>Hospitality Technology Consultants</h3>
+                <h4>Priority Partners</h4>
+                <ul>
+                    <li><strong>Cayuga Hospitality Consultants</strong> - Independent advisory firm helping hotel owners evaluate technology platforms. Their recommendations directly influence purchasing decisions</li>
+                    <li><strong>Starfleet Research</strong> - Hospitality technology benchmarking and advisory. Published research shapes buyer perceptions across the industry</li>
+                    <li><strong>HTNG (Hospitality Technology Next Generation)</strong> - Industry consortium developing standards and best practices. Involvement provides credibility and access to enterprise decision makers</li>
+                    <li><strong>Hotel Tech Report</strong> - The dominant review and comparison platform for hospitality technology. Strong ranking placement (Mews is #2) drives inbound interest from US buyers</li>
+                </ul>
+                <h4>Value Exchange</h4>
+                <p>Consultants earn advisory fees from hotel owners evaluating technology. Mews earns trusted recommendations from advisors who are present when buying decisions are made. A single consultant relationship can influence 20-50 hotel technology decisions annually.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Revenue Management and Distribution Partners</h3>
+                <h4>Integration Priorities</h4>
+                <ul>
+                    <li><strong>Duetto</strong> - Leading revenue management platform for independent and lifestyle hotels. Deep integration creates a joint value proposition for revenue-focused hotel operators</li>
+                    <li><strong>SiteMinder</strong> - Channel management platform connecting hotels to distribution channels. Seamless integration eliminates the rate management friction that drives PMS switching</li>
+                    <li><strong>IDeaS (SAS)</strong> - Enterprise revenue management system. Integration positions Mews for larger hotel groups that require advanced revenue optimization</li>
+                    <li><strong>Lighthouse (formerly OTA Insight)</strong> - Business intelligence and market data. Integration provides competitive rate intelligence within the Mews dashboard</li>
+                </ul>
+                <h4>Value Exchange</h4>
+                <p>Revenue management partners need PMS connectivity to function. Deep integrations create preference. When a hotel evaluates PMS options, the quality of integration with their existing revenue tools is a primary decision factor. Mews's 700+ marketplace integrations are a competitive advantage only if the priority integrations work seamlessly.</p>
+            </div>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-green">
+                <h3>Hotel Management Companies</h3>
+                <h4>Target Partners</h4>
+                <ul>
+                    <li><strong>Aimbridge Hospitality</strong> - Largest US third-party hotel management company. A platform mandate from Aimbridge would deploy Mews across hundreds of properties</li>
+                    <li><strong>Highgate</strong> - Major US hotel management and investment firm. Technology partnerships with management companies create volume deployment opportunities</li>
+                    <li><strong>Crescent Hotels and Resorts</strong> - Upscale and lifestyle hotel management. Mews's modern guest experience aligns with Crescent's brand positioning</li>
+                    <li><strong>Sage Hospitality Group</strong> - Boutique and independent hotel management based in Denver. Natural fit for Mews's independent hotel positioning</li>
+                </ul>
+                <h4>Value Exchange</h4>
+                <p>Management companies mandate technology platforms across their portfolios. A single management company partnership can deploy Mews across 50-500 properties. The sales cycle is longer (6-12 months) but the revenue impact is transformative. Each management company deal is equivalent to 50+ individual property deals.</p>
+            </div>
+            <div class="card card-slate">
+                <h3>Industry Associations and Events</h3>
+                <h4>Priority Engagements</h4>
+                <ul>
+                    <li><strong>AHLA (American Hotel and Lodging Association)</strong> - Primary US hotel industry association. Membership, sponsorship, and event presence establishes Mews as a serious US market participant</li>
+                    <li><strong>HITEC (Hospitality Industry Technology Conference)</strong> - The definitive US hospitality technology event. Booth presence, speaking slots, and networking are essential for credibility with enterprise buyers</li>
+                    <li><strong>Boutique Hotel Summit</strong> - Targeted event for Mews's primary US buyer segment. Intimate format allows for deeper relationship building with independent hotel operators</li>
+                    <li><strong>BDNY (Boutique Design New York)</strong> - Design-focused event attracting boutique hotel owners during property development and renovation, when PMS decisions are most fluid</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout-gold">
+            <div class="callout-label" style="color: var(--gold);">Channel Revenue Target</div>
+            Within 12 months, management company partnerships and consultant referrals should generate 30-40% of new US pipeline. A single management company deal with a top-20 US operator is worth $500K-$2M in ACV and deploys Mews across dozens of properties simultaneously. This is the highest-leverage growth motion available.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 6: 90-DAY GTM EXECUTION PLAN -->
+    <div class="section">
+        <div class="section-label">06 - 90-Day GTM Execution Plan</div>
+        <h2>Scaling the Dallas Hub from 25 to Peak Productivity</h2>
+
+        <p>Mews has already made the critical decisions: Dallas hub location, President with deep US sales experience, and initial team hired. This plan focuses on the next 90 days: optimizing the sales motion, building pipeline, establishing partnerships, and scaling the team from initial headcount to a productive revenue engine. The foundation exists. The question is how fast and how effectively this foundation converts into US revenue.</p>
+
+        <div class="timeline" style="margin-top: 24px;">
+
+            <div class="timeline-item">
+                <div class="phase-label phase-red">Phase 1: Days 1-30, Sales Motion Optimization</div>
+                <div class="card card-red" style="margin-top: 8px;">
+                    <h4>Sales Process and Segmentation</h4>
+                    <ul>
+                        <li>Define clear segment ownership: SDRs and BDRs focus on independent hotels (50-500 rooms) where the sales cycle is 1-3 months and deals close faster. Inside sales reps handle boutique hotel groups. Enterprise opportunities (management companies, chains) require dedicated AE coverage</li>
+                        <li>Build US-specific discovery framework. US hotel buyers care about: implementation timeline, migration from current PMS, staff training requirements, guest-facing features, and integration with existing revenue management tools. European discovery questions do not translate directly</li>
+                        <li>Establish pipeline coverage targets by segment. 4x coverage for enterprise, 3x for hotel groups, 2.5x for independent properties. Weekly pipeline review cadence with the Dallas team</li>
+                    </ul>
+                </div>
+                <div class="card card-red" style="margin-top: 8px;">
+                    <h4>Competitive Positioning for US Buyers</h4>
+                    <ul>
+                        <li>Build competitive battle cards for Cloudbeds, Oracle OPERA, and StayNTouch. Each card includes positioning, objection responses, proof points, and demo scripting specific to US buyer concerns</li>
+                        <li>Develop Oracle OPERA displacement playbook. Every Oracle OPERA contract renewal is a competitive opportunity. Build a targeted campaign around Oracle renewal cycles, leading with TCO comparison and implementation speed</li>
+                        <li>Create ROI calculators for US hotels: labor cost savings from automation, revenue impact from upsell capabilities, guest satisfaction improvement from digital check-in</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item gold">
+                <div class="phase-label phase-gold">Phase 2: Days 31-60, Pipeline Generation and Hiring</div>
+                <div class="card card-gold" style="margin-top: 8px;">
+                    <h4>Outbound Pipeline Generation</h4>
+                    <ul>
+                        <li>Launch targeted outbound sequences from the Dallas team to independent hotel owners and GMs in Texas, Florida, California, and New York. These four states represent 40%+ of US hotel room inventory</li>
+                        <li>Execute Oracle OPERA renewal interception campaigns targeting properties with contracts expiring in the next 12 months. Lead with: "Your next PMS should be as modern as your guests expect"</li>
+                        <li>Build an inbound pipeline engine through Hotel Tech Report optimization, review cultivation from existing customers, and content marketing targeting US hotel operators researching PMS alternatives</li>
+                    </ul>
+                </div>
+                <div class="card card-gold" style="margin-top: 8px;">
+                    <h4>Team Scaling</h4>
+                    <ul>
+                        <li>Hire additional AEs with hospitality technology sales experience. Prioritize candidates who have sold PMS, revenue management, or hotel operations technology to US properties. Domain expertise accelerates ramp time by 40-60%</li>
+                        <li>Add one front-line sales manager for every 6-8 reps. The quality of coaching during the scaling phase is the single biggest driver of rep productivity and retention</li>
+                        <li>Build a 30-day ramp curriculum: Week 1 product and market, Week 2 competitive positioning and demo mastery, Week 3 live call shadowing, Week 4 supervised solo demos with real prospects</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item green">
+                <div class="phase-label phase-green">Phase 3: Days 61-90, Partnerships and Acceleration</div>
+                <div class="card card-green" style="margin-top: 8px;">
+                    <h4>Partnership Activation</h4>
+                    <ul>
+                        <li>Initiate conversations with 3-5 US hotel management companies. Start with mid-size operators (20-100 properties) where the decision cycle is shorter than enterprise chains</li>
+                        <li>Deepen technology integrations with Duetto, SiteMinder, and IDeaS. Ensure US-specific integration features are complete and documented for the sales team</li>
+                        <li>Secure speaking slot or booth presence at next HITEC or hotel industry event. Conference presence signals long-term US commitment to enterprise buyers evaluating platform changes</li>
+                    </ul>
+                </div>
+                <div class="card card-green" style="margin-top: 8px;">
+                    <h4>Deal Closing and Case Studies</h4>
+                    <ul>
+                        <li>Close first 15-25 US independent hotel properties through the Dallas inside sales team. Focus on properties in Texas and the South where the Dallas team has geographic and time zone advantage</li>
+                        <li>Land first US boutique hotel group deal (5+ properties) to demonstrate multi-property deployment capability</li>
+                        <li>Document 3-5 US customer case studies with measurable outcomes: implementation time, labor savings, guest satisfaction improvement, revenue per available room impact</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout" style="margin-top: 24px;">
+            <div class="callout-label">Expected Outcomes at Day 90</div>
+            <div class="card-grid cols-3" style="margin-top: 10px;">
+                <div style="text-align: center;">
+                    <div style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: var(--accent);">15-25</div>
+                    <div style="font-size: 12px; color: var(--gray);">US Properties Signed</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: var(--gold);">$1-2M</div>
+                    <div style="font-size: 12px; color: var(--gray);">Qualified US Pipeline</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: var(--green);">20</div>
+                    <div style="font-size: 12px; color: var(--gray);">Dallas Hub Employees</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 7: WHY JEFF -->
+    <div class="section">
+        <div class="section-label">07 - Why Jeff Aragon</div>
+        <h2>Scaling US Sales Teams Through Rapid Growth Phases</h2>
+
+        <div class="card card-red">
+            <h3>Career Revenue</h3>
+            <p>$150M+ in career revenue across enterprise software and technical sales. This is not consulting or advisory experience. It is direct pipeline creation, team building, sales process design, and revenue generation across multiple company stages, from Series A startups to enterprise organizations with thousands of employees.</p>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-gold">
+                <h3>Series A Startup: $24M TCV in Under 2 Years</h3>
+                <p>Built and closed $24M in total contract value in less than 2 years at a Series A startup. This was not inheriting existing accounts. It was creating pipeline, developing territories, building sales processes, and closing deals in a market where the company had limited brand recognition. Mews is in a similar phase in the US: strong product, strong funding, but still building the market presence and pipeline infrastructure needed for scale.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>UKG: Nearly 6 Years, Award-Winning</h3>
+                <p>Nearly six years at UKG, recognized as an award-winning top performer multiple times. UKG has significant hospitality industry presence, managing workforce operations for hotel chains and resort operators. I understand how hospitality operators make technology decisions and what matters to them: implementation speed, staff training burden, guest impact, and integration with existing systems.</p>
+            </div>
+        </div>
+
+        <div class="card card-green">
+            <h3>Sales Team Scaling Experience</h3>
+            <p>Have worked through the scaling inflection point multiple times, taking sales teams from initial hires to full productivity. Understand the specific failure modes: tribal knowledge loss, discovery degradation, forecast unreliability, territory overlap, and ramp time expansion. More importantly, understand the solutions. The difference between a scaling motion that works and one that stalls is almost always about process discipline, enablement quality, and pipeline rigor.</p>
+        </div>
+
+        <div class="card card-slate">
+            <h3>Why This Matters for Mews Specifically</h3>
+            <ul>
+                <li><strong>Dallas team optimization</strong> - Have built and optimized inside sales teams at exactly the stage Mews is in now: initial team hired, early results positive, and the question is how to scale from 25 to 50+ without losing the productivity gains</li>
+                <li><strong>European to US GTM translation</strong> - Understand the go-to-market adjustments required when a European product enters the US market. Buyer expectations, pricing models, competitive positioning, and sales processes all need adaptation</li>
+                <li><strong>Multi-segment sales motion</strong> - Experience selling to individual properties (transactional), hotel groups (mid-market), and enterprise chains (strategic). Each requires a different motion, different messaging, and different resource allocation. Building all three simultaneously is what Mews needs</li>
+                <li><strong>Methodology over motivation</strong> - Build repeatable systems that produce consistent results regardless of individual rep performance. The goal is a machine that scales predictably, not a team dependent on heroic individual effort</li>
+            </ul>
+        </div>
+
+        <div class="callout" style="margin-top: 20px;">
+            <div class="callout-label">Operating Philosophy</div>
+            Mews has made the right strategic moves: strong product, significant funding, experienced US leadership, and a Dallas hub with early traction. The next 90 days will determine whether that traction converts into a scalable US revenue engine or stalls at initial success. What separates the two outcomes is sales infrastructure: structured processes, documented playbooks, rigorous pipeline management, and systematic hiring and ramp. I build that infrastructure.
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <strong>Jeff Aragon</strong> | jeff@jozuconsultinggroup.com | +1 303-638-1390 (mobile and WhatsApp)
+    </div>
+
+</div>
+</body>
+</html>

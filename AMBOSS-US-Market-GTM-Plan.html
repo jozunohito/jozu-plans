@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMBOSS - US Market GTM Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #0a0e17;
+        --bg-card: rgba(255,255,255,0.03);
+        --bg-card-border: rgba(255,255,255,0.06);
+        --accent: #e34115;
+        --accent-dim: rgba(227,65,21,0.12);
+        --gold: #c9a84c;
+        --gold-dim: rgba(201,168,76,0.10);
+        --green: #22c55e;
+        --green-dim: rgba(34,197,94,0.10);
+        --slate: #64748b;
+        --white: #ffffff;
+        --gray: #cbd5e1;
+        --bright: #e2e8f0;
+        --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--gray); font-family: 'Open Sans', sans-serif; font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; padding: 50px 40px; }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+    .container { max-width: 1060px; margin: 0 auto; }
+    .header { margin-bottom: 48px; padding-bottom: 28px; border-bottom: 2px solid var(--accent); }
+    .doc-label { font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .doc-title { font-size: 30px; font-weight: 700; line-height: 1.2; margin-bottom: 6px; }
+    .doc-subtitle { font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 300; color: var(--gray); margin-bottom: 4px; }
+    .doc-meta { font-size: 12px; color: var(--gray); margin-top: 8px; }
+    .section { margin-bottom: 44px; }
+    .section-label { font-family: 'Poppins', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+    .section-label::before { content: ''; width: 24px; height: 2px; background: var(--accent); }
+    h2 { font-size: 20px; font-weight: 600; margin-bottom: 16px; }
+    h3 { font-size: 15px; font-weight: 500; color: var(--accent); margin-bottom: 8px; }
+    h4 { font-size: 13px; font-weight: 500; color: var(--gold); margin-bottom: 6px; }
+    .card { background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius); padding: 22px 26px; margin-bottom: 14px; }
+    .card-red { border-left: 3px solid var(--accent); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+    .card-green { border-left: 3px solid var(--green); }
+    .card-grid { display: grid; gap: 14px; margin-bottom: 16px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .divider { width: 60px; height: 2px; background: var(--accent); margin: 32px 0; opacity: 0.4; }
+    ul { padding-left: 20px; margin: 8px 0; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--white); font-weight: 600; }
+    .stat-row { display: flex; gap: 14px; margin: 16px 0; }
+    .stat-box { flex: 1; background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius); padding: 18px; text-align: center; }
+    .stat-number { font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 700; color: var(--accent); }
+    .stat-number.gold { color: var(--gold); }
+    .stat-number.green { color: var(--green); }
+    .stat-label { font-size: 11px; color: var(--gray); margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+    th { font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); text-align: left; padding: 10px 14px; border-bottom: 1px solid rgba(227,65,21,0.2); background: var(--accent-dim); }
+    td { padding: 10px 14px; border-bottom: 1px solid var(--bg-card-border); color: var(--gray); }
+    tr:last-child td { border-bottom: none; }
+    .callout { background: rgba(227,65,21,0.06); border: 1px solid rgba(227,65,21,0.15); border-radius: var(--radius); padding: 18px 24px; margin: 14px 0; color: var(--bright); }
+    .callout-label { font-family: 'Poppins', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 2px; color: var(--accent); margin-bottom: 6px; }
+    .callout-gold { background: rgba(201,168,76,0.06); border: 1px solid rgba(201,168,76,0.15); border-radius: var(--radius); padding: 18px 24px; margin: 14px 0; color: var(--bright); }
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), var(--gold), var(--green)); opacity: 0.4; }
+    .timeline-item { position: relative; margin-bottom: 20px; }
+    .timeline-item::before { content: ''; position: absolute; left: -24px; top: 6px; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--accent); background: var(--bg); }
+    .timeline-item.gold::before { border-color: var(--gold); }
+    .timeline-item.green::before { border-color: var(--green); }
+    .phase-label { font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+    .phase-red { color: var(--accent); }
+    .phase-gold { color: var(--gold); }
+    .phase-green { color: var(--green); }
+    .footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--bg-card-border); text-align: center; color: var(--gray); font-size: 13px; }
+    .footer strong { color: var(--white); }
+    p { margin-bottom: 10px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="doc-label">US Market GTM Plan</div>
+        <h1 class="doc-title">AMBOSS US Market GTM Plan</h1>
+        <div class="doc-subtitle">Expanding the Medical Knowledge Platform into US Hospital Systems and Residency Programs</div>
+        <div class="doc-meta">Prepared by Jeff Aragon, Jozu Consulting Group | April 2026</div>
+    </div>
+
+    <!-- SECTION 1: COMPANY PROFILE -->
+    <div class="section">
+        <div class="section-label">01 - Company Profile</div>
+        <h2>AMBOSS at a Glance</h2>
+
+        <div class="stat-row">
+            <div class="stat-box">
+                <div class="stat-number">$325M+</div>
+                <div class="stat-label">Total Funding</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number gold">$1.8B</div>
+                <div class="stat-label">Valuation</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number green">Germany</div>
+                <div class="stat-label">Headquarters</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">2012</div>
+                <div class="stat-label">Founded</div>
+            </div>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>Company Overview</h3>
+                <p>AMBOSS is a digital medical knowledge platform that fuses medical education, exam preparation, and clinical decision support into a single platform. The company raised EUR 240M in its latest financing round led by Lightspeed Venture Partners, with participation from General Catalyst, Atomico, and Lakestar. An additional $260M Series B brought total funding above $325M and valued the company at $1.8B.</p>
+                <p>The platform serves medical students, residents, and practicing physicians with AI-powered, clinically grounded content. AMBOSS is the leading medical education resource in Germany and is expanding aggressively in the US market. The company is now expanding its offering to nurses and other healthcare professionals.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Leadership</h3>
+                <ul>
+                    <li><strong>Madjid Salimi, Co-Founder and Co-CEO</strong> - Driving the company's commercial and international expansion strategy</li>
+                    <li><strong>Nawid Salimi, Co-Founder and Managing Director</strong> - Leading operational and organizational development</li>
+                </ul>
+                <h4>Key Investors</h4>
+                <ul>
+                    <li>Lightspeed Venture Partners (Lead)</li>
+                    <li>General Catalyst</li>
+                    <li>Atomico</li>
+                    <li>Lakestar</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card card-slate">
+            <h3>Product Platform</h3>
+            <div class="card-grid cols-3" style="margin-top: 12px;">
+                <div>
+                    <h4>Medical Education</h4>
+                    <p>Comprehensive knowledge library for medical students and exam preparation. USMLE Step 1, Step 2, and shelf exam content. Interactive case-based learning with thousands of clinical vignettes.</p>
+                </div>
+                <div>
+                    <h4>Clinical Decision Support</h4>
+                    <p>Point-of-care reference tool for practicing physicians. AI-powered, hallucination-free clinical recommendations grounded in peer-reviewed evidence. Rapid lookup during patient encounters.</p>
+                </div>
+                <div>
+                    <h4>Institutional Platform</h4>
+                    <p>Enterprise licensing for hospital systems, residency programs, and medical schools. Usage analytics, curriculum alignment, and institutional administration tools. Expanding to nurses and allied health professionals.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-label">Market Position</div>
+            AMBOSS is the leading co-pilot for physicians worldwide, with dominant market share in Germany and growing US presence. The platform is trusted by medical students, residents, and attending physicians across specialties. The expansion into institutional sales (hospital systems, residency programs, CME) represents the next phase of US growth.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 2: MARKET ANALYSIS -->
+    <div class="section">
+        <div class="section-label">02 - Market Analysis</div>
+        <h2>US Healthcare Education and Clinical Decision Support Market</h2>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>Market Sizing</h3>
+                <div class="stat-row">
+                    <div class="stat-box">
+                        <div class="stat-number">$4.8B</div>
+                        <div class="stat-label">US Medical Education Market</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number gold">$2.1B</div>
+                        <div class="stat-label">Clinical Decision Support Market</div>
+                    </div>
+                </div>
+                <p>The US healthcare education and CDS market is large and growing, driven by physician burnout costs ($4.6B annually in turnover alone), increasing regulatory requirements for continuing medical education, and the urgent need for faster, more reliable clinical decision-making at the point of care.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Market Tailwinds</h3>
+                <ul>
+                    <li><strong>Physician burnout crisis</strong> - Over 50% of US physicians report burnout symptoms. Tools that reduce cognitive load and accelerate clinical decision-making are funded as retention investments, not education line items</li>
+                    <li><strong>Residency program modernization</strong> - US residency programs are under ACGME pressure to demonstrate competency-based training outcomes. Digital platforms that track learning progress replace subjective assessments</li>
+                    <li><strong>AI in clinical settings</strong> - Hospital systems are cautiously adopting AI-powered tools, but demand hallucination-free, evidence-based outputs. AMBOSS's clinically grounded AI has a trust advantage over general-purpose AI assistants</li>
+                    <li><strong>Nursing and allied health expansion</strong> - The US nursing shortage (projected 200,000+ unfilled positions) creates demand for education and decision support tools beyond physicians. AMBOSS's expansion into nursing multiplies the addressable market</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card card-slate">
+            <h3>Buyer Landscape</h3>
+            <table>
+                <tr>
+                    <th>Segment</th>
+                    <th>Primary Buyer</th>
+                    <th>Key Pain Point</th>
+                    <th>AMBOSS Fit</th>
+                </tr>
+                <tr>
+                    <td><strong>Hospital Systems (500+ beds)</strong></td>
+                    <td>CMO, VP Medical Education, CMIO</td>
+                    <td>Physician onboarding costs, clinical variation, burnout-driven turnover</td>
+                    <td>Enterprise CDS platform reducing clinical lookup time and standardizing evidence-based practice</td>
+                </tr>
+                <tr>
+                    <td><strong>Residency Programs</strong></td>
+                    <td>Program Director, DIO</td>
+                    <td>ACGME competency documentation, resident preparedness, board pass rates</td>
+                    <td>Integrated education and assessment platform with tracking and analytics</td>
+                </tr>
+                <tr>
+                    <td><strong>Medical Schools</strong></td>
+                    <td>Dean of Medical Education, Curriculum Director</td>
+                    <td>LCME accreditation requirements, student board scores, curriculum standardization</td>
+                    <td>Comprehensive knowledge library aligned with US medical education standards</td>
+                </tr>
+                <tr>
+                    <td><strong>CME Providers and Payers</strong></td>
+                    <td>VP Clinical Programs, Medical Director</td>
+                    <td>Physician engagement with continuing education, compliance documentation</td>
+                    <td>AI-powered CME delivery with measurable outcomes and completion tracking</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="callout">
+            <div class="callout-label">Core Market Thesis</div>
+            US healthcare is spending billions on physician burnout, clinical variation, and education inefficiency. Each of these problems maps directly to AMBOSS's platform capabilities. The challenge is not whether the product fits. It is which buyer segment to prioritize first and how to navigate the complex, committee-driven procurement processes that govern healthcare technology purchases. The companies that win in US healthtech sell outcomes tied to dollars: reduced turnover costs, faster onboarding, lower clinical variation, and improved patient safety metrics.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 3: COMPETITIVE LANDSCAPE -->
+    <div class="section">
+        <div class="section-label">03 - Competitive Landscape</div>
+        <h2>Where AMBOSS Wins and Where the Pressure Is</h2>
+
+        <table>
+            <tr>
+                <th>Competitor</th>
+                <th>Category</th>
+                <th>Strength</th>
+                <th>AMBOSS Advantage</th>
+            </tr>
+            <tr>
+                <td><strong>UpToDate (Wolters Kluwer)</strong></td>
+                <td>Clinical Decision Support</td>
+                <td>Market leader in point-of-care CDS. Deep hospital system penetration. Decades of brand trust with US physicians. Embedded in clinical workflows</td>
+                <td>AMBOSS bridges education and clinical practice in a single platform. UpToDate is reference-only, with no education, assessment, or AI co-pilot capabilities. Physicians who trained on AMBOSS prefer it at the point of care</td>
+            </tr>
+            <tr>
+                <td><strong>DynaMed (EBSCO)</strong></td>
+                <td>Clinical Decision Support</td>
+                <td>Evidence-based clinical reference. Often bundled with EBSCO library subscriptions at academic medical centers</td>
+                <td>DynaMed competes on price against UpToDate. AMBOSS competes on platform breadth: education plus CDS plus AI. Different value proposition that justifies independent budget</td>
+            </tr>
+            <tr>
+                <td><strong>ClinicalKey (Elsevier)</strong></td>
+                <td>Clinical Reference + AI</td>
+                <td>Elsevier's publishing empire backing. AI-powered clinical answers. Broad medical content library</td>
+                <td>ClinicalKey draws from Elsevier publications. AMBOSS content is purpose-built for clinical decision-making with structured, interlinked knowledge articles. The content architecture is designed for speed at the point of care</td>
+            </tr>
+            <tr>
+                <td><strong>Glass Health</strong></td>
+                <td>AI Clinical CDS</td>
+                <td>AI-native clinical decision support. Modern UX. EHR integration vision. Ambient scribing and encounter-based CDS</td>
+                <td>Glass Health is building workflow-embedded AI. AMBOSS has the content library, the user base, and the institutional trust. Glass is innovating on delivery; AMBOSS has the knowledge foundation that any AI CDS needs to be reliable</td>
+            </tr>
+            <tr>
+                <td><strong>UWorld</strong></td>
+                <td>Medical Exam Preparation</td>
+                <td>Dominant in USMLE preparation. High student loyalty. Strong brand for board exams</td>
+                <td>UWorld is exam-only. AMBOSS carries physicians from medical school through residency and into clinical practice. UWorld is a study tool; AMBOSS is a career-long platform</td>
+            </tr>
+        </table>
+
+        <div class="card-grid cols-2" style="margin-top: 20px;">
+            <div class="card card-red">
+                <h3>Competitive Positioning Strategy</h3>
+                <p>AMBOSS should not position against UpToDate on clinical reference alone. The winning message: "UpToDate is a reference tool. AMBOSS is a physician co-pilot that grows with you from medical school through your entire career." This positions AMBOSS as a platform play rather than a feature comparison, and it aligns with hospital systems' desire to invest in tools that improve physician retention and satisfaction over the long term.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Competitive Moat</h3>
+                <ul>
+                    <li><strong>Education-to-practice continuum</strong> - No competitor bridges medical education and clinical decision support in a single platform. This creates lifetime user relationships starting in medical school</li>
+                    <li><strong>AI without hallucination</strong> - Clinically grounded AI that does not generate fabricated medical advice. In healthcare, AI reliability is not a feature; it is a requirement</li>
+                    <li><strong>$1.8B valuation and $325M+ funding</strong> - Resources to compete with Wolters Kluwer and Elsevier on content depth, platform development, and sales infrastructure</li>
+                    <li><strong>Expansion to nursing</strong> - Multiplies the addressable market within existing hospital system accounts. Same buyer, bigger deal, longer contract</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 4: BUYER SEGMENTS -->
+    <div class="section">
+        <div class="section-label">04 - Buyer Segments</div>
+        <h2>Target Segments, Decision Makers, and Deal Economics</h2>
+
+        <div class="card card-red">
+            <h3>Segment 1: Hospital Systems (500+ beds)</h3>
+            <div class="card-grid cols-3" style="margin-top: 12px;">
+                <div>
+                    <h4>Decision Makers</h4>
+                    <ul>
+                        <li>Chief Medical Officer (executive sponsor)</li>
+                        <li>VP Medical Education (champion)</li>
+                        <li>CMIO (technology evaluator)</li>
+                        <li>CFO (budget approval for large deals)</li>
+                        <li>Department Chiefs (clinical validation)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Deal Economics</h4>
+                    <ul>
+                        <li>ACV: $100K - $500K+ (per system)</li>
+                        <li>Sales cycle: 6 - 12 months</li>
+                        <li>Pilot: 90-day clinical evaluation</li>
+                        <li>Procurement: Value analysis committee, IT security, HIPAA review, legal</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Buying Triggers</h4>
+                    <ul>
+                        <li>UpToDate contract renewal (price increase)</li>
+                        <li>Physician burnout reduction initiative</li>
+                        <li>New residency program accreditation</li>
+                        <li>Clinical variation reduction mandate</li>
+                        <li>Nursing education platform needed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-gold">
+            <h3>Segment 2: Residency Programs</h3>
+            <div class="card-grid cols-3" style="margin-top: 12px;">
+                <div>
+                    <h4>Decision Makers</h4>
+                    <ul>
+                        <li>Program Director (champion and buyer)</li>
+                        <li>Designated Institutional Official (DIO)</li>
+                        <li>GME Committee (group approval)</li>
+                        <li>Hospital CMO (budget approval)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Deal Economics</h4>
+                    <ul>
+                        <li>ACV: $20K - $75K (per program)</li>
+                        <li>Sales cycle: 2 - 4 months</li>
+                        <li>Pilot: Academic semester trial</li>
+                        <li>Procurement: GME budget, simpler</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Buying Triggers</h4>
+                    <ul>
+                        <li>ACGME accreditation review approaching</li>
+                        <li>Below-average board pass rates</li>
+                        <li>Resident satisfaction survey results</li>
+                        <li>New program launch requiring resources</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-green">
+            <h3>Segment 3: Medical Schools and CME</h3>
+            <div class="card-grid cols-3" style="margin-top: 12px;">
+                <div>
+                    <h4>Decision Makers</h4>
+                    <ul>
+                        <li>Dean of Medical Education (champion)</li>
+                        <li>Curriculum Committee (group decision)</li>
+                        <li>IT Director (integration evaluation)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Deal Economics</h4>
+                    <ul>
+                        <li>ACV: $30K - $100K (per school)</li>
+                        <li>Sales cycle: 3 - 6 months</li>
+                        <li>Pilot: Semester-long evaluation</li>
+                        <li>Budget: Academic year alignment</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Buying Triggers</h4>
+                    <ul>
+                        <li>LCME accreditation cycle</li>
+                        <li>Curriculum modernization initiative</li>
+                        <li>USMLE score improvement mandate</li>
+                        <li>Student demand for digital resources</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 5: PARTNERSHIP CHANNEL -->
+    <div class="section">
+        <div class="section-label">05 - Partnership Channel Strategy</div>
+        <h2>Building US Revenue Through Healthcare Ecosystem Partners</h2>
+
+        <p>Healthcare technology sales in the US are heavily influenced by professional associations, group purchasing organizations (GPOs), consulting firms, and technology platform integrations. AMBOSS needs to be embedded in the ecosystems where healthcare buying decisions are made.</p>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>Professional Associations and Societies</h3>
+                <h4>Priority Partnerships</h4>
+                <ul>
+                    <li><strong>ACGME</strong> - Accreditation body for residency programs. Alignment with ACGME competency frameworks positions AMBOSS as the standard platform for residency training compliance</li>
+                    <li><strong>AMA (American Medical Association)</strong> - CME accreditation and physician professional development. AMBOSS CME content distributed through AMA channels reaches every practicing physician</li>
+                    <li><strong>Specialty Societies (ACS, ACC, AAN)</strong> - Each specialty society influences education purchasing for their discipline. Partnerships create vertical credibility and targeted distribution</li>
+                    <li><strong>AAMC</strong> - Association of American Medical Colleges. Institutional relationship that opens doors to every medical school in the country</li>
+                </ul>
+                <h4>Value Exchange</h4>
+                <p>Associations need digital education platforms to serve their members. AMBOSS provides the technology. Associations provide credibility, distribution, and member access. A single specialty society partnership can influence purchasing decisions at 200+ residency programs.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Group Purchasing Organizations and Health Systems</h3>
+                <h4>Target GPOs</h4>
+                <ul>
+                    <li><strong>Vizient</strong> - Largest GPO in the US, serving 60% of academic medical centers. Getting on the Vizient contract vehicle simplifies procurement for every member hospital</li>
+                    <li><strong>Premier</strong> - GPO with 4,400+ hospitals and health systems. Contract listing provides access to a massive installed base with pre-negotiated purchasing terms</li>
+                    <li><strong>HealthTrust (HCA Healthcare)</strong> - GPO for HCA and affiliated hospitals. Single relationship provides access to the largest for-profit health system in the US</li>
+                </ul>
+                <h4>Value Exchange</h4>
+                <p>GPOs eliminate procurement friction. Once AMBOSS is on a GPO contract, member hospitals can purchase without running their own vendor evaluation. This shortens the sales cycle from 6-12 months to 2-4 months for GPO member facilities.</p>
+            </div>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-green">
+                <h3>Healthcare IT and EHR Integration</h3>
+                <h4>Integration Priorities</h4>
+                <ul>
+                    <li><strong>Epic</strong> - Dominant EHR with 38%+ US market share. Integration enables one-click AMBOSS lookups from within the clinical workflow. Epic App Orchard listing provides distribution</li>
+                    <li><strong>Cerner (Oracle Health)</strong> - Second largest EHR. Integration captures the Cerner installed base, particularly in federal and VA health systems</li>
+                    <li><strong>MEDITECH</strong> - Significant community hospital presence. Integration opens the mid-market health system segment</li>
+                </ul>
+                <h4>Value Exchange</h4>
+                <p>EHR integration transforms AMBOSS from a reference tool to an embedded clinical workflow component. Physicians who access AMBOSS within their EHR use it more frequently, driving higher renewal rates and expansion within health systems. EHR marketplace listings also create passive demand generation.</p>
+            </div>
+            <div class="card card-slate">
+                <h3>Healthcare Consulting and Staffing Partners</h3>
+                <h4>Target Partners</h4>
+                <ul>
+                    <li><strong>Advisory Board (Optum)</strong> - Healthcare advisory firm influencing technology decisions at hundreds of health systems. Their recommendations carry significant weight</li>
+                    <li><strong>Huron Consulting</strong> - Healthcare transformation advisory with deep academic medical center relationships</li>
+                    <li><strong>Nursing staffing agencies</strong> - As AMBOSS expands to nursing, staffing agencies can bundle AMBOSS as a training benefit for their placed nurses</li>
+                    <li><strong>Senior living and long-term care networks</strong> - Clinical education needs in post-acute care settings represent an underserved market</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout-gold">
+            <div class="callout-label" style="color: var(--gold);">Channel Revenue Target</div>
+            Within 18 months, GPO contracts and professional association partnerships should generate 30-40% of institutional pipeline. A single Vizient contract listing can influence purchasing decisions at 2,000+ member hospitals. This is the highest-leverage channel investment AMBOSS can make in the US market.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 6: 90-DAY GTM EXECUTION PLAN -->
+    <div class="section">
+        <div class="section-label">06 - 90-Day GTM Execution Plan</div>
+        <h2>Expanding into US Hospital Systems and Residency Programs</h2>
+
+        <p>AMBOSS already has US presence through individual physician subscriptions and medical student adoption. This plan focuses on accelerating institutional sales: hospital system enterprise licenses, residency program contracts, and medical school partnerships. The foundation exists. The goal is to build the commercial infrastructure to convert individual adoption into institutional revenue.</p>
+
+        <div class="timeline" style="margin-top: 24px;">
+
+            <div class="timeline-item">
+                <div class="phase-label phase-red">Phase 1: Days 1-30, Institutional Sales Foundation</div>
+                <div class="card card-red" style="margin-top: 8px;">
+                    <h4>Buyer Mapping and Segmentation</h4>
+                    <ul>
+                        <li>Identify the top 100 US hospital systems by bed count and academic affiliation. Prioritize academic medical centers where AMBOSS individual adoption is already highest, creating a bottom-up selling opportunity</li>
+                        <li>Map decision makers at each target: CMO, VP Medical Education, CMIO, Program Directors. Healthcare buying is committee-driven. You need relationships at multiple levels before a deal moves forward</li>
+                        <li>Analyze existing AMBOSS individual user data to identify hospitals where physician adoption is already strong. These are the "warm" institutions where the product has already proven its value at the individual level</li>
+                    </ul>
+                </div>
+                <div class="card card-red" style="margin-top: 8px;">
+                    <h4>US Healthcare Messaging</h4>
+                    <ul>
+                        <li>Develop outcome-based messaging for each buyer persona. CMOs care about clinical variation and patient safety. VPs of Medical Education care about residency accreditation and board scores. CMIOs care about EHR integration and physician efficiency metrics</li>
+                        <li>Build ROI models connecting AMBOSS to measurable outcomes: physician onboarding time reduction, burnout-related turnover cost savings, clinical lookup time reduction, and board pass rate improvement</li>
+                        <li>Create competitive displacement messaging for UpToDate renewals. Many hospital systems are evaluating alternatives when their Wolters Kluwer contracts come up for renewal. AMBOSS needs a clear "switch" narrative</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item gold">
+                <div class="phase-label phase-gold">Phase 2: Days 31-60, Pipeline Generation and Partnerships</div>
+                <div class="card card-gold" style="margin-top: 8px;">
+                    <h4>Institutional Pipeline Development</h4>
+                    <ul>
+                        <li>Launch outbound campaigns targeting VP Medical Education and CMO personas at top 50 academic medical centers. Lead with the "bottom-up adoption" story: "Your physicians are already using AMBOSS individually. Here is what happens when you deploy it institution-wide"</li>
+                        <li>Execute an UpToDate renewal interception campaign. Identify health systems with UpToDate contracts expiring in the next 6-12 months and present AMBOSS as the modern alternative with AI capabilities, education integration, and competitive pricing</li>
+                        <li>Attend AAMC, ACGME, and HIMSS conferences. Healthcare technology decisions are heavily influenced by conference presence, peer recommendations, and association endorsements</li>
+                    </ul>
+                </div>
+                <div class="card card-gold" style="margin-top: 8px;">
+                    <h4>GPO and Association Engagement</h4>
+                    <ul>
+                        <li>Initiate Vizient contract application. The GPO contracting process takes 3-6 months, so starting early is essential. A Vizient listing transforms procurement at 2,000+ member hospitals</li>
+                        <li>Begin partnership discussions with 2-3 specialty societies for co-branded CME content. Each partnership creates a distribution channel and credibility endorsement for institutional sales</li>
+                        <li>Explore Epic App Orchard listing to enable EHR integration. Even if full integration takes 6+ months, marketplace presence creates visibility with hospital IT teams evaluating clinical tools</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item green">
+                <div class="phase-label phase-green">Phase 3: Days 61-90, Close First Institutional Deals</div>
+                <div class="card card-green" style="margin-top: 8px;">
+                    <h4>Deal Progression</h4>
+                    <ul>
+                        <li>Convert institutional pilots into annual contracts. Target 5-10 institutional pilots in progress by day 45, with at least 3 converting by day 90. Focus on residency programs where the sales cycle is shorter and budget approval is simpler</li>
+                        <li>Close 2-3 hospital system enterprise licenses at academic medical centers where individual physician adoption provides built-in validation</li>
+                        <li>Document first US institutional case studies with measurable outcomes: board pass rates, physician satisfaction scores, clinical lookup time, and renewal rates</li>
+                    </ul>
+                </div>
+                <div class="card card-green" style="margin-top: 8px;">
+                    <h4>Sales Infrastructure</h4>
+                    <ul>
+                        <li>Hire 2-3 US-based Account Executives with healthcare technology sales experience. Healthtech AEs need to understand value analysis committees, GPO procurement, HIPAA review processes, and the politics of hospital technology decisions</li>
+                        <li>Establish clinical advisory relationships with 3-5 US physicians who can serve as reference customers and provide clinical credibility in sales conversations</li>
+                        <li>Build a dedicated SE capability for clinical demonstration environments showing EHR integration, point-of-care workflows, and institutional analytics dashboards</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout" style="margin-top: 24px;">
+            <div class="callout-label">Expected Outcomes at Day 90</div>
+            <div class="card-grid cols-3" style="margin-top: 10px;">
+                <div style="text-align: center;">
+                    <div style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: var(--accent);">$2-4M</div>
+                    <div style="font-size: 12px; color: var(--gray);">Institutional Pipeline</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: var(--gold);">5-10</div>
+                    <div style="font-size: 12px; color: var(--gray);">Institutional Pilots Active</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: var(--green);">1</div>
+                    <div style="font-size: 12px; color: var(--gray);">GPO Contract Application Filed</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 7: WHY JEFF -->
+    <div class="section">
+        <div class="section-label">07 - Why Jeff Aragon</div>
+        <h2>Deep Healthcare Market Experience for Institutional Sales</h2>
+
+        <div class="card card-red">
+            <h3>Career Revenue</h3>
+            <p>$150M+ in career revenue across enterprise software, healthcare technology, and complex institutional sales. This is not advisory experience from a consulting firm. It is direct pipeline creation, deal execution, and revenue generation in markets where the buying process is multi-stakeholder, committee-driven, and intensely relationship-dependent.</p>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-gold">
+                <h3>Series A Startup: $24M TCV in Under 2 Years</h3>
+                <p>Built and closed $24M in total contract value in less than 2 years at a Series A startup. Created pipeline and closed enterprise deals in a market where the company had limited brand recognition. AMBOSS faces a similar challenge: converting strong individual adoption into institutional enterprise revenue against an entrenched incumbent (UpToDate). I have done this exact motion before.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>UKG: Nearly 6 Years, Award-Winning</h3>
+                <p>Nearly six years at UKG, recognized as an award-winning top performer multiple times. UKG's largest customer segment is healthcare, including major hospital systems, long-term care operators, and health plans. I understand how hospital procurement works, what value analysis committees look for, and how to navigate the multi-stakeholder approval process that governs healthcare technology purchases.</p>
+            </div>
+        </div>
+
+        <div class="card card-green">
+            <h3>Healthcare Market Depth</h3>
+            <p>Over a decade of selling healthcare technology into US hospital systems, payer organizations, and provider networks. My experience at OnShift, focused on senior living and long-term care, gave me deep expertise in post-acute healthcare markets where clinician education and retention are critical operational challenges. I understand the difference between a department champion who loves your product and the VP of Medical Education who controls the budget. That gap is where most healthtech deals die, and I know how to bridge it.</p>
+        </div>
+
+        <div class="card card-slate">
+            <h3>Why This Matters for AMBOSS Specifically</h3>
+            <ul>
+                <li><strong>Healthcare institutional sales expertise</strong> - Have sold complex technology into US hospital systems, health plans, and post-acute care organizations. Understand value analysis committees, GPO procurement, HIPAA review processes, and the politics of hospital buying decisions</li>
+                <li><strong>Bottom-up to top-down conversion</strong> - Have executed the motion of converting individual user adoption into institutional enterprise deals. This is exactly what AMBOSS needs: turning physician-level love for the product into hospital-system-level contracts</li>
+                <li><strong>Competitive displacement experience</strong> - Have displaced entrenched incumbents in healthcare technology. Understand how to position against Wolters Kluwer (UpToDate) without triggering defensive procurement responses</li>
+                <li><strong>Senior care and nursing market knowledge</strong> - OnShift experience in senior living and long-term care provides direct expertise in the nursing and allied health markets where AMBOSS is expanding</li>
+            </ul>
+        </div>
+
+        <div class="callout" style="margin-top: 20px;">
+            <div class="callout-label">Operating Philosophy</div>
+            Healthcare technology sales is a patience game with a massive payoff. The buying cycles are long, the stakeholder maps are complex, and the compliance requirements are non-negotiable. But once you earn a hospital system's trust and get embedded in their clinical workflows, the retention rates are extraordinary and the expansion opportunities are significant. I build the commercial foundation that earns that trust systematically rather than accidentally.
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <strong>Jeff Aragon</strong> | jeff@jozuconsultinggroup.com | +1 303-638-1390 (mobile and WhatsApp)
+    </div>
+
+</div>
+</body>
+</html>

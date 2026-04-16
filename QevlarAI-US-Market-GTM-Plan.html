@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qevlar AI - US Market GTM Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #0a0e17;
+        --bg-card: rgba(255,255,255,0.03);
+        --bg-card-border: rgba(255,255,255,0.06);
+        --accent: #e34115;
+        --accent-dim: rgba(227,65,21,0.12);
+        --gold: #c9a84c;
+        --gold-dim: rgba(201,168,76,0.10);
+        --green: #22c55e;
+        --green-dim: rgba(34,197,94,0.10);
+        --slate: #64748b;
+        --white: #ffffff;
+        --gray: #cbd5e1;
+        --bright: #e2e8f0;
+        --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: var(--bg);
+        color: var(--gray);
+        font-family: 'Open Sans', sans-serif;
+        font-size: 15px;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        padding: 50px 40px;
+    }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+
+    .container { max-width: 1060px; margin: 0 auto; }
+
+    .header {
+        margin-bottom: 48px;
+        padding-bottom: 28px;
+        border-bottom: 2px solid var(--accent);
+    }
+    .doc-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 10px;
+    }
+    .doc-title {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 6px;
+    }
+    .doc-subtitle {
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-weight: 300;
+        color: var(--gray);
+        margin-bottom: 4px;
+    }
+    .doc-meta {
+        font-size: 12px;
+        color: var(--gray);
+        margin-top: 8px;
+    }
+
+    .section { margin-bottom: 44px; }
+    .section-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .section-label::before {
+        content: '';
+        width: 24px; height: 2px;
+        background: var(--accent);
+    }
+    h2 { font-size: 20px; font-weight: 600; margin-bottom: 16px; }
+    h3 { font-size: 15px; font-weight: 500; color: var(--accent); margin-bottom: 8px; }
+    h4 { font-size: 13px; font-weight: 500; color: var(--gold); margin-bottom: 6px; }
+
+    .card {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin-bottom: 14px;
+    }
+    .card-red { border-left: 3px solid var(--accent); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+    .card-green { border-left: 3px solid var(--green); }
+
+    .card-grid { display: grid; gap: 14px; margin-bottom: 16px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .card-grid.cols-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+    .divider { width: 60px; height: 2px; background: var(--accent); margin: 32px 0; opacity: 0.4; }
+
+    ul { padding-left: 20px; margin: 8px 0; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--white); font-weight: 600; }
+
+    .stat-row { display: flex; gap: 14px; margin: 16px 0; }
+    .stat-box {
+        flex: 1;
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 18px;
+        text-align: center;
+    }
+    .stat-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--accent);
+    }
+    .stat-number.gold { color: var(--gold); }
+    .stat-number.green { color: var(--green); }
+    .stat-label {
+        font-size: 11px;
+        color: var(--gray);
+        margin-top: 4px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+        font-size: 14px;
+    }
+    th {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 10px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--accent);
+        text-align: left;
+        padding: 10px 14px;
+        border-bottom: 1px solid rgba(227,65,21,0.2);
+        background: var(--accent-dim);
+    }
+    td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--bg-card-border);
+        color: var(--gray);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .callout {
+        background: rgba(227,65,21,0.06);
+        border: 1px solid rgba(227,65,21,0.15);
+        border-radius: var(--radius);
+        padding: 18px 24px;
+        margin: 14px 0;
+        color: var(--bright);
+    }
+    .callout-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: var(--accent);
+        margin-bottom: 6px;
+    }
+    .callout-gold {
+        background: rgba(201,168,76,0.06);
+        border: 1px solid rgba(201,168,76,0.15);
+        border-radius: var(--radius);
+        padding: 18px 24px;
+        margin: 14px 0;
+        color: var(--bright);
+    }
+
+    .timeline {
+        position: relative;
+        padding-left: 28px;
+    }
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 8px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, var(--accent), var(--gold), var(--green));
+        opacity: 0.4;
+    }
+    .timeline-item {
+        position: relative;
+        margin-bottom: 20px;
+    }
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -24px;
+        top: 6px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid var(--accent);
+        background: var(--bg);
+    }
+    .timeline-item.gold::before { border-color: var(--gold); }
+    .timeline-item.green::before { border-color: var(--green); }
+
+    .phase-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+    }
+    .phase-red { color: var(--accent); }
+    .phase-gold { color: var(--gold); }
+    .phase-green { color: var(--green); }
+
+    .footer {
+        margin-top: 60px;
+        padding-top: 24px;
+        border-top: 1px solid var(--bg-card-border);
+        text-align: center;
+        color: var(--gray);
+        font-size: 13px;
+    }
+    .footer strong { color: var(--white); }
+
+    p { margin-bottom: 10px; }
+
+    .tag {
+        display: inline-block;
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        padding: 3px 10px;
+        border-radius: 4px;
+        margin-right: 6px;
+        margin-bottom: 4px;
+    }
+    .tag-red { background: var(--accent-dim); color: var(--accent); }
+    .tag-gold { background: var(--gold-dim); color: var(--gold); }
+    .tag-green { background: var(--green-dim); color: var(--green); }
+</style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="doc-label">US Market GTM Plan</div>
+        <h1 class="doc-title">Qevlar AI US Market GTM Plan</h1>
+        <div class="doc-subtitle">Building the US Sales Motion for the Autonomous SOC Platform</div>
+        <div class="doc-meta">Prepared by Jeff Aragon, Jozu Consulting Group | April 2026</div>
+    </div>
+
+    <!-- SECTION 1: COMPANY PROFILE -->
+    <div class="section">
+        <div class="section-label">01 - Company Profile</div>
+        <h2>Qevlar AI at a Glance</h2>
+
+        <div class="stat-row">
+            <div class="stat-box">
+                <div class="stat-number">$44M</div>
+                <div class="stat-label">Total Funding</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number gold">$30M</div>
+                <div class="stat-label">Series A (March 2026)</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number green">Paris</div>
+                <div class="stat-label">Headquarters</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">2023</div>
+                <div class="stat-label">Founded</div>
+            </div>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>Company Overview</h3>
+                <p>Qevlar AI is a Paris-based autonomous SOC platform that uses agentic AI to automate and deepen security investigations. The company raised $30M in Series A funding co-led by Partech and Forgepoint Capital, with participation from EQT Ventures. This follows a $14M seed round led by EQT Ventures and Forgepoint Capital in 2024.</p>
+                <p>The platform autonomously enriches, correlates, and investigates security signals, expanding security team capacity while reducing incident response times. Qevlar deploys in hours, not months, and integrates with existing SIEM, EDR, XDR, and SOAR systems via API.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Leadership</h3>
+                <ul>
+                    <li><strong>Ahmed Achchak, Co-Founder and CEO</strong> - Leading the company's commercial expansion and product vision for the autonomous SOC category</li>
+                    <li><strong>Hamza Sayah, Co-Founder</strong> - Technical co-founder driving platform architecture and AI capabilities</li>
+                </ul>
+                <h4>Key Investors</h4>
+                <ul>
+                    <li>Partech (Series A Co-Lead)</li>
+                    <li>Forgepoint Capital (Series A Co-Lead, Seed Lead)</li>
+                    <li>EQT Ventures (Series A, Seed Lead)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card card-slate">
+            <h3>Product Platform</h3>
+            <div class="card-grid cols-3" style="margin-top: 12px;">
+                <div>
+                    <h4>Autonomous Investigation</h4>
+                    <p>AI agents replicate the reasoning and research steps of human SOC analysts. Ingests alerts from any security tool and produces structured, evidence-backed reports with clear verdicts and confidence levels.</p>
+                </div>
+                <div>
+                    <h4>Alert Correlation</h4>
+                    <p>Moves beyond individual alert triage to organization-level security insights. Connects signals across tools, timelines, and threat intelligence sources to surface real incidents buried in alert noise.</p>
+                </div>
+                <div>
+                    <h4>Rapid Deployment</h4>
+                    <p>Connects to existing security stack in hours via API. No rip-and-replace required. Works alongside any SIEM, TI, EDR, XDR, or SOAR platform already in place.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-label">Enterprise Customers</div>
+            Mercedes-Benz, Sodexo, Orange Cyberdefense, ECI, Atos. The customer base spans both large enterprises and leading global managed security service providers.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 2: MARKET ANALYSIS -->
+    <div class="section">
+        <div class="section-label">02 - Market Analysis</div>
+        <h2>US Cybersecurity and Autonomous SOC Landscape</h2>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>Market Sizing</h3>
+                <div class="stat-row">
+                    <div class="stat-box">
+                        <div class="stat-number">$6.4B</div>
+                        <div class="stat-label">US SIEM/SOAR Market 2026</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number gold">$1.2B+</div>
+                        <div class="stat-label">AI SOC Automation Segment</div>
+                    </div>
+                </div>
+                <p>The autonomous SOC category is emerging from within the broader SIEM/SOAR market. US enterprises spend billions annually on security operations, yet the average SOC analyst handles 50+ alerts per day with manual investigation. The efficiency gap creates a massive addressable market for AI-driven investigation platforms.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Market Tailwinds</h3>
+                <ul>
+                    <li><strong>SOC analyst burnout crisis</strong> - Average SOC analyst turnover exceeds 30% annually. Organizations cannot hire fast enough to cover the alert volume, creating urgent demand for automation that actually reduces workload</li>
+                    <li><strong>Alert fatigue epidemic</strong> - Enterprise SOCs receive thousands of alerts daily, with over 80% being false positives. Manual triage is unsustainable and causes real threats to be missed</li>
+                    <li><strong>Cybersecurity talent shortage</strong> - Over 500,000 unfilled cybersecurity positions in the US alone. AI-driven investigation is not a luxury, it is the only viable path to adequate coverage</li>
+                    <li><strong>Board-level visibility</strong> - SEC cybersecurity disclosure rules have elevated security operations to a board conversation, increasing budget availability for solutions that demonstrably improve detection and response</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card card-slate">
+            <h3>Buyer Landscape</h3>
+            <table>
+                <tr>
+                    <th>Segment</th>
+                    <th>Primary Buyer</th>
+                    <th>Key Pain Point</th>
+                    <th>Qevlar Fit</th>
+                </tr>
+                <tr>
+                    <td><strong>Enterprise (10,000+ employees)</strong></td>
+                    <td>CISO, VP Security Operations</td>
+                    <td>Alert volume overwhelming SOC capacity, analyst burnout, slow MTTR</td>
+                    <td>Autonomous investigation at scale, API integration with existing stack</td>
+                </tr>
+                <tr>
+                    <td><strong>Mid-Market (1,000-10,000)</strong></td>
+                    <td>Director of Security, IT Security Manager</td>
+                    <td>Cannot justify full SOC headcount, relying on understaffed teams</td>
+                    <td>Force multiplier for small security teams, rapid deployment</td>
+                </tr>
+                <tr>
+                    <td><strong>MSSPs</strong></td>
+                    <td>VP Service Delivery, SOC Director</td>
+                    <td>Scaling investigation capacity across hundreds of clients profitably</td>
+                    <td>Multi-tenant platform enabling MSSPs to handle more clients with existing staff</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="callout">
+            <div class="callout-label">Core Market Thesis</div>
+            The US cybersecurity market is moving from "detect and alert" to "detect, investigate, and resolve." Qevlar sits at the investigation layer, the most labor-intensive and error-prone step in the security operations workflow. Every US enterprise running a SOC is a potential buyer because the problem Qevlar solves is universal: too many alerts, not enough analysts, and the ones you have are burning out.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 3: COMPETITIVE LANDSCAPE -->
+    <div class="section">
+        <div class="section-label">03 - Competitive Landscape</div>
+        <h2>Where Qevlar Wins and Where the Pressure Is</h2>
+
+        <table>
+            <tr>
+                <th>Competitor</th>
+                <th>Category</th>
+                <th>Strength</th>
+                <th>Qevlar Advantage</th>
+            </tr>
+            <tr>
+                <td><strong>CrowdStrike (Charlotte)</strong></td>
+                <td>Agentic SOAR Module</td>
+                <td>Massive installed base. Charlotte Agentic SOAR launched November 2025. Built into the Falcon ecosystem</td>
+                <td>Charlotte is tied to the Falcon platform. Qevlar is stack-agnostic and integrates with any SIEM/EDR/XDR. Enterprises running multi-vendor security stacks need a vendor-neutral investigation layer</td>
+            </tr>
+            <tr>
+                <td><strong>Palo Alto (Cortex XSIAM)</strong></td>
+                <td>Autonomous SOC Platform</td>
+                <td>Over $1B in cumulative bookings. 100% MITRE ATT&CK detection. Massive enterprise presence</td>
+                <td>XSIAM requires platform commitment and rip-and-replace. Qevlar deploys on top of existing tools in hours. For organizations not ready to consolidate onto Palo Alto, Qevlar is the path of least resistance</td>
+            </tr>
+            <tr>
+                <td><strong>Prophet Security</strong></td>
+                <td>AI SOC Analyst</td>
+                <td>Direct competitor in the autonomous investigation category. Strong US presence</td>
+                <td>Qevlar's European enterprise customers (Mercedes-Benz, Sodexo) provide proof points that resonate with US buyers evaluating multiple vendors. Faster deployment and broader integration ecosystem</td>
+            </tr>
+            <tr>
+                <td><strong>Dropzone AI</strong></td>
+                <td>AI SOC Analyst</td>
+                <td>US-based, strong venture backing, focused on autonomous tier-1 SOC analysis</td>
+                <td>Qevlar goes beyond tier-1 triage to full investigation with evidence-backed verdicts. The depth of investigation, not just classification, is the differentiator</td>
+            </tr>
+            <tr>
+                <td><strong>Google SecOps</strong></td>
+                <td>SIEM/SOAR Platform</td>
+                <td>Context-rich case management, built-in SOAR, Google infrastructure</td>
+                <td>Google SecOps is a platform play requiring ecosystem buy-in. Qevlar augments any existing platform without requiring migration</td>
+            </tr>
+        </table>
+
+        <div class="card-grid cols-2" style="margin-top: 20px;">
+            <div class="card card-red">
+                <h3>Competitive Positioning Strategy</h3>
+                <p>Qevlar should not position as a replacement for CrowdStrike or Palo Alto. The winning message: "You already have detection tools. Qevlar makes them smarter by automating the investigation that happens after the alert fires." This positions Qevlar as the missing layer in an existing stack rather than a competitive threat to tools buyers already own and trust.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Competitive Moat</h3>
+                <ul>
+                    <li><strong>Stack-agnostic architecture</strong> - Works with any security tool combination, unlike platform-locked alternatives from CrowdStrike and Palo Alto</li>
+                    <li><strong>Hours to deploy, not months</strong> - API-based integration eliminates the implementation friction that kills deals for platform consolidation vendors</li>
+                    <li><strong>Enterprise proof points</strong> - Mercedes-Benz and Sodexo provide the credibility that early-stage US competitors cannot match</li>
+                    <li><strong>MSSP channel traction</strong> - Orange Cyberdefense and Atos partnerships demonstrate scalable channel economics</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 4: BUYER SEGMENTS -->
+    <div class="section">
+        <div class="section-label">04 - Buyer Segments</div>
+        <h2>Target Segments, Decision Makers, and Deal Economics</h2>
+
+        <div class="card card-red">
+            <h3>Segment 1: Enterprise SOC Teams (10,000+ employees)</h3>
+            <div class="card-grid cols-3" style="margin-top: 12px;">
+                <div>
+                    <h4>Decision Makers</h4>
+                    <ul>
+                        <li>CISO (economic buyer)</li>
+                        <li>VP Security Operations (champion)</li>
+                        <li>SOC Manager (technical evaluator)</li>
+                        <li>CIO (budget approver for large deals)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Deal Economics</h4>
+                    <ul>
+                        <li>ACV: $150K - $500K</li>
+                        <li>Sales cycle: 4 - 8 months</li>
+                        <li>POC required: Yes, typically 30-60 days</li>
+                        <li>Procurement: Security review, legal, vendor risk</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Buying Triggers</h4>
+                    <ul>
+                        <li>Failed to hire SOC analysts after 6+ months</li>
+                        <li>Board pressure on incident response metrics</li>
+                        <li>SEC disclosure requirements driving MTTR reduction</li>
+                        <li>Major incident exposed investigation gaps</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-gold">
+            <h3>Segment 2: Mid-Market Security Teams (1,000 - 10,000 employees)</h3>
+            <div class="card-grid cols-3" style="margin-top: 12px;">
+                <div>
+                    <h4>Decision Makers</h4>
+                    <ul>
+                        <li>Director of IT Security (champion and buyer)</li>
+                        <li>CTO or VP Engineering (budget holder)</li>
+                        <li>IT Security Manager (evaluator)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Deal Economics</h4>
+                    <ul>
+                        <li>ACV: $50K - $150K</li>
+                        <li>Sales cycle: 2 - 4 months</li>
+                        <li>POC required: Sometimes, 14-30 days</li>
+                        <li>Procurement: Simplified, fewer stakeholders</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Buying Triggers</h4>
+                    <ul>
+                        <li>Security team of 2-5 people overwhelmed by alerts</li>
+                        <li>Cyber insurance requirements demanding faster response</li>
+                        <li>Recent breach or near-miss incident</li>
+                        <li>Compliance audit findings on SOC gaps</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-green">
+            <h3>Segment 3: MSSPs and MDR Providers</h3>
+            <div class="card-grid cols-3" style="margin-top: 12px;">
+                <div>
+                    <h4>Decision Makers</h4>
+                    <ul>
+                        <li>CEO or GM (strategic direction)</li>
+                        <li>VP Service Delivery (operational buyer)</li>
+                        <li>SOC Director (technical champion)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Deal Economics</h4>
+                    <ul>
+                        <li>ACV: $200K - $1M+ (volume-based)</li>
+                        <li>Sales cycle: 3 - 6 months</li>
+                        <li>POC: Yes, multi-tenant evaluation</li>
+                        <li>Revenue model: Per-seat or per-client pricing</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Buying Triggers</h4>
+                    <ul>
+                        <li>Client growth outpacing analyst hiring</li>
+                        <li>Margin pressure from labor-intensive operations</li>
+                        <li>Need to differentiate against competing MSSPs</li>
+                        <li>Client demands for faster investigation SLAs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 5: PARTNERSHIP CHANNEL -->
+    <div class="section">
+        <div class="section-label">05 - Partnership Channel Strategy</div>
+        <h2>Building US Revenue Through Strategic Partnerships</h2>
+
+        <p>For a European cybersecurity vendor entering the US, channel partnerships are not optional. They are the fastest path to credibility, pipeline, and market coverage. The US cybersecurity buying motion is heavily influenced by trusted advisors, technology alliances, and MSSP relationships.</p>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>MSSP and MDR Channel</h3>
+                <h4>Priority US Partners</h4>
+                <ul>
+                    <li><strong>Arctic Wolf</strong> - Largest independent MDR provider. Adding AI investigation capabilities strengthens their SOC offering against CrowdStrike and Palo Alto managed services</li>
+                    <li><strong>Secureworks</strong> - Dell-backed MDR with enterprise client base seeking differentiation through autonomous investigation</li>
+                    <li><strong>Trustwave</strong> - Global MSSP looking for technology to improve analyst efficiency across hundreds of clients</li>
+                    <li><strong>ReliaQuest</strong> - US-based security operations platform company with strong enterprise relationships</li>
+                </ul>
+                <h4>Value Exchange</h4>
+                <p>MSSPs need technology that lets each analyst handle more clients profitably. Qevlar reduces investigation time per alert, directly improving MSSP margins. A single MSSP partnership can deploy Qevlar across 50-200 end clients, generating pipeline that would require a 10-person sales team to build through direct sales.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Technology Alliance Partners</h3>
+                <h4>Integration Priorities</h4>
+                <ul>
+                    <li><strong>Splunk</strong> - Largest SIEM installed base in the US. Native integration positions Qevlar as the investigation layer for Splunk customers who need more than detection</li>
+                    <li><strong>Microsoft Sentinel</strong> - Fastest-growing cloud SIEM. Integration captures the Azure-first enterprise market</li>
+                    <li><strong>Elastic Security</strong> - Open platform with growing enterprise adoption. Joint positioning against proprietary alternatives</li>
+                    <li><strong>Tines / Torq</strong> - SOAR platforms that handle response automation. Qevlar handles investigation, SOAR handles response. Complementary positioning</li>
+                </ul>
+                <h4>Value Exchange</h4>
+                <p>Technology partners provide marketplace distribution, co-marketing reach, and joint selling opportunities. When a CISO asks their SIEM vendor "how do I automate investigation?", Qevlar should be the recommended answer.</p>
+            </div>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-green">
+                <h3>Consulting and Advisory Partners</h3>
+                <h4>Target Firms</h4>
+                <ul>
+                    <li><strong>Mandiant (Google)</strong> - Incident response engagements often reveal investigation gaps. Qevlar becomes a recommended remediation tool</li>
+                    <li><strong>Deloitte Cyber</strong> - SOC modernization advisory practice, recommending tools for clients building or upgrading SOC capabilities</li>
+                    <li><strong>Optiv</strong> - Largest pure-play cybersecurity solutions integrator in the US. Their recommendations carry significant weight with enterprise buyers</li>
+                </ul>
+                <h4>Value Exchange</h4>
+                <p>Advisory firms earn implementation and optimization revenue. Qevlar earns trusted recommendations and warm introductions to enterprise security leaders who are actively spending budget on SOC improvements.</p>
+            </div>
+            <div class="card card-slate">
+                <h3>Cloud Marketplace Strategy</h3>
+                <h4>Priority Listings</h4>
+                <ul>
+                    <li><strong>AWS Marketplace</strong> - Enterprise buyers can consume Qevlar through existing AWS committed spend, removing procurement friction</li>
+                    <li><strong>Azure Marketplace</strong> - Captures Microsoft Sentinel customers with a single procurement path</li>
+                    <li><strong>Google Cloud Marketplace</strong> - Aligns with Google SecOps integration for Google-first enterprises</li>
+                </ul>
+                <h4>Why This Matters</h4>
+                <p>Cloud marketplace deals close 40-60% faster than direct procurement. US enterprises with $10M+ cloud commits actively seek ways to consume that budget. A marketplace listing turns a 90-day procurement cycle into a 2-week approval.</p>
+            </div>
+        </div>
+
+        <div class="callout-gold">
+            <div class="callout-label" style="color: var(--gold);">Channel Revenue Target</div>
+            Within 12 months of US market entry, channel partners should generate 25-35% of new pipeline. The MSSP channel alone can account for 15-20% given Qevlar's existing traction with Orange Cyberdefense and Atos in Europe. Replicating that model with US MSSPs is the highest-leverage go-to-market motion available.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 6: 90-DAY GTM EXECUTION PLAN -->
+    <div class="section">
+        <div class="section-label">06 - 90-Day GTM Execution Plan</div>
+        <h2>From European Success to US Market Entry</h2>
+
+        <p>This plan builds the commercial foundation for Qevlar's US market entry. The goal is not to hire a large US team immediately. It is to validate positioning, build initial pipeline, and establish the partnerships that will generate revenue before a permanent US sales organization is in place.</p>
+
+        <div class="timeline" style="margin-top: 24px;">
+
+            <!-- PHASE 1 -->
+            <div class="timeline-item">
+                <div class="phase-label phase-red">Phase 1: Days 1-30, Foundation and Positioning</div>
+                <div class="card card-red" style="margin-top: 8px;">
+                    <h4>US Market Positioning</h4>
+                    <ul>
+                        <li>Refine messaging for US buyers. European cybersecurity messaging often leads with technology capability. US CISOs buy based on risk reduction, compliance outcomes, and analyst productivity metrics. Reframe all messaging around these outcomes</li>
+                        <li>Build competitive battle cards for CrowdStrike Charlotte, Palo Alto XSIAM, Prophet Security, and Dropzone AI. Each card needs positioning, objection responses, and proof points specific to US buyer concerns</li>
+                        <li>Develop a "stack-agnostic" value proposition that positions Qevlar as complementary to, not competitive with, existing security investments. US buyers will not rip out CrowdStrike to buy Qevlar. They will add Qevlar on top</li>
+                    </ul>
+                </div>
+                <div class="card card-red" style="margin-top: 8px;">
+                    <h4>Target Account List Development</h4>
+                    <ul>
+                        <li>Build a named account list of 200 US enterprises with known SOC operations, prioritized by alert volume, analyst headcount, and technology stack compatibility</li>
+                        <li>Identify 25 US MSSPs and MDR providers actively seeking investigation automation capabilities</li>
+                        <li>Map decision makers at top 50 accounts: CISO, VP Security Operations, SOC Director</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PHASE 2 -->
+            <div class="timeline-item gold">
+                <div class="phase-label phase-gold">Phase 2: Days 31-60, Pipeline Generation and Channel Development</div>
+                <div class="card card-gold" style="margin-top: 8px;">
+                    <h4>Outbound Pipeline Generation</h4>
+                    <ul>
+                        <li>Launch targeted outbound sequences to CISO and VP Security Operations personas at companies with 5,000+ employees. Lead with the analyst productivity thesis: "Your SOC analysts spend 80% of their time investigating alerts that turn out to be nothing. Qevlar automates that investigation"</li>
+                        <li>Execute account-based campaigns targeting financial services, healthcare, and technology verticals where SOC pressure is highest and budgets are available</li>
+                        <li>Build a conference and event strategy around RSA Conference, Black Hat, and regional CISO roundtables. In-person credibility is essential for a European vendor entering the US security market</li>
+                    </ul>
+                </div>
+                <div class="card card-gold" style="margin-top: 8px;">
+                    <h4>MSSP Channel Activation</h4>
+                    <ul>
+                        <li>Initiate partnership discussions with 3-5 priority US MSSPs. Use Orange Cyberdefense and Atos case studies as proof of MSSP channel success</li>
+                        <li>Develop a US-specific MSSP partner program: deal registration, margin structure, co-sell support, and technical enablement</li>
+                        <li>Build an MSSP-specific demo environment showing multi-tenant investigation capabilities and per-client reporting</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PHASE 3 -->
+            <div class="timeline-item green">
+                <div class="phase-label phase-green">Phase 3: Days 61-90, Close First Deals and Scale</div>
+                <div class="card card-green" style="margin-top: 8px;">
+                    <h4>Deal Progression and Closing</h4>
+                    <ul>
+                        <li>Convert initial POCs into paid contracts. Target 3-5 enterprise POCs in progress by day 60, with at least 2 converting to annual contracts by day 90</li>
+                        <li>Close first US MSSP partnership with at least one signed partner agreement and a joint go-to-market plan</li>
+                        <li>Complete AWS and Azure Marketplace listings to enable frictionless procurement for enterprise buyers</li>
+                    </ul>
+                </div>
+                <div class="card card-green" style="margin-top: 8px;">
+                    <h4>Hiring and Infrastructure</h4>
+                    <ul>
+                        <li>Hire first US-based Account Executive with cybersecurity sales experience. Location in New York, San Francisco, or Washington DC depending on target account concentration</li>
+                        <li>Establish US-based SE capacity, either through a dedicated hire or by training an existing European SE to cover US time zones</li>
+                        <li>Set up US entity, banking, and contracting infrastructure to support direct sales without requiring European legal involvement in every deal</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout" style="margin-top: 24px;">
+            <div class="callout-label">Expected Outcomes at Day 90</div>
+            <div class="card-grid cols-3" style="margin-top: 10px;">
+                <div style="text-align: center;">
+                    <div style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: var(--accent);">$1-2M</div>
+                    <div style="font-size: 12px; color: var(--gray);">Qualified US Pipeline</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: var(--gold);">3-5</div>
+                    <div style="font-size: 12px; color: var(--gray);">Enterprise POCs in Progress</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: var(--green);">1-2</div>
+                    <div style="font-size: 12px; color: var(--gray);">MSSP Partnerships Signed</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 7: WHY JEFF -->
+    <div class="section">
+        <div class="section-label">07 - Why Jeff Aragon</div>
+        <h2>Building US Sales Motions for Technical Platforms</h2>
+
+        <div class="card card-red">
+            <h3>Career Revenue</h3>
+            <p>$150M+ in career revenue across enterprise software, security platforms, and technical sales. This is not advisory experience from a consulting firm. It is direct pipeline creation, deal execution, and revenue generation across multiple market categories and company stages.</p>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-gold">
+                <h3>Series A Startup: $24M TCV in Under 2 Years</h3>
+                <p>Built and closed $24M in total contract value in less than 2 years at a Series A startup. Created pipeline from zero in a market with no established brand recognition. This is the exact challenge Qevlar faces entering the US: building credibility and closing enterprise deals when buyers have never heard of you. I have done this before and I know what it takes.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>UKG: Nearly 6 Years, Award-Winning</h3>
+                <p>Nearly six years at UKG (Ultimate Kronos Group), recognized as an award-winning top performer multiple times in a sales organization with thousands of reps. Operated at enterprise scale with complex, multi-stakeholder selling motions across healthcare, financial services, and technology verticals.</p>
+            </div>
+        </div>
+
+        <div class="card card-green">
+            <h3>Enterprise Security Sales Experience</h3>
+            <p>Have sold complex technical platforms into enterprise buyers across security, compliance, and operational technology categories. Understand how CISOs evaluate vendors, how security teams run POCs, and what evidence is required to move a deal through enterprise procurement. Cybersecurity buying motions are uniquely demanding. The buyer is skeptical by nature, the evaluation process is rigorous, and the consequences of a bad purchase are career-ending. Selling into this motion requires a specific skill set that most general enterprise reps do not have.</p>
+        </div>
+
+        <div class="card card-slate">
+            <h3>Why This Matters for Qevlar Specifically</h3>
+            <ul>
+                <li><strong>European to US market entry</strong> - Understand the specific challenges of bringing a European product to US enterprise buyers. The go-to-market translation involves positioning, buyer expectations, procurement processes, and relationship-building norms that are fundamentally different from European markets</li>
+                <li><strong>Channel development experience</strong> - Have built partner programs and channel pipelines that generate real revenue, not just signed agreements that sit idle. Qevlar's MSSP channel strategy needs someone who knows the difference between a partner who signs and a partner who sells</li>
+                <li><strong>Technical depth in sales</strong> - Cybersecurity buyers test your knowledge in the first meeting. If you cannot speak intelligently about their environment, their threat model, and their operational constraints, you lose credibility immediately. I bring that technical fluency to every conversation</li>
+                <li><strong>Methodology over motivation</strong> - Build repeatable systems that produce consistent results regardless of which individual rep is running the play. The goal is a machine, not a personality</li>
+            </ul>
+        </div>
+
+        <div class="callout" style="margin-top: 20px;">
+            <div class="callout-label">Operating Philosophy</div>
+            The first 90 days of a US market entry define the next three years. Get the positioning right, build the right partnerships, and close the first deals that prove the motion works. Then scale. Most European companies entering the US hire a salesperson first and figure out positioning later. That is backwards. I build the foundation first, then help you hire and scale with confidence.
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <strong>Jeff Aragon</strong> | jeff@jozuconsultinggroup.com | +1 303-638-1390 (mobile and WhatsApp)
+    </div>
+
+</div>
+</body>
+</html>

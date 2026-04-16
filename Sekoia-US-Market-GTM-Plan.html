@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sekoia.io - US Market GTM Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #0a0e17;
+        --bg-card: rgba(255,255,255,0.03);
+        --bg-card-border: rgba(255,255,255,0.06);
+        --accent: #e34115;
+        --accent-dim: rgba(227,65,21,0.12);
+        --gold: #c9a84c;
+        --gold-dim: rgba(201,168,76,0.10);
+        --green: #22c55e;
+        --green-dim: rgba(34,197,94,0.10);
+        --slate: #64748b;
+        --white: #ffffff;
+        --gray: #cbd5e1;
+        --bright: #e2e8f0;
+        --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--gray); font-family: 'Open Sans', sans-serif; font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; padding: 50px 40px; }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+    .container { max-width: 1060px; margin: 0 auto; }
+    .header { margin-bottom: 48px; padding-bottom: 28px; border-bottom: 2px solid var(--accent); }
+    .doc-label { font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .doc-title { font-size: 30px; font-weight: 700; line-height: 1.2; margin-bottom: 6px; }
+    .doc-subtitle { font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 300; color: var(--gray); margin-bottom: 4px; }
+    .doc-meta { font-size: 12px; color: var(--gray); margin-top: 8px; }
+    .section { margin-bottom: 44px; }
+    .section-label { font-family: 'Poppins', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+    .section-label::before { content: ''; width: 24px; height: 2px; background: var(--accent); }
+    h2 { font-size: 20px; font-weight: 600; margin-bottom: 16px; }
+    h3 { font-size: 15px; font-weight: 500; color: var(--accent); margin-bottom: 8px; }
+    h4 { font-size: 13px; font-weight: 500; color: var(--gold); margin-bottom: 6px; }
+    .card { background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius); padding: 22px 26px; margin-bottom: 14px; }
+    .card-red { border-left: 3px solid var(--accent); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+    .card-green { border-left: 3px solid var(--green); }
+    .card-grid { display: grid; gap: 14px; margin-bottom: 16px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .divider { width: 60px; height: 2px; background: var(--accent); margin: 32px 0; opacity: 0.4; }
+    ul { padding-left: 20px; margin: 8px 0; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--white); font-weight: 600; }
+    .stat-row { display: flex; gap: 14px; margin: 16px 0; }
+    .stat-box { flex: 1; background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius); padding: 18px; text-align: center; }
+    .stat-number { font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 700; color: var(--accent); }
+    .stat-number.gold { color: var(--gold); }
+    .stat-number.green { color: var(--green); }
+    .stat-label { font-size: 11px; color: var(--gray); margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+    th { font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); text-align: left; padding: 10px 14px; border-bottom: 1px solid rgba(227,65,21,0.2); background: var(--accent-dim); }
+    td { padding: 10px 14px; border-bottom: 1px solid var(--bg-card-border); color: var(--gray); }
+    tr:last-child td { border-bottom: none; }
+    .callout { background: rgba(227,65,21,0.06); border: 1px solid rgba(227,65,21,0.15); border-radius: var(--radius); padding: 18px 24px; margin: 14px 0; color: var(--bright); }
+    .callout-label { font-family: 'Poppins', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 2px; color: var(--accent); margin-bottom: 6px; }
+    .callout-gold { background: rgba(201,168,76,0.06); border: 1px solid rgba(201,168,76,0.15); border-radius: var(--radius); padding: 18px 24px; margin: 14px 0; color: var(--bright); }
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), var(--gold), var(--green)); opacity: 0.4; }
+    .timeline-item { position: relative; margin-bottom: 20px; }
+    .timeline-item::before { content: ''; position: absolute; left: -24px; top: 6px; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--accent); background: var(--bg); }
+    .timeline-item.gold::before { border-color: var(--gold); }
+    .timeline-item.green::before { border-color: var(--green); }
+    .phase-label { font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+    .phase-red { color: var(--accent); }
+    .phase-gold { color: var(--gold); }
+    .phase-green { color: var(--green); }
+    .footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--bg-card-border); text-align: center; color: var(--gray); font-size: 13px; }
+    .footer strong { color: var(--white); }
+    p { margin-bottom: 10px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="doc-label">US Market GTM Plan</div>
+        <h1 class="doc-title">Sekoia.io US Market GTM Plan</h1>
+        <div class="doc-subtitle">Building the US MSSP Channel for AI-Powered Threat Detection and XDR</div>
+        <div class="doc-meta">Prepared by Jeff Aragon, Jozu Consulting Group | April 2026</div>
+    </div>
+
+    <!-- SECTION 1: COMPANY PROFILE -->
+    <div class="section">
+        <div class="section-label">01 - Company Profile</div>
+        <h2>Sekoia.io at a Glance</h2>
+
+        <div class="stat-row">
+            <div class="stat-box">
+                <div class="stat-number">EUR 60M</div>
+                <div class="stat-label">Total Funding</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number gold">EUR 26M</div>
+                <div class="stat-label">Series B (April 2025)</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number green">100+</div>
+                <div class="stat-label">Employees</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">MSSP Partners (Europe)</div>
+            </div>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>Company Overview</h3>
+                <p>Sekoia.io is a French cybersecurity company headquartered in Rennes, operating across four European countries. The company has built the Sekoia AI-SOC platform, which integrates proprietary cyber threat intelligence with automated detection and response capabilities.</p>
+                <p>The EUR 26M Series B was led by Revaia, with participation from UNEXO and existing investors Bright Pixel Capital, Omnes Capital, and Bpifrance. The company plans to use the funding to strengthen AI and automation capabilities and expand its MSSP partnership network.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Leadership</h3>
+                <ul>
+                    <li><strong>Freddy Milesi, Founder and CEO</strong> - Leading the company's commercial strategy and international expansion</li>
+                    <li><strong>David Bizeul, Co-Founder and Chief Scientific Officer</strong> - Driving threat intelligence and research capabilities</li>
+                </ul>
+                <h4>Key Customers</h4>
+                <ul>
+                    <li>EDF (French energy giant)</li>
+                    <li>Vinci (global construction and concessions)</li>
+                    <li>SNCF (French national railways)</li>
+                    <li>Mirakl (marketplace platform)</li>
+                    <li>French Ministry of Armed Forces</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card card-slate">
+            <h3>Product Platform</h3>
+            <div class="card-grid cols-3" style="margin-top: 12px;">
+                <div>
+                    <h4>Sekoia Defend XDR</h4>
+                    <p>Extended detection and response platform integrating threat intelligence, behavioral analytics, and automated playbooks. Named a Leader in the Frost Radar for XDR Solution Providers.</p>
+                </div>
+                <div>
+                    <h4>Cyber Threat Intelligence</h4>
+                    <p>Proprietary intelligence dataset covering cybercriminal groups and state espionage operations. Automated detection rules derived from real threat research, not generic signatures.</p>
+                </div>
+                <div>
+                    <h4>MSSP Platform</h4>
+                    <p>Multi-tenant architecture purpose-built for managed security service providers. Enables MSSPs to deliver Managed XDR (MXDR) offerings with Sekoia's intelligence and detection capabilities.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-label">European MSSP Traction</div>
+            Over 50 MSSP partners in Europe, with structured partner programs including pricing advantages, certification training, and co-sell support. The MSSP channel is the primary growth engine and the foundation for US market replication.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 2: MARKET ANALYSIS -->
+    <div class="section">
+        <div class="section-label">02 - Market Analysis</div>
+        <h2>US Cybersecurity, XDR, and MSSP Market</h2>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>Market Sizing</h3>
+                <div class="stat-row">
+                    <div class="stat-box">
+                        <div class="stat-number">$4.9B</div>
+                        <div class="stat-label">Global SIEM Market (2024)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number gold">$45.9B</div>
+                        <div class="stat-label">Global MSSP Market (2024)</div>
+                    </div>
+                </div>
+                <p>The US represents over 40% of global cybersecurity spending. The MSSP segment is growing at 15%+ annually as mid-market and enterprise organizations increasingly outsource security operations. The XDR category is consolidating and growing rapidly as buyers seek unified detection and response platforms.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Market Tailwinds</h3>
+                <ul>
+                    <li><strong>MSSP growth acceleration</strong> - US MSSPs are actively seeking differentiated technology to layer into their service offerings. Commodity SIEM is not enough to win clients. Intelligence-driven detection creates competitive advantage for MSSPs</li>
+                    <li><strong>European sovereign security demand</strong> - US enterprises with European operations need security platforms that comply with EU data sovereignty requirements. Sekoia's European heritage becomes an advantage, not a liability</li>
+                    <li><strong>Platform consolidation fatigue</strong> - US enterprises are tired of being forced into single-vendor platform commitments. Sekoia's open, API-driven architecture appeals to buyers who want best-of-breed flexibility</li>
+                    <li><strong>Threat intelligence premium</strong> - Generic detection is commoditized. Proprietary threat intelligence that catches what others miss commands premium pricing and longer contract commitments</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card card-slate">
+            <h3>Buyer Landscape</h3>
+            <table>
+                <tr>
+                    <th>Segment</th>
+                    <th>Primary Buyer</th>
+                    <th>Key Pain Point</th>
+                    <th>Sekoia Fit</th>
+                </tr>
+                <tr>
+                    <td><strong>US MSSPs</strong></td>
+                    <td>CEO, VP Service Delivery</td>
+                    <td>Need differentiated detection capabilities to win and retain clients against CrowdStrike and Palo Alto managed offerings</td>
+                    <td>Multi-tenant XDR with proprietary intelligence. White-label MXDR delivery</td>
+                </tr>
+                <tr>
+                    <td><strong>Enterprise (5,000+)</strong></td>
+                    <td>CISO, VP Security Operations</td>
+                    <td>Alert fatigue, detection gaps in current SIEM, desire for intelligence-driven detection</td>
+                    <td>XDR platform with integrated CTI, reducing false positives and improving detection accuracy</td>
+                </tr>
+                <tr>
+                    <td><strong>Mid-Market (500-5,000)</strong></td>
+                    <td>Director of IT Security</td>
+                    <td>Cannot afford enterprise SIEM/XDR platforms but need advanced detection beyond basic EDR</td>
+                    <td>Accessible XDR pricing with MSSP delivery model, making enterprise-grade detection available at mid-market budgets</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="callout">
+            <div class="callout-label">Core Market Thesis</div>
+            The US MSSP market is a $46B opportunity growing at 15%+ annually. MSSPs are the distribution channel for cybersecurity in the mid-market and increasingly in the enterprise. Sekoia's European MSSP success with 50+ partners proves the channel model works. The US expansion question is not whether the channel approach is right. It is how to replicate it with US MSSPs who have different competitive dynamics, margin expectations, and technology preferences.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 3: COMPETITIVE LANDSCAPE -->
+    <div class="section">
+        <div class="section-label">03 - Competitive Landscape</div>
+        <h2>Where Sekoia Wins and Where the Pressure Is</h2>
+
+        <table>
+            <tr>
+                <th>Competitor</th>
+                <th>Category</th>
+                <th>Strength</th>
+                <th>Sekoia Advantage</th>
+            </tr>
+            <tr>
+                <td><strong>CrowdStrike</strong></td>
+                <td>Endpoint + XDR Platform</td>
+                <td>Dominant brand in US enterprise security. Massive channel presence. Falcon platform breadth and Charlotte AI capabilities</td>
+                <td>CrowdStrike locks MSSPs into their ecosystem with limited multi-tenancy flexibility. Sekoia offers open, API-driven architecture that lets MSSPs maintain independence and customize their service delivery</td>
+            </tr>
+            <tr>
+                <td><strong>Palo Alto Networks</strong></td>
+                <td>Cortex XDR/XSIAM</td>
+                <td>Over $1B in XSIAM bookings. Enterprise platform consolidation play. Massive sales force</td>
+                <td>XSIAM requires full Palo Alto platform commitment. Sekoia integrates with existing multi-vendor environments. For MSSPs managing diverse client environments, vendor-neutral architecture is essential</td>
+            </tr>
+            <tr>
+                <td><strong>SentinelOne</strong></td>
+                <td>AI Endpoint + XDR</td>
+                <td>Strong AI-first narrative. Growing enterprise presence. Purple AI for natural language security queries</td>
+                <td>SentinelOne is endpoint-first, expanding into XDR. Sekoia is intelligence-first, providing deeper threat context and correlation across data sources beyond endpoints</td>
+            </tr>
+            <tr>
+                <td><strong>Rapid7</strong></td>
+                <td>SIEM + XDR</td>
+                <td>Strong mid-market presence. InsightIDR/InsightConnect platform. MDR services</td>
+                <td>Rapid7 competes with its own MSSP partners through its MDR offering. Sekoia is channel-first and does not compete with its MSSP partners for end clients</td>
+            </tr>
+            <tr>
+                <td><strong>Splunk (Cisco)</strong></td>
+                <td>SIEM Platform</td>
+                <td>Largest SIEM installed base. Deep enterprise relationships. Cisco backing and integration</td>
+                <td>Splunk is expensive and complex. Sekoia offers modern, cloud-native architecture at a fraction of the total cost of ownership. Mid-market MSSPs cannot afford Splunk infrastructure for their clients</td>
+            </tr>
+        </table>
+
+        <div class="card-grid cols-2" style="margin-top: 20px;">
+            <div class="card card-red">
+                <h3>Competitive Positioning Strategy</h3>
+                <p>Sekoia should not try to compete head-to-head with CrowdStrike or Palo Alto in the US enterprise direct sales market. The winning play is the MSSP channel: "We do not compete with your existing vendors. We make your MSSP partner more effective at protecting you." For MSSPs themselves: "We give you the detection quality of CrowdStrike without the ecosystem lock-in that limits your service flexibility."</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Competitive Moat</h3>
+                <ul>
+                    <li><strong>Proprietary threat intelligence</strong> - Original research on cybercriminal groups and state espionage. Detection rules derived from real threat tracking, not recycled open-source indicators</li>
+                    <li><strong>Channel-first architecture</strong> - Purpose-built for MSSP delivery. Multi-tenant by design, not bolted on as an afterthought</li>
+                    <li><strong>European sovereign security</strong> - For US companies with EU operations, Sekoia provides compliance with EU data sovereignty requirements that US-only vendors struggle to meet</li>
+                    <li><strong>Frost Radar Leader recognition</strong> - Independent analyst validation as an XDR leader provides credibility with US enterprise evaluators</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 4: BUYER SEGMENTS -->
+    <div class="section">
+        <div class="section-label">04 - Buyer Segments</div>
+        <h2>Target Segments, Decision Makers, and Deal Economics</h2>
+
+        <div class="card card-red">
+            <h3>Segment 1: US MSSPs and MDR Providers (Primary Channel)</h3>
+            <div class="card-grid cols-3" style="margin-top: 12px;">
+                <div>
+                    <h4>Decision Makers</h4>
+                    <ul>
+                        <li>CEO or Managing Partner (strategic)</li>
+                        <li>VP Service Delivery (operational)</li>
+                        <li>SOC Director (technical champion)</li>
+                        <li>VP Sales (revenue impact)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Deal Economics</h4>
+                    <ul>
+                        <li>ACV: $100K - $500K+ (partner licensing)</li>
+                        <li>Sales cycle: 3 - 6 months</li>
+                        <li>POC: Multi-tenant evaluation required</li>
+                        <li>Revenue: Per-endpoint or per-client model</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Buying Triggers</h4>
+                    <ul>
+                        <li>Losing client bids to CrowdStrike MDR</li>
+                        <li>Margin pressure from labor-intensive SOC</li>
+                        <li>Need to differentiate service offering</li>
+                        <li>Client demand for intelligence-driven detection</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-gold">
+            <h3>Segment 2: Enterprise Direct (5,000+ employees)</h3>
+            <div class="card-grid cols-3" style="margin-top: 12px;">
+                <div>
+                    <h4>Decision Makers</h4>
+                    <ul>
+                        <li>CISO (economic buyer)</li>
+                        <li>VP Security Operations (champion)</li>
+                        <li>Security Architect (technical eval)</li>
+                        <li>CIO (budget approver)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Deal Economics</h4>
+                    <ul>
+                        <li>ACV: $200K - $1M+</li>
+                        <li>Sales cycle: 6 - 12 months</li>
+                        <li>POC: 30-90 day evaluation</li>
+                        <li>Procurement: Full security review</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Buying Triggers</h4>
+                    <ul>
+                        <li>SIEM contract renewal approaching</li>
+                        <li>Splunk cost escalation after Cisco acquisition</li>
+                        <li>Post-breach security operations overhaul</li>
+                        <li>EU compliance requirements for global ops</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-green">
+            <h3>Segment 3: Mid-Market via MSSP Channel (500 - 5,000 employees)</h3>
+            <div class="card-grid cols-3" style="margin-top: 12px;">
+                <div>
+                    <h4>Decision Makers</h4>
+                    <ul>
+                        <li>IT Director (champion)</li>
+                        <li>CFO (budget holder)</li>
+                        <li>External MSSP (trusted advisor)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Deal Economics</h4>
+                    <ul>
+                        <li>ACV: $30K - $100K (via MSSP)</li>
+                        <li>Sales cycle: 1 - 3 months (MSSP-led)</li>
+                        <li>POC: MSSP manages evaluation</li>
+                        <li>Procurement: Simplified via MSSP</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Buying Triggers</h4>
+                    <ul>
+                        <li>Cyber insurance requirements increasing</li>
+                        <li>Cannot hire internal security staff</li>
+                        <li>Current MSSP not providing adequate detection</li>
+                        <li>Board or audit pressure on security posture</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 5: PARTNERSHIP CHANNEL -->
+    <div class="section">
+        <div class="section-label">05 - Partnership Channel Strategy</div>
+        <h2>Replicating the European MSSP Channel in the US</h2>
+
+        <p>Sekoia's European success is built on the MSSP channel. The US expansion strategy should replicate this model, adapted for US market dynamics. US MSSPs have different margin expectations, different technology preferences, and different competitive pressures than European providers. The partner program must account for these differences.</p>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>Tier 1: US MSSP Partners (Primary Channel)</h3>
+                <h4>Priority US MSSPs</h4>
+                <ul>
+                    <li><strong>Arctic Wolf</strong> - Largest independent US MDR provider. Adding Sekoia's intelligence-driven XDR creates differentiation against CrowdStrike and SentinelOne managed offerings</li>
+                    <li><strong>Trustwave</strong> - Global MSSP with strong US mid-market presence. Seeking technology partners to improve detection quality and reduce analyst workload</li>
+                    <li><strong>Netsurion</strong> - US-based managed XDR provider focused on mid-market. Open to European technology partnerships that strengthen their detection capabilities</li>
+                    <li><strong>Deepwatch</strong> - Growing MDR provider backed by significant venture capital. Building differentiated service offerings against commodity MDR competition</li>
+                    <li><strong>Critical Start</strong> - MDR provider with a unique "trusted behavior registry" approach. Sekoia's intelligence layer complements their existing detection methodology</li>
+                </ul>
+                <h4>Partner Economic Model</h4>
+                <p>US MSSPs expect 40-60% gross margins on technology-enabled services. Sekoia's partner pricing must support this margin requirement while providing enough value to justify switching from or supplementing existing SIEM/XDR platforms. Deal registration protection and tiered pricing based on volume commitments are essential for partner loyalty.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Tier 2: Technology Alliance Partners</h3>
+                <h4>Integration Priorities</h4>
+                <ul>
+                    <li><strong>Microsoft Sentinel integration</strong> - The fastest-growing SIEM in the US. Sekoia's intelligence layer on top of Sentinel data creates a differentiated offering for Microsoft-centric enterprises</li>
+                    <li><strong>Splunk integration</strong> - Largest installed base. Many Splunk customers are looking for ways to augment, not replace, their existing investment. Sekoia's CTI complements Splunk detection</li>
+                    <li><strong>AWS Security Hub</strong> - Cloud-native integration captures the growing market of AWS-first enterprises managing security in the cloud</li>
+                    <li><strong>SOAR platforms (Tines, Torq, Swimlane)</strong> - Sekoia detects, SOAR responds. Complementary positioning creates joint pipeline opportunities</li>
+                </ul>
+                <h4>Value Exchange</h4>
+                <p>Technology integrations create marketplace presence, co-marketing opportunities, and joint solution positioning. When a US CISO evaluates their security stack, Sekoia should appear as a recommended intelligence and detection layer alongside their existing investments.</p>
+            </div>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-green">
+                <h3>Tier 3: Security Consulting and Advisory</h3>
+                <h4>Target Partners</h4>
+                <ul>
+                    <li><strong>Optiv</strong> - Largest pure-play cybersecurity solutions integrator in the US. Their recommendations carry significant weight with enterprise security buyers</li>
+                    <li><strong>Guidepoint Security</strong> - Cybersecurity advisory firm helping enterprises evaluate and deploy security technology. Strong CISO relationships</li>
+                    <li><strong>WWT (World Wide Technology)</strong> - Technology solutions provider with advanced technology center for security evaluation. Enterprise credibility</li>
+                </ul>
+                <h4>Value Exchange</h4>
+                <p>Advisory firms earn implementation, integration, and managed services revenue. Sekoia earns trusted recommendations and warm introductions to enterprise buyers who are actively evaluating detection and response platforms.</p>
+            </div>
+            <div class="card card-slate">
+                <h3>US Partner Program Structure</h3>
+                <h4>Adapted from European Model</h4>
+                <ul>
+                    <li><strong>Deal registration and protection</strong> - 90-day exclusive registration window. No direct sales competition with registered partner deals</li>
+                    <li><strong>Tiered margins</strong> - Silver (40% margin), Gold (50% margin), Platinum (55% margin) based on annual volume and certification completion</li>
+                    <li><strong>Certification training</strong> - 2-week technical certification program. Certified analysts can deploy and manage Sekoia independently</li>
+                    <li><strong>Co-sell support</strong> - Dedicated partner SE for joint customer evaluations. Sekoia engineering available for complex technical validations</li>
+                    <li><strong>Marketing development funds</strong> - Tiered MDF based on partner commitment. Supports joint events, webinars, and content creation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout-gold">
+            <div class="callout-label" style="color: var(--gold);">Channel Revenue Target</div>
+            Within 18 months, the US MSSP channel should generate 60-70% of US revenue, mirroring the European model. Target: 10-15 active US MSSP partners within the first year, with 3-5 generating measurable pipeline by month 9. Each productive MSSP partner represents $200K-$1M in annual channel revenue through their client deployments.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 6: 90-DAY GTM EXECUTION PLAN -->
+    <div class="section">
+        <div class="section-label">06 - 90-Day GTM Execution Plan</div>
+        <h2>Building the US MSSP Channel from Scratch</h2>
+
+        <p>This plan focuses on channel development as the primary go-to-market motion. Direct enterprise sales will follow as the MSSP channel matures and provides market validation. The 90-day goal is to sign first US MSSP partners and begin generating partner-sourced pipeline.</p>
+
+        <div class="timeline" style="margin-top: 24px;">
+
+            <div class="timeline-item">
+                <div class="phase-label phase-red">Phase 1: Days 1-30, Channel Strategy and Partner Targeting</div>
+                <div class="card card-red" style="margin-top: 8px;">
+                    <h4>US MSSP Market Mapping</h4>
+                    <ul>
+                        <li>Build a comprehensive list of the top 50 US MSSPs and MDR providers, segmented by size, technology stack, client focus, and openness to European technology partnerships</li>
+                        <li>Research competitive technology currently used by each target MSSP. Identify MSSPs running Rapid7, Splunk, or open-source SIEM who are most likely to adopt Sekoia as an upgrade or complement</li>
+                        <li>Map the decision makers at each MSSP: CEO, VP Service Delivery, SOC Director, VP Partnerships. Channel sales requires multi-level relationships within each partner organization</li>
+                    </ul>
+                </div>
+                <div class="card card-red" style="margin-top: 8px;">
+                    <h4>US Partner Program Adaptation</h4>
+                    <ul>
+                        <li>Adapt the European partner program for US market expectations. US MSSPs expect higher margins (40-60% vs. 30-40% typical in Europe), faster technical support response, and US-based partner management</li>
+                        <li>Develop US-specific partner collateral: battle cards positioning against CrowdStrike MDR, Palo Alto Cortex, and SentinelOne managed offerings</li>
+                        <li>Build a US MSSP demo environment showing multi-tenant deployment, per-client intelligence feeds, and partner reporting dashboards</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item gold">
+                <div class="phase-label phase-gold">Phase 2: Days 31-60, Partner Recruitment and Enablement</div>
+                <div class="card card-gold" style="margin-top: 8px;">
+                    <h4>Partner Recruitment Outreach</h4>
+                    <ul>
+                        <li>Initiate partnership discussions with 10-15 priority US MSSPs. Lead with the European traction story: "50+ MSSP partners in Europe, serving EDF, Vinci, SNCF, and the French Ministry of Armed Forces. We are ready to bring this model to US partners"</li>
+                        <li>Attend MSSP Alert Live, ChannelE2E, and regional MSSP networking events. US MSSP decision-makers are highly event-driven. In-person credibility is essential</li>
+                        <li>Offer 3-month free evaluation licenses to first 5 US MSSP partners. The investment cost is minimal compared to the channel development value of having partners deploy and validate the platform</li>
+                    </ul>
+                </div>
+                <div class="card card-gold" style="margin-top: 8px;">
+                    <h4>Technical Enablement</h4>
+                    <ul>
+                        <li>Run certification training for first partner cohort. Target: 2-3 certified analysts per partner within 60 days</li>
+                        <li>Build co-sell playbooks showing how MSSP sales teams should position Sekoia against CrowdStrike and Palo Alto managed services</li>
+                        <li>Develop joint proposal templates that MSSP partners can customize for their client pitches</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item green">
+                <div class="phase-label phase-green">Phase 3: Days 61-90, First Deals and Pipeline Development</div>
+                <div class="card card-green" style="margin-top: 8px;">
+                    <h4>Partner Deal Activation</h4>
+                    <ul>
+                        <li>Support first partner-led client engagements. Provide SE resources for joint demos, POCs, and technical evaluations at partner client accounts</li>
+                        <li>Target: 3-5 MSSP partners with signed agreements and at least 2 with active client opportunities in pipeline</li>
+                        <li>Document first US partner deployment as a case study. The first US MSSP success story becomes the recruiting tool for partners 6 through 50</li>
+                    </ul>
+                </div>
+                <div class="card card-green" style="margin-top: 8px;">
+                    <h4>Direct Enterprise Pipeline (Secondary)</h4>
+                    <ul>
+                        <li>Launch targeted outbound to 25 US enterprises with European operations where Sekoia's EU sovereignty compliance is a direct advantage</li>
+                        <li>Develop a "Splunk cost optimization" campaign targeting Splunk customers facing price increases after the Cisco acquisition</li>
+                        <li>Hire first US-based Channel Manager with MSSP ecosystem experience. Location in the Northeast or Southeast where MSSP density is highest</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout" style="margin-top: 24px;">
+            <div class="callout-label">Expected Outcomes at Day 90</div>
+            <div class="card-grid cols-3" style="margin-top: 10px;">
+                <div style="text-align: center;">
+                    <div style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: var(--accent);">3-5</div>
+                    <div style="font-size: 12px; color: var(--gray);">US MSSP Partners Signed</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: var(--gold);">$500K-$1M</div>
+                    <div style="font-size: 12px; color: var(--gray);">Partner-Sourced Pipeline</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: var(--green);">10+</div>
+                    <div style="font-size: 12px; color: var(--gray);">Certified Partner Analysts</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 7: WHY JEFF -->
+    <div class="section">
+        <div class="section-label">07 - Why Jeff Aragon</div>
+        <h2>Building US Channel Programs for Cybersecurity Platforms</h2>
+
+        <div class="card card-red">
+            <h3>Career Revenue</h3>
+            <p>$150M+ in career revenue across enterprise software, security platforms, and channel-driven sales. This is not advisory experience. It is direct pipeline creation, partner development, deal execution, and revenue generation across multiple market categories and company stages.</p>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-gold">
+                <h3>Series A Startup: $24M TCV in Under 2 Years</h3>
+                <p>Built and closed $24M in total contract value in less than 2 years at a Series A startup. This included building channel partnerships from scratch, not just direct sales. I understand both sides of the motion: direct enterprise selling and channel development. Sekoia needs both to succeed in the US, and I have done both.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>UKG: Nearly 6 Years, Award-Winning</h3>
+                <p>Nearly six years at UKG, recognized as an award-winning top performer multiple times in a sales organization with thousands of reps. UKG operates a significant channel program with hundreds of partners. I understand the mechanics of partner enablement, deal registration, co-selling, and the organizational discipline required to make channel revenue predictable.</p>
+            </div>
+        </div>
+
+        <div class="card card-green">
+            <h3>Channel Development Experience</h3>
+            <p>Have built partner programs, recruited channel partners, and generated partner-sourced revenue across multiple company stages. The difference between a partner who signs your agreement and one who actually sells your product comes down to enablement quality, margin structure, deal protection, and ongoing co-sell support. I have done all of this and understand what makes partners productive versus passive.</p>
+        </div>
+
+        <div class="card card-slate">
+            <h3>Why This Matters for Sekoia Specifically</h3>
+            <ul>
+                <li><strong>European to US channel translation</strong> - Understand the specific differences between European and US MSSP expectations. US MSSPs expect higher margins, faster support, and more co-sell involvement. The European playbook must be adapted, not copied</li>
+                <li><strong>Cybersecurity market knowledge</strong> - Selling cybersecurity to US buyers requires understanding their threat landscape, compliance pressures, and vendor evaluation criteria. I bring that context from years of selling complex technology into security-conscious enterprises</li>
+                <li><strong>Multi-level selling</strong> - Channel development requires selling to the partner and then enabling the partner to sell to their clients. This is a two-layer sales motion that most direct sellers do not understand. I have done both layers</li>
+                <li><strong>Methodology over motivation</strong> - Build repeatable partner enablement systems that produce consistent results. The goal is a partner program that generates predictable pipeline, not a collection of signed agreements that sit unused</li>
+            </ul>
+        </div>
+
+        <div class="callout" style="margin-top: 20px;">
+            <div class="callout-label">Operating Philosophy</div>
+            Channel-led expansion is the right strategy for Sekoia in the US. It is also the hardest to execute because you are selling twice: first to the partner, then through the partner to their clients. Most companies build partner programs on paper and wonder why revenue never follows. The difference is execution discipline: partner qualification, enablement quality, co-sell support, and relentless focus on making partners successful. That is what I build.
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <strong>Jeff Aragon</strong> | jeff@jozuconsultinggroup.com | +1 303-638-1390 (mobile and WhatsApp)
+    </div>
+
+</div>
+</body>
+</html>
