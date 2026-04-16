@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Go-to-Market Sales Plan - runZero | JEFF ARAGON</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    @page { size: letter; margin: 0; }
+    :root {
+        --bg: #0a0e17; --bg-card: rgba(255,255,255,0.03); --bg-card-border: rgba(255,255,255,0.06);
+        --red: #e34115; --red-dim: rgba(227,65,21,0.12); --gold: #c9a84c; --gold-dim: rgba(201,168,76,0.10);
+        --slate: #64748b; --white: #ffffff; --gray: #cbd5e1; --bright: #e2e8f0; --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--gray); font-family: 'Open Sans', sans-serif; font-size: 10.5pt; line-height: 1.5; -webkit-font-smoothing: antialiased; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+    .page { width: 8.5in; min-height: 11in; margin: 0 auto; padding: 44px 52px; background: var(--bg); position: relative; overflow: hidden; page-break-after: always; }
+    .page:last-child { page-break-after: auto; }
+    .page::before { content: ''; position: absolute; top: -150px; right: -150px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, var(--red-dim) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+    .page > * { position: relative; z-index: 1; }
+    .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; padding-bottom: 18px; border-bottom: 2px solid var(--red); }
+    .header-left { flex: 1; }
+    .doc-label { font-family: 'Poppins', sans-serif; font-size: 8.5pt; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--red); margin-bottom: 5px; }
+    .doc-title { font-size: 21pt; font-weight: 700; line-height: 1.15; margin-bottom: 4px; }
+    .doc-title .accent { color: var(--red); }
+    .doc-subtitle { font-family: 'Poppins', sans-serif; font-size: 10pt; font-weight: 300; color: var(--slate); }
+    .doc-date { font-size: 8.5pt; color: var(--slate); margin-top: 6px; }
+    .section-label { font-family: 'Poppins', sans-serif; font-size: 7.5pt; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--red); margin-bottom: 5px; display: flex; align-items: center; gap: 10px; }
+    .section-label::before { content: ''; width: 24px; height: 2px; background: var(--red); }
+    h2 { font-size: 15pt; font-weight: 600; margin-bottom: 12px; }
+    h3 { font-size: 11pt; font-weight: 500; color: var(--red); margin-bottom: 6px; }
+    h4 { font-size: 9.5pt; font-weight: 500; color: var(--gold); margin-bottom: 5px; }
+    .card { background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius); padding: 16px 18px; margin-bottom: 10px; }
+    .card-red { border-left: 3px solid var(--red); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+    .card-grid { display: grid; gap: 10px; margin-bottom: 14px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .phase-block { background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 12px; position: relative; }
+    .phase-block::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; border-radius: 4px 0 0 4px; }
+    .phase-1::before { background: var(--red); }
+    .phase-2::before { background: var(--gold); }
+    .phase-3::before { background: var(--slate); }
+    .phase-number { font-family: 'Poppins', sans-serif; font-size: 8.5pt; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3px; }
+    .phase-1 .phase-number { color: var(--red); }
+    .phase-2 .phase-number { color: var(--gold); }
+    .phase-3 .phase-number { color: var(--slate); }
+    .phase-title { font-family: 'Poppins', sans-serif; font-size: 12pt; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+    .deliverable { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 7px; }
+    .deliverable-check { color: var(--red); font-size: 10pt; margin-top: 1px; flex-shrink: 0; }
+    .stat-row { display: flex; gap: 12px; margin: 14px 0; }
+    .stat-box { flex: 1; background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius); padding: 14px; text-align: center; }
+    .stat-number { font-family: 'Poppins', sans-serif; font-size: 18pt; font-weight: 700; color: var(--red); }
+    .stat-label { font-size: 8pt; color: var(--gray); margin-top: 2px; }
+    table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9.5pt; }
+    th { font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 8pt; letter-spacing: 1px; text-transform: uppercase; color: var(--red); text-align: left; padding: 8px 12px; border-bottom: 1px solid rgba(227,65,21,0.2); background: var(--red-dim); }
+    td { padding: 8px 12px; border-bottom: 1px solid var(--bg-card-border); color: var(--gray); }
+    tr:last-child td { border-bottom: none; }
+    .divider { width: 50px; height: 2px; background: var(--red); margin: 14px 0; opacity: 0.5; }
+    .footer { margin-top: 24px; padding-top: 14px; border-top: 1px solid var(--bg-card-border); display: flex; justify-content: space-between; align-items: center; font-size: 8pt; color: var(--slate); }
+    .footer a { color: var(--red); text-decoration: none; }
+    .confidential { font-family: 'Poppins', sans-serif; font-size: 7pt; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--slate); text-align: center; margin-top: 12px; }
+    @media print { body { background: var(--bg); } .page { margin: 0; box-shadow: none; } }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">Go-to-Market Sales Plan</div>
+            <h1 class="doc-title"><span class="accent">runZero</span></h1>
+            <div class="doc-subtitle">Exposure Management Across the Total Attack Surface</div>
+            <div class="doc-date">Prepared by Jeff Aragon | April 2026</div>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:13pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <div class="section-label">Situation Assessment</div>
+    <h2>Where runZero Is Right Now</h2>
+
+    <div class="card-grid cols-2">
+        <div class="card card-red">
+            <h4 style="color:var(--red)">What You Have Built</h4>
+            <p>The only exposure management platform that combines active scanning, passive discovery, and API integrations to find every asset on a network - without agents or credentials. Created by HD Moore, the mind behind Metasploit. 500+ paying customers including Disney Streaming, Roche, Thermo Fisher, Equinix, and the U.S. Marine Corps. 30,000+ community users. 82 NPS. Gartner Customers' Choice. Deploys in minutes, not weeks. DOE-validated safe for OT/ICS. All of this on $20M in total funding over four years - capital efficiency that most cybersecurity startups cannot match.</p>
+        </div>
+        <div class="card card-gold">
+            <h4>What You Need Next</h4>
+            <p>runZero has product-market fit, a legendary founder, and a loyal customer base. The next phase is scaling revenue across three distinct segments - enterprise, mid-market, and federal - while closing six- and seven-figure deals that move the company from a beloved tool to an enterprise platform. That requires a sales leader who can build the team, install the process, and still personally close the largest deals.</p>
+        </div>
+    </div>
+
+    <div class="stat-row">
+        <div class="stat-box">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Paying customers across enterprise, mid-market, and government</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">$5B+</div>
+            <div class="stat-label">Attack surface management market by 2034</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">82</div>
+            <div class="stat-label">NPS score (world-class customer loyalty)</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">BOD 23-01</div>
+            <div class="stat-label">CISA mandate driving federal demand now</div>
+        </div>
+    </div>
+
+    <div class="card card-slate">
+        <h4 style="color:var(--slate)">The Competitive Landscape</h4>
+        <p>Axonius (28% mindshare, $200M+ raised) and Armis (19%, $300M+ raised) are the market leaders by funding and awareness. But both depend on agents, credentials, or integrations to discover assets - meaning they only find what is already known. runZero finds what others miss because it does not depend on existing infrastructure. That is the fundamental argument: the risk of what you cannot see is greater than the risk of what you can. The sales motion must make this distinction clear in economic and operational terms, not just technical ones.</p>
+    </div>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffreyaragon">linkedin.com/in/jeffreyaragon</a></span>
+        <span>Page 1 of 4</span>
+    </div>
+</div>
+
+<!-- PAGE 2: THREE-SEGMENT STRATEGY -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">Segment Strategy</div>
+            <h1 class="doc-title">Three Segments, <span class="accent">One Engine</span></h1>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:13pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <div class="card card-red">
+        <h3>Enterprise</h3>
+        <p style="margin-bottom:8px;">CISOs and VP Security Operations at companies with 5,000+ endpoints and complex environments (IT + OT + cloud + IoT). These are seven-figure deals with 6-12 month cycles. The buyer needs to understand that their CMDB is incomplete, their agent-based tools only see managed assets, and the gap between what they think they have and what they actually have is where breaches happen.</p>
+        <table>
+            <tr><th>Attribute</th><th>Detail</th></tr>
+            <tr><td>Buyer</td><td>CISO, VP Security Operations, Director of Vulnerability Management</td></tr>
+            <tr><td>Deal Size</td><td>$500K - $2M+ annually</td></tr>
+            <tr><td>Cycle</td><td>6-12 months</td></tr>
+            <tr><td>Entry Point</td><td>Asset discovery gap analysis - "run a scan, show them what they are missing"</td></tr>
+            <tr><td>Expansion</td><td>Exposure management, EASM, OT/ICS visibility, compliance reporting</td></tr>
+        </table>
+    </div>
+
+    <div class="card card-gold">
+        <h3 style="color:var(--gold)">Mid-Market</h3>
+        <p style="margin-bottom:8px;">Companies with 500-5,000 endpoints. Smaller security teams, often one person wearing multiple hats. They need a tool that deploys in minutes, not a project that takes months. The value prop is speed and simplicity: "Deploy today, see everything tomorrow, prioritize by Friday."</p>
+        <table>
+            <tr><th>Attribute</th><th>Detail</th></tr>
+            <tr><td>Buyer</td><td>Security Manager, IT Director, or sole security practitioner</td></tr>
+            <tr><td>Deal Size</td><td>$25K - $200K annually</td></tr>
+            <tr><td>Cycle</td><td>30-90 days</td></tr>
+            <tr><td>Entry Point</td><td>Free trial or Community Edition upgrade. Product-led motion.</td></tr>
+            <tr><td>Expansion</td><td>Additional asset tiers, exposure management modules</td></tr>
+        </table>
+    </div>
+
+    <div class="card card-slate">
+        <h3 style="color:var(--slate)">Federal and Public Sector</h3>
+        <p style="margin-bottom:8px;">This is the segment most competitors underserve and where runZero has a structural advantage. CISA BOD 23-01 requires automated asset discovery every 7 days and vulnerability enumeration every 14 days. runZero directly addresses both. The Carahsoft partnership puts you on SEWP V, ITES-SW2, NCPA, and OMNIA Partners contracts. The DOE validated that scanning is safe for OT/ICS. The U.S. Marine Corps is already a customer. The foundation is in place.</p>
+        <table>
+            <tr><th>Attribute</th><th>Detail</th></tr>
+            <tr><td>Buyer</td><td>Agency CISO, IT Security Director, Compliance Officer</td></tr>
+            <tr><td>Deal Size</td><td>$200K - $5M+ (agency-wide deployments)</td></tr>
+            <tr><td>Cycle</td><td>6-18 months (contract vehicles accelerate this)</td></tr>
+            <tr><td>Entry Point</td><td>BOD 23-01 compliance. CISA recognition of Community Edition.</td></tr>
+            <tr><td>Vehicles</td><td>SEWP V, ITES-SW2, NCPA, OMNIA Partners via Carahsoft</td></tr>
+        </table>
+    </div>
+
+    <p style="margin-top:10px;">I have closed enterprise and government contracts my entire career, including a $10M TCV deal through a formal government procurement and RFP process with a public health authority. I understand how federal buying works - the contract vehicles, the compliance requirements, the budget cycles, and the multi-year procurement timelines. That experience maps directly to runZero's federal segment.</p>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffreyaragon">linkedin.com/in/jeffreyaragon</a></span>
+        <span>Page 2 of 4</span>
+    </div>
+</div>
+
+<!-- PAGE 3: THE PLAN -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">The Plan</div>
+            <h1 class="doc-title">90 Days to <span class="accent">Predictable Growth</span></h1>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:13pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <div class="phase-block phase-1">
+        <div class="phase-number">Phase 1: Days 1-30</div>
+        <div class="phase-title">Assess, Align, Activate</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Assess the current sales org and pipeline.</strong> Day 1. Audit every open deal, rep performance, win/loss data, and pipeline coverage. Understand conversion rates by segment. Identify where deals stall and why. Separate forecast from fiction.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Align with the COO and leadership on targets.</strong> Define quarterly and annual revenue targets by segment (enterprise, mid-market, federal). Agree on pipeline coverage ratios, team capacity, and hiring plan. Set the baseline metrics for board reporting.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Install MEDDPICC-aligned forecast discipline.</strong> Every deal in the pipeline gets qualified against a confirmed plan letter methodology. Economic buyer identified and engaged. Decision criteria and process confirmed. Metrics quantified. No deal advances without evidence the buyer has validated the mutual path forward.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Activate the federal pipeline.</strong> BOD 23-01 is a regulatory mandate creating immediate demand. Engage Carahsoft to accelerate pipeline through existing contract vehicles. Build a target list of federal agencies and defense organizations with asset visibility gaps. The Marine Corps reference is a door-opener.</span>
+        </div>
+    </div>
+
+    <div class="phase-block phase-2">
+        <div class="phase-number">Phase 2: Days 31-60</div>
+        <div class="phase-title">Close, Coach, Scale</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Personally close seven-figure enterprise deals.</strong> Get into the largest opportunities and run them through the full cycle. Discovery with the CISO. Technical validation with the security team. Business case to the CFO. Procurement navigation. I will not manage from a dashboard. I will be in the deals alongside the team.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Build competitive positioning against Axonius and Armis.</strong> Both are well-funded incumbents. The battle card must be grounded in the fundamental architectural difference: agent-dependent visibility vs. true network-level discovery. Frame it as a risk argument, not a feature argument. "What percentage of your assets does your current tool actually see?"</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Coach and develop the sales team.</strong> Weekly deal reviews, call coaching, pipeline inspection. Identify skill gaps. Build training around the exposure management value narrative, MEDDPICC execution, and multi-stakeholder deal navigation. Raise the bar on forecast accuracy.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Drive cross-sell and expansion.</strong> 500+ existing customers are expansion opportunities. The move from asset discovery to full exposure management (risk prioritization, EASM, vulnerability findings) is the natural upsell path. Build the expansion triggers and customer success handoff process.</span>
+        </div>
+    </div>
+
+    <div class="phase-block phase-3">
+        <div class="phase-number">Phase 3: Days 61-90</div>
+        <div class="phase-title">Scale the Engine, Report the Results</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Define the team expansion plan.</strong> Based on 60 days of data: where do we need more capacity? Enterprise AEs, mid-market reps, federal specialists, SE support? Build the hiring profiles, interview process, and onboarding plan.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Build the partnership channel.</strong> MSSPs, MDR providers, and security consulting firms (Optiv, Coalfire, GuidePoint) have existing CISO relationships. VAR and distribution partners beyond Carahsoft for commercial segments. Structure referral and co-sell agreements that generate pipeline without adding headcount.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Deliver board-level reporting.</strong> Weekly pipeline reviews, monthly revenue reports, quarterly strategic reviews. Forecast accuracy, deal velocity, segment performance, competitive win rates, expansion revenue. The board gets a number they can trust because the process behind it is inspectable.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Present the 12-month revenue plan.</strong> Target ARR by segment, pipeline coverage, team capacity, partnership revenue, expansion projections, and investment required. Data-backed, grounded in 90 days of real execution, not assumptions.</span>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span><a href="https://www.linkedin.com/in/jeffreyaragon">linkedin.com/in/jeffreyaragon</a></span>
+        <span>Page 3 of 4</span>
+    </div>
+</div>
+
+<!-- PAGE 4: WHY JEFF -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">Why Me</div>
+            <h1 class="doc-title">What I <span class="accent">Bring</span></h1>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:13pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <div class="card card-red" style="margin-bottom:12px;">
+        <h3>I close seven-figure deals and build the team around me.</h3>
+        <p style="color:var(--bright);">$24M in total contract value at Ushur, including a $10M TCV government deal through formal procurement and RFP. 150%+ quota at UKG selling enterprise technology into large healthcare systems. I do not choose between closing deals and building teams. I do both. That is what a VP Sales at this stage requires.</p>
+    </div>
+
+    <div class="card card-gold" style="margin-bottom:12px;">
+        <h3 style="color:var(--gold)">I know how to sell into government and enterprise procurement.</h3>
+        <p>Federal sales is not just about the contract vehicle. It is about understanding budget cycles, compliance mandates, procurement officers, and the multi-year timelines that govern how agencies buy. I closed a $10M deal with a public health authority through a formal RFP process. I know how to navigate SEWP, ITES, and the procurement gauntlet. runZero's Carahsoft partnership and BOD 23-01 alignment give you the foundation. I bring the execution.</p>
+    </div>
+
+    <div class="card card-slate" style="margin-bottom:12px;">
+        <h3 style="color:var(--slate)">I install process that makes the forecast real.</h3>
+        <p>MEDDPICC is a framework. What makes it work is discipline. After every meaningful meeting, I document and confirm with the buyer: the value being delivered, the economics of the problem being solved, and the timeline. The buyer validates. If there is no confirmed plan letter, there was no real meeting. If a rep cannot produce it, they cannot forecast. This is how I built 150%+ attainment at UKG and $24M TCV at Ushur. It is how I will build predictable revenue at runZero.</p>
+    </div>
+
+    <div class="card card-red" style="margin-bottom:12px;">
+        <h3>I understand the security buyer.</h3>
+        <p style="color:var(--bright);">I have sold enterprise technology into security-conscious organizations my entire career. Healthcare, government, and financial services buyers all share the same DNA: they evaluate risk before value, they require compliance attestation before technical validation, and they buy from people they trust. I know how to earn that trust and convert it into revenue.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div style="margin-top:8px; margin-bottom:20px;">
+        <p style="font-family:Poppins,sans-serif; font-size:13pt; font-weight:400; color:var(--white); line-height:1.6;">HD Moore changed how the security industry thinks about offensive testing. runZero is doing the same thing for exposure management. I want to build the sales engine that matches the ambition of the product.</p>
+        <p style="font-family:Poppins,sans-serif; font-size:13pt; font-weight:400; color:var(--bright); line-height:1.6; margin-top:10px;">I would welcome the chance to discuss and refine this plan with you. Is there anything in here you disagree with or want to change?</p>
+    </div>
+
+    <div style="text-align:center; margin-top:12px;">
+        <p style="font-family:Poppins,sans-serif; font-size:14pt; font-weight:600; color:var(--white); margin-bottom:6px;">Let us talk.</p>
+        <p style="color:var(--gray); font-size:10pt;">Jeff Aragon | 303-638-1390</p>
+        <p style="margin-top:4px;"><a href="mailto:jeff@jozuconsultinggroup.com" style="color:var(--red); text-decoration:none;">jeff@jozuconsultinggroup.com</a></p>
+        <p style="margin-top:3px;"><a href="https://www.linkedin.com/in/jeffreyaragon" style="color:var(--red); text-decoration:none;">linkedin.com/in/jeffreyaragon</a></p>
+    </div>
+
+    <div class="footer">
+        <span>Jeff Aragon</span>
+        <span>Page 4 of 4</span>
+    </div>
+    <div class="confidential">Prepared exclusively for runZero</div>
+</div>
+
+</body>
+</html>
