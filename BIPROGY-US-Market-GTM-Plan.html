@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BIPROGY Group US Market GTM Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --bg-card: rgba(255,255,255,0.03);
+      --bg-card-border: rgba(255,255,255,0.06);
+      --accent: #e34115;
+      --accent-dim: rgba(227,65,21,0.12);
+      --gold: #c9a84c;
+      --gold-dim: rgba(201,168,76,0.10);
+      --green: #22c55e;
+      --green-dim: rgba(34,197,94,0.10);
+      --slate: #64748b;
+      --white: #ffffff;
+      --gray: #cbd5e1;
+      --bright: #e2e8f0;
+      --radius: 10px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--gray);
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      font-weight: 700;
+      margin-bottom: 0.3em;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 1.45em;
+      font-weight: 600;
+      margin-bottom: 0.5em;
+      margin-top: 2.5em;
+    }
+
+    h3 {
+      font-size: 1.05em;
+      font-weight: 600;
+      margin-bottom: 0.4em;
+      color: var(--white);
+    }
+
+    h4 {
+      font-size: 0.95em;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 0.3em;
+    }
+
+    p {
+      margin-bottom: 1em;
+      color: var(--gray);
+      font-weight: 300;
+    }
+
+    .section-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.8em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--accent);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .subtitle {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.1em;
+      color: var(--slate);
+      font-weight: 300;
+      margin-bottom: 0.5em;
+    }
+
+    .tagline {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85em;
+      color: var(--gold);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      margin-top: 1em;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius);
+      padding: 22px 26px;
+      margin-bottom: 14px;
+    }
+
+    .card-red { border-left: 3px solid var(--accent); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-green { border-left: 3px solid var(--green); }
+    .card-slate { border-left: 3px solid var(--slate); }
+
+    .card h3 { margin-bottom: 0.3em; }
+    .card h4 { margin-bottom: 0.25em; }
+    .card p { margin-bottom: 0.5em; font-size: 0.92em; }
+    .card ul { margin: 0.4em 0 0.2em 1.2em; }
+    .card li { margin-bottom: 0.3em; font-size: 0.92em; color: var(--gray); }
+
+    /* Grids */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+
+    /* Stat highlight */
+    .stat {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.6em;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 0.8em;
+      color: var(--gray);
+      font-weight: 300;
+      margin-top: 0.2em;
+    }
+
+    .stat-gold { color: var(--gold); }
+    .stat-green { color: var(--green); }
+
+    /* Divider */
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: var(--accent);
+      margin: 2em 0;
+      opacity: 0.5;
+    }
+
+    /* Key metric row */
+    .metrics-row {
+      display: flex;
+      gap: 30px;
+      margin: 1.2em 0;
+      flex-wrap: wrap;
+    }
+
+    .metric-item {
+      text-align: left;
+    }
+
+    /* Timeline */
+    .timeline-phase {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 28px;
+    }
+
+    .timeline-phase::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .timeline-phase::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 22px;
+      width: 2px;
+      height: calc(100% - 10px);
+      background: rgba(227,65,21,0.2);
+    }
+
+    .timeline-phase:last-child::after { display: none; }
+
+    .phase-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75em;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.3em;
+    }
+
+    /* Competitive table */
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1em 0;
+      font-size: 0.88em;
+    }
+
+    .comp-table th {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.8em;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--bg-card-border);
+      background: var(--bg-card);
+    }
+
+    .comp-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--bg-card-border);
+      color: var(--gray);
+      vertical-align: top;
+    }
+
+    .comp-table tr:hover td {
+      background: var(--bg-card);
+    }
+
+    .text-accent { color: var(--accent); }
+    .text-gold { color: var(--gold); }
+    .text-green { color: var(--green); }
+    .text-white { color: var(--white); }
+    .text-bright { color: var(--bright); }
+    .fw-600 { font-weight: 600; }
+
+    /* Footer */
+    .footer {
+      margin-top: 4em;
+      padding-top: 2em;
+      border-top: 1px solid var(--bg-card-border);
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 0.85em;
+      color: var(--gray);
+    }
+
+    .footer .name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: var(--white);
+      font-size: 1em;
+    }
+
+    /* Print styles */
+    @media print {
+      body { background: #0a0e17; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .container { padding: 30px 20px; }
+    }
+
+    @media (max-width: 700px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .container { padding: 30px 20px; }
+      h1 { font-size: 1.6em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="section-label">Prepared by Jozu Consulting Group</div>
+    <h1>BIPROGY Group<br>US Market GTM Plan</h1>
+    <p class="subtitle">Strategic framework for establishing BIPROGY's commercial presence in North America</p>
+    <p class="tagline">April 2026</p>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 1: COMPANY PROFILE -->
+    <div class="section-label">Section 01</div>
+    <h2>Company Profile</h2>
+
+    <p>BIPROGY Inc. (Tokyo Stock Exchange: 8056) is a comprehensive technology company headquartered in Koto, Tokyo. Founded in 1958 as Nippon Remington Univac Kaisha, the company was known as Nihon Unisys for over three decades before rebranding to BIPROGY in April 2022. With roots extending to 1947, the company has operated at the center of Japan's enterprise technology ecosystem for nearly eight decades.</p>
+
+    <div class="grid-3" style="margin: 1.5em 0;">
+      <div class="card card-red">
+        <div class="stat">$2.8B+</div>
+        <div class="stat-label">Annual Revenue (FY2025)</div>
+      </div>
+      <div class="card card-gold">
+        <div class="stat stat-gold">8,300+</div>
+        <div class="stat-label">Employees (Group)</div>
+      </div>
+      <div class="card card-slate">
+        <div class="stat" style="color: var(--bright);">78</div>
+        <div class="stat-label">Years of Operations</div>
+      </div>
+    </div>
+
+    <div class="card card-red">
+      <h3>Historical Milestones</h3>
+      <ul>
+        <li><span class="text-white fw-600">1955:</span> Installed Japan's first commercial computers at Tokyo Stock Exchange and Nomura Securities</li>
+        <li><span class="text-white fw-600">1967:</span> Launched Japan's first online banking processing service</li>
+        <li><span class="text-white fw-600">1971:</span> Listed on the Tokyo Stock Exchange, First Section</li>
+        <li><span class="text-white fw-600">1988:</span> Nihon Unisys established through merger of Nippon Univac and Burroughs Corporation operations</li>
+        <li><span class="text-white fw-600">1994:</span> Established US subsidiary in Silicon Valley (now BIPROGY USA, Santa Clara, CA)</li>
+        <li><span class="text-white fw-600">2007:</span> Launched BankVision, the world's first full banking system built on Microsoft Windows platform</li>
+        <li><span class="text-white fw-600">2022:</span> Rebranded from Nihon Unisys to BIPROGY Inc., signaling global ambitions beyond legacy identity</li>
+      </ul>
+    </div>
+
+    <div class="card card-gold" style="margin-top: 14px;">
+      <h3>Core Product and Solution Portfolio</h3>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div>
+          <h4>Financial Services</h4>
+          <p>BankVision core banking platform. SurFIN foreign remittance processing (ISO 20022 compliant, SWIFT certified). Branch systems, CRM, risk management, AML compliance solutions.</p>
+          <h4>Enterprise Infrastructure</h4>
+          <p>Cloud migration services, ICT platform solutions, DevSecOps frameworks, cybersecurity, system integration. Full lifecycle consulting, development, operation, and maintenance.</p>
+        </div>
+        <div>
+          <h4>Critical Infrastructure</h4>
+          <p>Energy management and renewable energy platforms. Utility grid systems. EV charging infrastructure (deployed since 2009). Remote monitoring and BCP/disaster readiness solutions.</p>
+          <h4>Digital Transformation</h4>
+          <p>AI deployment services, IoT platform solutions, blockchain ecosystems, RPA and automation. ERP implementation (SAP, Oracle). Agile development and service design consulting.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-slate" style="margin-top: 14px;">
+      <h3>Strategic Direction: Vision 2030</h3>
+      <p>BIPROGY's Vision 2030 centers on creating the "Digital Commons," a shared platform designed to build a sustainable society through technology. Management Policies (2024 to 2026) target a corporate value of 1 trillion yen through ambidextrous management, balancing core business optimization with aggressive growth investment. The company is proactively investing in global expansion, with ASEAN and North America identified as priority regions. The rebrand itself signals intent: shedding the Unisys legacy to establish an independent, globally recognizable identity.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 2: US PRESENCE AND STRATEGY -->
+    <div class="section-label">Section 02</div>
+    <h2>US Presence and Market Entry Context</h2>
+
+    <p>BIPROGY established its US subsidiary in 1994, operating as BIPROGY USA from 3945 Freedom Circle, Santa Clara, California. For the past three decades, this operation has functioned primarily as a technology research and business development hub, scanning North American trends, fostering startup connections, and publishing insights through its proprietary media platform rickDoor.</p>
+
+    <div class="card card-red">
+      <h3>The Inflection Point</h3>
+      <p>Hiring a VP of Sales based in Los Angeles represents a fundamental strategic shift. BIPROGY is moving from observation and research to active commercial engagement in the US market. This is the transition from "watching the market" to "selling into the market." The company has the products, the track record, and the financial resources. What it needs is a commercially experienced leader who can build the go-to-market engine from the ground up, someone who understands both the Japanese corporate culture and the velocity of American enterprise sales.</p>
+    </div>
+
+    <div class="grid-2" style="margin-top: 14px;">
+      <div class="card card-gold">
+        <h4>What BIPROGY Brings to the US</h4>
+        <ul>
+          <li>78 years of enterprise IT credibility with Japan's largest institutions</li>
+          <li>Mission critical systems expertise: banking, utilities, government</li>
+          <li>$2.8B revenue base providing investment capacity for US growth</li>
+          <li>Existing US legal entity and Silicon Valley presence since 1994</li>
+          <li>SWIFT certified, ISO 20022 compliant fintech solutions</li>
+          <li>Deep relationships with Japanese companies operating in the US</li>
+        </ul>
+      </div>
+      <div class="card card-slate">
+        <h4>What BIPROGY Needs in the US</h4>
+        <ul>
+          <li>Commercial sales leadership with enterprise closing experience</li>
+          <li>Go-to-market strategy localized for US buyer expectations</li>
+          <li>Pipeline development infrastructure (CRM, sequences, events)</li>
+          <li>Channel partnerships with US system integrators and consultancies</li>
+          <li>Reference customers to validate credibility in the US market</li>
+          <li>Cultural bridge between Tokyo headquarters and US operations</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 3: MARKET ANALYSIS -->
+    <div class="section-label">Section 03</div>
+    <h2>Market Analysis: Japanese Enterprise IT in the US</h2>
+
+    <p>The US market for enterprise IT services exceeds $450 billion annually. Japanese technology companies have established meaningful footholds, led by NTT Data, Fujitsu, and Hitachi, but significant white space remains for companies with deep vertical expertise in financial services, utilities, and critical infrastructure.</p>
+
+    <div class="card card-red">
+      <h3>Market Dynamics Favoring BIPROGY's Entry</h3>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div>
+          <h4>Demand Side Tailwinds</h4>
+          <ul>
+            <li>US financial institutions accelerating ISO 20022 migration for cross-border payments (SWIFT deadline compliance)</li>
+            <li>Utility companies modernizing grid infrastructure for renewable energy integration</li>
+            <li>Critical infrastructure operators under regulatory pressure to upgrade legacy systems</li>
+            <li>Growing demand for "mission critical" IT partners with proven reliability track records</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Supply Side Advantages</h4>
+          <ul>
+            <li>Japanese IT companies known for precision, reliability, and long-term partnership commitment</li>
+            <li>BIPROGY's 60+ year track record with Japan's largest banks and utilities is a differentiator</li>
+            <li>Price competitiveness vs. US consulting firms (Accenture, Deloitte, IBM) for comparable quality</li>
+            <li>Growing US appreciation for Japanese engineering discipline and operational excellence</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-gold" style="margin-top: 14px;">
+      <h3>Japanese Company US Market Entry: Patterns and Lessons</h3>
+      <p>The most successful Japanese IT companies in the US have followed a consistent playbook. NTT Data achieved scale through aggressive acquisition (Sierra Systems, Cognosante, Flux7, Acorio). Fujitsu built sector-specific offerings under the "Uvance" brand. Hitachi Vantara carved out a niche in data infrastructure. The common thread: each found a wedge, a specific capability that US buyers could not easily source from domestic providers, and expanded from there.</p>
+      <p>BIPROGY's wedge is clear. Its financial services technology (BankVision, SurFIN) and critical infrastructure expertise represent capabilities refined over decades in one of the world's most demanding regulatory environments. These are not commoditized offerings. They are battle-tested systems that US financial institutions and utilities will pay a premium to evaluate.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 4: COMPETITIVE LANDSCAPE -->
+    <div class="section-label">Section 04</div>
+    <h2>Competitive Landscape</h2>
+
+    <p>BIPROGY will compete against established Japanese IT companies already in the US market, US-based global consultancies, and specialized technology providers. Understanding positioning against each category is essential for crafting differentiated messaging.</p>
+
+    <h3 style="margin-top: 1.5em; margin-bottom: 0.8em;">Japanese IT Companies in the US Market</h3>
+
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>US Revenue Est.</th>
+          <th>US Focus Areas</th>
+          <th>BIPROGY Differentiator</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-white fw-600">NTT Data</td>
+          <td>$20B+ (global)</td>
+          <td>Consulting, managed services, cloud migration, public sector</td>
+          <td>BIPROGY offers deeper vertical specialization in banking and utilities vs. NTT Data's broad horizontal approach</td>
+        </tr>
+        <tr>
+          <td class="text-white fw-600">Fujitsu America</td>
+          <td>$3B+ (Americas)</td>
+          <td>Digital transformation under Uvance brand, sustainability, healthcare</td>
+          <td>BIPROGY's BankVision and SurFIN are proprietary products, not just consulting services</td>
+        </tr>
+        <tr>
+          <td class="text-white fw-600">Hitachi Vantara</td>
+          <td>$4B+ (global)</td>
+          <td>Data infrastructure, IoT, smart cities, operational technology</td>
+          <td>BIPROGY's financial services depth, Hitachi Vantara focuses on data storage and industrial IoT</td>
+        </tr>
+        <tr>
+          <td class="text-white fw-600">NEC Corporation</td>
+          <td>$2B+ (Americas)</td>
+          <td>Biometrics, public safety, telecom, government</td>
+          <td>Minimal overlap. NEC focuses on biometrics and public safety, not banking or utilities IT</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top: 1.5em; margin-bottom: 0.8em;">US and Global Incumbents</h3>
+
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Positioning</th>
+          <th>BIPROGY Advantage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-white fw-600">Accenture</td>
+          <td>Full-service consulting, broad industry coverage, premium pricing</td>
+          <td>BIPROGY delivers proprietary technology products, not just consulting hours. Lower cost, higher specialization.</td>
+        </tr>
+        <tr>
+          <td class="text-white fw-600">Deloitte</td>
+          <td>Advisory, audit, implementation. Strong in regulatory compliance.</td>
+          <td>BIPROGY brings production-ready systems (BankVision) vs. Deloitte's build-from-scratch model.</td>
+        </tr>
+        <tr>
+          <td class="text-white fw-600">IBM</td>
+          <td>Enterprise infrastructure, Watson AI, hybrid cloud</td>
+          <td>BIPROGY's solutions are purpose-built for financial and utility verticals, not horizontal platforms adapted to verticals.</td>
+        </tr>
+        <tr>
+          <td class="text-white fw-600">Fiserv / FIS</td>
+          <td>Payments, core banking, financial technology</td>
+          <td>BIPROGY's SurFIN addresses foreign remittance specifically, a niche underserved by Fiserv/FIS's domestic-focused platforms.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="card card-gold" style="margin-top: 1.5em;">
+      <h3>Competitive Positioning Summary</h3>
+      <p>BIPROGY should not attempt to compete head-to-head with NTT Data on scale or Accenture on breadth. The winning strategy is vertical depth: position BIPROGY as the specialist choice for financial institutions, utilities, and critical infrastructure operators who need mission-critical systems built to Japanese standards of reliability and compliance, delivered by a partner committed to long-term relationships rather than billable hour optimization.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 5: BUYER SEGMENTS -->
+    <div class="section-label">Section 05</div>
+    <h2>Target Buyer Segments</h2>
+
+    <div class="card card-red">
+      <h3>Financial Institutions</h3>
+      <p class="text-bright">BIPROGY's strongest vertical. Direct product market fit with BankVision and SurFIN.</p>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div>
+          <h4>Target Profiles</h4>
+          <ul>
+            <li>Regional and mid-tier US banks seeking core banking modernization</li>
+            <li>Japanese banks operating in the US (MUFG, Mizuho, SMBC) needing compliant systems</li>
+            <li>Credit unions and community banks exploring ISO 20022 migration</li>
+            <li>Payment processors and remittance companies</li>
+            <li>Insurance companies modernizing legacy platforms</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Buying Dynamics</h4>
+          <ul>
+            <li><span class="text-white fw-600">Decision Makers:</span> CTO, CIO, VP of Technology, Chief Digital Officer</li>
+            <li><span class="text-white fw-600">Deal Size:</span> $500K to $5M+ (implementation + ongoing support)</li>
+            <li><span class="text-white fw-600">Sales Cycle:</span> 9 to 18 months (regulatory review extends timelines)</li>
+            <li><span class="text-white fw-600">Key Objection:</span> Proven US references, ongoing support presence</li>
+            <li><span class="text-white fw-600">Entry Strategy:</span> Start with SurFIN (smaller scope) to establish trust, then expand to core banking</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-gold" style="margin-top: 14px;">
+      <h3>Utilities and Energy</h3>
+      <p class="text-bright">Natural extension of BIPROGY's domestic energy management and grid modernization expertise.</p>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div>
+          <h4>Target Profiles</h4>
+          <ul>
+            <li>Electric utilities managing renewable energy integration</li>
+            <li>Gas and water utilities modernizing SCADA and control systems</li>
+            <li>Municipal utilities seeking digital transformation partners</li>
+            <li>EV charging infrastructure operators and fleet managers</li>
+            <li>Energy trading and management platforms</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Buying Dynamics</h4>
+          <ul>
+            <li><span class="text-white fw-600">Decision Makers:</span> VP of Operations, CTO, VP of Grid Modernization, Chief Digital Officer</li>
+            <li><span class="text-white fw-600">Deal Size:</span> $1M to $10M+ (infrastructure projects scale significantly)</li>
+            <li><span class="text-white fw-600">Sales Cycle:</span> 12 to 24 months (procurement processes, regulatory approvals)</li>
+            <li><span class="text-white fw-600">Key Objection:</span> Compliance with US utility regulations (NERC CIP, state PUC requirements)</li>
+            <li><span class="text-white fw-600">Entry Strategy:</span> Partner with established US utility consultancies for initial engagements</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-green" style="margin-top: 14px;">
+      <h3>Critical Infrastructure and Government</h3>
+      <p class="text-bright">High-value segment requiring the exact reliability and compliance DNA that defines BIPROGY.</p>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div>
+          <h4>Target Profiles</h4>
+          <ul>
+            <li>Federal agencies modernizing legacy IT systems</li>
+            <li>Transportation authorities (airports, ports, rail operators)</li>
+            <li>Healthcare systems requiring HIPAA-compliant infrastructure</li>
+            <li>State and local governments pursuing digital transformation</li>
+            <li>Defense contractors seeking secure, reliable system integrators</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Buying Dynamics</h4>
+          <ul>
+            <li><span class="text-white fw-600">Decision Makers:</span> CIO, CISO, Procurement Director, Program Managers</li>
+            <li><span class="text-white fw-600">Deal Size:</span> $2M to $20M+ (government contracts can be substantial)</li>
+            <li><span class="text-white fw-600">Sales Cycle:</span> 12 to 36 months (RFP processes, security clearances)</li>
+            <li><span class="text-white fw-600">Key Objection:</span> FedRAMP compliance, ITAR considerations, domestic presence requirements</li>
+            <li><span class="text-white fw-600">Entry Strategy:</span> Subcontract initially through established US prime contractors</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-slate" style="margin-top: 14px;">
+      <h3>Large Enterprises (Japanese-Affiliated Priority)</h3>
+      <p class="text-bright">The fastest path to revenue: serve Japanese enterprises already operating in the US.</p>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div>
+          <h4>Target Profiles</h4>
+          <ul>
+            <li>Japanese manufacturers with US operations (Toyota, Honda, Sony, Panasonic)</li>
+            <li>Japanese trading companies (Mitsubishi, Mitsui, Sumitomo, ITOCHU)</li>
+            <li>Japanese financial institutions with US branches (MUFG, Mizuho, Nomura)</li>
+            <li>US subsidiaries of Japanese pharmaceutical and healthcare companies</li>
+            <li>Mid-market US enterprises seeking specialized IT partners</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Buying Dynamics</h4>
+          <ul>
+            <li><span class="text-white fw-600">Decision Makers:</span> US CIO/CTO, Japan HQ IT leadership (dual approval often required)</li>
+            <li><span class="text-white fw-600">Deal Size:</span> $250K to $3M (US subsidiary scope)</li>
+            <li><span class="text-white fw-600">Sales Cycle:</span> 6 to 12 months (shorter due to existing Japanese business relationships)</li>
+            <li><span class="text-white fw-600">Key Advantage:</span> BIPROGY's Japanese heritage creates immediate trust and cultural alignment</li>
+            <li><span class="text-white fw-600">Entry Strategy:</span> Leverage Tokyo HQ relationships for warm introductions to US subsidiary leadership</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 6: PARTNERSHIP AND CHANNEL STRATEGY -->
+    <div class="section-label">Section 06</div>
+    <h2>Partnership and Channel Strategy</h2>
+
+    <p>Direct sales alone will not generate the pipeline velocity BIPROGY needs in its first two years. A structured partnership strategy across four categories will accelerate market entry, provide credibility, and create deal flow that a standalone sales team cannot match.</p>
+
+    <div class="card card-red">
+      <h3>System Integrators</h3>
+      <p>Partner with established US system integrators who already serve BIPROGY's target verticals. These firms have existing buyer relationships and can position BIPROGY's solutions within larger transformation programs.</p>
+      <ul>
+        <li><span class="text-white fw-600">Tier 1 Targets:</span> Infosys, Wipro, TCS (familiar with Japanese technology partnerships)</li>
+        <li><span class="text-white fw-600">Tier 2 Targets:</span> Cognizant, DXC Technology, Capgemini (strong financial services practices)</li>
+        <li><span class="text-white fw-600">Specialized:</span> Jack Henry & Associates, Temenos (banking technology ecosystem partners)</li>
+        <li><span class="text-white fw-600">Partnership Model:</span> Referral agreements progressing to co-sell and OEM arrangements</li>
+      </ul>
+    </div>
+
+    <div class="card card-gold" style="margin-top: 14px;">
+      <h3>Consulting Firms</h3>
+      <p>Advisory firms influence large technology decisions at BIPROGY's target accounts. Building relationships with practice leaders ensures BIPROGY is included in shortlists and RFP responses.</p>
+      <ul>
+        <li><span class="text-white fw-600">Big Four:</span> EY, PwC, KPMG (all have Japan practice desks serving US-based Japanese companies)</li>
+        <li><span class="text-white fw-600">Boutique:</span> McKinsey, BCG, Bain (technology advisory for C-suite transformation decisions)</li>
+        <li><span class="text-white fw-600">Japan Specialists:</span> Makana Partners, Pacific Bridge Partners (specialize in Japan-US business facilitation)</li>
+        <li><span class="text-white fw-600">Partnership Model:</span> Knowledge sharing, joint thought leadership, analyst briefings</li>
+      </ul>
+    </div>
+
+    <div class="card card-green" style="margin-top: 14px;">
+      <h3>Technology Alliances</h3>
+      <p>Align with the platforms that BIPROGY's solutions run on and integrate with. These alliances create marketplace visibility and co-marketing opportunities.</p>
+      <ul>
+        <li><span class="text-white fw-600">Cloud Platforms:</span> Microsoft Azure (BankVision is Windows-based), AWS, Google Cloud</li>
+        <li><span class="text-white fw-600">Enterprise Software:</span> Salesforce, ServiceNow, SAP (integration partners)</li>
+        <li><span class="text-white fw-600">Financial Services:</span> SWIFT (BIPROGY already has Complementor Certification), Plaid, Stripe</li>
+        <li><span class="text-white fw-600">Partnership Model:</span> ISV partnerships, marketplace listings, joint solution development</li>
+      </ul>
+    </div>
+
+    <div class="card card-slate" style="margin-top: 14px;">
+      <h3>Industry Associations and Trade Organizations</h3>
+      <p>Membership and active participation in industry bodies provides visibility, networking with buyers, and credibility in verticals where trust is earned slowly.</p>
+      <ul>
+        <li><span class="text-white fw-600">Financial Services:</span> American Bankers Association (ABA), NACHA, Payments Association</li>
+        <li><span class="text-white fw-600">Utilities:</span> Edison Electric Institute, American Gas Association, NARUC</li>
+        <li><span class="text-white fw-600">Japan-US Business:</span> JETRO, Japan Business Association of Southern California, US-Japan Business Council</li>
+        <li><span class="text-white fw-600">Technology:</span> CompTIA, AFCEA, ISSA (security-focused associations)</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 7: 90-DAY GTM EXECUTION PLAN -->
+    <div class="section-label">Section 07</div>
+    <h2>90-Day GTM Execution Plan</h2>
+
+    <p>The first 90 days define whether BIPROGY's US commercial entry generates momentum or stalls. This plan is designed to produce pipeline, partnership conversations, and organizational clarity within 12 weeks.</p>
+
+    <div class="timeline-phase">
+      <div class="phase-label">Days 1 to 30: Foundation</div>
+      <h3>Build the Commercial Infrastructure</h3>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div class="card card-red">
+          <h4>Sales Operations</h4>
+          <ul>
+            <li>Deploy CRM (Salesforce or HubSpot) with pipeline stages mapped to BIPROGY's sales cycle</li>
+            <li>Build ICP definitions for each of the four buyer segments</li>
+            <li>Create initial target account list: 50 financial institutions, 30 utilities, 20 Japanese-affiliated enterprises</li>
+            <li>Establish sales playbook with objection handling specific to Japanese IT company positioning</li>
+          </ul>
+        </div>
+        <div class="card card-gold">
+          <h4>Messaging and Materials</h4>
+          <ul>
+            <li>Develop US-market positioning deck (not a translation, a ground-up US narrative)</li>
+            <li>Create vertical-specific one-pagers: Financial Services, Utilities, Critical Infrastructure</li>
+            <li>Build case study framework using Japan deployments as credibility proof points</li>
+            <li>Establish LinkedIn presence and content calendar for thought leadership</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-phase">
+      <div class="phase-label">Days 31 to 60: Activation</div>
+      <h3>Launch Outreach and Partner Development</h3>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div class="card card-red">
+          <h4>Direct Pipeline</h4>
+          <ul>
+            <li>Begin outbound sequences to 100 target accounts across all segments</li>
+            <li>Prioritize Japanese-affiliated companies (fastest path to initial meetings)</li>
+            <li>Attend 2 to 3 industry events (ABA conferences, SWIFT forums, utility expos)</li>
+            <li>Schedule executive briefings with 5 to 10 high-priority accounts</li>
+          </ul>
+        </div>
+        <div class="card card-gold">
+          <h4>Channel Development</h4>
+          <ul>
+            <li>Initiate partnership conversations with 3 to 5 system integrators</li>
+            <li>Engage Japan desk leaders at Big Four consulting firms</li>
+            <li>Apply for Microsoft Azure ISV partnership (BankVision alignment)</li>
+            <li>Join JETRO programs and Japan Business Association of Southern California</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-phase">
+      <div class="phase-label">Days 61 to 90: Acceleration</div>
+      <h3>Convert Early Conversations to Qualified Pipeline</h3>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div class="card card-red">
+          <h4>Pipeline Targets</h4>
+          <ul>
+            <li>15 to 20 qualified meetings completed across all segments</li>
+            <li>3 to 5 active opportunities in discovery or evaluation stage</li>
+            <li>1 to 2 pilot or proof-of-concept engagements initiated</li>
+            <li>Pipeline value: $3M to $5M in identified opportunities</li>
+          </ul>
+        </div>
+        <div class="card card-gold">
+          <h4>Organizational Development</h4>
+          <ul>
+            <li>Hire or contract 1 to 2 additional sales team members (BDR, Solutions Engineer)</li>
+            <li>Establish regular reporting cadence with Tokyo HQ leadership</li>
+            <li>Formalize partner agreements with top 2 to 3 channel partners</li>
+            <li>Present 6-month and 12-month expansion plan to BIPROGY Group executive team</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-green" style="margin-top: 1.5em;">
+      <h3>Year One Revenue Targets</h3>
+      <div class="grid-3" style="margin-top: 0.8em;">
+        <div>
+          <div class="stat stat-green">$5M+</div>
+          <div class="stat-label">Qualified Pipeline by Month 6</div>
+        </div>
+        <div>
+          <div class="stat stat-green">$2M+</div>
+          <div class="stat-label">Closed Revenue by Month 12</div>
+        </div>
+        <div>
+          <div class="stat stat-green">3 to 5</div>
+          <div class="stat-label">Active Channel Partners</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 8: WHY JEFF -->
+    <div class="section-label">Section 08</div>
+    <h2>Why Jeff Aragon</h2>
+
+    <p>This is not a role I am applying to. This is the role I have been building toward across my entire career. Japanese enterprise technology company entering the US market, selling mission-critical systems to financial institutions and large enterprises. Every experience I have had, from closing enterprise deals to navigating cross-cultural business relationships with Japanese leadership, has prepared me for exactly this.</p>
+
+    <div class="grid-2" style="margin-top: 1.2em;">
+      <div class="card card-red">
+        <h3>Enterprise Sales Track Record</h3>
+        <ul>
+          <li><span class="text-white fw-600">$150M+ in career revenue</span> generated across enterprise technology, SaaS, and consulting</li>
+          <li><span class="text-white fw-600">$24M TCV at a Series A startup</span> in less than 2 years, building the sales function from zero</li>
+          <li><span class="text-white fw-600">Award-winning at UKG</span> for nearly 6 years, consistently recognized for exceeding targets at one of the largest HCM companies in the world</li>
+          <li>Experience selling complex, multi-stakeholder deals with 9 to 18 month sales cycles</li>
+          <li>Proven ability to build sales teams, processes, and pipeline infrastructure in new markets</li>
+        </ul>
+      </div>
+      <div class="card card-gold">
+        <h3>Japan Business Experience</h3>
+        <ul>
+          <li><span class="text-white fw-600">Direct experience working with Japanese companies</span> on cross-cultural commercial engagements</li>
+          <li>Deep understanding of Japanese business culture: consensus-driven decision making, relationship-first sales approach, the importance of trust and long-term commitment</li>
+          <li>Fluency in navigating between Japanese corporate governance structures and US market expectations</li>
+          <li>Experience positioning technology from relationship-oriented cultures into the results-oriented US enterprise market</li>
+          <li>Understanding of the specific challenges Japanese companies face in the US: localized messaging, buyer education, reference customer development</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card card-green" style="margin-top: 14px;">
+      <h3>What I Will Do for BIPROGY in the First 90 Days</h3>
+      <p>I will not spend three months "learning the business." I will arrive with a plan, this plan, and execute immediately. Within 90 days, BIPROGY will have a functioning US sales operation with CRM infrastructure, target account lists, outbound sequences running, partnership conversations in progress, and qualified pipeline being built. I have done this multiple times: walked into organizations with no existing commercial engine and built one that produces revenue.</p>
+      <p>My career has been defined by building where nothing existed before. $24M at a Series A startup meant there was no playbook, no brand recognition, no inbound pipeline. I built all of it. That is exactly what BIPROGY needs in the US market: someone who does not wait for the machine to be built for them, but builds it themselves.</p>
+    </div>
+
+    <div class="card card-slate" style="margin-top: 14px;">
+      <h3>The Alignment</h3>
+      <p>Jozu Consulting Group was founded specifically to help companies like BIPROGY. Japanese enterprises entering the US market with world-class technology and no commercial infrastructure. I understand the product, I understand the buyer, I understand the culture, and I understand what it takes to generate revenue in a new market. This is not a stretch role. This is the convergence of everything I have built.</p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p class="name">Jeff Aragon</p>
+      <p>jeff@jozuconsultinggroup.com | +1 303-638-1390 (mobile and WhatsApp)</p>
+      <p style="margin-top: 0.5em; font-size: 0.78em; color: var(--slate);">Jozu Consulting Group | Confidential</p>
+    </div>
+
+  </div>
+</body>
+</html>
