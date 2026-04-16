@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bold Security - US Market GTM Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #0a0e17;
+        --bg-card: rgba(255,255,255,0.03);
+        --bg-card-border: rgba(255,255,255,0.06);
+        --accent: #e34115;
+        --accent-dim: rgba(227,65,21,0.12);
+        --gold: #c9a84c;
+        --gold-dim: rgba(201,168,76,0.10);
+        --green: #22c55e;
+        --green-dim: rgba(34,197,94,0.10);
+        --slate: #64748b;
+        --white: #ffffff;
+        --gray: #cbd5e1;
+        --bright: #e2e8f0;
+        --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: var(--bg);
+        color: var(--gray);
+        font-family: 'Open Sans', sans-serif;
+        font-size: 15px;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        padding: 50px 40px;
+    }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+
+    .container { max-width: 1060px; margin: 0 auto; }
+
+    .header {
+        margin-bottom: 48px;
+        padding-bottom: 28px;
+        border-bottom: 2px solid var(--accent);
+    }
+    .doc-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 10px;
+    }
+    .doc-title {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 6px;
+    }
+    .doc-subtitle {
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-weight: 300;
+        color: var(--gray);
+        margin-bottom: 4px;
+    }
+    .doc-meta {
+        font-size: 12px;
+        color: var(--gray);
+        margin-top: 8px;
+    }
+
+    .section { margin-bottom: 44px; }
+    .section-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .section-label::before {
+        content: '';
+        width: 24px; height: 2px;
+        background: var(--accent);
+    }
+    h2 { font-size: 20px; font-weight: 600; margin-bottom: 16px; }
+    h3 { font-size: 15px; font-weight: 500; color: var(--accent); margin-bottom: 8px; }
+    h4 { font-size: 13px; font-weight: 500; color: var(--gold); margin-bottom: 6px; }
+
+    .card {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin-bottom: 14px;
+    }
+    .card-red { border-left: 3px solid var(--accent); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+    .card-green { border-left: 3px solid var(--green); }
+
+    .card-grid { display: grid; gap: 14px; margin-bottom: 16px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    .divider { width: 60px; height: 2px; background: var(--accent); margin: 32px 0; opacity: 0.4; }
+
+    ul { padding-left: 20px; margin: 8px 0; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--white); font-weight: 600; }
+
+    .stat-row { display: flex; gap: 14px; margin: 16px 0; }
+    .stat-box {
+        flex: 1;
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 18px;
+        text-align: center;
+    }
+    .stat-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--accent);
+    }
+    .stat-label {
+        font-size: 11px;
+        color: var(--gray);
+        margin-top: 4px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+        font-size: 14px;
+    }
+    th {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 10px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--accent);
+        text-align: left;
+        padding: 10px 14px;
+        border-bottom: 1px solid rgba(227,65,21,0.2);
+        background: var(--accent-dim);
+    }
+    td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--bg-card-border);
+        color: var(--gray);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .callout {
+        background: rgba(227,65,21,0.06);
+        border: 1px solid rgba(227,65,21,0.15);
+        border-radius: var(--radius);
+        padding: 18px 24px;
+        margin: 14px 0;
+        color: var(--bright);
+    }
+    .callout-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: var(--accent);
+        margin-bottom: 6px;
+    }
+
+    .timeline {
+        position: relative;
+        padding-left: 28px;
+    }
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 8px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, var(--accent), var(--gold), var(--green));
+        opacity: 0.4;
+    }
+    .timeline-item {
+        position: relative;
+        margin-bottom: 20px;
+    }
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -24px;
+        top: 6px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid var(--accent);
+        background: var(--bg);
+    }
+    .timeline-item.gold::before { border-color: var(--gold); }
+    .timeline-item.green::before { border-color: var(--green); }
+
+    .phase-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+    }
+    .phase-red { color: var(--accent); }
+    .phase-gold { color: var(--gold); }
+    .phase-green { color: var(--green); }
+
+    .footer {
+        margin-top: 60px;
+        padding-top: 24px;
+        border-top: 1px solid var(--bg-card-border);
+        text-align: center;
+        color: var(--gray);
+        font-size: 13px;
+    }
+    .footer strong { color: var(--white); }
+
+    @media print {
+        body { background: var(--bg); padding: 30px; }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+    <div class="doc-label">US Market GTM Strategy</div>
+    <h1 class="doc-title">Bold Security - US Market GTM Plan</h1>
+    <div class="doc-subtitle">Revenue Architecture for AI-Native Endpoint Security in the Enterprise</div>
+    <div class="doc-meta">Prepared by Jeff Aragon | April 2026</div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 1: COMPANY PROFILE -->
+<!-- ============================================ -->
+<div class="section">
+    <div class="section-label">COMPANY PROFILE</div>
+    <h2>Bold Security - Turning Every Endpoint Into an AI Security Agent</h2>
+
+    <div class="stat-row">
+        <div class="stat-box">
+            <div class="stat-number">$40M</div>
+            <div class="stat-label">Total Funding Raised</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">24</div>
+            <div class="stat-label">Employees (Tel Aviv)</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">500M+</div>
+            <div class="stat-label">Devices Protected (CEO Prior Co.)</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">90%</div>
+            <div class="stat-label">Alert Volume Reduction</div>
+        </div>
+    </div>
+
+    <div class="card card-red">
+        <h3>The Company</h3>
+        <p>Bold Security emerged from stealth in March 2026 with $40M in funding to redefine endpoint security for the AI era. Headquartered in Tel Aviv with 24 employees and plans to double headcount by year-end, Bold deploys lightweight AI models directly on endpoint devices, transforming each machine into an autonomous security agent that detects and prevents user-based threats in real time - without cloud dependency, latency, or third-party data exposure.</p>
+    </div>
+
+    <div class="card-grid cols-2">
+        <div class="card card-gold">
+            <h3>Funding History</h3>
+            <ul>
+                <li><strong>Series A (March 2026):</strong> $28M led by Bessemer Venture Partners, Picture Capital, Red Dot Capital Partners</li>
+                <li><strong>Seed (2024):</strong> $12M from Bessemer, Picture Capital, Cerca Partners, and angel investors including Wiz founders Assaf Rappaport and Roy Reznik</li>
+            </ul>
+        </div>
+        <div class="card card-gold">
+            <h3>Enterprise Traction</h3>
+            <ul>
+                <li><strong>Fortune 500 customers</strong> already in production</li>
+                <li><strong>Shutterfly</strong> - CISO Jeff Simon: "Bold helps us apply security in a way that's effective but unobtrusive"</li>
+                <li><strong>Tekion</strong> - active deployment</li>
+                <li><strong>90% alert volume reduction</strong> for early customers</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card card-slate">
+        <h3>Founding Team</h3>
+        <div class="card-grid cols-3" style="margin-top: 12px;">
+            <div>
+                <h4>Nati Hazut - CEO</h4>
+                <p>Serial entrepreneur (3rd company). Forbes 30 Under 30. Founded Polyrize (acquired by Varonis for $39.3M in 2020). Founded SAM Seamless Network, protecting 500M+ connected devices for Verizon, Virgin Media, and other major telecoms. Previously Senior Director, Cloud Solutions at Varonis post-acquisition.</p>
+            </div>
+            <div>
+                <h4>Hadar Krasner - CPO</h4>
+                <p>Former Polyrize CPO. Deep experience in product-led security platforms, user behavior analytics, and enterprise data protection workflows. Security product veteran with demonstrated ability to ship and scale.</p>
+            </div>
+            <div>
+                <h4>Omri Mallis - CTO</h4>
+                <p>SAM Seamless Network's first employee. Architected the technology stack that scaled to protect hundreds of millions of devices globally. Brings core expertise in agent-based systems, edge computing, and real-time threat intelligence.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">INVESTOR SIGNAL</div>
+        Bessemer Venture Partners' Amit Karp: "This group has successfully brought products to market across agent-based systems, insider risk, and data security." The Wiz founder backing adds credibility in a market that values operator-to-operator endorsement.
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 2: PRODUCT -->
+<!-- ============================================ -->
+<div class="section">
+    <div class="section-label">PRODUCT ARCHITECTURE</div>
+    <h2>On-Device AI That Stops Threats Before They Escalate</h2>
+
+    <div class="card card-red">
+        <h3>Core Architecture</h3>
+        <p>Bold deploys small, fine-tuned language models directly on endpoint hardware. These are not general-purpose LLMs - they are purpose-built models, minimized and retrained to run efficiently on standard enterprise devices. Bold targets consuming no more than one-quarter the resources of competing non-AI solutions by using a shared base model with swappable upper layers for different security functions.</p>
+    </div>
+
+    <div class="card-grid cols-2">
+        <div class="card card-gold">
+            <h3>What It Does</h3>
+            <ul>
+                <li><strong>Insider Threat Detection:</strong> Identifies suspicious or abnormal user actions in real time by continuously analyzing data sensitivity, user behavior, and application interactions</li>
+                <li><strong>Data Leakage Prevention:</strong> Coaching, warnings, or automatic blocking of risky data movement before exfiltration occurs</li>
+                <li><strong>Shadow AI Governance:</strong> Full visibility into AI tool adoption, usage patterns, and data flows across the organization</li>
+                <li><strong>Forensic Investigation:</strong> Complete contextual evidence for incident response, generated locally without cloud round-trips</li>
+                <li><strong>Misdelivered Email Prevention:</strong> Catches sensitive data sent to wrong recipients before damage is done</li>
+            </ul>
+        </div>
+        <div class="card card-gold">
+            <h3>Why It Matters</h3>
+            <ul>
+                <li><strong>Zero configuration or tuning:</strong> Deploys and produces value immediately without weeks of policy setup</li>
+                <li><strong>10x lighter</strong> than competing endpoint solutions</li>
+                <li><strong>No cloud dependency:</strong> Eliminates latency, hidden cloud processing costs, and third-party privacy exposure</li>
+                <li><strong>No API blind spots:</strong> Because the agent runs locally, it observes every workflow and application interaction without gaps from unsupported integrations</li>
+                <li><strong>Real-time prevention,</strong> not after-the-fact alerting</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card card-slate">
+        <h3>Integration Ecosystem (25+ Platforms)</h3>
+        <p>CrowdStrike, Datadog, AWS, CyberArk, Splunk, Okta, Microsoft Teams, Slack, GitHub, Google Workspace, and additional SIEM and identity management platforms. Bold layers alongside existing security stacks rather than requiring rip-and-replace.</p>
+    </div>
+
+    <div class="card card-green">
+        <h3>Certifications</h3>
+        <p><strong>ISO 27001</strong> and <strong>SOC 2</strong> certified. Data never leaves the endpoint for analysis, eliminating privacy and compliance friction in regulated industries.</p>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 3: MARKET ANALYSIS -->
+<!-- ============================================ -->
+<div class="section">
+    <div class="section-label">MARKET ANALYSIS</div>
+    <h2>The Endpoint Security Landscape in 2026</h2>
+
+    <div class="stat-row">
+        <div class="stat-box">
+            <div class="stat-number">$24B+</div>
+            <div class="stat-label">Global Endpoint Security Market (2026)</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">6.8%</div>
+            <div class="stat-label">CAGR Through 2035</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">$46.6B</div>
+            <div class="stat-label">Projected Market by 2035</div>
+        </div>
+    </div>
+
+    <div class="card card-red">
+        <h3>Three Structural Shifts Creating Bold's Window</h3>
+        <ul>
+            <li><strong>AI copilot proliferation:</strong> Every enterprise is deploying AI assistants, coding tools, and automation agents on endpoints. Existing EPP/EDR platforms were built to detect malware, not govern how humans and AI tools interact with sensitive data. This is a new attack surface that legacy vendors are not architected to address.</li>
+            <li><strong>Cloud-first security model strain:</strong> Cloud-dependent endpoint solutions face scaling limits, escalating processing costs, and growing privacy regulation pressure. Enterprises operating in multiple jurisdictions (GDPR, CCPA, sector-specific rules) increasingly need security intelligence that never leaves the device.</li>
+            <li><strong>CrowdStrike trust erosion:</strong> The July 2024 outage - which crashed 8.5 million Windows systems globally and caused billions in damages - exposed the systemic risk of centralized endpoint security. Enterprises are actively re-evaluating vendor concentration risk. Delta's gross negligence lawsuit is still in court. Buyers now ask about architectural resilience in every evaluation.</li>
+        </ul>
+    </div>
+
+    <div class="card card-gold">
+        <h3>Market Segmentation Opportunity</h3>
+        <p>Bold does not compete head-to-head with CrowdStrike or SentinelOne on traditional EPP/EDR. Instead, Bold occupies a distinct category: on-device AI-powered user behavior security. This means Bold can sell alongside existing endpoint stacks (CrowdStrike integration is already built) while addressing use cases those platforms structurally cannot - insider threat, shadow AI governance, and data leakage prevention at the edge.</p>
+        <p style="margin-top: 10px;">The addressable market combines segments from endpoint security, data loss prevention ($3.5B+), insider threat management ($2.5B+), and the emerging AI security governance category. Bold's positioning at the intersection of these markets is defensible and large.</p>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 4: COMPETITIVE LANDSCAPE -->
+<!-- ============================================ -->
+<div class="section">
+    <div class="section-label">COMPETITIVE LANDSCAPE</div>
+    <h2>How Bold Differentiates Against Incumbent Platforms</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Dimension</th>
+                <th>CrowdStrike Falcon</th>
+                <th>SentinelOne Singularity</th>
+                <th>Microsoft Defender</th>
+                <th>Palo Alto Cortex XDR</th>
+                <th style="color: var(--green);">Bold Security</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Architecture</strong></td>
+                <td>Cloud-native, kernel-level agent</td>
+                <td>AI-driven autonomous agent, cloud-managed</td>
+                <td>Built into Windows, cloud-connected</td>
+                <td>Cloud-based XDR platform</td>
+                <td style="color: var(--bright);">On-device AI models, no cloud dependency</td>
+            </tr>
+            <tr>
+                <td><strong>Primary Focus</strong></td>
+                <td>Malware, ransomware, threat hunting</td>
+                <td>Autonomous threat detection and response</td>
+                <td>Broad security suite, OS integration</td>
+                <td>Cross-platform detection and response</td>
+                <td style="color: var(--bright);">User behavior, insider threat, AI governance</td>
+            </tr>
+            <tr>
+                <td><strong>AI Processing</strong></td>
+                <td>Cloud-side analytics</td>
+                <td>Cloud AI with some on-device</td>
+                <td>Cloud-processed signals</td>
+                <td>Cloud analytics engine</td>
+                <td style="color: var(--bright);">100% on-device, fine-tuned SLMs</td>
+            </tr>
+            <tr>
+                <td><strong>Data Privacy</strong></td>
+                <td>Telemetry sent to cloud</td>
+                <td>Telemetry sent to cloud</td>
+                <td>Data sent to Microsoft cloud</td>
+                <td>Data sent to Palo Alto cloud</td>
+                <td style="color: var(--bright);">Data never leaves the endpoint</td>
+            </tr>
+            <tr>
+                <td><strong>Shadow AI Visibility</strong></td>
+                <td>Limited - not purpose-built</td>
+                <td>Limited - not purpose-built</td>
+                <td>Partial via Purview integration</td>
+                <td>Limited</td>
+                <td style="color: var(--bright);">Core capability, full AI tool tracking</td>
+            </tr>
+            <tr>
+                <td><strong>Resource Footprint</strong></td>
+                <td>Moderate to heavy</td>
+                <td>Moderate</td>
+                <td>Light (OS-native)</td>
+                <td>Moderate to heavy</td>
+                <td style="color: var(--bright);">10x lighter than competitors</td>
+            </tr>
+            <tr>
+                <td><strong>Deployment Complexity</strong></td>
+                <td>Moderate - policy tuning required</td>
+                <td>Moderate - configuration needed</td>
+                <td>Low for Windows environments</td>
+                <td>High - platform integration required</td>
+                <td style="color: var(--bright);">Zero configuration, immediate value</td>
+            </tr>
+            <tr>
+                <td><strong>Market Share (EDR)</strong></td>
+                <td>~22.6%</td>
+                <td>~5-10%</td>
+                <td>Growing rapidly (bundled)</td>
+                <td>~5-8%</td>
+                <td style="color: var(--bright);">New entrant - category creation</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="callout">
+        <div class="callout-label">POSITIONING STRATEGY</div>
+        Bold should not be positioned as an EPP/EDR replacement. The winning narrative: "Bold secures the layer that CrowdStrike and SentinelOne were never built to see - how users and AI tools interact with your data on every device, in real time, without sending anything to the cloud." This positions Bold as complementary (reducing friction) while establishing a new purchasing conversation that incumbents cannot easily counter.
+    </div>
+
+    <div class="card card-red">
+        <h3>Competitive Vulnerabilities to Exploit</h3>
+        <ul>
+            <li><strong>CrowdStrike:</strong> The July 2024 outage (8.5M systems crashed) permanently damaged trust with CISOs. Cloud-dependent architecture means every detection has latency. No native shadow AI governance. Heavy agent footprint draws IT complaints. Delta lawsuit keeps the incident in the news cycle.</li>
+            <li><strong>SentinelOne:</strong> Still gaining scale (5-10% EDR share). Cloud-dependent AI processing. Attempting to move upmarket with Purple AI but this adds complexity. Not positioned for user behavior or data governance use cases.</li>
+            <li><strong>Microsoft Defender:</strong> Bundled, so perceived as "good enough" rather than best-of-breed. Sending security telemetry to the same cloud that hosts your data creates concentration risk. Weak outside Windows environments. Not designed for insider threat or AI tool governance.</li>
+            <li><strong>Palo Alto Cortex XDR:</strong> Complex platform play that requires deep Palo Alto ecosystem buy-in. High deployment overhead. Cloud-dependent analytics. No purpose-built user behavior or AI governance layer.</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 5: BUYER SEGMENTS -->
+<!-- ============================================ -->
+<div class="section">
+    <div class="section-label">BUYER SEGMENTS</div>
+    <h2>Target Accounts, Decision Makers, and Deal Economics</h2>
+
+    <div class="card card-red">
+        <h3>Segment 1: Fortune 500 / Global 2000 Enterprises</h3>
+        <div class="card-grid cols-2" style="margin-top: 12px;">
+            <div>
+                <h4>Profile</h4>
+                <ul>
+                    <li>50,000+ endpoints</li>
+                    <li>Existing CrowdStrike or SentinelOne deployment</li>
+                    <li>Active AI copilot rollout (Microsoft 365 Copilot, GitHub Copilot, internal tools)</li>
+                    <li>Multi-regulatory environment (GDPR, CCPA, HIPAA, SOX)</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Decision Framework</h4>
+                <ul>
+                    <li><strong>Economic Buyer:</strong> CISO, VP of Information Security</li>
+                    <li><strong>Technical Buyer:</strong> Director of Endpoint Security, SOC Manager</li>
+                    <li><strong>Champion:</strong> Security Architect, Insider Threat Program Lead</li>
+                    <li><strong>Deal Size:</strong> $500K - $2M+ ACV</li>
+                    <li><strong>Sales Cycle:</strong> 6-9 months</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="card card-gold">
+        <h3>Segment 2: Mid-Market Technology Companies</h3>
+        <div class="card-grid cols-2" style="margin-top: 12px;">
+            <div>
+                <h4>Profile</h4>
+                <ul>
+                    <li>2,000 - 50,000 endpoints</li>
+                    <li>Engineering-heavy workforce with high AI tool adoption</li>
+                    <li>IP-sensitive (source code, customer data, product roadmaps)</li>
+                    <li>Lean security teams (5-15 people) needing force multiplication</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Decision Framework</h4>
+                <ul>
+                    <li><strong>Economic Buyer:</strong> CISO, VP Engineering, CTO</li>
+                    <li><strong>Technical Buyer:</strong> Security Team Lead, DevSecOps Lead</li>
+                    <li><strong>Champion:</strong> Security Engineer, IT Operations</li>
+                    <li><strong>Deal Size:</strong> $100K - $500K ACV</li>
+                    <li><strong>Sales Cycle:</strong> 3-6 months</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="card card-green">
+        <h3>Segment 3: Regulated Industries - Financial Services, Healthcare, Insurance</h3>
+        <div class="card-grid cols-2" style="margin-top: 12px;">
+            <div>
+                <h4>Profile</h4>
+                <ul>
+                    <li>Strict data residency and privacy requirements</li>
+                    <li>Board-level cybersecurity oversight</li>
+                    <li>Active insider threat programs (mandated by regulators)</li>
+                    <li>High sensitivity to cloud data exposure</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Decision Framework</h4>
+                <ul>
+                    <li><strong>Economic Buyer:</strong> CISO, Chief Risk Officer</li>
+                    <li><strong>Technical Buyer:</strong> Security Architecture Review Board</li>
+                    <li><strong>Champion:</strong> Insider Threat Program Manager, Compliance Officer</li>
+                    <li><strong>Deal Size:</strong> $250K - $1.5M ACV</li>
+                    <li><strong>Sales Cycle:</strong> 6-12 months (procurement, compliance review)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="card card-slate">
+        <h3>Segment 4: Manufacturing and Critical Infrastructure</h3>
+        <div class="card-grid cols-2" style="margin-top: 12px;">
+            <div>
+                <h4>Profile</h4>
+                <ul>
+                    <li>IT/OT convergence creating new endpoint exposure</li>
+                    <li>Limited bandwidth to cloud security services at edge locations</li>
+                    <li>Nation-state threat awareness (especially for defense supply chain)</li>
+                    <li>Data sovereignty concerns for multinational operations</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Decision Framework</h4>
+                <ul>
+                    <li><strong>Economic Buyer:</strong> CISO, VP IT Operations</li>
+                    <li><strong>Technical Buyer:</strong> OT Security Manager, IT Director</li>
+                    <li><strong>Champion:</strong> Plant IT Lead, Security Operations</li>
+                    <li><strong>Deal Size:</strong> $150K - $750K ACV</li>
+                    <li><strong>Sales Cycle:</strong> 4-8 months</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">PRIORITIZATION</div>
+        Lead with Segment 2 (mid-market tech) for velocity and reference-building, while running 3-5 strategic enterprise deals in parallel. Regulated industries should be activated once 2-3 referenceable enterprise logos are secured - compliance buyers need proof of deployment scale before committing.
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 6: PARTNERSHIP CHANNELS -->
+<!-- ============================================ -->
+<div class="section">
+    <div class="section-label">PARTNERSHIP AND CHANNEL STRATEGY</div>
+    <h2>Building Scalable Revenue Through the Channel</h2>
+
+    <div class="card card-red">
+        <h3>MSSP and MDR Providers</h3>
+        <p>Managed security providers are actively seeking differentiated capabilities to combat commoditization. Bold's on-device AI architecture offers MSSPs something their existing CrowdStrike and SentinelOne deployments cannot: insider threat detection and AI governance without additional cloud infrastructure costs.</p>
+        <div class="card-grid cols-2" style="margin-top: 12px;">
+            <div>
+                <h4>Target Partners</h4>
+                <ul>
+                    <li><strong>Top-tier:</strong> Arctic Wolf, Secureworks, eSentire, Deepwatch</li>
+                    <li><strong>Mid-market focused:</strong> Netsurion, Todyl, Blumira</li>
+                    <li><strong>Specialist MDR:</strong> Red Canary, Expel, Huntress</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Value Proposition to MSSPs</h4>
+                <ul>
+                    <li>New revenue stream - insider threat as a managed service</li>
+                    <li>Reduced cloud infrastructure costs (on-device processing)</li>
+                    <li>Differentiation vs. other MSSPs running the same CrowdStrike/SentinelOne stack</li>
+                    <li>90% alert reduction means better SOC economics</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="card card-gold">
+        <h3>VAR and Distribution Partners</h3>
+        <div class="card-grid cols-2" style="margin-top: 12px;">
+            <div>
+                <h4>Distribution</h4>
+                <ul>
+                    <li><strong>Tier 1:</strong> Ingram Micro, TD SYNNEX, Pax8 (cloud marketplace)</li>
+                    <li><strong>Security-focused:</strong> Exclusive Networks, Westcon-Comsec</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Value-Added Resellers</h4>
+                <ul>
+                    <li><strong>Enterprise:</strong> CDW, Optiv, GuidePoint Security, SHI</li>
+                    <li><strong>Security specialist:</strong> Trace3, Sirius (CDW), Presidio</li>
+                    <li><strong>Focus:</strong> VARs with existing insider threat or DLP practices</li>
+                </ul>
+            </div>
+        </div>
+        <p style="margin-top: 10px;">Initial channel strategy should target 3-5 security-focused VARs for co-sell motions before pursuing broad distribution. Demonstrating deal velocity and win rates with a small partner cohort builds the case for distributors to prioritize Bold in their portfolio.</p>
+    </div>
+
+    <div class="card card-green">
+        <h3>Technology Alliances</h3>
+        <div class="card-grid cols-2" style="margin-top: 12px;">
+            <div>
+                <h4>Integration Partners (Already Built)</h4>
+                <ul>
+                    <li><strong>SIEM:</strong> Splunk, Datadog</li>
+                    <li><strong>Identity:</strong> Okta, CyberArk</li>
+                    <li><strong>Collaboration:</strong> Microsoft Teams, Slack</li>
+                    <li><strong>Cloud:</strong> AWS</li>
+                    <li><strong>Endpoint:</strong> CrowdStrike (complementary positioning)</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Alliance Development Priorities</h4>
+                <ul>
+                    <li><strong>CrowdStrike Marketplace:</strong> List as complementary - positions Bold as the "user behavior layer" on top of Falcon</li>
+                    <li><strong>Microsoft Security Copilot:</strong> Integration for enterprises adopting Microsoft AI stack</li>
+                    <li><strong>AWS Marketplace:</strong> Listing for procurement simplification</li>
+                    <li><strong>Wiz partnership:</strong> Natural given investor relationship (Wiz founders are Bold angels)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="card card-slate">
+        <h3>Cyber Insurance Channel</h3>
+        <p>Cyber insurers are increasingly mandating specific security controls as policy conditions. Bold's on-device architecture and zero-configuration deployment make it attractive to insurers looking to reduce claim frequency.</p>
+        <ul>
+            <li><strong>Target carriers:</strong> Coalition, Corvus (Travelers), At-Bay, Resilience</li>
+            <li><strong>Value proposition:</strong> Insider threat prevention reduces the #1 cause of data breaches (human error). 90% alert reduction demonstrates measurable risk decrease.</li>
+            <li><strong>Model:</strong> Preferred vendor status with premium discounts for policyholders who deploy Bold</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">CHANNEL SEQUENCING</div>
+        Phase 1 (Days 1-30): Activate 3 security-focused VARs and 1-2 MSSP partners for co-sell. Phase 2 (Days 30-60): Pursue CrowdStrike and AWS Marketplace listings. Phase 3 (Days 60-90): Engage cyber insurance carriers with deployment data from early customers. Distribution agreements with Ingram Micro or Pax8 should wait until 10+ channel-sourced deals demonstrate demand.
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 7: 90-DAY GTM EXECUTION PLAN -->
+<!-- ============================================ -->
+<div class="section">
+    <div class="section-label">90-DAY EXECUTION PLAN</div>
+    <h2>From Stealth Exit to Revenue Engine</h2>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="phase-label phase-red">PHASE 1: DAYS 1-30 - FOUNDATION AND PIPELINE BUILD</div>
+            <div class="card card-red" style="margin-top: 8px;">
+                <h4>Sales Infrastructure</h4>
+                <ul>
+                    <li>Define ICP scoring criteria: endpoint count, AI tool adoption, regulatory pressure, existing security stack</li>
+                    <li>Build target account list: 200 accounts across Segments 1-4, prioritized by fit score</li>
+                    <li>Configure CRM with Bold-specific deal stages: Discovery, Technical Validation, POC, Security Review, Procurement, Closed</li>
+                    <li>Develop 3 outbound sequences: CISO cold outreach, CrowdStrike displacement angle, AI governance pain</li>
+                </ul>
+            </div>
+            <div class="card card-red" style="margin-top: 8px;">
+                <h4>Messaging and Positioning</h4>
+                <ul>
+                    <li>Craft 3 Power Messages aligned to each buyer segment: one for insider threat, one for AI governance, one for cloud-free architecture</li>
+                    <li>Build competitive battle cards vs. CrowdStrike, SentinelOne, Microsoft Defender, Palo Alto Cortex</li>
+                    <li>Develop discovery question framework: map to Bold's unique on-device value proposition</li>
+                    <li>Create ROI calculator: cloud cost savings, alert reduction economics, FTE time recapture</li>
+                </ul>
+            </div>
+            <div class="card card-red" style="margin-top: 8px;">
+                <h4>Pipeline Targets</h4>
+                <ul>
+                    <li>50+ qualified discovery meetings booked</li>
+                    <li>15+ POC-ready opportunities identified</li>
+                    <li>3-5 channel partner conversations initiated</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="timeline-item gold">
+            <div class="phase-label phase-gold">PHASE 2: DAYS 31-60 - VALIDATION AND ACCELERATION</div>
+            <div class="card card-gold" style="margin-top: 8px;">
+                <h4>Deal Execution</h4>
+                <ul>
+                    <li>Launch 8-12 POCs with defined success criteria (alert reduction %, deployment speed, user impact)</li>
+                    <li>Build Sequence of Events for every deal above $200K - mutual action plans with buyer-visible milestones</li>
+                    <li>Run weekly deal inspection: qualify or disqualify based on evidence, not optimism</li>
+                    <li>Identify 2-3 "lighthouse" accounts for case study development</li>
+                </ul>
+            </div>
+            <div class="card card-gold" style="margin-top: 8px;">
+                <h4>Channel Activation</h4>
+                <ul>
+                    <li>Execute first co-sell deals with selected VARs (GuidePoint, Optiv, or Trace3)</li>
+                    <li>Submit CrowdStrike Marketplace and AWS Marketplace listing applications</li>
+                    <li>Onboard 1-2 MSSP partners with joint solution messaging</li>
+                    <li>Build partner enablement kit: technical training, demo environment, co-branded materials</li>
+                </ul>
+            </div>
+            <div class="card card-gold" style="margin-top: 8px;">
+                <h4>Pipeline Targets</h4>
+                <ul>
+                    <li>$3M+ in qualified pipeline</li>
+                    <li>8-12 active POCs running</li>
+                    <li>2-3 deals in procurement stage</li>
+                    <li>First channel-sourced opportunity</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="timeline-item green">
+            <div class="phase-label phase-green">PHASE 3: DAYS 61-90 - CLOSE AND SCALE</div>
+            <div class="card card-green" style="margin-top: 8px;">
+                <h4>Revenue Milestones</h4>
+                <ul>
+                    <li>Close 3-5 initial enterprise deals ($500K - $2M+ in total contract value)</li>
+                    <li>Convert 2+ POCs into paid deployments</li>
+                    <li>Secure 1-2 referenceable logos with published case studies or CISO quotes</li>
+                    <li>Establish baseline sales cycle benchmarks: days to POC, POC-to-close conversion rate, average deal size</li>
+                </ul>
+            </div>
+            <div class="card card-green" style="margin-top: 8px;">
+                <h4>Scaling Preparation</h4>
+                <ul>
+                    <li>Define hiring plan for US sales team: 2 AEs, 1 SE, 1 SDR (based on pipeline data)</li>
+                    <li>Build repeatable sales playbook from first 90 days: what messaging worked, what objections surfaced, what deal patterns emerged</li>
+                    <li>Initiate conversations with cyber insurance carriers using deployment metrics from POCs</li>
+                    <li>Prepare board-level GTM readout: pipeline, velocity, win rate, channel traction, hiring recommendations</li>
+                </ul>
+            </div>
+            <div class="card card-green" style="margin-top: 8px;">
+                <h4>Pipeline Targets</h4>
+                <ul>
+                    <li>$8M+ in total qualified pipeline</li>
+                    <li>$1.5M+ in closed or committed revenue</li>
+                    <li>3+ channel partners actively co-selling</li>
+                    <li>Repeatable sales motion documented and ready to hire against</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 8: KEY METRICS -->
+<!-- ============================================ -->
+<div class="section">
+    <div class="section-label">KEY METRICS</div>
+    <h2>What Gets Measured in the First 90 Days</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Metric</th>
+                <th>Day 30 Target</th>
+                <th>Day 60 Target</th>
+                <th>Day 90 Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Qualified Pipeline</strong></td>
+                <td>$1.5M</td>
+                <td>$3M+</td>
+                <td>$8M+</td>
+            </tr>
+            <tr>
+                <td><strong>Discovery Meetings</strong></td>
+                <td>50+</td>
+                <td>80+</td>
+                <td>120+</td>
+            </tr>
+            <tr>
+                <td><strong>Active POCs</strong></td>
+                <td>3-5</td>
+                <td>8-12</td>
+                <td>10-15</td>
+            </tr>
+            <tr>
+                <td><strong>Deals in Procurement</strong></td>
+                <td>0</td>
+                <td>2-3</td>
+                <td>5-8</td>
+            </tr>
+            <tr>
+                <td><strong>Closed Revenue</strong></td>
+                <td>$0</td>
+                <td>$0-500K</td>
+                <td>$1.5M+</td>
+            </tr>
+            <tr>
+                <td><strong>Channel Partners Active</strong></td>
+                <td>2-3</td>
+                <td>4-6</td>
+                <td>6-8</td>
+            </tr>
+            <tr>
+                <td><strong>Referenceable Logos</strong></td>
+                <td>0</td>
+                <td>1</td>
+                <td>2-3</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 9: WHY JEFF -->
+<!-- ============================================ -->
+<div class="section">
+    <div class="section-label">WHY JEFF ARAGON</div>
+    <h2>The Revenue Operator Bold Needs for US Market Entry</h2>
+
+    <div class="card card-red">
+        <h3>Career Revenue Track Record</h3>
+        <p>$150M+ in career revenue across enterprise software, cybersecurity, and platform companies. This is not theoretical - it is closed business, built teams, and scaled pipelines across multiple market conditions.</p>
+    </div>
+
+    <div class="card-grid cols-2">
+        <div class="card card-gold">
+            <h4>Series A to Scale Experience</h4>
+            <p>Generated $24M in total contract value at a Series A startup, building the revenue engine from early-stage pipeline through repeatable enterprise sales motion. This is directly relevant to Bold's current stage - post-funding, pre-scale, with Fortune 500 interest that needs to convert into predictable revenue.</p>
+        </div>
+        <div class="card card-gold">
+            <h4>Enterprise Sales at Scale</h4>
+            <p>Nearly 6 years at UKG, recognized with awards multiple times for consistent performance in complex enterprise sales. Deep understanding of how Fortune 500 procurement works, how CISOs evaluate new vendors, and how to navigate multi-stakeholder buying committees in regulated environments.</p>
+        </div>
+    </div>
+
+    <div class="card card-green">
+        <h3>Why This Matters for Bold</h3>
+        <ul>
+            <li><strong>Israel-to-US market entry:</strong> Proven ability to take products from technical validation to US enterprise revenue. Understanding of the translation required between Israeli product engineering culture and US buyer expectations.</li>
+            <li><strong>Category creation, not just category selling:</strong> Bold is not competing in an existing RFP column. It is creating a new purchasing category - on-device AI security. This requires a seller who can frame problems, build urgency, and guide CISOs through unfamiliar evaluation processes. That is what I do.</li>
+            <li><strong>Process discipline from day one:</strong> Deal inspection, forecast accuracy, pipeline hygiene, and qualification rigor from the first pipeline review. No wasted cycles on deals that were never real.</li>
+            <li><strong>Channel and partnership fluency:</strong> Experience building MSSP, VAR, and technology alliance programs that generate pipeline, not just logos on a partner page.</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">THE BOTTOM LINE</div>
+        Bold has the product, the funding, the team, and the market timing. What it needs now is a revenue operator who has done this before - taken a category-defining security product from early traction into predictable US enterprise revenue. I have done exactly that, multiple times, at exactly this stage.
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- FOOTER -->
+<!-- ============================================ -->
+<div class="footer">
+    <strong>Jeff Aragon</strong> | jeff@jozuconsultinggroup.com | +1 303-638-1390 (WhatsApp)
+</div>
+
+</div>
+</body>
+</html>

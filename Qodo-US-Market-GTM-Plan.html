@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qodo - US Market GTM Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #0a0e17;
+        --bg-card: rgba(255,255,255,0.03);
+        --bg-card-border: rgba(255,255,255,0.06);
+        --accent: #e34115;
+        --accent-dim: rgba(227,65,21,0.12);
+        --gold: #c9a84c;
+        --gold-dim: rgba(201,168,76,0.10);
+        --green: #22c55e;
+        --green-dim: rgba(34,197,94,0.10);
+        --slate: #64748b;
+        --white: #ffffff;
+        --gray: #cbd5e1;
+        --bright: #e2e8f0;
+        --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: var(--bg);
+        color: var(--gray);
+        font-family: 'Open Sans', sans-serif;
+        font-size: 15px;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        padding: 50px 40px;
+    }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+
+    .container { max-width: 1060px; margin: 0 auto; }
+
+    .header {
+        margin-bottom: 48px;
+        padding-bottom: 28px;
+        border-bottom: 2px solid var(--accent);
+    }
+    .doc-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 10px;
+    }
+    .doc-title {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 6px;
+    }
+    .doc-subtitle {
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-weight: 300;
+        color: var(--gray);
+        margin-bottom: 4px;
+    }
+    .doc-meta {
+        font-size: 12px;
+        color: var(--slate);
+        margin-top: 8px;
+    }
+
+    .section { margin-bottom: 44px; }
+    .section-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .section-label::before {
+        content: '';
+        width: 24px; height: 2px;
+        background: var(--accent);
+    }
+    h2 { font-size: 20px; font-weight: 600; margin-bottom: 16px; }
+    h3 { font-size: 15px; font-weight: 500; color: var(--accent); margin-bottom: 8px; }
+    h4 { font-size: 13px; font-weight: 500; color: var(--gold); margin-bottom: 6px; }
+
+    .card {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin-bottom: 14px;
+    }
+    .card-red { border-left: 3px solid var(--accent); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+    .card-green { border-left: 3px solid var(--green); }
+
+    .card-grid { display: grid; gap: 14px; margin-bottom: 16px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .card-grid.cols-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+    .divider { width: 60px; height: 2px; background: var(--accent); margin: 32px 0; opacity: 0.4; }
+
+    ul { padding-left: 20px; margin: 8px 0; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--white); font-weight: 600; }
+
+    .stat-row { display: flex; gap: 14px; margin: 16px 0; }
+    .stat-box {
+        flex: 1;
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 18px;
+        text-align: center;
+    }
+    .stat-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--accent);
+    }
+    .stat-number.gold { color: var(--gold); }
+    .stat-number.green { color: var(--green); }
+    .stat-label {
+        font-size: 11px;
+        color: var(--gray);
+        margin-top: 4px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+        font-size: 14px;
+    }
+    th {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 10px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--accent);
+        text-align: left;
+        padding: 10px 14px;
+        border-bottom: 1px solid rgba(227,65,21,0.2);
+        background: var(--accent-dim);
+    }
+    td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--bg-card-border);
+        color: var(--gray);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .callout {
+        background: rgba(227,65,21,0.06);
+        border: 1px solid rgba(227,65,21,0.15);
+        border-radius: var(--radius);
+        padding: 18px 24px;
+        margin: 14px 0;
+        color: var(--bright);
+    }
+    .callout-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: var(--accent);
+        margin-bottom: 6px;
+    }
+    .callout-gold {
+        background: rgba(201,168,76,0.06);
+        border: 1px solid rgba(201,168,76,0.15);
+        border-radius: var(--radius);
+        padding: 18px 24px;
+        margin: 14px 0;
+        color: var(--bright);
+    }
+
+    .timeline {
+        position: relative;
+        padding-left: 28px;
+    }
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 8px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, var(--accent), var(--gold), var(--green));
+        opacity: 0.4;
+    }
+    .timeline-item {
+        position: relative;
+        margin-bottom: 20px;
+    }
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -24px;
+        top: 6px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid var(--accent);
+        background: var(--bg);
+    }
+    .timeline-item.gold::before { border-color: var(--gold); }
+    .timeline-item.green::before { border-color: var(--green); }
+
+    .phase-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+    }
+    .phase-red { color: var(--accent); }
+    .phase-gold { color: var(--gold); }
+    .phase-green { color: var(--green); }
+
+    .footer {
+        margin-top: 60px;
+        padding-top: 24px;
+        border-top: 1px solid var(--bg-card-border);
+        text-align: center;
+        color: var(--slate);
+        font-size: 13px;
+    }
+    .footer strong { color: var(--gray); }
+
+    p { margin-bottom: 10px; }
+
+    .tag {
+        display: inline-block;
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        padding: 3px 10px;
+        border-radius: 4px;
+        margin-right: 6px;
+        margin-bottom: 4px;
+    }
+    .tag-red { background: var(--accent-dim); color: var(--accent); }
+    .tag-gold { background: var(--gold-dim); color: var(--gold); }
+    .tag-green { background: var(--green-dim); color: var(--green); }
+    .tag-slate { background: rgba(100,116,139,0.12); color: var(--gray); }
+
+    .risk-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+    }
+    .risk-item {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 18px 22px;
+    }
+    .risk-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+    }
+    .risk-high { color: var(--accent); border-left: 3px solid var(--accent); }
+    .risk-medium { color: var(--gold); border-left: 3px solid var(--gold); }
+</style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="doc-label">US Market GTM Plan</div>
+        <h1 class="doc-title">Qodo - US Market GTM Plan</h1>
+        <div class="doc-subtitle">Scaling the Sales Motion from 5 to 20 AEs Without Breaking What Works</div>
+        <div class="doc-meta">Prepared by Jeff Aragon, Jozu Consulting Group | April 2026</div>
+    </div>
+
+    <!-- SECTION 1: COMPANY PROFILE -->
+    <div class="section">
+        <div class="section-label">01 - Company Profile</div>
+        <h2>Qodo at a Glance</h2>
+
+        <div class="stat-row">
+            <div class="stat-box">
+                <div class="stat-number">$120M</div>
+                <div class="stat-label">Total Funding</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number gold">$70M</div>
+                <div class="stat-label">Series B (March 2026)</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number green">123+</div>
+                <div class="stat-label">Employees</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">2022</div>
+                <div class="stat-label">Founded</div>
+            </div>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>Company Overview</h3>
+                <p>Qodo (formerly CodiumAI) is an AI-powered code integrity platform headquartered in Tel Aviv with growing US operations. Founded by Itamar Friedman (CEO) and Dedy Kredo (CPO), the company builds AI agents for code review, testing, and governance across the software development lifecycle.</p>
+                <p>The $70M Series B was led by Qumra Capital, with participation from Maor Ventures, Phoenix Venture Partners, S Ventures, Square Peg, Susa Ventures, TLV Partners, and Vine Ventures. Notable angel investors include Peter Welinder (OpenAI) and Clara Shih (Meta).</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Leadership</h3>
+                <ul>
+                    <li><strong>Itamar Friedman, CEO</strong> - Former Director of Machine Vision at Alibaba Group. Co-founded Visualead (acquired by Alibaba). BSc/MSc Electrical Engineering from Technion (Summa Cum Laude)</li>
+                    <li><strong>Dedy Kredo, CPO</strong> - Former product and data science lead at VMware and Exploriem</li>
+                    <li><strong>Ethan Schechter, SVP Global Sales</strong> - Previously helped build Snyk from startup to developer security leader</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card card-slate">
+            <h3>Product Platform</h3>
+            <div class="card-grid cols-3" style="margin-top: 12px;">
+                <div>
+                    <h4>AI Code Review</h4>
+                    <p>Multi-agent architecture deploying specialized agents for bug detection, code quality, security analysis, and test coverage gaps. Ranked #1 on Code Review Bench with 64.3% F1 score.</p>
+                </div>
+                <div>
+                    <h4>Automated Testing</h4>
+                    <p>Identifies untested code paths during PR review and generates complete unit tests with meaningful assertions. Covers edge cases and error scenarios automatically.</p>
+                </div>
+                <div>
+                    <h4>Governance and Rules</h4>
+                    <p>Living Rules System that enforces evolving coding standards, security policies, and compliance requirements across repositories. 15+ agentic workflows for automated enforcement.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-label">Enterprise Customers</div>
+            NVIDIA, Walmart, Intuit, Red Hat, Texas Instruments, Monday.com, Ford, OCBC, Box, Pax8, HiBob, Macmillan, Sansan, TUI
+        </div>
+
+        <div class="card card-red">
+            <h3>Key Performance Proof Points</h3>
+            <div class="stat-row">
+                <div class="stat-box">
+                    <div class="stat-number">64.3%</div>
+                    <div class="stat-label">F1 Score - #1 on Code Review Bench</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number gold">800+</div>
+                    <div class="stat-label">Bugs Caught Monthly (Enterprise Avg)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number green">1 hr</div>
+                    <div class="stat-label">Saved Per PR (Monday.com)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">73.8%</div>
+                    <div class="stat-label">Suggestion Acceptance Rate</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 2: MARKET ANALYSIS -->
+    <div class="section">
+        <div class="section-label">02 - Market Analysis</div>
+        <h2>AI Code Quality and Developer Tools Landscape</h2>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>Market Sizing</h3>
+                <div class="stat-row">
+                    <div class="stat-box">
+                        <div class="stat-number">$400-600M</div>
+                        <div class="stat-label">Narrow: AI PR Review Tools ARR</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number gold">$2-3B</div>
+                        <div class="stat-label">Broad: Code Quality + Security + AI</div>
+                    </div>
+                </div>
+                <p>The narrow AI code review category is growing 30-40% year-over-year. The broader code quality and security tooling market grows at 25-30%. Both are accelerating as AI-generated code increases the need for automated quality assurance.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Market Tailwinds</h3>
+                <ul>
+                    <li><strong>AI code generation explosion</strong> - More AI-written code means more need for AI code review. The code someone writes is now less important than the code they allow through</li>
+                    <li><strong>Enterprise security pressure</strong> - SOC 2, OWASP, and compliance mandates are creating budget for automated governance tooling</li>
+                    <li><strong>Developer shortage persists</strong> - Every hour saved per PR compounds across hundreds of developers. The ROI math is straightforward</li>
+                    <li><strong>Shift-left movement</strong> - Finding bugs before production is 100x cheaper than fixing them after. Enterprises know this now</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card card-slate">
+            <h3>Buyer Landscape</h3>
+            <table>
+                <tr>
+                    <th>Segment</th>
+                    <th>Primary Buyer</th>
+                    <th>Key Pain Point</th>
+                    <th>Qodo Fit</th>
+                </tr>
+                <tr>
+                    <td><strong>Enterprise (5,000+ devs)</strong></td>
+                    <td>VP Engineering, CISO</td>
+                    <td>Code quality at scale, compliance enforcement, AI governance</td>
+                    <td>VPC deployment, SOC 2, Rules System</td>
+                </tr>
+                <tr>
+                    <td><strong>Mid-Market (200-5,000 devs)</strong></td>
+                    <td>Director of Engineering, DevOps Lead</td>
+                    <td>Review bottlenecks slowing releases, inconsistent standards</td>
+                    <td>Multi-agent review, automated testing</td>
+                </tr>
+                <tr>
+                    <td><strong>Growth-Stage (50-200 devs)</strong></td>
+                    <td>CTO, Engineering Manager</td>
+                    <td>Scaling code quality without scaling headcount</td>
+                    <td>PR review automation, test generation</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="callout">
+            <div class="callout-label">Core Market Thesis</div>
+            AI is writing more code than ever. The bottleneck has shifted from code generation to code verification. Qodo sits at exactly this inflection point - the company that verifies what AI generates will be as essential as the company that generates it. This is the wedge that justifies the $70M raise and the scaling motion.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 3: COMPETITIVE LANDSCAPE -->
+    <div class="section">
+        <div class="section-label">03 - Competitive Landscape</div>
+        <h2>Where Qodo Wins - and Where the Pressure Is</h2>
+
+        <table>
+            <tr>
+                <th>Competitor</th>
+                <th>Category</th>
+                <th>Strength</th>
+                <th>Qodo Advantage</th>
+            </tr>
+            <tr>
+                <td><strong>GitHub Copilot</strong></td>
+                <td>AI Coding Assistant (with review)</td>
+                <td>Massive distribution via GitHub. Code review went GA March 2026. Installed base of millions of developers</td>
+                <td>Copilot reviews individual changes. Qodo reviews system-level impact across files and repos. Copilot generates code - Qodo verifies it. They are complementary, not competitive, in enterprise sales conversations</td>
+            </tr>
+            <tr>
+                <td><strong>Snyk</strong></td>
+                <td>Developer Security Platform</td>
+                <td>Dominant in developer-first security. Strong brand with engineering buyers. Broad vulnerability scanning</td>
+                <td>Snyk focuses on known vulnerabilities and security scanning. Qodo catches logic bugs, quality issues, and standards drift that Snyk does not address. Different budget line in most organizations</td>
+            </tr>
+            <tr>
+                <td><strong>SonarQube / SonarCloud</strong></td>
+                <td>Static Analysis (Legacy)</td>
+                <td>Decade-long enterprise installed base. Rule-based quality gates in CI/CD. Known quantity for compliance</td>
+                <td>SonarQube is rule-based, not AI-native. Cannot understand context, intent, or cross-file logic. Qodo is a generational upgrade, not an incremental improvement. Many enterprises will run both during transition</td>
+            </tr>
+            <tr>
+                <td><strong>Codacy</strong></td>
+                <td>Code Quality Platform</td>
+                <td>Automated code review with broad language support. Developer-friendly UI</td>
+                <td>Codacy uses pattern matching and static rules. Qodo uses multi-agent AI architecture that understands code semantics and organizational context. The depth gap is significant</td>
+            </tr>
+            <tr>
+                <td><strong>CodeRabbit</strong></td>
+                <td>AI PR Review</td>
+                <td>2M+ connected repos. Strong developer adoption. Fast PR feedback loops</td>
+                <td>Qodo outperforms on precision - 64.3% F1 vs lower scores across competitors. Enterprise governance features (Rules System, VPC deployment) that CodeRabbit lacks</td>
+            </tr>
+            <tr>
+                <td><strong>Greptile</strong></td>
+                <td>AI Code Review</td>
+                <td>Strong at cross-file analysis in large monorepos</td>
+                <td>Qodo matches on cross-file intelligence and adds automated test generation, governance rules, and enterprise deployment options</td>
+            </tr>
+        </table>
+
+        <div class="card-grid cols-2" style="margin-top: 20px;">
+            <div class="card card-red">
+                <h3>Competitive Positioning Strategy</h3>
+                <p>Qodo should not position against GitHub Copilot or Snyk. They should position alongside them. The winning message: "Copilot writes the code, Snyk scans for known vulnerabilities, Qodo verifies the code actually works and meets your standards." This positions Qodo as the missing layer in an existing stack rather than a replacement for tools buyers already trust.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Competitive Moat</h3>
+                <ul>
+                    <li><strong>Multi-agent architecture</strong> - Purpose-built agents for different review dimensions rather than a single model approach</li>
+                    <li><strong>Living Rules System</strong> - Organizational knowledge compounds over time. The longer you use Qodo, the harder it is to leave</li>
+                    <li><strong>Enterprise deployment</strong> - VPC and on-prem options that pure-SaaS competitors cannot match for regulated industries</li>
+                    <li><strong>Benchmark leadership</strong> - #1 on Code Review Bench provides third-party validation that matters in enterprise sales</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 4: THE SCALING CHALLENGE -->
+    <div class="section">
+        <div class="section-label">04 - The Scaling Challenge</div>
+        <h2>What Breaks When You Go from 5 AEs to 20</h2>
+
+        <p>This is not a zero-to-one problem. Qodo has product-market fit, enterprise customers, a proven sales motion, and an SVP of Global Sales. The challenge now is scaling that motion by 4x without losing what made it work. This is a different kind of hard, and most companies get it wrong.</p>
+
+        <div class="risk-grid" style="margin-top: 20px;">
+            <div class="risk-item risk-high">
+                <div class="risk-label" style="color: var(--accent);">Tribal Knowledge Collapse</div>
+                <p>The first 5 AEs learned the motion from founders and early customers. They know which objections matter, how to position against Copilot, when to bring in engineering for a technical deep dive. Rep #15 will not have that context unless it is documented, trained, and reinforced systematically.</p>
+            </div>
+            <div class="risk-item risk-high">
+                <div class="risk-label" style="color: var(--accent);">Discovery Quality Degradation</div>
+                <p>With 5 AEs, leadership can inspect every deal. With 20, you cannot. If discovery is not structured and verified through process, new reps will run demos without qualifying. Pipeline will inflate. Forecasts will miss. The board will ask questions nobody wants to answer.</p>
+            </div>
+            <div class="risk-item risk-medium">
+                <div class="risk-label" style="color: var(--gold);">Territory and Segment Confusion</div>
+                <p>Five AEs can work a general territory model. Twenty cannot. Without clear segmentation by company size, industry vertical, or geography, reps will overlap, compete for the same accounts, and create confusion in the market. Developers talk to each other.</p>
+            </div>
+            <div class="risk-item risk-medium">
+                <div class="risk-label" style="color: var(--gold);">Ramp Time Economics</div>
+                <p>At 5 AEs, a slow ramp costs you one quota. At 20, four or five reps ramping slowly costs you an entire quarter of growth. If average ramp is 6 months instead of 4, the annual revenue impact is measured in millions. Every week of ramp time reduction is real money.</p>
+            </div>
+            <div class="risk-item risk-high">
+                <div class="risk-label" style="color: var(--accent);">Technical Sales Capacity</div>
+                <p>Developer tools require technical depth in the sales process. Your current SE-to-AE ratio works at 5. At 20, you need to decide: do you hire more SEs, build self-serve demo environments, or train AEs to go deeper technically? The wrong answer creates a bottleneck that kills deal velocity.</p>
+            </div>
+            <div class="risk-item risk-medium">
+                <div class="risk-label" style="color: var(--gold);">Forecast Reliability</div>
+                <p>More reps means more variability. Without consistent qualification criteria and stage definitions tied to buyer actions (not seller optimism), the forecast becomes noise. Boards funded $70M expecting predictable growth, not volatile guessing.</p>
+            </div>
+        </div>
+
+        <div class="callout" style="margin-top: 20px;">
+            <div class="callout-label">The Core Principle</div>
+            Scale the process before you scale the people. Every rep you hire before the motion is codified is a bet that tribal knowledge will transfer through osmosis. It will not. The companies that win this inflection point invest in the scaffolding - sales methodology, deal inspection cadence, territory design, ramp curriculum - before they sign the offer letters.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 5: PARTNERSHIP CHANNEL -->
+    <div class="section">
+        <div class="section-label">05 - Partnership Channel Strategy</div>
+        <h2>Building Revenue Through the Ecosystem</h2>
+
+        <p>Partnerships are not a nice-to-have at Qodo's stage. They are a scaling multiplier. Every partner relationship that generates pipeline is a rep you did not have to hire, train, and ramp. The math favors building this motion now, while the direct sales team is still growing.</p>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>Systems Integrator Partners</h3>
+                <h4>Target Partners</h4>
+                <ul>
+                    <li><strong>Deloitte Digital</strong> - Massive DevOps modernization practice. AI governance is a growing advisory focus</li>
+                    <li><strong>Accenture</strong> - Building AI-native development practices across enterprise clients</li>
+                    <li><strong>Slalom</strong> - Strong mid-market presence, developer-centric consulting approach</li>
+                    <li><strong>Thoughtworks</strong> - Deep technical credibility with engineering organizations</li>
+                </ul>
+                <h4>Value Exchange</h4>
+                <p>SIs need tools to embed in their DevOps transformation engagements. Qodo becomes part of their recommended stack, generating recurring revenue for Qodo and implementation services revenue for the SI. A single SI relationship can influence 50+ enterprise accounts annually.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Developer Tool Ecosystem</h3>
+                <h4>Integration Partners</h4>
+                <ul>
+                    <li><strong>Atlassian (Jira, Bitbucket)</strong> - Native integration drives adoption where developers already work</li>
+                    <li><strong>JetBrains</strong> - IDE marketplace placement reaches millions of developers</li>
+                    <li><strong>Linear</strong> - Fast-growing project management tool popular with modern engineering teams</li>
+                    <li><strong>Datadog / New Relic</strong> - Connect code quality metrics to production observability</li>
+                </ul>
+                <h4>Value Exchange</h4>
+                <p>Integration partnerships create distribution without sales cost. Every marketplace listing, co-branded webinar, and joint case study generates inbound pipeline. These are not revenue-share deals. They are demand generation channels.</p>
+            </div>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-green">
+                <h3>Cloud Marketplace Strategy</h3>
+                <h4>Priority Marketplaces</h4>
+                <ul>
+                    <li><strong>AWS Marketplace</strong> - Qodo already has AWS Startups presence. Listing enables procurement through existing cloud commits. Enterprise buyers can use committed AWS spend on Qodo</li>
+                    <li><strong>Azure Marketplace</strong> - Microsoft enterprise relationships. Buyers with Azure ELAs can consume Qodo through existing contracts</li>
+                    <li><strong>Google Cloud Marketplace</strong> - Growing enterprise presence, particularly with AI-forward companies</li>
+                </ul>
+                <h4>Why This Matters Now</h4>
+                <p>Cloud marketplace deals close faster because procurement is already done. Enterprises with $10M+ cloud commits actively look for ways to consume that budget. A marketplace listing turns a 90-day procurement cycle into a 2-week approval. At scale, 20-30% of enterprise ARR should flow through marketplaces.</p>
+            </div>
+            <div class="card card-slate">
+                <h3>Technology Alliance Partners</h3>
+                <h4>Strategic Alliances</h4>
+                <ul>
+                    <li><strong>Anthropic (Claude)</strong> - Qodo already integrates Claude models. Co-marketing on AI code quality positions both companies in the enterprise AI governance conversation</li>
+                    <li><strong>NVIDIA</strong> - Already a customer. An NVIDIA partnership validates Qodo for GPU-heavy engineering teams across the AI ecosystem</li>
+                    <li><strong>GitHub</strong> - Position Qodo as the verification layer that complements Copilot. "GitHub generates. Qodo verifies." Joint positioning removes the competitive objection</li>
+                    <li><strong>GitLab</strong> - Alternative path for organizations not on GitHub. GitLab's enterprise focus aligns with Qodo's buyer profile</li>
+                </ul>
+                <h4>Value Exchange</h4>
+                <p>Technology alliances create credibility, co-marketing reach, and joint selling opportunities. The goal is not revenue share. It is co-presence in enterprise evaluation processes. When a CTO evaluates their AI development stack, Qodo should appear in the recommended architecture from multiple trusted partners.</p>
+            </div>
+        </div>
+
+        <div class="callout-gold">
+            <div class="callout-label" style="color: var(--gold);">Partnership Revenue Target</div>
+            Within 12 months, partnerships should generate 15-20% of new pipeline. This is realistic based on marketplace listing lead times (60-90 days to go live), SI engagement cycles (one quarter to build the first joint customer), and ecosystem integration timelines. The investment is primarily in a dedicated partnerships hire and technical integration resources.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 6: 90-DAY SCALING EXECUTION PLAN -->
+    <div class="section">
+        <div class="section-label">06 - 90-Day Scaling Execution Plan</div>
+        <h2>From 5 AEs to 20 - The Operational Playbook</h2>
+
+        <p>This is not a build-from-scratch plan. Qodo has product-market fit, proven enterprise customers, and an SVP of Sales leading the motion. This plan focuses on codifying what works, building the infrastructure for scale, and executing the hiring ramp without losing deal quality or forecast reliability.</p>
+
+        <div class="timeline" style="margin-top: 24px;">
+
+            <!-- PHASE 1 -->
+            <div class="timeline-item">
+                <div class="phase-label phase-red">Phase 1: Days 1-30 - Codify the Winning Motion</div>
+                <div class="card card-red" style="margin-top: 8px;">
+                    <h4>Sales Process Documentation</h4>
+                    <ul>
+                        <li>Audit every closed-won deal from the last 12 months. Map the actual buyer journey, not the assumed one. Identify which discovery questions, proof points, and competitive positioning actually moved deals forward</li>
+                        <li>Build a structured discovery framework specific to each buyer persona (VP Engineering, CISO, CTO, DevOps Lead). Each persona has different pain points and different evidence requirements</li>
+                        <li>Document the technical validation process - what demo flow works, when to bring in an SE, what POC structure converts at the highest rate</li>
+                    </ul>
+                </div>
+                <div class="card card-red" style="margin-top: 8px;">
+                    <h4>Territory and Segmentation Design</h4>
+                    <ul>
+                        <li>Define three segments: Enterprise (5,000+ developers), Mid-Market (200-5,000), and Growth (50-200). Each requires a different sales motion, cycle length, and resource allocation</li>
+                        <li>Build named account lists for Enterprise. Territory-based coverage for Mid-Market. Inbound-driven for Growth</li>
+                        <li>Assign current top AEs to Enterprise accounts where deal sizes justify dedicated coverage. New hires start in Mid-Market where the motion is more repeatable and ramp time is shorter</li>
+                    </ul>
+                </div>
+                <div class="card card-red" style="margin-top: 8px;">
+                    <h4>Forecast and Pipeline Discipline</h4>
+                    <ul>
+                        <li>Define stage criteria based on buyer actions, not seller activities. Stage 2 requires a confirmed technical evaluation. Stage 3 requires access to economic buyer. Stage 4 requires a signed mutual action plan</li>
+                        <li>Implement weekly deal inspection for all deals above $50K ACV. Focus on evidence of buyer commitment, not rep confidence levels</li>
+                        <li>Build pipeline coverage requirements by segment: 4x for Enterprise, 3.5x for Mid-Market, 3x for Growth</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PHASE 2 -->
+            <div class="timeline-item gold">
+                <div class="phase-label phase-gold">Phase 2: Days 31-60 - Build the Ramp Machine</div>
+                <div class="card card-gold" style="margin-top: 8px;">
+                    <h4>Hiring Plan Execution</h4>
+                    <ul>
+                        <li>Hire in cohorts of 3-4, not individually. Cohort hiring creates peer accountability, enables structured training, and reduces the cultural risk of one-at-a-time onboarding</li>
+                        <li>Prioritize candidates with developer tools or security platform experience. Reps who have sold to engineering buyers will ramp 40-60% faster than those learning the persona for the first time</li>
+                        <li>Add one front-line sales manager for every 6-8 AEs. Do not stretch managers beyond 8 direct reports during a scaling phase. The quality of coaching is the single biggest driver of rep productivity</li>
+                    </ul>
+                </div>
+                <div class="card card-gold" style="margin-top: 8px;">
+                    <h4>Enablement Infrastructure</h4>
+                    <ul>
+                        <li>Build a 30-day ramp curriculum: Week 1 is product and market, Week 2 is competitive positioning and objection handling, Week 3 is live call shadowing, Week 4 is supervised solo calls with real prospects</li>
+                        <li>Create a competitive battle card library covering Copilot, Snyk, SonarQube, Codacy, and CodeRabbit. Each card includes positioning, objection responses, and proof points</li>
+                        <li>Record and catalog the best discovery calls and demos from current top AEs. New reps learn faster from watching real conversations than from reading playbooks</li>
+                    </ul>
+                </div>
+                <div class="card card-gold" style="margin-top: 8px;">
+                    <h4>SE Capacity Planning</h4>
+                    <ul>
+                        <li>Current SE-to-AE ratio needs to scale proportionally. Target 1 SE for every 3-4 AEs in Enterprise, 1 SE for every 5-6 AEs in Mid-Market</li>
+                        <li>Build self-serve POC environments that reduce SE involvement in early technical validation. The goal is reserving SE time for high-value enterprise evaluations</li>
+                        <li>Create standardized demo environments with pre-loaded scenarios showing Qodo finding real bugs in realistic codebases. This eliminates setup time and ensures consistent demo quality</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PHASE 3 -->
+            <div class="timeline-item green">
+                <div class="phase-label phase-green">Phase 3: Days 61-90 - Accelerate and Measure</div>
+                <div class="card card-green" style="margin-top: 8px;">
+                    <h4>Pipeline Generation at Scale</h4>
+                    <ul>
+                        <li>Launch outbound sequences targeting VP Engineering and CISO personas at companies with 500+ developers. Message should lead with the code verification thesis, not features</li>
+                        <li>Build an SDR team or outbound motion that feeds the growing AE base. At 20 AEs, you need consistent top-of-funnel volume that does not depend on inbound alone</li>
+                        <li>Activate cloud marketplace listings to capture procurement-ready enterprise buyers. Every deal that flows through AWS or Azure Marketplace closes faster and with less procurement friction</li>
+                    </ul>
+                </div>
+                <div class="card card-green" style="margin-top: 8px;">
+                    <h4>Partner Channel Activation</h4>
+                    <ul>
+                        <li>Execute first SI co-selling motion with one priority partner. Start with a joint customer reference, build a co-branded solution brief, and run a joint webinar</li>
+                        <li>Complete AWS and Azure Marketplace listings if not already live. Train the team on marketplace deal mechanics and procurement workflows</li>
+                        <li>Launch technology partner co-marketing with GitHub or Anthropic. Position the "generation + verification" narrative in joint content</li>
+                    </ul>
+                </div>
+                <div class="card card-green" style="margin-top: 8px;">
+                    <h4>Performance Metrics and Inspection</h4>
+                    <ul>
+                        <li>Track ramp metrics weekly: time to first meeting, time to first qualified opportunity, time to first closed deal. Benchmark against the first 5 AEs and course-correct immediately when new hires fall behind</li>
+                        <li>Monitor pipeline quality ratios: meetings-to-opportunities, opportunities-to-proposals, proposals-to-closed. If conversion rates drop as you scale, the problem is discovery quality, not market demand</li>
+                        <li>Run bi-weekly deal reviews with full team. Not just pipeline updates, but live deal coaching where reps present their strategy and get real-time feedback from leadership and peers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout" style="margin-top: 24px;">
+            <div class="callout-label">Expected Outcomes at Day 90</div>
+            <div class="card-grid cols-3" style="margin-top: 10px;">
+                <div style="text-align: center;">
+                    <div style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: var(--accent);">12-15</div>
+                    <div style="font-size: 12px; color: var(--gray);">AEs Hired and Onboarded</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: var(--gold);">30 days</div>
+                    <div style="font-size: 12px; color: var(--gray);">Target Ramp to First Meeting</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: var(--green);">3.5x</div>
+                    <div style="font-size: 12px; color: var(--gray);">Pipeline Coverage Ratio</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 7: WHY JEFF -->
+    <div class="section">
+        <div class="section-label">07 - Why Jeff Aragon</div>
+        <h2>Scaling Sales Organizations Through This Exact Inflection Point</h2>
+
+        <div class="card card-red">
+            <h3>Career Revenue</h3>
+            <p>$150M+ in career revenue across enterprise software, developer platforms, and technical sales. This is not theoretical knowledge from an MBA program. It is direct, personal selling and team-building experience across multiple market categories and company stages.</p>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-gold">
+                <h3>Series A Startup - $24M TCV</h3>
+                <p>Built and closed $24M in total contract value at a Series A startup. This was not inheriting an existing book of business. It was creating pipeline, building relationships, and closing enterprise deals in a market where the company had limited brand recognition. The exact motion Qodo's new AEs will need to execute.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>UKG - Nearly 6 Years, Award-Winning</h3>
+                <p>Nearly six years at UKG (Ultimate Kronos Group), one of the largest HCM platforms in the world. Consistently recognized as a top performer and award winner in a sales organization with thousands of reps. Operated at enterprise scale with complex, multi-stakeholder selling motions.</p>
+            </div>
+        </div>
+
+        <div class="card card-green">
+            <h3>Scaling Sales Teams - Direct Experience</h3>
+            <p>Have worked through the 5-to-20 AE inflection point multiple times. Understand the specific failure modes: tribal knowledge loss, discovery degradation, forecast unreliability, territory overlap, ramp time expansion. More importantly, understand the solutions - structured methodology, deal inspection discipline, enablement investment, and pipeline rigor. The difference between a scaling motion that works and one that stalls is almost always about process discipline, not talent or market.</p>
+        </div>
+
+        <div class="card card-slate">
+            <h3>Why This Matters for Qodo Specifically</h3>
+            <ul>
+                <li><strong>Technical sales experience</strong> - Have sold complex platforms to technical buyers. Developer tools require a different conversation than horizontal SaaS. Understanding the buyer's technical context is not optional</li>
+                <li><strong>Israeli company, US market</strong> - Understand the dynamics of scaling a product built in Israel into the US enterprise market. The go-to-market translation is not just language, it is positioning, buyer expectations, procurement processes, and relationship structures</li>
+                <li><strong>Post-Series B operator</strong> - Know what boards expect after a $70M raise. Growth metrics, forecast accuracy, unit economics, and pipeline quality are not abstract concepts. They are the deliverables every quarter</li>
+                <li><strong>Methodology over motivation</strong> - Build repeatable systems, not motivational programs. The goal is a machine that produces consistent results regardless of which individual rep is running the play</li>
+            </ul>
+        </div>
+
+        <div class="callout" style="margin-top: 20px;">
+            <div class="callout-label">Operating Philosophy</div>
+            Most sales scaling fails not because of bad reps or bad products, but because the company tries to scale headcount before scaling process. The first 5 AEs succeeded through proximity to founders, direct coaching, and small-team agility. Those advantages disappear at 20. What replaces them is discipline - structured discovery, evidence-based forecasting, systematic enablement, and rigorous deal inspection. That is what I build.
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <strong>Jeff Aragon</strong> | jeff@jozuconsultinggroup.com | +1 303-638-1390 (WhatsApp)
+    </div>
+
+</div>
+</body>
+</html>
