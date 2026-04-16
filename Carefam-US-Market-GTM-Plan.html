@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carefam - US Market GTM Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #0a0e17;
+        --bg-card: rgba(255,255,255,0.03);
+        --bg-card-border: rgba(255,255,255,0.06);
+        --accent: #e34115;
+        --accent-dim: rgba(227,65,21,0.12);
+        --gold: #c9a84c;
+        --gold-dim: rgba(201,168,76,0.10);
+        --green: #22c55e;
+        --green-dim: rgba(34,197,94,0.10);
+        --slate: #64748b;
+        --white: #ffffff;
+        --gray: #cbd5e1;
+        --bright: #e2e8f0;
+        --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: var(--bg);
+        color: var(--gray);
+        font-family: 'Open Sans', sans-serif;
+        font-size: 15px;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        padding: 50px 40px;
+    }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+
+    .container { max-width: 1060px; margin: 0 auto; }
+
+    .header {
+        margin-bottom: 48px;
+        padding-bottom: 28px;
+        border-bottom: 2px solid var(--accent);
+    }
+    .doc-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 10px;
+    }
+    .doc-title {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 6px;
+    }
+    .doc-subtitle {
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-weight: 300;
+        color: var(--gray);
+        margin-bottom: 4px;
+    }
+    .doc-meta {
+        font-size: 12px;
+        color: var(--gray);
+        margin-top: 8px;
+    }
+
+    .section { margin-bottom: 44px; }
+    .section-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .section-label::before {
+        content: '';
+        width: 24px; height: 2px;
+        background: var(--accent);
+    }
+    h2 { font-size: 20px; font-weight: 600; margin-bottom: 16px; }
+    h3 { font-size: 15px; font-weight: 500; color: var(--accent); margin-bottom: 8px; }
+    h4 { font-size: 13px; font-weight: 500; color: var(--gold); margin-bottom: 6px; }
+
+    .card {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin-bottom: 14px;
+    }
+    .card-red { border-left: 3px solid var(--accent); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+    .card-green { border-left: 3px solid var(--green); }
+
+    .card-grid { display: grid; gap: 14px; margin-bottom: 16px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    .divider { width: 60px; height: 2px; background: var(--accent); margin: 32px 0; opacity: 0.4; }
+
+    ul { padding-left: 20px; margin: 8px 0; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--white); font-weight: 600; }
+
+    .stat-row { display: flex; gap: 14px; margin: 16px 0; }
+    .stat-box {
+        flex: 1;
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 18px;
+        text-align: center;
+    }
+    .stat-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--accent);
+    }
+    .stat-label {
+        font-size: 11px;
+        color: var(--gray);
+        margin-top: 4px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+        font-size: 14px;
+    }
+    th {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 10px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--accent);
+        text-align: left;
+        padding: 10px 14px;
+        border-bottom: 1px solid rgba(227,65,21,0.2);
+        background: var(--accent-dim);
+    }
+    td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--bg-card-border);
+        color: var(--gray);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .callout {
+        background: rgba(227,65,21,0.06);
+        border: 1px solid rgba(227,65,21,0.15);
+        border-radius: var(--radius);
+        padding: 18px 24px;
+        margin: 14px 0;
+        color: var(--bright);
+    }
+    .callout-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: var(--accent);
+        margin-bottom: 6px;
+    }
+
+    .timeline {
+        position: relative;
+        padding-left: 28px;
+    }
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 8px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, var(--accent), var(--gold), var(--green));
+        opacity: 0.4;
+    }
+    .timeline-item {
+        position: relative;
+        margin-bottom: 20px;
+    }
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -24px;
+        top: 6px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid var(--accent);
+        background: var(--bg);
+    }
+    .timeline-item.phase-2::before { border-color: var(--gold); }
+    .timeline-item.phase-3::before { border-color: var(--green); }
+
+    .footer {
+        margin-top: 60px;
+        padding-top: 24px;
+        border-top: 1px solid var(--bg-card-border);
+        text-align: center;
+        font-size: 12px;
+        color: var(--gray);
+    }
+    .footer a { color: var(--accent); text-decoration: none; }
+
+    .tag {
+        display: inline-block;
+        font-family: 'Poppins', sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 3px 10px;
+        border-radius: 4px;
+        margin-right: 6px;
+        margin-bottom: 4px;
+    }
+    .tag-red { background: var(--accent-dim); color: var(--accent); }
+    .tag-gold { background: var(--gold-dim); color: var(--gold); }
+    .tag-green { background: var(--green-dim); color: var(--green); }
+</style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="doc-label">GTM Plan</div>
+        <h1 class="doc-title">Carefam - US Market GTM Plan</h1>
+        <div class="doc-subtitle">Prepared by Jeff Aragon | April 2026</div>
+        <div class="doc-meta">Confidential - Prepared for Matan Hoffmann, CEO</div>
+    </div>
+
+    <!-- OPENING LETTER -->
+    <div class="section">
+        <div class="card card-red">
+            <p>Matan,</p>
+            <br>
+            <p>You just came out of stealth with $14.5M, 900% growth, and hundreds of healthcare organizations already on the platform. That is a strong foundation. The question now is how to convert that early traction into a repeatable, scalable US sales motion before larger competitors like Incredible Health and Vivian Health absorb the narrative.</p>
+            <br>
+            <p>I put this plan together because I have spent the last decade building revenue engines inside healthcare-adjacent and technical B2B companies. I have closed $24M in total contract value selling into buyers who look like yours - VP of HR, CNO, VP of Talent Acquisition inside health systems and provider groups. I know how they buy, what slows them down, and what makes them move.</p>
+            <br>
+            <p>This document outlines how I would build Carefam's US GTM motion in the first 90 days.</p>
+            <br>
+            <p>- Jeff</p>
+        </div>
+    </div>
+
+    <!-- COMPANY PROFILE -->
+    <div class="section">
+        <div class="section-label">Company Profile</div>
+        <h2>Carefam at a Glance</h2>
+
+        <div class="stat-row">
+            <div class="stat-box">
+                <div class="stat-number">$14.5M</div>
+                <div class="stat-label">Total Funding Raised</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">900%</div>
+                <div class="stat-label">YoY Growth (Stealth)</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">100s</div>
+                <div class="stat-label">Healthcare Orgs Deployed</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">30-50%</div>
+                <div class="stat-label">Monthly Growth Rate</div>
+            </div>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>What Carefam Does</h3>
+                <p>Carefam deploys conversational AI agents purpose-built for healthcare HR. The platform automates the full hiring lifecycle - candidate outreach, credential screening, interview scheduling, onboarding, and ongoing clinician engagement. Complex or sensitive decisions route to human staff.</p>
+                <br>
+                <p>Deployed across acute care hospitals, long-term care facilities, and home care providers.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Funding and Investors</h3>
+                <ul>
+                    <li><strong>Series A ($10.5M)</strong> - Led by Pitango HealthTech, March 2026</li>
+                    <li><strong>Seed ($4M)</strong> - Led by Emerge Ventures, July 2023</li>
+                    <li>Additional participation from SemperVirens VC and Ora Global</li>
+                    <li>Named Business Insider "Most Promising Healthcare Startup"</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card card-slate">
+            <h3>Founding Team</h3>
+            <p><strong>Matan Hoffmann, CEO</strong> - IDF Special Forces. Amazon, BCG, Citi. Serial startup operator.</p>
+            <p><strong>Eyal Shulman, CTO</strong> - IDF Unit 8200. Deep technical background across multiple startups.</p>
+            <p>Team is 50%+ female, including several ex-nurses in their first tech roles - a meaningful signal of product authenticity in healthcare.</p>
+        </div>
+    </div>
+
+    <!-- MARKET ANALYSIS -->
+    <div class="section">
+        <div class="section-label">Market Analysis</div>
+        <h2>The US Healthcare Staffing Crisis</h2>
+
+        <div class="stat-row">
+            <div class="stat-box">
+                <div class="stat-number">$23B+</div>
+                <div class="stat-label">US Healthcare Staffing Market (2026)</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">6.5M</div>
+                <div class="stat-label">Healthcare Workers Exiting by 2026</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">4M+</div>
+                <div class="stat-label">Projected Worker Shortfall</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">16%</div>
+                <div class="stat-label">Hiring Teams Using AI Today</div>
+            </div>
+        </div>
+
+        <div class="card card-red">
+            <h3>The Structural Problem</h3>
+            <p>This is not a cyclical downturn. The US healthcare workforce is experiencing a structural collapse. Over 138,000 registered nurses have left since 2022. Nearly 40% of remaining RNs plan to retire within five years. Nursing schools rejected 92,000 qualified applicants in a single year due to capacity constraints. The pipeline cannot keep up with demand.</p>
+            <br>
+            <p>The Bureau of Labor Statistics projects a shortage of 250,000+ RNs by 2030 and nearly 700,000 across all clinical roles by 2037. This is the defining operational crisis for every US health system.</p>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-gold">
+                <h3>The Buyer's Pain</h3>
+                <ul>
+                    <li>Average healthcare recruiter manages <strong>70 open roles</strong> simultaneously</li>
+                    <li>Teams can only speak with <strong>10% of applicants</strong> in real time</li>
+                    <li>Time to first interview averages <strong>13 days</strong> at most health systems</li>
+                    <li>67% of healthcare leaders cite <strong>retention</strong> as top 2026 priority</li>
+                    <li>Travel nurse costs remain 2-3x permanent staff rates</li>
+                </ul>
+            </div>
+            <div class="card card-gold">
+                <h3>Why Now for Carefam</h3>
+                <ul>
+                    <li>Post-pandemic staffing normalization has not materialized</li>
+                    <li>Wage inflation forcing health systems to find efficiency gains</li>
+                    <li>Only 16% of hiring teams use AI - massive greenfield opportunity</li>
+                    <li>CMS reimbursement pressure drives cost reduction mandates</li>
+                    <li>Conversational AI maturity now sufficient for clinical credentialing workflows</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-label">KEY INSIGHT</div>
+            <p>Matan said it well: "HR teams are drowning in administrative noise and often miss qualified candidates simply because they can't respond fast enough." That speed gap is measurable, and it is where Carefam wins deals. Every day a role stays open costs a health system $500-1,500 in agency fees, overtime, and lost revenue.</p>
+        </div>
+    </div>
+
+    <!-- COMPETITIVE LANDSCAPE -->
+    <div class="section">
+        <div class="section-label">Competitive Landscape</div>
+        <h2>Who Else Is in This Market</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Focus</th>
+                    <th>Scale</th>
+                    <th>Carefam Differentiation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Incredible Health</strong></td>
+                    <td>AI-powered nurse hiring marketplace</td>
+                    <td>1,500+ hospital partners. Reduced time-to-interview from 13 days to 2 days.</td>
+                    <td>Marketplace model - connects supply and demand but does not automate the HR workflow itself. Carefam owns the operational layer.</td>
+                </tr>
+                <tr>
+                    <td><strong>Vivian Health</strong></td>
+                    <td>Healthcare talent marketplace with AI assistant</td>
+                    <td>2.5M+ registered users. AI assistant launched 2026.</td>
+                    <td>Primarily a staffing agency tool. Carefam sells direct to health systems and automates internal HR, not agency workflows.</td>
+                </tr>
+                <tr>
+                    <td><strong>Aya Healthcare</strong></td>
+                    <td>Travel nurse and locum tenens staffing</td>
+                    <td>Largest US healthcare staffing firm by revenue.</td>
+                    <td>Traditional staffing agency with AI add-ons. Carefam replaces the need for agencies by making internal teams faster.</td>
+                </tr>
+                <tr>
+                    <td><strong>ShiftMed</strong></td>
+                    <td>On-demand healthcare workforce platform</td>
+                    <td>Focus on shift-based staffing and workforce management.</td>
+                    <td>Optimizes shift coverage, not the full hiring lifecycle. Carefam covers sourcing through onboarding.</td>
+                </tr>
+                <tr>
+                    <td><strong>Apploi</strong></td>
+                    <td>Healthcare hiring and credential management</td>
+                    <td>Mid-market healthcare focus.</td>
+                    <td>Form-based ATS. Carefam's conversational AI agents are a generational leap in candidate engagement speed.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="card card-red">
+            <h3>Carefam's Competitive Position</h3>
+            <p>Most competitors are either staffing marketplaces (connecting candidates to agencies) or traditional ATS platforms with AI features bolted on. Carefam is the only platform deploying autonomous AI agents that own the full HR operational workflow inside the health system. That distinction matters because the buyer is the VP of HR or CNO at the health system, not a staffing agency. Carefam sells to the entity that actually feels the pain.</p>
+            <br>
+            <p>Pitango HealthTech's Hila Karah called it directly: "Carefam has built the first fully operational engine for healthcare staffing." That framing - operational engine, not marketplace - is the competitive moat.</p>
+        </div>
+    </div>
+
+    <!-- BUYER SEGMENTS -->
+    <div class="section">
+        <div class="section-label">Buyer Segments</div>
+        <h2>Who Buys This and How They Buy</h2>
+
+        <div class="card-grid cols-3">
+            <div class="card card-red">
+                <h3>Segment 1: Health Systems</h3>
+                <span class="tag tag-red">Primary Target</span>
+                <br><br>
+                <h4>Profile</h4>
+                <p>Multi-hospital systems with 500+ beds, 2,000-50,000 employees. Examples: HCA, CommonSpirit, Ascension, regional systems.</p>
+                <br>
+                <h4>Buyer</h4>
+                <p>VP of Talent Acquisition, CHRO, or CNO. Procurement involvement above $100K ACV.</p>
+                <br>
+                <h4>Pain Intensity</h4>
+                <p>Extreme. Managing hundreds of open clinical roles across multiple facilities. Agency spend often exceeds $20M annually at large systems.</p>
+                <br>
+                <h4>Deal Size</h4>
+                <p>$150K-500K ACV. 12-18 month sales cycle. Pilot-to-expand model works well.</p>
+            </div>
+            <div class="card card-gold">
+                <h3>Segment 2: Long-Term Care / Senior Living</h3>
+                <span class="tag tag-gold">High Volume</span>
+                <br><br>
+                <h4>Profile</h4>
+                <p>Skilled nursing facilities, assisted living chains, memory care operators. 10-200 facilities. Examples: Brookdale, Sunrise, Five Star.</p>
+                <br>
+                <h4>Buyer</h4>
+                <p>VP of Operations, Regional HR Director, or COO. Faster procurement, less committee involvement.</p>
+                <br>
+                <h4>Pain Intensity</h4>
+                <p>Critical. CNA and LPN turnover exceeds 80% annually at many facilities. Constant hiring is the baseline.</p>
+                <br>
+                <h4>Deal Size</h4>
+                <p>$50K-200K ACV. 3-6 month sales cycle. Multi-facility rollouts common.</p>
+            </div>
+            <div class="card card-green">
+                <h3>Segment 3: Home Care Providers</h3>
+                <span class="tag tag-green">Fast Growth</span>
+                <br><br>
+                <h4>Profile</h4>
+                <p>Home health agencies, hospice providers, private duty nursing. 50-5,000 caregivers. Examples: Amedisys, BrightSpring, LHC Group.</p>
+                <br>
+                <h4>Buyer</h4>
+                <p>Director of Recruiting, VP of Operations, or Owner-operator at smaller agencies.</p>
+                <br>
+                <h4>Pain Intensity</h4>
+                <p>High. Distributed workforce means recruiting is constant and geographic coverage matters. Credentialing is complex.</p>
+                <br>
+                <h4>Deal Size</h4>
+                <p>$30K-150K ACV. 2-4 month sales cycle. Fastest segment to close.</p>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-label">SEGMENT STRATEGY</div>
+            <p>Most AI healthcare hiring startups target health systems first because the deal sizes are larger. That is a mistake at this stage. Long-term care and home care providers have shorter sales cycles, less procurement friction, and the highest turnover rates. They are the fastest path to reference-able logos and ARR growth. Health systems become the second act once you have 20+ proof points from Segments 2 and 3.</p>
+        </div>
+    </div>
+
+    <!-- GTM EXECUTION PLAN -->
+    <div class="section">
+        <div class="section-label">Execution Plan</div>
+        <h2>90-Day GTM Build</h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Phase 1: Foundation (Days 1-30)</h3>
+                <div class="card card-red" style="margin-top: 10px;">
+                    <h4>Sales Process Architecture</h4>
+                    <ul>
+                        <li>Define ICP scoring criteria across all three buyer segments with firmographic and behavioral signals</li>
+                        <li>Build qualification framework - what constitutes a real opportunity vs. a tire-kicker at a health system</li>
+                        <li>Map the typical buying committee: HR lead, clinical leadership, IT/security, procurement, finance</li>
+                        <li>Create stage-gated sales process with evidence requirements at each stage (not rep opinion)</li>
+                    </ul>
+                    <br>
+                    <h4>Messaging and Positioning</h4>
+                    <ul>
+                        <li>Develop power messages for each persona: VP of TA hears cost reduction, CNO hears clinical coverage, CFO hears agency spend elimination</li>
+                        <li>Build ROI calculator: days-to-fill reduction, agency fee displacement, recruiter productivity gains</li>
+                        <li>Write case study frameworks from existing customer data - 900% growth means there are stories to tell</li>
+                        <li>Create competitive battle cards for Incredible Health, Vivian, Apploi, and legacy ATS vendors</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item phase-2">
+                <h3 style="color: var(--gold);">Phase 2: Pipeline Build (Days 31-60)</h3>
+                <div class="card card-gold" style="margin-top: 10px;">
+                    <h4>Outbound Engine</h4>
+                    <ul>
+                        <li>Build target account list: 200 accounts across all three segments, prioritized by pain signal density</li>
+                        <li>Pain signals to track: active job postings (50+ open clinical roles), agency RFPs, executive turnover in HR/nursing leadership, recent CMS survey deficiencies</li>
+                        <li>Launch multi-threaded outbound sequences targeting VP of TA + CNO simultaneously at each account</li>
+                        <li>Email copy that leads with the buyer's problem, not Carefam's features. "Your system posted 340 nursing jobs last quarter" beats "Our AI agents streamline hiring"</li>
+                    </ul>
+                    <br>
+                    <h4>Channel and Partnership Strategy</h4>
+                    <ul>
+                        <li>Identify 5-10 healthcare IT consultants and HRIS implementation partners as referral channels</li>
+                        <li>Evaluate integration partnerships with Workday, UKG, and Oracle HCM - these are the systems of record in health systems</li>
+                        <li>Explore co-selling with EHR vendors (Epic, Cerner) who have workforce management adjacencies</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item phase-3">
+                <h3 style="color: var(--green);">Phase 3: Revenue Acceleration (Days 61-90)</h3>
+                <div class="card card-green" style="margin-top: 10px;">
+                    <h4>Deal Execution</h4>
+                    <ul>
+                        <li>Run first pilots with 3-5 qualified accounts from Phase 2 pipeline</li>
+                        <li>Define pilot success criteria before launch: X% reduction in time-to-fill, X candidates processed, X hours saved per recruiter per week</li>
+                        <li>Build mutual action plans (Sequence of Events) for each pilot - buyer commits to evaluation timeline, not just "we'll try it"</li>
+                        <li>Weekly deal inspection rhythm: pipeline review, forecast accuracy, stage progression velocity</li>
+                    </ul>
+                    <br>
+                    <h4>Scaling Infrastructure</h4>
+                    <ul>
+                        <li>Document the sales playbook from first 90 days of learning - what works, what does not, actual objections heard</li>
+                        <li>Define hiring profile for first 2-3 AEs based on real deal data, not assumptions</li>
+                        <li>Establish pricing model validation: per-facility, per-hire, or platform fee - test with actual buyers</li>
+                        <li>Set up CRM hygiene, reporting dashboards, and forecast methodology</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- KEY METRICS -->
+    <div class="section">
+        <div class="section-label">Targets</div>
+        <h2>90-Day Success Metrics</h2>
+
+        <div class="stat-row">
+            <div class="stat-box">
+                <div class="stat-number">200</div>
+                <div class="stat-label">Target Accounts Identified</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">40-60</div>
+                <div class="stat-label">Qualified Meetings Booked</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">10-15</div>
+                <div class="stat-label">Active Pipeline Opportunities</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">3-5</div>
+                <div class="stat-label">Pilots Launched</div>
+            </div>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>Pipeline Targets</h3>
+                <ul>
+                    <li><strong>Pipeline value:</strong> $1.5M-3M in qualified opportunities by Day 90</li>
+                    <li><strong>Average deal size:</strong> $75K-150K ACV (blended across segments)</li>
+                    <li><strong>Win rate target:</strong> 25-30% on pilot conversions</li>
+                    <li><strong>First closed revenue:</strong> 1-2 deals by end of Q3 2026</li>
+                </ul>
+            </div>
+            <div class="card card-gold">
+                <h3>Operational Targets</h3>
+                <ul>
+                    <li><strong>Sales process:</strong> Documented, stage-gated, evidence-based</li>
+                    <li><strong>Messaging:</strong> Tested across 200+ outbound touches with response rate data</li>
+                    <li><strong>Competitive wins:</strong> At least 2 deals won against Incredible Health or Apploi</li>
+                    <li><strong>Playbook:</strong> Written and ready to hand to first AE hires</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- STRATEGIC CONSIDERATIONS -->
+    <div class="section">
+        <div class="section-label">Strategic Notes</div>
+        <h2>What I Would Tell You Over Coffee</h2>
+
+        <div class="card card-red">
+            <h3>The Land-and-Expand Math</h3>
+            <p>Healthcare is a land-and-expand market. A health system will not sign an enterprise-wide contract on first engagement. They will pilot at one facility or one department. The economics of this business depend on expansion rate - getting from one facility to five, then to twenty. Your sales process needs to be designed around this from the start. Pilot structure, success criteria, and executive sponsorship for expansion should all be defined before the pilot begins, not after.</p>
+        </div>
+
+        <div class="card card-gold">
+            <h3>Positioning Against Staffing Agencies</h3>
+            <p>Your real competitor is not Incredible Health or Vivian. It is the staffing agency. Health systems spent over $20B on agency nurses during and after the pandemic. That number has come down but remains elevated. Carefam's value proposition is strongest when framed as "reduce your dependency on agencies by making your internal team faster." That message resonates with CFOs, not just HR leaders, and it opens budget conversations that pure HR automation cannot.</p>
+        </div>
+
+        <div class="card card-green">
+            <h3>What US Healthcare Buyers Actually Need to See</h3>
+            <p>US healthcare buyers do not buy from demos. They buy from people who understand their world - CMS regulations, Joint Commission requirements, nurse-to-patient ratios, the politics of academic medical centers vs. community hospitals, and the budget pressure that comes from spending $20B on agency staffing. I have been in those rooms for over a decade. That is the advantage of having a US-based GTM leader who has already sold into your buyer - no ramp time learning the language, the procurement process, or the compliance requirements. Day one productivity.</p>
+        </div>
+
+        <div class="card card-slate">
+            <h3>Timing</h3>
+            <p>You exited stealth in March 2026. Incredible Health just launched AI agents. Vivian just shipped their AI assistant. The window to establish Carefam as the operational AI layer for healthcare HR is open right now, but it will not stay open. The next 6-12 months determine whether Carefam becomes a category leader or gets absorbed into the competitive noise. Speed of GTM execution is the variable you control.</p>
+        </div>
+    </div>
+
+    <!-- PARTNERSHIP CHANNELS -->
+    <div class="section">
+        <div class="section-label">Partnership Channels</div>
+        <h2>Ecosystem Leverage - Faster Pipeline Through Existing Relationships</h2>
+
+        <p style="margin-bottom:16px;">Outbound alone is a linear motion - one email, one call, one meeting at a time. Partnerships create multiplier effects by putting Carefam in front of buyers through trusted relationships that already exist. These are channels I can activate based on relationships I have built over 25 years in this market.</p>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>HCM/WFM Vendor Partnerships</h3>
+                <p style="color:var(--bright); margin-bottom:10px;">UKG, Workday, ADP - the platforms already sitting inside healthcare HR departments.</p>
+                <p>I spent nearly 6 years at UKG selling into the same HR and operations buyers Carefam targets. Those vendor reps hear their customers complain about staffing shortages every day but have no hiring automation solution to recommend. Carefam becomes that recommendation. A referral partnership with UKG channel reps alone could generate 10-20 warm introductions per quarter from reps who already have the buyer's trust.</p>
+            </div>
+            <div class="card card-gold">
+                <h3 style="color:var(--gold)">Mid-Tier Staffing Agencies</h3>
+                <p style="color:var(--bright); margin-bottom:10px;">Not competitors - partners who need technology to survive.</p>
+                <p>The big agencies (AMN, Aya, Cross Country) have the resources to build their own tech. Mid-tier agencies do not. They are getting squeezed from above and losing contracts because they cannot match the speed and efficiency of the large players. Carefam's AI makes a mid-tier agency competitive again. The agency brings the client relationships and the healthcare workforce network. Carefam brings the automation. This is a channel play that creates revenue for both sides.</p>
+            </div>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-green">
+                <h3 style="color:var(--green)">Healthcare Consulting and Advisory Firms</h3>
+                <p style="color:var(--bright); margin-bottom:10px;">Huron, Guidehouse, Vizient advisory practices.</p>
+                <p>These firms have workforce optimization practice areas that advise health systems on staffing strategy. They diagnose the problem but do not have an AI hiring tool to prescribe. Carefam becomes their technology recommendation - the solution they point clients to after the assessment. One consulting partner relationship can generate introductions to dozens of health systems already engaged in workforce transformation projects.</p>
+            </div>
+            <div class="card card-slate">
+                <h3 style="color:var(--slate)">GPOs and Industry Associations</h3>
+                <p style="color:var(--bright); margin-bottom:10px;">Vizient, Premier, HealthTrust (GPOs). LeadingAge, AHCA/NCAL (associations).</p>
+                <p>Group Purchasing Organizations aggregate buying power for health systems. Getting on a GPO contract means access to thousands of facilities without individual sales cycles. Industry associations like LeadingAge and AHCA/NCAL serve the senior living and long-term care market - Carefam's core buyer segment. I sold into this space at OnShift and know these networks. Conference sponsorships, member webinars, and association partnerships create warm introductions at scale.</p>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-label">Why This Matters</div>
+            <p>A generic first sales hire will run outbound and hope for the best. What I bring is an ecosystem strategy built on real relationships - vendor partners I have worked alongside, buyers I have sat across from, and industry networks I have been part of for over a decade. This is the difference between building pipeline from cold and activating a warm network that already trusts you.</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- WHY JEFF -->
+    <div class="section">
+        <div class="section-label">Why Jeff</div>
+        <h2>What I Bring to Carefam</h2>
+
+        <div class="card-grid cols-2">
+            <div class="card card-red">
+                <h3>Revenue Track Record</h3>
+                <ul>
+                    <li><strong>$150M+ in career enterprise revenue</strong> across UKG, Ushur, OnShift, and other enterprise technology companies. Most recently, $24M in total contract value in just 2 years at my last Series A startup, selling into health plans, provider organizations, and BPOs</li>
+                    <li>Award-winning sales executive for nearly 6 years at UKG, one of the world's leading HCM technology companies - I know this market</li>
+                    <li>Sold into VP/C-suite buyers at enterprise healthcare organizations - the same titles that buy Carefam</li>
+                    <li>Designed sales processes, qualification frameworks, and forecast methodologies that scale</li>
+                </ul>
+            </div>
+            <div class="card card-gold">
+                <h3>Healthcare Market Fluency</h3>
+                <ul>
+                    <li>Deep familiarity with healthcare buying dynamics - procurement committees, compliance requirements, pilot-to-expand models</li>
+                    <li>Understand the staffing crisis from the operator's perspective, not just the vendor's pitch</li>
+                    <li>Know how to sell ROI to CFOs using agency cost displacement as the anchor metric</li>
+                    <li>Led enterprise sales of a SaaS platform into senior living and long-term care markets at OnShift - Carefam's exact buyer segment</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card-grid cols-2">
+            <div class="card card-green">
+                <h3>The Transition You Need</h3>
+                <ul>
+                    <li>Carefam is strong in product-led growth - 900% growth proves the product sells itself at initial scale</li>
+                    <li>The next phase requires a different motion - enterprise sales cycles with procurement committees, security reviews, and C-suite sponsorship</li>
+                    <li>I have made this exact transition multiple times - from early product traction to structured enterprise selling with repeatable process, defined stages, and inspectable pipeline</li>
+                </ul>
+            </div>
+            <div class="card card-slate">
+                <h3>What You Get in 90 Days</h3>
+                <ul>
+                    <li>A documented, repeatable sales process designed for healthcare buyers</li>
+                    <li>Qualified pipeline worth $1.5M-3M across your three core segments</li>
+                    <li>Competitive positioning tested in real conversations with real buyers</li>
+                    <li>A playbook your first AE hires can execute on Day 1</li>
+                    <li>Clear data on pricing, deal velocity, and win/loss patterns</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-label">NEXT STEP</div>
+            <p>Let us take 30 minutes to walk through this plan, hear where you think I am right or wrong, and discuss what Carefam's GTM needs look like from your seat. I am available this week or next.</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p><strong>Jeff Aragon</strong> | <a href="mailto:jeff@jozuconsultinggroup.com">jeff@jozuconsultinggroup.com</a> | +1 303-638-1390 (WhatsApp)</p>
+    </div>
+
+</div>
+</body>
+</html>
