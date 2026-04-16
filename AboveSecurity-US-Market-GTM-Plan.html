@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Above Security - US Market GTM Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --bg-card: rgba(255,255,255,0.03);
+      --bg-card-border: rgba(255,255,255,0.06);
+      --accent: #e34115;
+      --accent-dim: rgba(227,65,21,0.12);
+      --gold: #c9a84c;
+      --gold-dim: rgba(201,168,76,0.10);
+      --green: #22c55e;
+      --green-dim: rgba(34,197,94,0.10);
+      --slate: #64748b;
+      --white: #ffffff;
+      --gray: #cbd5e1;
+      --bright: #e2e8f0;
+      --radius: 10px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--gray);
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 2.4em;
+      font-weight: 700;
+      margin-bottom: 0.2em;
+      line-height: 1.15;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      font-weight: 600;
+      margin-bottom: 0.6em;
+    }
+
+    h3 {
+      font-size: 1.1em;
+      font-weight: 600;
+      margin-bottom: 0.4em;
+    }
+
+    h4 {
+      font-size: 0.95em;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 0.3em;
+    }
+
+    p { margin-bottom: 1em; color: var(--gray); }
+
+    ul, ol { color: var(--gray); padding-left: 1.2em; }
+    li { margin-bottom: 0.5em; line-height: 1.6; }
+
+    strong { color: var(--white); font-weight: 600; }
+
+    /* Section Label */
+    .section-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.8em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    /* Section spacing */
+    .section {
+      margin-bottom: 60px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .section:last-of-type {
+      border-bottom: none;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+    }
+
+    .card-red { border-left: 3px solid var(--accent); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-green { border-left: 3px solid var(--green); }
+    .card-slate { border-left: 3px solid var(--slate); }
+
+    /* Grids */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+    .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; }
+
+    /* Stat blocks */
+    .stat-value {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8em;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.1;
+      margin-bottom: 0.15em;
+    }
+
+    .stat-label {
+      font-size: 0.85em;
+      color: var(--gray);
+      font-weight: 400;
+    }
+
+    /* Accent text */
+    .text-accent { color: var(--accent); }
+    .text-gold { color: var(--gold); }
+    .text-green { color: var(--green); }
+    .text-white { color: var(--white); }
+
+    /* Divider */
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: var(--accent);
+      margin: 1.2em 0;
+      opacity: 0.6;
+    }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1em 0;
+    }
+
+    th {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.8em;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.9em;
+      color: var(--gray);
+    }
+
+    td:first-child { color: var(--white); font-weight: 400; }
+
+    /* Timeline */
+    .timeline-phase {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 30px;
+    }
+
+    .timeline-phase::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .timeline-phase::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 22px;
+      width: 2px;
+      height: calc(100% + 10px);
+      background: rgba(227,65,21,0.2);
+    }
+
+    .timeline-phase:last-child::after {
+      display: none;
+    }
+
+    .phase-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75em;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.3em;
+    }
+
+    .phase-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.15em;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5em;
+    }
+
+    /* Header area */
+    .plan-header {
+      text-align: left;
+      margin-bottom: 50px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .plan-header .subtitle {
+      font-size: 1.15em;
+      color: var(--slate);
+      font-weight: 300;
+      margin-bottom: 1.5em;
+    }
+
+    .plan-header .meta {
+      font-size: 0.85em;
+      color: var(--gray);
+    }
+
+    .plan-header .meta span {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    /* Tag / Pill */
+    .tag {
+      display: inline-block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.7em;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+
+    .tag-red { background: var(--accent-dim); color: var(--accent); }
+    .tag-gold { background: var(--gold-dim); color: var(--gold); }
+    .tag-green { background: var(--green-dim); color: var(--green); }
+
+    /* Footer */
+    .plan-footer {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+    }
+
+    .plan-footer p {
+      font-size: 0.85em;
+      color: var(--gray);
+      margin-bottom: 0.3em;
+    }
+
+    .plan-footer .name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: var(--white);
+      font-size: 1em;
+    }
+
+    .plan-footer .contact {
+      color: var(--gray);
+      font-size: 0.85em;
+    }
+
+    .plan-footer .confidential {
+      font-size: 0.75em;
+      color: var(--slate);
+      margin-top: 1.5em;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container { padding: 30px 20px; }
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      h1 { font-size: 1.8em; }
+    }
+
+    @media print {
+      body { background: #0a0e17; }
+      .container { max-width: 100%; padding: 30px; }
+      .section { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="plan-header">
+      <div class="section-label">Confidential GTM Strategy</div>
+      <h1>Above Security</h1>
+      <h1 style="color: var(--accent); font-size: 1.4em; font-weight: 600; margin-bottom: 0.4em;">US Market GTM Plan</h1>
+      <p class="subtitle">AI-native insider risk platform for the agentic era. Built by Unit 8200 veterans. $50M raised. Ready for US enterprise scale.</p>
+      <div class="divider"></div>
+      <p class="meta">Prepared by <span>Jeff Aragon</span> | Jozu Consulting Group | April 2026</p>
+    </div>
+
+    <!-- SECTION 1: COMPANY PROFILE -->
+    <div class="section">
+      <div class="section-label">Company Profile</div>
+      <h2>About Above Security</h2>
+      <p>Above Security is an AI-native insider risk platform founded in 2025 by Unit 8200 veterans <strong>Aviv Nahum</strong> (CEO) and <strong>Amir Boldo</strong> (CPTO). The company emerged from stealth in March 2026 with $50M in funding and a platform that redefines how enterprises detect, investigate, and respond to insider threats from both human employees and autonomous AI agents.</p>
+
+      <div class="grid-4" style="margin-top: 24px; margin-bottom: 28px;">
+        <div class="card card-red" style="text-align: center;">
+          <div class="stat-value">$50M</div>
+          <div class="stat-label">Total Funding</div>
+        </div>
+        <div class="card card-gold" style="text-align: center;">
+          <div class="stat-value" style="color: var(--gold);">~10</div>
+          <div class="stat-label">Employees</div>
+        </div>
+        <div class="card card-green" style="text-align: center;">
+          <div class="stat-value" style="color: var(--green);">6 Mo</div>
+          <div class="stat-label">Revenue-Generating</div>
+        </div>
+        <div class="card card-slate" style="text-align: center;">
+          <div class="stat-value" style="color: var(--white);">2025</div>
+          <div class="stat-label">Founded (Tel Aviv)</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card card-red">
+          <h4 style="color: var(--accent);">Founders</h4>
+          <p style="margin-bottom: 0.5em;"><strong>Aviv Nahum, CEO</strong> - Former Unit 81 (elite Unit 8200 branch). Co-founded Ctrl (acquired by Sana at $500M+ valuation). Advisor at Battery Ventures. Background in exploit research and penetration testing. Previously founding R&D at a cybersecurity company acquired for $1B.</p>
+          <p style="margin-bottom: 0;"><strong>Amir Boldo, CPTO</strong> - Former Unit 49 (Unit 8200). Co-founded Trullion. SVP of R&D at Silverfort (identity security leader). VP Innovation at DriveNets. Early engineer at Zerto. 15+ years of R&D leadership across security and infrastructure.</p>
+        </div>
+        <div class="card card-gold">
+          <h4>Investors</h4>
+          <ul style="margin-top: 8px;">
+            <li><strong>Ballistic Ventures</strong> - Cybersecurity-focused VC (co-lead)</li>
+            <li><strong>Merlin Ventures</strong> - Security-specialized fund (co-lead)</li>
+            <li><strong>Norwest Venture Partners</strong> - Growth-stage investor (co-lead)</li>
+            <li><strong>Jump Capital</strong> - Participant</li>
+            <li><strong>QPV Ventures</strong> - Participant</li>
+          </ul>
+          <p style="margin-top: 12px; margin-bottom: 0; font-size: 0.85em;">Selected for the <strong>2026 CrowdStrike / AWS / NVIDIA Cybersecurity Startup Accelerator</strong> (Top 35 from thousands of applicants).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: PRODUCT -->
+    <div class="section">
+      <div class="section-label">Product Overview</div>
+      <h2>The Above Platform</h2>
+      <p>Above deploys a fleet of specialized AI investigators that continuously analyze behavior across identity systems, endpoints, SaaS platforms, and AI environments. The Arbiter engine correlates behavioral signals to determine <strong>intent</strong>, not just anomalies, producing investigation-ready timelines for security, legal, and HR teams.</p>
+
+      <h3 style="color: var(--accent); margin-top: 24px;">Core Differentiators</h3>
+      <div class="grid-2" style="margin-top: 16px;">
+        <div class="card card-red">
+          <h4 style="color: var(--accent);">Intent-Based Detection</h4>
+          <p style="margin-bottom: 0;">Reconstructs activity narratives and determines intent rather than flagging anomalies. Dramatically reduces false positives compared to legacy UEBA and DLP tools. Produces evidentiary timelines the moment activity becomes an incident.</p>
+        </div>
+        <div class="card card-gold">
+          <h4>Agentic AI Coverage</h4>
+          <p style="margin-bottom: 0;">Treats AI agents as insiders requiring the same level of behavioral oversight as human employees. Monitors OAuth connections, API access, and autonomous actions. Purpose-built for the expanding attack surface of agentic enterprise environments.</p>
+        </div>
+        <div class="card card-green">
+          <h4 style="color: var(--green);">Zero-Config Deployment</h4>
+          <p style="margin-bottom: 0;">Enterprise customers deploy within minutes without predefined rules, policies, or configuration. No extensive tuning period. No manual policy creation. Time-to-value measured in hours, not months.</p>
+        </div>
+        <div class="card card-slate">
+          <h4 style="color: var(--white);">Coaching-First Methodology</h4>
+          <p style="margin-bottom: 0;">Guides employees away from risky behavior proactively rather than blocking access. Reduces friction with end users while preventing negligent incidents, which account for 45% of all breaches (IBM). Validated by enterprise CISOs.</p>
+        </div>
+      </div>
+
+      <h3 style="color: var(--accent); margin-top: 28px;">Specialized AI Agent Fleet</h3>
+      <div class="grid-3" style="margin-top: 16px;">
+        <div class="card card-slate">
+          <h4 style="color: var(--white);">Shadow AI & IT Agent</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Monitors SaaS apps, OAuth connections, browser extensions, clipboard activity. Unifies fragmented behavioral signals across platforms.</p>
+        </div>
+        <div class="card card-slate">
+          <h4 style="color: var(--white);">Data Exfiltration Agent</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Combines behavioral patterns, user permissions, and communication context to distinguish accidental from malicious data movement.</p>
+        </div>
+        <div class="card card-slate">
+          <h4 style="color: var(--white);">Flight Risk Agent</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Tracks job-search signals, behavioral shifts, access pattern changes. Separates genuine flight risks from normal employee transitions.</p>
+        </div>
+        <div class="card card-slate">
+          <h4 style="color: var(--white);">Inappropriate Use Agent</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Identifies misuse in real-time before escalation. Provides corrective guidance rather than blocking access.</p>
+        </div>
+        <div class="card card-slate">
+          <h4 style="color: var(--white);">Communications Agent</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Sentiment analysis across collaboration platforms. Links tone and communication patterns to behavioral risk signals.</p>
+        </div>
+        <div class="card card-slate">
+          <h4 style="color: var(--white);">Arbiter Engine</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Orchestrates all agents. Correlates signals like a human investigator. Produces full evidentiary timelines with intent determination.</p>
+        </div>
+      </div>
+
+      <div class="card card-gold" style="margin-top: 24px;">
+        <h4>Enterprise Integrations</h4>
+        <p style="margin-bottom: 0;">Native integrations with <strong>CrowdStrike, Splunk, Microsoft Sentinel, Palo Alto XSOAR</strong>, and leading identity, endpoint, and SaaS platforms. Automated compliance reporting for <strong>NIST 800-171, CMMC, GDPR, HIPAA</strong>, and other regulatory frameworks.</p>
+      </div>
+    </div>
+
+    <!-- SECTION 3: MARKET ANALYSIS -->
+    <div class="section">
+      <div class="section-label">Market Analysis</div>
+      <h2>Insider Threat Landscape</h2>
+
+      <div class="grid-3" style="margin-bottom: 28px;">
+        <div class="card card-red" style="text-align: center;">
+          <div class="stat-value">$6.6B</div>
+          <div class="stat-label">Insider Threat Market (2026)</div>
+        </div>
+        <div class="card card-gold" style="text-align: center;">
+          <div class="stat-value" style="color: var(--gold);">17.5%</div>
+          <div class="stat-label">CAGR Through 2035</div>
+        </div>
+        <div class="card card-green" style="text-align: center;">
+          <div class="stat-value" style="color: var(--green);">$30B+</div>
+          <div class="stat-label">Projected Market (2035)</div>
+        </div>
+      </div>
+
+      <h3 style="color: var(--accent);">Why Now: The Agentic Inflection Point</h3>
+      <p>The insider threat market is undergoing a fundamental shift. As enterprises deploy AI agents that access internal systems and act autonomously on behalf of employees, the perimeter of "who counts as an insider" is expanding faster than any existing tool was built to handle. Legacy DLP and UEBA solutions were designed for a world where insiders were human and data movement was the primary risk signal.</p>
+
+      <div class="grid-2" style="margin-top: 20px;">
+        <div class="card card-red">
+          <h4 style="color: var(--accent);">Enterprise Buyer Pain</h4>
+          <ul>
+            <li>Alert fatigue from high false-positive rates in legacy tools</li>
+            <li>Investigation timelines measured in weeks, not hours</li>
+            <li>No visibility into AI agent behavior within enterprise environments</li>
+            <li>Hybrid/remote work has dissolved traditional perimeters</li>
+            <li>Regulatory pressure accelerating (CMMC, GDPR, HIPAA, SOX)</li>
+            <li>Board-level focus on data exfiltration and IP protection</li>
+          </ul>
+        </div>
+        <div class="card card-gold">
+          <h4>Market Tailwinds</h4>
+          <ul>
+            <li>45% of breaches caused by negligent insiders (IBM) - not malicious actors</li>
+            <li>Agentic AI adoption creating entirely new insider risk surface</li>
+            <li>Cloud and SaaS sprawl multiplying data access points</li>
+            <li>M&A activity increasing data exposure during transitions</li>
+            <li>BYOD and shadow IT policies creating blind spots</li>
+            <li>Insurance carriers beginning to require insider threat controls</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card card-green" style="margin-top: 20px;">
+        <h4 style="color: var(--green);">Above Security's Market Position</h4>
+        <p style="margin-bottom: 0;">Above enters a market dominated by legacy tools, at a moment when the problem is being redefined by AI agent proliferation. The combination of intent-based detection, zero-config deployment, and coaching-first methodology creates a platform that enterprise buyers have not seen before. Early customer validation (Merlin Entertainments deploying in minutes) confirms product-market fit with large enterprises.</p>
+      </div>
+    </div>
+
+    <!-- SECTION 4: COMPETITIVE LANDSCAPE -->
+    <div class="section">
+      <div class="section-label">Competitive Landscape</div>
+      <h2>How Above Compares</h2>
+      <p>The insider threat market has five established players that risk managers evaluate most frequently. Each takes a fundamentally different architectural approach. Above Security is the only platform built natively for both human and AI agent oversight.</p>
+
+      <table style="margin-top: 20px;">
+        <thead>
+          <tr>
+            <th>Vendor</th>
+            <th>Approach</th>
+            <th>Deployment</th>
+            <th>AI Agent Coverage</th>
+            <th>Detection Model</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color: var(--accent);">Above Security</strong></td>
+            <td>AI intent correlation</td>
+            <td>Minutes (zero-config)</td>
+            <td><span class="tag tag-green">Yes - Native</span></td>
+            <td>Real-time prevention + coaching</td>
+          </tr>
+          <tr>
+            <td>DTEX InTERCEPT</td>
+            <td>Endpoint telemetry + behavior</td>
+            <td>3-6 months</td>
+            <td><span class="tag tag-red">No</span></td>
+            <td>Post-facto detection</td>
+          </tr>
+          <tr>
+            <td>Teramind</td>
+            <td>Screen/keyboard recording</td>
+            <td>Weeks</td>
+            <td><span class="tag tag-red">No</span></td>
+            <td>Real-time blocking (high friction)</td>
+          </tr>
+          <tr>
+            <td>Proofpoint ITM</td>
+            <td>Email-centric DLP</td>
+            <td>1-2 months</td>
+            <td><span class="tag tag-red">No</span></td>
+            <td>Post-facto detection</td>
+          </tr>
+          <tr>
+            <td>Varonis</td>
+            <td>Data-centric access governance</td>
+            <td>Months</td>
+            <td><span class="tag tag-red">No</span></td>
+            <td>Post-facto detection</td>
+          </tr>
+          <tr>
+            <td>Code42 / Mimecast Incydr</td>
+            <td>File movement forensics</td>
+            <td>Weeks</td>
+            <td><span class="tag tag-red">No</span></td>
+            <td>Post-facto detection</td>
+          </tr>
+          <tr>
+            <td>Securonix</td>
+            <td>SIEM-integrated UEBA</td>
+            <td>6-12 months</td>
+            <td><span class="tag tag-red">No</span></td>
+            <td>Post-facto detection</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="grid-3" style="margin-top: 24px;">
+        <div class="card card-red">
+          <h4 style="color: var(--accent);">Win Against DTEX</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Faster deployment (minutes vs. months). Intent correlation vs. anomaly flagging. AI agent coverage they lack entirely. Proactive coaching instead of passive monitoring.</p>
+        </div>
+        <div class="card card-gold">
+          <h4>Win Against Teramind</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Low-friction coaching vs. hard blocking that creates employee pushback. Behavioral intelligence vs. surveillance-style recording. Better alignment with privacy regulations and employee trust.</p>
+        </div>
+        <div class="card card-green">
+          <h4 style="color: var(--green);">Win Against Varonis</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Broader coverage beyond file/data access. Real-time prevention vs. forensic analysis. Covers communication patterns, behavioral shifts, and AI agent activity that Varonis cannot see.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 5: BUYER SEGMENTS -->
+    <div class="section">
+      <div class="section-label">Target Segments</div>
+      <h2>US Enterprise Buyer Map</h2>
+      <p>Above Security targets organizations with 1,000+ employees operating in SaaS-forward environments. The following segments represent the highest-value US market opportunities.</p>
+
+      <div class="grid-2" style="margin-top: 20px;">
+        <div class="card card-red">
+          <h3 style="color: var(--accent);">Financial Services</h3>
+          <span class="tag tag-red">Priority 1</span>
+          <div class="divider"></div>
+          <p><strong>Why:</strong> Regulatory pressure (SOX, SEC, FINRA), high IP value, insider trading risk, M&A data sensitivity. Board-level mandate for insider controls.</p>
+          <p><strong>Decision Makers:</strong> CISO, CRO (Chief Risk Officer), VP Security Operations, Head of Compliance</p>
+          <p><strong>Deal Size:</strong> $250K - $1M+ ACV</p>
+          <p><strong>Sales Cycle:</strong> 4-6 months</p>
+          <p style="margin-bottom: 0;"><strong>Entry Point:</strong> Compliance-driven pilot. Start with regulatory use case, expand to full insider risk program.</p>
+        </div>
+        <div class="card card-gold">
+          <h3 style="color: var(--gold);">Technology & SaaS</h3>
+          <span class="tag tag-gold">Priority 1</span>
+          <div class="divider" style="background: var(--gold);"></div>
+          <p><strong>Why:</strong> IP protection critical (source code, algorithms, customer data). High AI agent adoption. Rapid SaaS sprawl. Remote/distributed teams. Flight risk during layoffs.</p>
+          <p><strong>Decision Makers:</strong> CISO, VP Engineering, CTO, Head of Security</p>
+          <p><strong>Deal Size:</strong> $150K - $500K ACV</p>
+          <p><strong>Sales Cycle:</strong> 3-5 months</p>
+          <p style="margin-bottom: 0;"><strong>Entry Point:</strong> Shadow AI visibility. Start with AI agent monitoring, expand to full insider risk coverage.</p>
+        </div>
+        <div class="card card-green">
+          <h3 style="color: var(--green);">Healthcare & Life Sciences</h3>
+          <span class="tag tag-green">Priority 2</span>
+          <div class="divider" style="background: var(--green);"></div>
+          <p><strong>Why:</strong> HIPAA compliance mandates. Patient data protection. Research IP (pharmaceutical R&D). High-value clinical trial data. Growing AI adoption in diagnostics.</p>
+          <p><strong>Decision Makers:</strong> CISO, Chief Privacy Officer, VP Compliance, CIO</p>
+          <p><strong>Deal Size:</strong> $200K - $750K ACV</p>
+          <p><strong>Sales Cycle:</strong> 5-8 months</p>
+          <p style="margin-bottom: 0;"><strong>Entry Point:</strong> HIPAA compliance gap assessment. Demonstrate automated compliance reporting as immediate value.</p>
+        </div>
+        <div class="card card-slate">
+          <h3>Defense & Government Contractors</h3>
+          <span class="tag tag-gold">Priority 2</span>
+          <div class="divider"></div>
+          <p><strong>Why:</strong> CMMC and NIST 800-171 requirements. Cleared personnel monitoring mandates. CUI (Controlled Unclassified Information) protection. High deal values with multi-year contracts.</p>
+          <p><strong>Decision Makers:</strong> CISO, FSO (Facility Security Officer), VP Cybersecurity, Compliance Director</p>
+          <p><strong>Deal Size:</strong> $300K - $1.5M+ ACV</p>
+          <p><strong>Sales Cycle:</strong> 6-12 months</p>
+          <p style="margin-bottom: 0;"><strong>Entry Point:</strong> CMMC compliance. Position as automated compliance and monitoring solution for NIST 800-171 requirements.</p>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top: 20px;">
+        <div class="card card-red">
+          <h3 style="color: var(--accent);">Manufacturing & Critical Infrastructure</h3>
+          <span class="tag tag-red">Priority 3</span>
+          <div class="divider"></div>
+          <p><strong>Why:</strong> Trade secret protection. Nation-state targeting of industrial IP. OT/IT convergence creating new insider risk surfaces. Supply chain data sensitivity.</p>
+          <p><strong>Decision Makers:</strong> CISO, VP OT Security, Chief Security Officer</p>
+          <p><strong>Deal Size:</strong> $200K - $600K ACV</p>
+          <p style="margin-bottom: 0;"><strong>Sales Cycle:</strong> 5-8 months</p>
+        </div>
+        <div class="card card-gold">
+          <h3 style="color: var(--gold);">Retail & Hospitality</h3>
+          <span class="tag tag-gold">Priority 3</span>
+          <div class="divider" style="background: var(--gold);"></div>
+          <p><strong>Why:</strong> Customer data at scale (PCI, PII). High employee turnover creating constant flight risk. Franchise/multi-location complexity. Validated by Merlin Entertainments deployment.</p>
+          <p><strong>Decision Makers:</strong> CISO, VP IT Security, CIO</p>
+          <p><strong>Deal Size:</strong> $150K - $400K ACV</p>
+          <p style="margin-bottom: 0;"><strong>Sales Cycle:</strong> 3-5 months</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 6: PARTNERSHIP CHANNELS -->
+    <div class="section">
+      <div class="section-label">Channel Strategy</div>
+      <h2>Partnership & Channel Ecosystem</h2>
+      <p>For a ~10-person company entering the US market, channel partnerships are essential for scaling coverage without proportional headcount growth. The goal is to build a partner ecosystem that extends Above's reach into enterprise accounts while maintaining control of the product narrative and technical validation.</p>
+
+      <div class="grid-2" style="margin-top: 24px;">
+        <div class="card card-red">
+          <h3 style="color: var(--accent);">MSSPs (Managed Security Service Providers)</h3>
+          <span class="tag tag-red">High Priority</span>
+          <div class="divider"></div>
+          <h4 style="color: var(--white); font-size: 0.85em;">Why MSSPs</h4>
+          <p style="font-size: 0.9em;">MSSPs manage security operations for thousands of enterprises. Adding Above's insider risk capability lets them upsell existing accounts with a differentiated service tier. Above's zero-config deployment makes it operationally viable for MSSP delivery.</p>
+          <h4 style="color: var(--white); font-size: 0.85em;">Target Partners</h4>
+          <ul style="font-size: 0.9em;">
+            <li><strong>Optiv</strong> - Largest pure-play cybersecurity integrator in US</li>
+            <li><strong>Secureworks</strong> - Dell-backed MSSP with enterprise depth</li>
+            <li><strong>Arctic Wolf</strong> - Fast-growing MDR/MSSP hybrid</li>
+            <li><strong>LevelBlue (AT&T)</strong> - Recently acquired Trustwave, expanding MSSP footprint</li>
+          </ul>
+          <h4 style="color: var(--white); font-size: 0.85em;">Partnership Model</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">White-label or co-branded managed insider risk service. Revenue share on managed accounts. Joint marketing and case studies. MSSP-specific enablement and training program.</p>
+        </div>
+        <div class="card card-gold">
+          <h3 style="color: var(--gold);">MDR Providers</h3>
+          <span class="tag tag-gold">High Priority</span>
+          <div class="divider" style="background: var(--gold);"></div>
+          <h4 style="color: var(--white); font-size: 0.85em;">Why MDR</h4>
+          <p style="font-size: 0.9em;">MDR providers deliver active threat detection and response but typically lack insider risk capability. Above fills a gap in their portfolio and creates a natural upsell path for existing customers concerned about internal threats.</p>
+          <h4 style="color: var(--white); font-size: 0.85em;">Target Partners</h4>
+          <ul style="font-size: 0.9em;">
+            <li><strong>CrowdStrike Falcon Complete</strong> - Already accelerator partner, natural integration</li>
+            <li><strong>SentinelOne Vigilance</strong> - MDR service seeking differentiation</li>
+            <li><strong>Rapid7 MDR</strong> - Mid-market MDR with expansion ambitions</li>
+            <li><strong>Red Canary</strong> - Tech-forward MDR, strong SMB/mid-market</li>
+          </ul>
+          <h4 style="color: var(--white); font-size: 0.85em;">Partnership Model</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Technology integration (API-level). Joint detection and response workflows. Referral and co-sell agreements. Shared threat intelligence on insider indicators.</p>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top: 20px;">
+        <div class="card card-green">
+          <h3 style="color: var(--green);">Security Consulting Firms</h3>
+          <span class="tag tag-green">Medium Priority</span>
+          <div class="divider" style="background: var(--green);"></div>
+          <h4 style="color: var(--white); font-size: 0.85em;">Why Consultants</h4>
+          <p style="font-size: 0.9em;">Advisory firms influence enterprise security architecture decisions. They recommend tools during risk assessments, compliance audits, and program buildouts. Getting Above into their recommended stack drives inbound enterprise interest.</p>
+          <h4 style="color: var(--white); font-size: 0.85em;">Target Partners</h4>
+          <ul style="font-size: 0.9em;">
+            <li><strong>Deloitte Cyber</strong> - Largest security practice, deep enterprise relationships</li>
+            <li><strong>Mandiant / Google Cloud Security</strong> - Incident response and advisory</li>
+            <li><strong>Booz Allen Hamilton</strong> - Defense/federal security consulting</li>
+            <li><strong>Kroll</strong> - Investigations, insider threat program design</li>
+            <li><strong>Guidepoint Security</strong> - Advisory-first security consultancy</li>
+          </ul>
+          <h4 style="color: var(--white); font-size: 0.85em;">Partnership Model</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Advisory partnership with referral fees. Joint insider threat program design engagements. Co-authored thought leadership on agentic insider risk. Consultant certification program.</p>
+        </div>
+        <div class="card card-slate">
+          <h3>VAR / Distribution</h3>
+          <span class="tag tag-gold">Medium Priority</span>
+          <div class="divider"></div>
+          <h4 style="color: var(--white); font-size: 0.85em;">Why VARs</h4>
+          <p style="font-size: 0.9em;">Value-added resellers and distributors provide procurement infrastructure that enterprise buyers already use. Getting listed with major distributors removes purchasing friction and enables deal flow through established procurement channels.</p>
+          <h4 style="color: var(--white); font-size: 0.85em;">Target Partners</h4>
+          <ul style="font-size: 0.9em;">
+            <li><strong>Carahsoft</strong> - #1 government/defense IT distributor (critical for CMMC plays)</li>
+            <li><strong>Climb Channel Solutions</strong> - Cybersecurity-focused VAR</li>
+            <li><strong>SHI International</strong> - Enterprise IT solutions provider</li>
+            <li><strong>CDW</strong> - Broad enterprise reach, security practice growing</li>
+            <li><strong>Ingram Micro / TD SYNNEX</strong> - Tier-1 distribution for scale</li>
+          </ul>
+          <h4 style="color: var(--white); font-size: 0.85em;">Partnership Model</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Standard channel margin structure. Deal registration and protection. Partner portal with enablement content. Quarterly business reviews and pipeline alignment.</p>
+        </div>
+      </div>
+
+      <div class="card card-red" style="margin-top: 20px;">
+        <h3 style="color: var(--accent);">Technology Alliances</h3>
+        <span class="tag tag-red">Strategic Priority</span>
+        <div class="divider"></div>
+        <div class="grid-2" style="margin-top: 12px;">
+          <div>
+            <h4 style="color: var(--white); font-size: 0.85em;">Platform Alliances</h4>
+            <ul style="font-size: 0.9em;">
+              <li><strong>CrowdStrike</strong> - Accelerator partner. Joint integration with Falcon platform. Co-sell motion through CrowdStrike's enterprise customer base.</li>
+              <li><strong>Microsoft</strong> - Sentinel integration. Azure Marketplace listing. Co-sell through Microsoft's security partner program.</li>
+              <li><strong>Palo Alto Networks</strong> - XSOAR integration. Cortex ecosystem partnership. Joint SOC automation workflows.</li>
+              <li><strong>Splunk</strong> - SIEM integration. Splunkbase app listing. Joint detection and investigation playbooks.</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color: var(--white); font-size: 0.85em;">Cloud & Identity Alliances</h4>
+            <ul style="font-size: 0.9em;">
+              <li><strong>AWS</strong> - Accelerator partner. Marketplace listing. AWS Security Competency pursuit. Co-sell with AWS enterprise sales.</li>
+              <li><strong>Okta</strong> - Identity-layer integration. Joint insider risk detection based on identity signals and access patterns.</li>
+              <li><strong>ServiceNow</strong> - Security Operations integration. Automated incident workflows and case management.</li>
+              <li><strong>Wiz</strong> - Cloud security posture + insider risk correlation for cloud-native enterprises.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 7: 90-DAY GTM EXECUTION -->
+    <div class="section">
+      <div class="section-label">Execution Plan</div>
+      <h2>90-Day US Market GTM Roadmap</h2>
+      <p>A phased approach to building Above Security's US go-to-market engine. Focused on converting early traction into repeatable pipeline while establishing the channel foundation for scale.</p>
+
+      <!-- Phase 1 -->
+      <div class="timeline-phase">
+        <div class="phase-label">Days 1-30</div>
+        <div class="phase-title">Foundation & Positioning</div>
+        <div class="grid-2">
+          <div class="card card-red">
+            <h4 style="color: var(--accent);">Sales Infrastructure</h4>
+            <ul style="font-size: 0.9em;">
+              <li>Define ICP scoring model - weight by industry, employee count, SaaS density, AI adoption maturity</li>
+              <li>Build target account list: 200 accounts across Priority 1 segments (Financial Services + Technology)</li>
+              <li>Map decision-maker personas (CISO, VP Security Ops, Head of Compliance) with tailored messaging per persona</li>
+              <li>Deploy CRM pipeline with stage definitions, conversion metrics, and forecasting framework</li>
+              <li>Create battle cards against DTEX, Teramind, Varonis, Proofpoint ITM</li>
+            </ul>
+          </div>
+          <div class="card card-gold">
+            <h4>Positioning & Narrative</h4>
+            <ul style="font-size: 0.9em;">
+              <li>Develop US-market messaging framework: "Insider risk for the agentic era"</li>
+              <li>Build CISO-level pitch deck, technical deep-dive deck, and compliance-focused deck</li>
+              <li>Draft founder-led thought leadership: "Why legacy insider threat tools cannot see AI agents"</li>
+              <li>Create ROI calculator: investigation time reduction, false positive elimination, compliance automation</li>
+              <li>Develop customer proof points from existing enterprise deployments (Merlin case study)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="timeline-phase">
+        <div class="phase-label">Days 31-60</div>
+        <div class="phase-title">Pipeline Generation & Channel Activation</div>
+        <div class="grid-2">
+          <div class="card card-green">
+            <h4 style="color: var(--green);">Outbound Pipeline</h4>
+            <ul style="font-size: 0.9em;">
+              <li>Launch multi-channel outbound: personalized email sequences to 200 target CISOs</li>
+              <li>Founder-led outreach to 20 strategic accounts (above $500K ACV potential)</li>
+              <li>LinkedIn thought leadership campaign: Aviv and Amir publishing weekly on insider risk + AI agents</li>
+              <li>Target 15-20 qualified discovery meetings in this phase</li>
+              <li>Launch "Insider Risk Assessment" as a free entry point for enterprise prospects</li>
+            </ul>
+          </div>
+          <div class="card card-slate">
+            <h4 style="color: var(--white);">Channel Activation</h4>
+            <ul style="font-size: 0.9em;">
+              <li>Engage CrowdStrike partnership team for co-sell program (leverage accelerator relationship)</li>
+              <li>Begin conversations with 3-5 MSSPs (Optiv, Arctic Wolf, Secureworks)</li>
+              <li>Submit AWS Marketplace listing application</li>
+              <li>Initiate Carahsoft partnership for government/defense channel</li>
+              <li>Develop partner enablement kit: technical training, demo environment, co-branded collateral</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="timeline-phase">
+        <div class="phase-label">Days 61-90</div>
+        <div class="phase-title">Pipeline Conversion & Scale Preparation</div>
+        <div class="grid-2">
+          <div class="card card-red">
+            <h4 style="color: var(--accent);">Pipeline Acceleration</h4>
+            <ul style="font-size: 0.9em;">
+              <li>Convert discovery meetings to POCs/pilots: target 5-8 active evaluations</li>
+              <li>Deploy rapid POC process (days, not months) as competitive differentiator</li>
+              <li>Develop procurement-ready materials: security questionnaires, MSA templates, SOC 2 documentation</li>
+              <li>Target 2-3 closed deals or late-stage commitments by Day 90</li>
+              <li>Launch customer advisory board with early adopters</li>
+            </ul>
+          </div>
+          <div class="card card-gold">
+            <h4>Scale Infrastructure</h4>
+            <ul style="font-size: 0.9em;">
+              <li>Hire first US-based AE (enterprise sales, cybersecurity background)</li>
+              <li>Hire first US-based SE (solutions engineer for POC delivery)</li>
+              <li>Finalize first MSSP partnership agreement</li>
+              <li>Submit to Gartner and Forrester for analyst briefings (target inclusion in insider risk reports)</li>
+              <li>Plan RSA Conference 2027 and Black Hat presence</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-green" style="margin-top: 24px;">
+        <h3 style="color: var(--green);">Day 90 Success Metrics</h3>
+        <div class="grid-4" style="margin-top: 16px;">
+          <div style="text-align: center;">
+            <div class="stat-value" style="color: var(--green); font-size: 1.4em;">200</div>
+            <div class="stat-label">Target Accounts Engaged</div>
+          </div>
+          <div style="text-align: center;">
+            <div class="stat-value" style="color: var(--green); font-size: 1.4em;">30+</div>
+            <div class="stat-label">Discovery Meetings</div>
+          </div>
+          <div style="text-align: center;">
+            <div class="stat-value" style="color: var(--green); font-size: 1.4em;">5-8</div>
+            <div class="stat-label">Active POCs</div>
+          </div>
+          <div style="text-align: center;">
+            <div class="stat-value" style="color: var(--green); font-size: 1.4em;">2-3</div>
+            <div class="stat-label">Closed / Late-Stage</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 8: WHY JEFF -->
+    <div class="section" style="border-bottom: none;">
+      <div class="section-label">Why Jeff Aragon</div>
+      <h2>The Right GTM Leader for This Stage</h2>
+      <p>Above Security has built a category-defining product with world-class founders, elite investors, and early customer validation. What comes next is the hardest part: building the US go-to-market engine that converts early traction into repeatable, scalable revenue. That is exactly what I do.</p>
+
+      <div class="grid-2" style="margin-top: 24px;">
+        <div class="card card-red">
+          <h3 style="color: var(--accent);">Career Track Record</h3>
+          <div class="divider"></div>
+          <ul>
+            <li><strong>$150M+ in career revenue</strong> across enterprise software and cybersecurity</li>
+            <li><strong>$24M TCV closed</strong> at my last Series A startup, building the entire sales function from zero</li>
+            <li><strong>Award-winning at UKG</strong> for nearly 6 years, recognized multiple times for performance in one of the most competitive enterprise sales environments in the industry</li>
+            <li><strong>Full-stack GTM builder</strong> - I do not just carry a quota. I build the sales infrastructure, define ICP, create collateral, design sequences, hire teams, and close deals</li>
+          </ul>
+        </div>
+        <div class="card card-gold">
+          <h3 style="color: var(--gold);">Why This Matters for Above</h3>
+          <div class="divider" style="background: var(--gold);"></div>
+          <ul>
+            <li><strong>Series A GTM expertise</strong> - I have built go-to-market at this exact stage before. I know the difference between founder-led sales and a scalable sales engine, and I know how to build the bridge between them.</li>
+            <li><strong>Enterprise security buyer fluency</strong> - I understand CISO priorities, procurement cycles, competitive displacement, and the compliance drivers that accelerate deals in this space.</li>
+            <li><strong>Channel and partnership acumen</strong> - Built MSSP, VAR, and technology alliance programs. I know how to activate channel revenue without losing control of the product narrative.</li>
+            <li><strong>Operator, not advisor</strong> - I do the work. Outbound sequences, CRM hygiene, deal strategy, partner enablement, competitive intelligence. I do not delegate what I can execute directly.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card card-green" style="margin-top: 20px;">
+        <h3 style="color: var(--green);">What I Bring to Day 1</h3>
+        <p style="margin-bottom: 0;">I can start generating pipeline immediately. I come with the sales infrastructure already built: CRM workflows, outbound sequences, ICP frameworks, competitive battle cards, partnership playbooks, and a proven methodology for converting early-stage enterprise interest into closed revenue. Above does not need someone who needs 90 days to figure out the market. You need someone who has already done this, who can build the US revenue engine while the founders stay focused on product and fundraising.</p>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="plan-footer">
+      <p class="name">Jeff Aragon</p>
+      <p class="contact">jeff@jozuconsultinggroup.com | +1 303-638-1390 (WhatsApp)</p>
+      <p class="contact">Jozu Consulting Group</p>
+      <p class="confidential">Confidential - Prepared for Above Security Leadership</p>
+    </div>
+
+  </div>
+</body>
+</html>
