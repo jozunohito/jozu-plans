@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Astelia - US Market GTM Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #0a0e17;
+        --bg-card: rgba(255,255,255,0.03);
+        --bg-card-border: rgba(255,255,255,0.06);
+        --accent: #e34115;
+        --accent-dim: rgba(227,65,21,0.12);
+        --gold: #c9a84c;
+        --gold-dim: rgba(201,168,76,0.10);
+        --green: #22c55e;
+        --green-dim: rgba(34,197,94,0.10);
+        --slate: #64748b;
+        --white: #ffffff;
+        --gray: #cbd5e1;
+        --bright: #e2e8f0;
+        --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: var(--bg);
+        color: var(--gray);
+        font-family: 'Open Sans', sans-serif;
+        font-size: 15px;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        padding: 50px 40px;
+    }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+
+    .container { max-width: 1060px; margin: 0 auto; }
+
+    .header {
+        margin-bottom: 48px;
+        padding-bottom: 28px;
+        border-bottom: 2px solid var(--accent);
+    }
+    .doc-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 10px;
+    }
+    .doc-title {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 6px;
+    }
+    .doc-subtitle {
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-weight: 300;
+        color: var(--gray);
+        margin-bottom: 4px;
+    }
+    .doc-meta {
+        font-size: 12px;
+        color: var(--gray);
+        margin-top: 8px;
+    }
+
+    .section { margin-bottom: 44px; }
+    .section-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .section-label::before {
+        content: '';
+        width: 24px; height: 2px;
+        background: var(--accent);
+    }
+    h2 { font-size: 20px; font-weight: 600; margin-bottom: 16px; }
+    h3 { font-size: 15px; font-weight: 500; color: var(--accent); margin-bottom: 8px; }
+    h4 { font-size: 13px; font-weight: 500; color: var(--gold); margin-bottom: 6px; }
+
+    .card {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin-bottom: 14px;
+    }
+    .card-red { border-left: 3px solid var(--accent); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+    .card-green { border-left: 3px solid var(--green); }
+
+    .card-grid { display: grid; gap: 14px; margin-bottom: 16px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    .divider { width: 60px; height: 2px; background: var(--accent); margin: 32px 0; opacity: 0.4; }
+
+    ul { padding-left: 20px; margin: 8px 0; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--white); font-weight: 600; }
+
+    .stat-row { display: flex; gap: 14px; margin: 16px 0; }
+    .stat-box {
+        flex: 1;
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 18px;
+        text-align: center;
+    }
+    .stat-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--accent);
+    }
+    .stat-label {
+        font-size: 11px;
+        color: var(--gray);
+        margin-top: 4px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+        font-size: 14px;
+    }
+    th {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 10px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--accent);
+        text-align: left;
+        padding: 10px 14px;
+        border-bottom: 1px solid rgba(227,65,21,0.2);
+        background: var(--accent-dim);
+    }
+    td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--bg-card-border);
+        color: var(--gray);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .callout {
+        background: rgba(227,65,21,0.06);
+        border: 1px solid rgba(227,65,21,0.15);
+        border-radius: var(--radius);
+        padding: 18px 24px;
+        margin: 14px 0;
+        color: var(--bright);
+    }
+    .callout-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: var(--accent);
+        margin-bottom: 6px;
+    }
+
+    .timeline {
+        position: relative;
+        padding-left: 28px;
+    }
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 8px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, var(--accent), var(--gold), var(--green));
+        opacity: 0.4;
+    }
+    .timeline-item {
+        position: relative;
+        margin-bottom: 20px;
+    }
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -24px;
+        top: 6px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid var(--accent);
+        background: var(--bg);
+    }
+    .timeline-item.gold::before { border-color: var(--gold); }
+    .timeline-item.green::before { border-color: var(--green); }
+
+    .phase-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+    }
+    .phase-red { color: var(--accent); }
+    .phase-gold { color: var(--gold); }
+    .phase-green { color: var(--green); }
+
+    .footer {
+        margin-top: 60px;
+        padding-top: 24px;
+        border-top: 1px solid var(--bg-card-border);
+        text-align: center;
+        color: var(--gray);
+        font-size: 13px;
+    }
+    .footer strong { color: var(--white); }
+
+    @media print {
+        body { background: var(--bg); padding: 30px; }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+    <div class="doc-label">US Market GTM Strategy</div>
+    <h1 class="doc-title">Astelia - US Market GTM Plan</h1>
+    <div class="doc-subtitle">Proof-Based Exposure Management for the Enterprise Security Market</div>
+    <div class="doc-meta">Prepared by Jeff Aragon | April 2026</div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 1: COMPANY PROFILE -->
+<!-- ============================================ -->
+<div class="section">
+    <div class="section-label">Company Profile</div>
+    <h2>Astelia at a Glance</h2>
+
+    <div class="stat-row">
+        <div class="stat-box">
+            <div class="stat-number">$35M</div>
+            <div class="stat-label">Total Funding (Seed + Series A)</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">30+</div>
+            <div class="stat-label">Employees (Israel + US)</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">2%</div>
+            <div class="stat-label">Vulnerabilities that actually matter</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">F500</div>
+            <div class="stat-label">Customers already live</div>
+        </div>
+    </div>
+
+    <div class="card card-red">
+        <h3>The Company</h3>
+        <p>Astelia is an AI-native exposure management platform built by the former leaders of Israel's National Red Team. The company was founded in late 2024 through Team8's Venture Creation model and is headquartered at 488 Madison Avenue, New York. Astelia has raised $35M in combined seed and Series A funding led by Index Ventures and Team8, with participation from Holly Ventures.</p>
+        <p style="margin-top:12px;">The platform replaces vulnerability guesswork with proof-based exposure analysis. By mapping real network topology and applying agentic AI to analyze exploit requirements, Astelia identifies the small fraction of vulnerabilities - roughly 2% - that are genuinely reachable and exploitable. In one documented deployment, the platform reduced nearly 3 million vulnerabilities down to 30 that required urgent attention.</p>
+    </div>
+
+    <div class="card card-gold">
+        <h3 style="color:var(--gold)">The Founders</h3>
+        <p style="margin-bottom:12px;">All three founders received the Israel Security Award from the President of Israel. This is a rare distinction in Israel's security establishment, and all three earned it for operational contributions to national defense.</p>
+        <table>
+            <tr><th>Founder</th><th>Role</th><th>Background</th></tr>
+            <tr>
+                <td><strong>Alon Noy</strong></td>
+                <td>CEO</td>
+                <td>Talpiot graduate. ~15 years IDF service. Led operational units in Unit 8200. Headed the Israeli National Red Team, responsible for stress-testing the nation's critical infrastructure. Developed and implemented innovative defense methods during the Swords of Iron war. Collaborated directly with US Cyber Command.</td>
+            </tr>
+            <tr>
+                <td><strong>Nadav Ostrovsky</strong></td>
+                <td>CTO</td>
+                <td>Talpiot graduate. Served in IDF's Matzov unit, contributing to advanced cyber operations. Deep expertise in offensive security tooling and vulnerability research.</td>
+            </tr>
+            <tr>
+                <td><strong>Roy Rajwan</strong></td>
+                <td>CPO</td>
+                <td>Served in IDF's Matzov unit alongside Ostrovsky. Led proactive attack simulations and critical infrastructure testing. Product leader with operational security background.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card card-green">
+        <h3 style="color:var(--green)">Platform Capabilities</h3>
+        <ul>
+            <li><strong>Network Topology Mapping</strong> - Integrates with infrastructure tools to analyze configurations and policy rules, building comprehensive topology models from the inside out</li>
+            <li><strong>Agentic Vulnerability Analysis</strong> - AI-driven analysis of each CVE's execution context, attack vectors, and real-world usage patterns to determine actual exploitability</li>
+            <li><strong>Reachability Analysis</strong> - Correlates network topology, asset context, and runtime data to classify true exposure risk, not theoretical CVSS scores</li>
+            <li><strong>Attack Path Visualization</strong> - Maps attack paths to critical assets through network controls, open ports, and runtime context</li>
+            <li><strong>Visibility Gap Discovery</strong> - Discovers external-facing assets and misconfigurations by mapping networks from inside out to reveal unscanned exposed assets</li>
+            <li><strong>Multi-Path Remediation</strong> - Offers remediation beyond patching, including compensating controls and network configuration changes to reduce MTTR</li>
+        </ul>
+        <p style="margin-top:12px;">SOC 2 and ISO certified. Available on AWS Marketplace.</p>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================ -->
+<!-- SECTION 2: MARKET ANALYSIS -->
+<!-- ============================================ -->
+<div class="section">
+    <div class="section-label">Market Analysis</div>
+    <h2>The Exposure Management Landscape</h2>
+
+    <div class="stat-row">
+        <div class="stat-box">
+            <div class="stat-number">$3.25B</div>
+            <div class="stat-label">Exposure management market 2025</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">$23.3B</div>
+            <div class="stat-label">Projected by 2033</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">27.9%</div>
+            <div class="stat-label">Market CAGR</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">3x</div>
+            <div class="stat-label">Less likely to be breached (Gartner CTEM)</div>
+        </div>
+    </div>
+
+    <div class="card card-red">
+        <h3>Why This Market, Why Now</h3>
+        <p>Gartner predicts that by 2026, organizations prioritizing security investments based on a Continuous Threat Exposure Management (CTEM) program will be three times less likely to suffer a breach. This is driving a massive shift in security budgets from reactive vulnerability scanning toward proactive exposure management.</p>
+        <p style="margin-top:12px;">The vulnerability management market alone is projected to reach $24B by 2030. But the real opportunity sits at the intersection of vulnerability data and actionable exposure intelligence. Legacy tools generate millions of findings. Security teams drown in noise. The winners in this market will be the platforms that answer one question: "Which of these actually matter?"</p>
+    </div>
+
+    <div class="card card-gold">
+        <h3 style="color:var(--gold)">Buyer Pain - What CISOs Are Saying</h3>
+        <ul>
+            <li><strong>"We have too many vulnerabilities and no way to prioritize."</strong> - Enterprise security teams manage millions of CVEs. CVSS scores alone do not account for network context, asset criticality, or actual reachability. Teams waste cycles patching low-risk issues while critical exposures persist.</li>
+            <li><strong>"Our vulnerability scanner tells us what is wrong but not what is dangerous."</strong> - Traditional scanners produce volume. They do not correlate findings with network topology, runtime context, or real attack paths. The gap between "vulnerable" and "exploitable" is enormous.</li>
+            <li><strong>"We cannot show the board our actual risk posture."</strong> - Boards want clear answers. How exposed are we? Where are the gaps? What should we fix first? Legacy tools deliver spreadsheets, not answers.</li>
+            <li><strong>"Patching everything is impossible, and our teams are burned out."</strong> - Security and IT teams are understaffed and overwhelmed. They need evidence-based prioritization that reduces the remediation backlog to what genuinely matters.</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">Market Timing</div>
+        Astelia enters the US market at the exact inflection point where CTEM adoption is accelerating, legacy vendors are struggling to evolve beyond scanning, and enterprise buyers are actively seeking proof-based approaches. The founders' red team pedigree gives Astelia a narrative advantage that no incumbent can replicate.
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================ -->
+<!-- SECTION 3: COMPETITIVE LANDSCAPE -->
+<!-- ============================================ -->
+<div class="section">
+    <div class="section-label">Competitive Landscape</div>
+    <h2>How Astelia Wins Against Incumbents</h2>
+
+    <div class="card card-slate">
+        <table>
+            <tr>
+                <th>Competitor</th>
+                <th>Strengths</th>
+                <th>Weaknesses</th>
+                <th>Astelia Advantage</th>
+            </tr>
+            <tr>
+                <td><strong>Tenable</strong></td>
+                <td>Market leader in vulnerability management. Deep install base. Recent Vulcan Cyber acquisition ($147M) extends remediation capabilities.</td>
+                <td>Legacy architecture. Generates massive finding volumes without exposure context. Customers pay for scanning breadth, not prioritization depth.</td>
+                <td>Astelia layers on top of Tenable data, turning volume into signal. Complementary positioning, not rip-and-replace.</td>
+            </tr>
+            <tr>
+                <td><strong>Rapid7</strong></td>
+                <td>Strong in mid-market. InsightVM plus Noetic Cyber acquisition extends asset visibility. Growing MDR business creates cross-sell.</td>
+                <td>Spread thin across detection, response, and VM. Exposure prioritization is a feature, not the core product. Mid-market DNA limits enterprise penetration.</td>
+                <td>Astelia offers dedicated exposure intelligence with deeper network modeling than Rapid7's asset-level approach.</td>
+            </tr>
+            <tr>
+                <td><strong>Qualys</strong></td>
+                <td>Cloud-native architecture. $640M+ annual revenue. VMDR platform covers asset inventory through remediation. Strong compliance use case.</td>
+                <td>Compliance-driven heritage makes it scanner-first. Exposure management bolted on, not built in. Innovation pace has slowed relative to newer entrants.</td>
+                <td>Astelia's agentic AI approach to exploitability analysis delivers context Qualys cannot match from scan data alone.</td>
+            </tr>
+            <tr>
+                <td><strong>CrowdStrike</strong></td>
+                <td>Dominant endpoint platform. Falcon Exposure Management leverages agent telemetry. Massive distribution and brand trust.</td>
+                <td>Endpoint-centric view. Network topology and infrastructure exposure are secondary. Exposure management is one module in a large platform, not the focus.</td>
+                <td>Astelia provides network-level and infrastructure-level exposure analysis that endpoint telemetry cannot deliver. Different vantage point.</td>
+            </tr>
+            <tr>
+                <td><strong>Wiz</strong></td>
+                <td>Cloud security leader. Agentless architecture. Strong in cloud workload and configuration analysis. Massive valuation and market momentum.</td>
+                <td>Cloud-only. Does not address on-premises infrastructure, hybrid networks, or traditional IT environments. Enterprise exposure spans more than cloud.</td>
+                <td>Astelia covers the full attack surface - on-prem, hybrid, and cloud. Most enterprises still run significant on-prem infrastructure alongside cloud workloads.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">Competitive Positioning</div>
+        Astelia is not competing to replace vulnerability scanners. It is competing to become the intelligence layer that sits above them. The positioning is "proof-based exposure management" - a category that assumes you already have scanning tools and need something to make their output actionable. This is a wedge strategy, not a platform war.
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================ -->
+<!-- SECTION 4: BUYER SEGMENTS -->
+<!-- ============================================ -->
+<div class="section">
+    <div class="section-label">Buyer Segments</div>
+    <h2>Target Accounts, Decision Makers, and Deal Mechanics</h2>
+
+    <div class="card-grid cols-2">
+        <div class="card card-red">
+            <h3>Segment 1: Enterprise (5,000+ Employees)</h3>
+            <h4>Profile</h4>
+            <p>Large enterprises with complex hybrid environments, multiple vulnerability scanners already deployed, and dedicated security operations teams drowning in findings. Financial services, healthcare, critical infrastructure, and large technology companies.</p>
+            <h4 style="margin-top:14px;">Decision Makers</h4>
+            <ul>
+                <li><strong>CISO</strong> - Budget authority. Cares about risk posture and board reporting.</li>
+                <li><strong>VP of Security Operations</strong> - Operational buyer. Cares about team efficiency and alert fatigue.</li>
+                <li><strong>Director of Vulnerability Management</strong> - Technical champion. Closest to the pain daily.</li>
+            </ul>
+            <h4 style="margin-top:14px;">Deal Characteristics</h4>
+            <ul>
+                <li>ACV range: $150K - $500K+</li>
+                <li>Sales cycle: 3-6 months</li>
+                <li>POC required in most cases</li>
+                <li>Procurement and security review process adds 30-60 days</li>
+            </ul>
+        </div>
+
+        <div class="card card-gold">
+            <h3 style="color:var(--gold)">Segment 2: Upper Mid-Market (1,000-5,000 Employees)</h3>
+            <h4>Profile</h4>
+            <p>Companies with growing security programs, typically one or two vulnerability scanning tools, and a small security team that cannot keep up with remediation volume. Technology, manufacturing, retail, and professional services companies.</p>
+            <h4 style="margin-top:14px;">Decision Makers</h4>
+            <ul>
+                <li><strong>CISO or VP of IT Security</strong> - Often the sole security leader. Budget and technical authority combined.</li>
+                <li><strong>IT Director</strong> - Controls infrastructure access. Key stakeholder for deployment.</li>
+            </ul>
+            <h4 style="margin-top:14px;">Deal Characteristics</h4>
+            <ul>
+                <li>ACV range: $75K - $150K</li>
+                <li>Sales cycle: 2-4 months</li>
+                <li>Faster decision-making, fewer stakeholders</li>
+                <li>Value story: do more with a smaller team</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card-grid cols-2">
+        <div class="card card-green">
+            <h3 style="color:var(--green)">Segment 3: Regulated Industries</h3>
+            <h4>Profile</h4>
+            <p>Financial services, healthcare, energy, and government agencies facing regulatory mandates around vulnerability management and continuous monitoring. Compliance requirements (PCI-DSS, HIPAA, NERC CIP, CMMC) drive budget allocation and vendor selection.</p>
+            <h4 style="margin-top:14px;">Decision Makers</h4>
+            <ul>
+                <li><strong>CISO</strong> - Accountable for compliance posture to board and regulators</li>
+                <li><strong>Chief Risk Officer</strong> - Aligns security spend with enterprise risk management</li>
+                <li><strong>Compliance Director</strong> - Validates that tools meet regulatory requirements</li>
+            </ul>
+            <h4 style="margin-top:14px;">Deal Characteristics</h4>
+            <ul>
+                <li>ACV range: $200K - $500K+</li>
+                <li>Sales cycle: 4-9 months (procurement and compliance review)</li>
+                <li>Strong retention and expansion potential</li>
+                <li>Compliance narrative accelerates budget approval</li>
+            </ul>
+        </div>
+
+        <div class="card card-slate">
+            <h3 style="color:var(--gray)">Segment 4: Federal and Defense</h3>
+            <h4>Profile</h4>
+            <p>US federal agencies, defense contractors, and intelligence community organizations operating under NIST, FISMA, and zero-trust mandates. The founders' collaboration with US Cyber Command creates a natural entry point into this segment.</p>
+            <h4 style="margin-top:14px;">Decision Makers</h4>
+            <ul>
+                <li><strong>Agency CISO</strong> - Directs security investments within mission parameters</li>
+                <li><strong>Program Managers</strong> - Control specific contract vehicles and project budgets</li>
+                <li><strong>Systems Integrators</strong> - Influence technology selection and deployment</li>
+            </ul>
+            <h4 style="margin-top:14px;">Deal Characteristics</h4>
+            <ul>
+                <li>ACV range: $250K - $1M+ (via contract vehicles)</li>
+                <li>Sales cycle: 6-18 months</li>
+                <li>Requires FedRAMP or equivalent authorization</li>
+                <li>Longer cycle but massive expansion potential</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================ -->
+<!-- SECTION 5: PARTNERSHIP CHANNELS -->
+<!-- ============================================ -->
+<div class="section">
+    <div class="section-label">Partnership Channels</div>
+    <h2>Channel Strategy for US Market Acceleration</h2>
+
+    <p style="margin-bottom:16px;">For an Israeli company entering the US market at scale, channel partnerships are not optional. They are a force multiplier for pipeline generation, credibility building, and geographic reach. Astelia's platform characteristics - integration with existing vulnerability scanners, evidence-based output, and compliance alignment - make it an ideal channel product.</p>
+
+    <div class="card card-red">
+        <h3>MSSPs (Managed Security Service Providers)</h3>
+        <h4>Why This Channel</h4>
+        <p>MSSPs serve thousands of mid-market and enterprise accounts. They are actively seeking exposure management capabilities to differentiate their offerings and increase per-customer revenue. Gartner's CTEM framework is pushing MSSPs to add proactive exposure intelligence alongside reactive monitoring.</p>
+        <h4 style="margin-top:12px;">Target Partners</h4>
+        <ul>
+            <li><strong>LevelBlue (formerly AT&T Cybersecurity)</strong> - Already expanding exposure management offerings through Tenable integration. Astelia could provide a more advanced layer.</li>
+            <li><strong>Secureworks</strong> - Strong enterprise MSSP with exposure management ambitions post-Dell separation</li>
+            <li><strong>Trustwave</strong> - Global MSSP with managed vulnerability assessment practice</li>
+            <li><strong>Optiv</strong> - Large security solutions provider with advisory and managed services</li>
+        </ul>
+        <h4 style="margin-top:12px;">Partnership Model</h4>
+        <p>Technology integration partnership. MSSP deploys Astelia within customer environments, delivers exposure reports as a managed service, and bundles remediation guidance with existing SOC operations.</p>
+    </div>
+
+    <div class="card card-gold">
+        <h3 style="color:var(--gold)">MDR Providers (Managed Detection and Response)</h3>
+        <h4>Why This Channel</h4>
+        <p>MDR providers are evolving from pure detection into prevention and exposure reduction. Adding Astelia's proof-based exposure intelligence to MDR workflows creates a "detect and prevent" value proposition that commands higher per-customer fees and reduces churn.</p>
+        <h4 style="margin-top:12px;">Target Partners</h4>
+        <ul>
+            <li><strong>Arctic Wolf</strong> - $1B+ ARR MDR leader actively expanding into security posture management</li>
+            <li><strong>Expel</strong> - Strong mid-market MDR with transparent operations model. Natural fit for evidence-based exposure data.</li>
+            <li><strong>eSentire</strong> - MDR provider with exposure management and digital forensics capabilities</li>
+            <li><strong>Deepwatch</strong> - Enterprise MDR with growing vulnerability management practice</li>
+        </ul>
+        <h4 style="margin-top:12px;">Partnership Model</h4>
+        <p>Integrated offering. MDR provider enriches threat detection with Astelia exposure context, enabling prioritized response based on which detected threats target genuinely exploitable exposures.</p>
+    </div>
+
+    <div class="card card-green">
+        <h3 style="color:var(--green)">Security Consulting Firms</h3>
+        <h4>Why This Channel</h4>
+        <p>Security consulting firms run penetration tests, risk assessments, and red team engagements for enterprise clients. They see firsthand how overwhelmed security teams are by vulnerability noise. Astelia gives them a platform to operationalize their assessment findings into continuous exposure management.</p>
+        <h4 style="margin-top:12px;">Target Partners</h4>
+        <ul>
+            <li><strong>Coalfire</strong> - Leading compliance and security assessment firm with deep enterprise relationships</li>
+            <li><strong>NCC Group</strong> - Global cybersecurity consulting with red team and assessment practice</li>
+            <li><strong>Bishop Fox</strong> - Offensive security consultancy with continuous attack surface management ambitions</li>
+            <li><strong>Mandiant (Google Cloud)</strong> - Incident response and threat intelligence leader. Strategic alliance potential.</li>
+        </ul>
+        <h4 style="margin-top:12px;">Partnership Model</h4>
+        <p>Referral and co-delivery. Consulting firms recommend Astelia to clients following assessments, with potential for co-managed deployment and ongoing advisory services layered on top of the platform.</p>
+    </div>
+
+    <div class="card-grid cols-2">
+        <div class="card card-slate">
+            <h3 style="color:var(--gray)">VAR / Distribution</h3>
+            <h4>Why This Channel</h4>
+            <p>Value-Added Resellers and distributors provide procurement infrastructure, financing options, and established buyer relationships that accelerate deal velocity - particularly important for an Israeli company building US commercial operations.</p>
+            <h4 style="margin-top:12px;">Target Partners</h4>
+            <ul>
+                <li><strong>Carahsoft</strong> - Dominant public sector IT distributor. Essential for federal market access.</li>
+                <li><strong>Palo Alto Networks NextWave</strong> - Technology alliance for integration and co-sell</li>
+                <li><strong>CDW</strong> - Major VAR with enterprise and mid-market security practices</li>
+                <li><strong>SHI International</strong> - Large IT solutions provider with security focus</li>
+            </ul>
+        </div>
+
+        <div class="card card-red">
+            <h3>Technology Alliances</h3>
+            <h4>Why This Channel</h4>
+            <p>Integration partnerships with major security platforms create distribution leverage, marketplace visibility, and co-sell opportunities. Astelia's AWS Marketplace presence is a strong starting point.</p>
+            <h4 style="margin-top:12px;">Target Alliances</h4>
+            <ul>
+                <li><strong>AWS</strong> - Deepen Marketplace presence, pursue ISV Accelerate for co-sell</li>
+                <li><strong>ServiceNow</strong> - ITSM integration for automated remediation workflows</li>
+                <li><strong>Splunk</strong> - SIEM integration for exposure-enriched alerting</li>
+                <li><strong>Tenable / Qualys</strong> - Data source integrations that position Astelia as complementary, not competitive</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================ -->
+<!-- SECTION 6: 90-DAY GTM EXECUTION PLAN -->
+<!-- ============================================ -->
+<div class="section">
+    <div class="section-label">Execution Plan</div>
+    <h2>90-Day US Market GTM Execution</h2>
+
+    <div class="timeline">
+        <!-- PHASE 1 -->
+        <div class="timeline-item">
+            <div class="phase-label phase-red">Phase 1: Days 1-30 - Foundation</div>
+        </div>
+
+        <div class="timeline-item">
+            <h4>Sales Infrastructure</h4>
+            <ul>
+                <li>Define US ICP tiers by industry, company size, and security maturity. Build target account list of 200+ accounts across enterprise and upper mid-market segments.</li>
+                <li>Build outbound sequences for CISO, VP Security Operations, and Director of Vulnerability Management personas. Separate messaging tracks for each.</li>
+                <li>Establish CRM and pipeline management process. Define deal stages, qualification criteria, and forecast methodology aligned to Astelia's sales cycle.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <h4>Messaging and Positioning</h4>
+            <ul>
+                <li>Develop US-market Power Messages for each buyer persona. Lead with proof points: "3 million vulnerabilities reduced to 30" and Fortune 500 customer references.</li>
+                <li>Create competitive battle cards for Tenable, Rapid7, Qualys, CrowdStrike, and Wiz. Position Astelia as the intelligence layer, not the scanner replacement.</li>
+                <li>Build a 90-second product narrative for cold outreach, conference conversations, and partner introductions.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <h4>Channel Activation</h4>
+            <ul>
+                <li>Identify and initiate conversations with 3-5 priority MSSP and MDR partners. Start with Arctic Wolf, Optiv, and Expel as initial targets.</li>
+                <li>Begin Carahsoft relationship for public sector distribution pipeline.</li>
+            </ul>
+        </div>
+
+        <!-- PHASE 2 -->
+        <div class="timeline-item gold">
+            <div class="phase-label phase-gold">Phase 2: Days 31-60 - Pipeline Generation</div>
+        </div>
+
+        <div class="timeline-item gold">
+            <h4>Outbound Execution</h4>
+            <ul>
+                <li>Launch multi-channel outbound campaigns targeting enterprise CISOs and VP-level security leaders. Email, LinkedIn, and warm introductions through investor networks (Index Ventures, Team8).</li>
+                <li>Execute targeted account-based plays against companies with known Tenable, Qualys, or Rapid7 deployments. Message: "You already scan. Now see what actually matters."</li>
+                <li>Target 30-40 qualified meetings in this phase. Focus on accounts with 5,000+ employees in financial services, healthcare, technology, and critical infrastructure.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item gold">
+            <h4>Event and Community Strategy</h4>
+            <ul>
+                <li>Identify and register for RSA Conference 2026, Black Hat, and sector-specific security events (HIMSS for healthcare, FS-ISAC for financial services).</li>
+                <li>Develop a technical thought leadership program leveraging the founders' red team credentials. Blog posts, webinars, and CISO roundtable dinners in New York, San Francisco, and Washington DC.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item gold">
+            <h4>Partnership Development</h4>
+            <ul>
+                <li>Formalize 1-2 MSSP/MDR technology partnerships with joint go-to-market plans and pipeline commitments.</li>
+                <li>Submit for AWS ISV Accelerate program. Pursue ServiceNow technology partnership certification.</li>
+                <li>Initiate conversations with 2-3 security consulting firms for referral partnerships.</li>
+            </ul>
+        </div>
+
+        <!-- PHASE 3 -->
+        <div class="timeline-item green">
+            <div class="phase-label phase-green">Phase 3: Days 61-90 - Pipeline Conversion</div>
+        </div>
+
+        <div class="timeline-item green">
+            <h4>Deal Progression</h4>
+            <ul>
+                <li>Advance 10-15 qualified opportunities into POC or technical evaluation stage. Deploy Astelia in prospect environments to demonstrate the 98% vulnerability noise reduction in their own data.</li>
+                <li>Develop POC success criteria framework: time to first insight, reduction ratio (total vulnerabilities versus actionable exposures), and remediation prioritization accuracy.</li>
+                <li>Target 3-5 deals in late-stage negotiation by end of Day 90, with a combined pipeline of $1M-$2M in first-year TCV.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item green">
+            <h4>Scaling Readiness</h4>
+            <ul>
+                <li>Document repeatable sales process from first touch through close. Capture objection patterns, competitive displacement playbooks, and POC delivery best practices.</li>
+                <li>Build hiring plan for US sales team expansion: 2-3 enterprise AEs, 1-2 SDRs, and 1 channel/partner manager based on pipeline velocity and conversion data from the first 90 days.</li>
+                <li>Establish quarterly business review cadence with channel partners. Measure partner-sourced pipeline, joint win rates, and integration adoption.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item green">
+            <h4>Metrics and Milestones</h4>
+            <ul>
+                <li>Pipeline target: $2M-$4M in qualified pipeline by Day 90</li>
+                <li>Meeting volume: 60-80 qualified meetings across all segments</li>
+                <li>POC conversion: 40-50% of POCs converting to late-stage opportunity</li>
+                <li>Channel pipeline: 15-20% of total pipeline sourced through partners</li>
+                <li>First closed revenue: 2-3 deals closed or in final negotiation</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================ -->
+<!-- SECTION 7: WHY JEFF -->
+<!-- ============================================ -->
+<div class="section">
+    <div class="section-label">Why Jeff Aragon</div>
+    <h2>The Right GTM Leader for This Stage</h2>
+
+    <div class="card card-red">
+        <h3>Track Record</h3>
+        <p>$150M+ in career revenue across enterprise software, security, and technical platform sales. This is not theoretical. It is closed business, signed contracts, and revenue recognized.</p>
+        <ul style="margin-top:12px;">
+            <li><strong>$24M TCV at a Series A startup</strong> - Built the go-to-market function from the ground up, selling complex technical platforms into healthcare and government buyers. Navigated long sales cycles, compliance requirements, multi-stakeholder procurement, and competitive displacement in regulated environments.</li>
+            <li><strong>Award-winning at UKG for nearly 6 years</strong> - Recognized multiple times for quota attainment and deal execution at one of the largest HCM platforms in the world. Consistently performed in a high-velocity, high-accountability enterprise sales organization.</li>
+            <li><strong>GTM architecture expertise</strong> - Designed and executed sales processes, pipeline systems, messaging frameworks, and territory plans for companies scaling from founder-led sales to repeatable revenue machines.</li>
+        </ul>
+    </div>
+
+    <div class="card card-gold">
+        <h3 style="color:var(--gold)">Why This Matters for Astelia</h3>
+        <p>Astelia is at a critical inflection point. The product works. Fortune 500 customers validate the technology. The founders are world-class. But translating Israeli product-market fit into US enterprise revenue requires a specific kind of GTM operator.</p>
+        <ul style="margin-top:12px;">
+            <li><strong>Enterprise sales process design</strong> - Astelia needs a structured, repeatable sales motion for the US market. Not a deck and a demo, but a full sequence of events from first touch through procurement and deployment. I build these systems.</li>
+            <li><strong>Regulated industry experience</strong> - Healthcare and government buyers have unique procurement patterns, compliance requirements, and decision-making structures. I have closed significant revenue in both sectors and understand how to navigate them.</li>
+            <li><strong>Pipeline discipline</strong> - At this stage, every dollar of pipeline matters. I bring forecast methodology, deal inspection rigor, and qualification frameworks that prevent the "happy ears" problem common in early-stage GTM.</li>
+            <li><strong>Channel development</strong> - Building MSSP, MDR, and technology alliance partnerships requires structured engagement, clear value propositions for partners, and pipeline accountability. I have built and managed channel relationships alongside direct sales motions.</li>
+        </ul>
+    </div>
+
+    <div class="card card-green">
+        <h3 style="color:var(--green)">Engagement Model</h3>
+        <p>I operate as a hands-on GTM leader, not a strategy consultant who delivers a deck and disappears. My work is embedded in live deals, live pipeline, and live revenue operations.</p>
+        <ul style="margin-top:12px;">
+            <li>Direct participation in deal execution - discovery calls, demos, negotiation support, and close plans</li>
+            <li>Sales process and messaging framework development with real-time iteration based on market feedback</li>
+            <li>Pipeline and forecast management with weekly deal inspection and qualification rigor</li>
+            <li>Channel partner activation and joint selling coordination</li>
+            <li>Hiring support and onboarding framework design for the US sales team</li>
+        </ul>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================ -->
+<!-- FOOTER -->
+<!-- ============================================ -->
+<div class="footer">
+    <strong>Jeff Aragon</strong> | jeff@jozuconsultinggroup.com | +1 303-638-1390 (WhatsApp)
+</div>
+
+</div>
+</body>
+</html>
