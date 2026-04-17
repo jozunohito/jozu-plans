@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script async src="https://plausible.io/js/pa-1razrYiA4atISy5-RXcrX.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algolia - US Market GTM Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --bg-card: rgba(255,255,255,0.03);
+      --bg-card-border: rgba(255,255,255,0.06);
+      --accent: #e34115;
+      --accent-dim: rgba(227,65,21,0.12);
+      --gold: #c9a84c;
+      --gold-dim: rgba(201,168,76,0.10);
+      --green: #22c55e;
+      --green-dim: rgba(34,197,94,0.10);
+      --slate: #64748b;
+      --white: #ffffff;
+      --gray: #cbd5e1;
+      --bright: #e2e8f0;
+      --radius: 10px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--gray);
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 2.4em;
+      font-weight: 700;
+      margin-bottom: 0.2em;
+      line-height: 1.15;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      font-weight: 600;
+      margin-bottom: 0.6em;
+    }
+
+    h3 {
+      font-size: 1.1em;
+      font-weight: 600;
+      margin-bottom: 0.4em;
+    }
+
+    h4 {
+      font-size: 0.95em;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 0.3em;
+    }
+
+    p { margin-bottom: 1em; color: var(--gray); }
+
+    ul, ol { color: var(--gray); padding-left: 1.2em; }
+    li { margin-bottom: 0.5em; line-height: 1.6; }
+
+    strong { color: var(--white); font-weight: 600; }
+
+    .section-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.8em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .section {
+      margin-bottom: 60px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .section:last-of-type {
+      border-bottom: none;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+    }
+
+    .card-red { border-left: 3px solid var(--accent); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-green { border-left: 3px solid var(--green); }
+    .card-slate { border-left: 3px solid var(--slate); }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+    .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; }
+
+    .stat-value {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8em;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.1;
+      margin-bottom: 0.15em;
+    }
+
+    .stat-label {
+      font-size: 0.85em;
+      color: var(--gray);
+      font-weight: 400;
+    }
+
+    .text-accent { color: var(--accent); }
+    .text-gold { color: var(--gold); }
+    .text-green { color: var(--green); }
+    .text-white { color: var(--white); }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: var(--accent);
+      margin: 1.2em 0;
+      opacity: 0.6;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1em 0;
+    }
+
+    th {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.8em;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.9em;
+      color: var(--gray);
+    }
+
+    td:first-child { color: var(--white); font-weight: 400; }
+
+    .timeline-phase {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 30px;
+    }
+
+    .timeline-phase::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .timeline-phase::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 22px;
+      width: 2px;
+      height: calc(100% + 10px);
+      background: rgba(227,65,21,0.2);
+    }
+
+    .timeline-phase:last-child::after {
+      display: none;
+    }
+
+    .timeline-phase.gold::before { background: var(--gold); }
+    .timeline-phase.gold::after { background: rgba(201,168,76,0.2); }
+    .timeline-phase.green::before { background: var(--green); }
+
+    .phase-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75em;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.3em;
+    }
+
+    .phase-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.15em;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5em;
+    }
+
+    .plan-header {
+      text-align: left;
+      margin-bottom: 50px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .plan-header .subtitle {
+      font-size: 1.15em;
+      color: var(--slate);
+      font-weight: 300;
+      margin-bottom: 1.5em;
+    }
+
+    .plan-header .meta {
+      font-size: 0.85em;
+      color: var(--gray);
+    }
+
+    .plan-header .meta span {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.7em;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+
+    .tag-red { background: var(--accent-dim); color: var(--accent); }
+    .tag-gold { background: var(--gold-dim); color: var(--gold); }
+    .tag-green { background: var(--green-dim); color: var(--green); }
+
+    .plan-footer {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+    }
+
+    .plan-footer p {
+      font-size: 0.85em;
+      color: var(--gray);
+      margin-bottom: 0.3em;
+    }
+
+    .plan-footer .name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: var(--white);
+      font-size: 1em;
+    }
+
+    .plan-footer .contact {
+      color: var(--gray);
+      font-size: 0.85em;
+    }
+
+    .plan-footer .confidential {
+      font-size: 0.75em;
+      color: var(--slate);
+      margin-top: 1.5em;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 30px 20px; }
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      h1 { font-size: 1.8em; }
+    }
+
+    @media print {
+      body { background: #0a0e17; }
+      .container { max-width: 100%; padding: 30px; }
+      .section { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="plan-header">
+      <div class="section-label">Confidential GTM Strategy</div>
+      <h1>Algolia</h1>
+      <h1 style="color: var(--accent); font-size: 1.4em; font-weight: 600; margin-bottom: 0.4em;">Americas Revenue Acceleration Plan</h1>
+      <p class="subtitle">AI search and discovery platform. $336M raised. $2.25B valuation. 18,000+ customers. 1.75 trillion searches per year. Named a Gartner Magic Quadrant Leader. New CEO. Ready to accelerate Americas growth under new leadership.</p>
+      <div class="divider"></div>
+      <p class="meta">Prepared by <span>Jeff Aragon</span> | Jozu Consulting Group | April 2026</p>
+    </div>
+
+    <!-- SECTION 1: COMPANY PROFILE -->
+    <div class="section">
+      <div class="section-label">Company Profile</div>
+      <h2>About Algolia</h2>
+      <p>Algolia is the AI search and retrieval platform trusted by more than 18,000 businesses and millions of developers worldwide. Founded in 2012 in Paris by Nicolas Dessaigne and Julien Lemoine, Algolia has grown from a YC-backed startup into a category leader with a $2.25B valuation, $336M in total funding, and a platform that processes over 1.75 trillion search queries annually. Algolia is headquartered in San Francisco with offices in Paris, London, New York, Bucharest, and Sydney. The company recently appointed Stephen Lynch as CEO in April 2026, signaling a new chapter focused on scaling the platform as the intelligence and memory layer for AI-native applications.</p>
+
+      <div class="grid-4" style="margin-top: 24px; margin-bottom: 28px;">
+        <div class="card card-red" style="text-align: center;">
+          <div class="stat-value">$336M</div>
+          <div class="stat-label">Total Funding (Series A through D)</div>
+        </div>
+        <div class="card card-gold" style="text-align: center;">
+          <div class="stat-value" style="color: var(--gold);">$2.25B</div>
+          <div class="stat-label">Valuation</div>
+        </div>
+        <div class="card card-green" style="text-align: center;">
+          <div class="stat-value" style="color: var(--green);">18K+</div>
+          <div class="stat-label">Customers Worldwide</div>
+        </div>
+        <div class="card card-slate" style="text-align: center;">
+          <div class="stat-value" style="color: var(--white);">850+</div>
+          <div class="stat-label">Employees Globally</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card card-red">
+          <h4 style="color: var(--accent);">Leadership</h4>
+          <p style="margin-bottom: 0.5em;"><strong>Stephen Lynch, CEO (April 2026)</strong> - Two decades of experience scaling enterprise platforms. Previously GM and EVP of Enterprise at AlphaSense, where he helped scale the company to serve 6,000+ organizations including 88% of the S&P 100. Succeeded Bernadette Nixon, who continues as a Board Director.</p>
+          <p style="margin-bottom: 0.5em;"><strong>Nicolas Dessaigne, Co-Founder and Director</strong> - Now a Group Partner at Y Combinator. Remains on the Algolia board.</p>
+          <p style="margin-bottom: 0;"><strong>Julien Lemoine, Co-Founder</strong> - Built the original search technology at the core of Algolia. Both founders previously worked together at Exalead on web and enterprise search products.</p>
+        </div>
+        <div class="card card-gold">
+          <h4>Key Investors</h4>
+          <ul style="margin-top: 8px;">
+            <li><strong>Lone Pine Capital</strong> - Led $150M Series D (July 2021)</li>
+            <li><strong>Accel</strong> - Early investor, participated across multiple rounds</li>
+            <li><strong>Salesforce Ventures</strong> - Strategic investor</li>
+            <li><strong>DTCP, Point Nine Capital, Storm Ventures</strong> - Earlier round participants</li>
+          </ul>
+          <h4 style="margin-top: 16px;">Notable Customers</h4>
+          <ul style="margin-top: 8px;">
+            <li>Stripe, Slack, Twitch, Lacoste, Medium</li>
+            <li>Birkenstock, Gymshark, Under Armour</li>
+            <li>Staples, NBCUniversal, Petsmart</li>
+            <li>Zendesk, Netlify, Shopify merchants</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: PRODUCT PLATFORM -->
+    <div class="section">
+      <div class="section-label">Product Overview</div>
+      <h2>The Algolia Platform</h2>
+      <p>Algolia has evolved from a search API into a comprehensive AI search, discovery, and retrieval platform. The platform combines the precision of keyword search with AI-powered semantic understanding, delivering sub-50ms results at global scale. With the recent launch of Agent Studio, Algolia is positioning itself as the intelligence and memory layer for the next generation of AI-native applications.</p>
+
+      <h3 style="color: var(--accent); margin-top: 24px;">Core Products</h3>
+      <div class="grid-3" style="margin-top: 16px;">
+        <div class="card card-red">
+          <h4 style="color: var(--accent);">Algolia AI Search</h4>
+          <p style="margin-bottom: 0;">NeuralSearch technology fuses vector and keyword search in a single query. Neural hashing compresses vectors for speed without sacrificing relevance. Configurable ranking weights let teams balance semantic understanding with keyword precision. The core product that powers 1.75 trillion searches per year.</p>
+        </div>
+        <div class="card card-gold">
+          <h4>Algolia Recommend</h4>
+          <p style="margin-bottom: 0;">AI-powered product recommendations for related items, frequently bought together, and trending content. Drives personalized discovery experiences that increase conversion rates, average order value, and time on site. Built for real-time responsiveness at e-commerce scale.</p>
+        </div>
+        <div class="card card-green">
+          <h4 style="color: var(--green);">Agent Studio</h4>
+          <p style="margin-bottom: 0;">Launched September 2025. Platform for building AI agents powered by Algolia's retrieval infrastructure. Grounded Retrieval keeps agents anchored in enterprise data. MCP Server for developer integration. Positions Algolia as the retrieval backbone for agentic AI applications.</p>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top: 16px;">
+        <div class="card card-slate">
+          <h4 style="color: var(--slate);">Browse AI and Merchandising</h4>
+          <p style="margin-bottom: 0;">AI-powered category pages and merchandising tools. Business users can generate product collections using natural language. Reduces manual merchandising work and accelerates response to seasonal trends. Visual rules editor for non-technical teams.</p>
+        </div>
+        <div class="card card-red">
+          <h4 style="color: var(--accent);">DocSearch, Ask AI, and SiteSearch</h4>
+          <p style="margin-bottom: 0;">Purpose-built solutions for developer documentation, conversational AI answers, and website search. DocSearch is free for open-source projects, driving massive developer adoption. Ask AI delivers conversational search experiences powered by retrieval-augmented generation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: MARKET OPPORTUNITY -->
+    <div class="section">
+      <div class="section-label">Market Opportunity</div>
+      <h2>The Americas Revenue Landscape</h2>
+      <p>Algolia sits at the intersection of two powerful market forces: the ongoing enterprise demand for fast, relevant search and the accelerating need for AI retrieval infrastructure. The Americas region represents the largest addressable market for both. Algolia already has meaningful US revenue and a strong customer base. The opportunity is not market entry. It is revenue acceleration, expansion selling, and capturing the emerging agentic AI retrieval market before competitors establish themselves.</p>
+
+      <div class="grid-4" style="margin-top: 24px; margin-bottom: 28px;">
+        <div class="card card-red" style="text-align: center;">
+          <div class="stat-value">$14B+</div>
+          <div class="stat-label">Enterprise Search Market by 2028</div>
+        </div>
+        <div class="card card-gold" style="text-align: center;">
+          <div class="stat-value" style="color: var(--gold);">$100M+</div>
+          <div class="stat-label">Algolia Annual Revenue (2024)</div>
+        </div>
+        <div class="card card-green" style="text-align: center;">
+          <div class="stat-value" style="color: var(--green);">17K+</div>
+          <div class="stat-label">Customers Already on Platform</div>
+        </div>
+        <div class="card card-slate" style="text-align: center;">
+          <div class="stat-value" style="color: var(--white);">Leader</div>
+          <div class="stat-label">2025 Gartner Magic Quadrant</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card card-red">
+          <h3>Three Growth Vectors</h3>
+          <ul>
+            <li><strong>Expansion selling into the existing base.</strong> With 17,000+ customers and a usage-based pricing model, the single greatest lever for revenue growth is increasing consumption, product adoption, and contract value within accounts that already trust the platform. Every customer using Search is a prospect for Recommend, Browse AI, and Agent Studio.</li>
+            <li><strong>New enterprise acquisition.</strong> Algolia's Gartner Leader positioning and Agent Studio launch open conversations with CIOs, CDOs, and VPs of Engineering at large enterprises evaluating AI retrieval infrastructure. These are six and seven-figure annual deals with multi-year expansion potential.</li>
+            <li><strong>Agentic AI and retrieval infrastructure.</strong> The emerging market for AI agent infrastructure is growing faster than any segment in enterprise software. Algolia's 1.75 trillion query track record, sub-50ms latency, and grounded retrieval capabilities make it uniquely positioned to become the retrieval layer that AI agents depend on.</li>
+          </ul>
+        </div>
+        <div class="card card-gold">
+          <h3 style="color: var(--gold);">Segment Prioritization</h3>
+          <ul>
+            <li><strong>E-commerce and retail (largest current segment).</strong> Enterprise retailers deploying AI search, recommendations, and merchandising. Algolia already serves brands like Lacoste, Gymshark, Birkenstock, Under Armour, Staples, and Petsmart. The opportunity is expanding these accounts into Recommend, Browse AI, and increasing query volume.</li>
+            <li><strong>SaaS and developer platforms.</strong> Companies embedding Algolia into their products for end-user search. Stripe, Slack, Twitch, and Zendesk are examples. High stickiness, usage-based growth, and strong expansion economics.</li>
+            <li><strong>Media, content, and publishing.</strong> Organizations with large content libraries needing AI-powered discovery. NBCUniversal and Medium are current customers. The shift from keyword search to semantic and conversational discovery drives new demand.</li>
+            <li><strong>Enterprise and B2B (emerging segment).</strong> Agent Studio and MCP Server open an entirely new buyer: the VP of AI, Chief Data Officer, or Head of AI Engineering building retrieval infrastructure for internal agents and customer-facing AI applications.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: COMPETITIVE LANDSCAPE -->
+    <div class="section">
+      <div class="section-label">Competitive Landscape</div>
+      <h2>How Algolia Wins</h2>
+      <p>Algolia competes across multiple segments, from open-source search to enterprise commerce platforms. The competitive strategy depends on the buyer, the use case, and the technical depth of the evaluation. Algolia's advantages are speed, developer experience, relevance quality, and now AI-native retrieval for agents. The key is positioning correctly against each competitor.</p>
+
+      <table>
+        <tr><th>Competitor</th><th>Strength</th><th>Limitation</th><th>Algolia Win Strategy</th></tr>
+        <tr>
+          <td>Elasticsearch / Elastic</td>
+          <td>Open source flexibility, massive installed base, 400M+ downloads</td>
+          <td>Requires dedicated engineering teams to build, tune, and maintain. Slow relevance iteration. High total cost of ownership.</td>
+          <td>Lead with TCO analysis. Algolia delivers better relevance out of the box with a fraction of the engineering investment. Position as "Elastic takes 6 engineers and 6 months; Algolia takes 1 developer and 2 weeks."</td>
+        </tr>
+        <tr>
+          <td>Coveo</td>
+          <td>Strong enterprise positioning, AI-powered personalization, deep Salesforce and ServiceNow integrations</td>
+          <td>High cost. Long implementation cycles. Perceived as slow compared to Algolia. Less developer-friendly.</td>
+          <td>Win on speed of implementation, API-first flexibility, and cost at scale. Coveo deals are often $500K+ before they deliver value. Algolia shows results in days, not quarters.</td>
+        </tr>
+        <tr>
+          <td>Bloomreach</td>
+          <td>E-commerce specialization, CDP integration, content management bundled with search</td>
+          <td>Locked into e-commerce. Not a horizontal platform. Weaker developer ecosystem. No agentic AI story.</td>
+          <td>Win on platform breadth and AI evolution. Algolia serves e-commerce, SaaS, media, and now AI agents. Bloomreach serves one vertical. As AI reshapes discovery, a single-vertical platform becomes a constraint.</td>
+        </tr>
+        <tr>
+          <td>Typesense / Meilisearch</td>
+          <td>Open source, lower cost for small deployments, growing developer communities</td>
+          <td>No enterprise features. No AI recommendations. No Agent Studio. Limited support for large-scale production workloads.</td>
+          <td>Do not compete on price against open source at the low end. Win by selling the enterprise value that open source cannot deliver: SLAs, relevance analytics, merchandising tools, Recommend, Agent Studio, and dedicated support.</td>
+        </tr>
+        <tr>
+          <td>Google Vertex AI Search</td>
+          <td>Google brand, deep GCP integration, massive AI investment</td>
+          <td>Lock-in to Google Cloud. Less customizable. Enterprise pricing is complex and often unpredictable. Relevance tuning is a black box.</td>
+          <td>Win on cloud neutrality, transparency, and developer control. Algolia works across any infrastructure. Buyers who want to avoid cloud vendor lock-in choose Algolia.</td>
+        </tr>
+      </table>
+
+      <div class="card card-red" style="margin-top: 20px;">
+        <h3>Competitive Positioning Statement</h3>
+        <p style="color: var(--bright); margin-bottom: 0;">Every other option in this market forces you to choose: open source flexibility with massive engineering overhead, or an enterprise platform locked into one vertical or one cloud. Algolia is the only platform that delivers sub-50ms AI search, product recommendations, and agent retrieval infrastructure in a single API, deployable anywhere, implementable in days instead of months, and trusted by 18,000 businesses processing 1.75 trillion queries per year. That combination does not exist anywhere else.</p>
+      </div>
+    </div>
+
+    <!-- SECTION 5: THE PLAN -->
+    <div class="section">
+      <div class="section-label">The Plan</div>
+      <h2>90-Day Americas Revenue Acceleration</h2>
+      <p>This is not a startup GTM build. Algolia has an established Americas business, an existing sales team, a recognized brand, and a customer base generating over $100M in revenue. The plan is to accelerate what exists: sharpen execution, expand deal sizes, improve win rates, build repeatable enterprise motions, and capture the agentic AI retrieval opportunity before competitors establish themselves.</p>
+
+      <div class="timeline-phase">
+        <div class="phase-label">Phase 1: Days 1 to 30</div>
+        <div class="phase-title">Assess, Align, Accelerate</div>
+        <ul>
+          <li><strong>Full revenue audit.</strong> Day 1. Open every pipeline opportunity, inspect every deal. Map the existing team's strengths, coverage gaps, and quota distribution. Identify the deals that can close fastest, the accounts with the highest expansion potential, and the segments where Algolia is winning versus losing and why. Interview every AE, SE, and CSM on the team within the first two weeks.</li>
+          <li><strong>Segment the installed base for expansion.</strong> Algolia's 17,000+ customers represent the single largest revenue acceleration opportunity. Identify accounts using Search that have not adopted Recommend or Browse AI. Identify accounts with flat or declining query volume. Identify customers on legacy contracts that could be restructured into higher-value agreements. Build a ranked list of the top 100 expansion targets by revenue potential.</li>
+          <li><strong>Align with new CEO priorities.</strong> Stephen Lynch joined in April 2026 with a mandate to scale Algolia as the intelligence and memory layer for AI-native applications. Ensure the Americas sales strategy reflects this positioning. Work with product and marketing to align messaging around Agent Studio, Grounded Retrieval, and the AI retrieval infrastructure narrative.</li>
+          <li><strong>Establish forecast discipline.</strong> Implement evidence-based pipeline management across the Americas team. Every deal at Commit stage requires: economic buyer identified and engaged, business case quantified, technical validation complete, procurement process confirmed, and timeline agreed. No deal advances on seller activity alone. Build a shared language around pipeline quality, not just pipeline volume.</li>
+          <li><strong>Assess team structure and capacity.</strong> Evaluate whether the current team is organized for growth. Map coverage by segment (e-commerce, SaaS, media, enterprise), by deal size (self-serve, mid-market, enterprise), and by geography (US, Canada, LATAM). Identify where additional headcount or specialization is needed and begin building the hiring plan for Phase 3.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-phase gold">
+        <div class="phase-label" style="color: var(--gold);">Phase 2: Days 31 to 60</div>
+        <div class="phase-title">Execute, Expand, Win</div>
+        <ul>
+          <li><strong>Run the top 20 deals directly.</strong> Get into the most important enterprise opportunities alongside AEs. Join discovery calls, review proposals, pressure-test business cases, and engage with economic buyers personally. The fastest way to impact revenue is to improve the quality and velocity of deals already in motion. I have done this at every company I have joined and it produces immediate results.</li>
+          <li><strong>Launch the expansion selling motion.</strong> Activate the top 100 expansion targets identified in Phase 1. Work with CSMs and AEs to build account plans for each. Lead with product adoption: "You are using Search. Here is how Recommend increases your average order value by X percent. Here is how Browse AI reduces your merchandising team's workload. Here is how Agent Studio lets you build AI-powered shopping assistants using your existing Algolia data." Expansion revenue should be the fastest path to accelerating Americas growth.</li>
+          <li><strong>Build the enterprise playbook for Agent Studio.</strong> Agent Studio opens a new buyer (VP of AI, Head of AI Engineering, Chief Data Officer) and a new use case (retrieval infrastructure for AI agents). This requires a distinct sales motion: different discovery questions, different ROI models, different competitive positioning. Build the playbook, train the team, and launch targeted outbound into enterprises actively building AI agent infrastructure.</li>
+          <li><strong>Sharpen competitive execution.</strong> Build or refresh battle cards for Elasticsearch, Coveo, Bloomreach, and Google Vertex AI Search. Analyze recent win/loss data to identify patterns. Where are we losing and why? Where are we winning and what can we replicate? Competitive intelligence should flow into weekly deal reviews and inform how we position in every opportunity.</li>
+          <li><strong>Implement account-based outbound for enterprise targets.</strong> Identify 50 high-value enterprise accounts in the Americas that are not yet Algolia customers. Build targeted messaging by segment and persona. Coordinate with marketing on ABM campaigns. The goal is not volume. The goal is getting meetings with the right buyers at the right companies with a message that speaks to their specific needs.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-phase green">
+        <div class="phase-label" style="color: var(--green);">Phase 3: Days 61 to 90</div>
+        <div class="phase-title">Scale the Machine</div>
+        <ul>
+          <li><strong>Drive measurable pipeline and revenue acceleration.</strong> By day 90, the Americas pipeline should show clear growth in both volume and quality. Expansion revenue from the installed base should be tracking ahead of historical rates. Enterprise deal sizes should be increasing as we attach Recommend, Browse AI, and Agent Studio to core Search contracts. Win rates against key competitors should be improving based on the playbooks and competitive training deployed in Phase 2.</li>
+          <li><strong>Build and present the team scaling plan.</strong> Based on 60 days of direct observation, present a comprehensive team plan: where to add AEs, whether to create a dedicated enterprise segment versus mid-market, whether to invest in overlay specialists for Agent Studio, and what SDR capacity is needed to support the outbound motion. Include hiring profiles, ramp timelines, quota models, and territory design.</li>
+          <li><strong>Establish the LATAM strategy.</strong> The VP Sales Americas role includes responsibility for Latin America. Assess current LATAM revenue, identify the highest-potential markets (Brazil, Mexico, Colombia), determine whether the region needs dedicated coverage or can be served from the US team, and build a phased plan for LATAM investment.</li>
+          <li><strong>Launch the partner and channel strategy.</strong> (See dedicated section below.) Activate partnerships with technology partners, system integrators, and commerce platform ecosystems that can accelerate Algolia's reach into enterprise accounts.</li>
+          <li><strong>Present the 12-month revenue plan to the executive team.</strong> Deliver a data-backed plan covering: revenue targets by segment and product, pipeline coverage requirements, team size and investment needed, expansion revenue forecasts, competitive positioning priorities, and the timeline for capturing the agentic AI retrieval market. This is the plan that aligns the Americas organization with the new CEO's vision and Algolia's next growth phase.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SECTION 6: PARTNERSHIP AND CHANNEL -->
+    <div class="section">
+      <div class="section-label">Partnership and Channel Strategy</div>
+      <h2>Scaling Through Strategic Partnerships</h2>
+      <p>Algolia's API-first architecture makes it naturally embeddable within partner ecosystems. The partnership strategy should target multiple tiers, from technology alliances that generate co-sell pipeline to commerce platform ecosystems that drive self-serve adoption at scale.</p>
+
+      <div class="grid-2" style="margin-top: 16px;">
+        <div class="card card-red">
+          <h4 style="color: var(--accent);">Commerce Platform Ecosystem</h4>
+          <p>Shopify, BigCommerce, Salesforce Commerce Cloud, Adobe Commerce (Magento), and Commercetools all have merchants who need better search than their native capabilities provide. Build certified integrations, co-marketing programs, and joint selling motions with platform sales teams. Every commerce platform deal where the merchant needs AI search is an Algolia opportunity. The Shopify ecosystem alone represents thousands of mid-market and enterprise merchants.</p>
+        </div>
+        <div class="card card-gold">
+          <h4>System Integrators and Digital Agencies</h4>
+          <p>Accenture, Deloitte Digital, Publicis Sapient, EPAM, and boutique e-commerce agencies implement digital commerce and content platforms for enterprise clients. These firms influence technology selection and often have existing MSAs that accelerate procurement. Get Algolia into their recommendation set and implementation playbooks. Train their teams to implement and configure Algolia. Every replatforming project is a search decision.</p>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top: 16px;">
+        <div class="card card-green">
+          <h4 style="color: var(--green);">Technology and Cloud Alliances</h4>
+          <p>AWS Marketplace, Google Cloud Marketplace, and Azure Marketplace listings simplify procurement for enterprise buyers with existing cloud commitments. Build co-sell relationships with cloud sales teams. Partner with CMS platforms (Contentful, Sanity, Hygraph), headless commerce platforms (Commercetools, Fabric), and CDP vendors (Segment, mParticle) where search is a natural complement. Each integration makes Algolia stickier and harder to replace.</p>
+        </div>
+        <div class="card card-slate">
+          <h4 style="color: var(--slate);">AI and Developer Ecosystem</h4>
+          <p>Algolia's MCP Server and Agent Studio position the platform as retrieval infrastructure for the AI agent ecosystem. Partner with AI development platforms (LangChain, LlamaIndex, Vercel AI SDK), AI application builders, and enterprises building custom agents. The companies investing in agentic AI infrastructure today will generate the highest-value Algolia contracts over the next 24 months. Build relationships with AI-focused VCs, accelerators, and developer communities to ensure Algolia is the default retrieval layer for AI-native applications.</p>
+        </div>
+      </div>
+
+      <div class="card card-red" style="margin-top: 16px;">
+        <h3>Channel Revenue Target</h3>
+        <p style="margin-bottom: 0;">Partner-sourced and partner-influenced pipeline should represent 20% of Americas pipeline by month 6 and scale to 30%+ by month 12. The commerce platform ecosystem and system integrator channels will produce the fastest results. The AI and developer ecosystem partnerships will generate the largest long-term contract values.</p>
+      </div>
+    </div>
+
+    <!-- SECTION 7: WHY JEFF -->
+    <div class="section">
+      <div class="section-label">Why Jeff Aragon</div>
+      <h2>What I Bring to Algolia</h2>
+
+      <div class="grid-2" style="margin-top: 16px;">
+        <div class="card card-red">
+          <h3>I scale revenue at established companies and build it from zero.</h3>
+          <p style="margin-bottom: 0;">I have generated over $150M in career revenue across enterprise SaaS companies at every stage of growth. At UKG, an established enterprise platform with thousands of customers, I was award winning for nearly 6 years, consistently exceeding quota selling workforce management technology into complex enterprise accounts. At Ushur, a Series A startup with no established market, I built $24M in total contract value in less than two years as an individual contributor, including closing the largest deal in company history. I know how to operate inside an established sales organization with process, forecast rigor, and team coordination. And I know how to create new pipeline in categories that did not exist before. Algolia needs both: scaling the core search business while capturing the emerging AI retrieval market.</p>
+        </div>
+        <div class="card card-gold">
+          <h3 style="color: var(--gold);">I sell technical platforms to technical and business buyers.</h3>
+          <p style="margin-bottom: 0;">Algolia's buyers range from developers who evaluate the API to VPs of Engineering who approve the architecture to CMOs and heads of e-commerce who own the business outcome. I have spent my career selling platforms where the technical evaluation and the business case happen in parallel and both must be won. I understand how to run a deal where the SE is demonstrating query performance to engineers while I am building the ROI model with the VP of Digital Commerce. This dual-track selling motion is exactly what Algolia's enterprise deals require.</p>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top: 16px;">
+        <div class="card card-green">
+          <h3 style="color: var(--green);">I build forecast discipline without killing velocity.</h3>
+          <p style="margin-bottom: 0;">At every company I have joined, I have installed evidence-based forecasting that gives leadership confidence in the number while keeping the sales team focused on advancing deals, not filling out spreadsheets. My approach is built on mutual alignment between buyer and seller: after every meaningful interaction, both sides confirm the value being delivered, the economics of the problem being solved, and the next steps with timelines. If the buyer has not confirmed it, it is not real. This method produces forecast accuracy that executive teams and boards can rely on. At UKG, this discipline contributed to consistent 150%+ attainment. At Ushur, it enabled accurate forecasting of multi-million dollar deals with 6 to 12-month cycles.</p>
+        </div>
+        <div class="card card-slate">
+          <h3 style="color: var(--white);">I coach and develop sales teams at scale.</h3>
+          <p style="margin-bottom: 0;">Scaling the Americas from its current trajectory to the next level requires more than individual deal execution. It requires building a team that can execute consistently across segments, geographies, and buyer types. I have built and led sales teams multiple times, from initial hiring through ramp, territory design, quota setting, and performance management. I develop AEs through direct deal coaching, not abstract training sessions. I sit in their deals, show them how to navigate complex buying committees, and hold them accountable to the process. The result is a team that can operate independently at a high level, not one that depends on the VP to close every deal.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 8: REVENUE TRAJECTORY -->
+    <div class="section" style="border-bottom: none;">
+      <div class="section-label">Revenue Trajectory</div>
+      <h2>Milestones and Commitments</h2>
+
+      <table>
+        <tr><th>Milestone</th><th>Day 30</th><th>Day 60</th><th>Day 90</th><th>Month 12</th></tr>
+        <tr>
+          <td>Pipeline Quality</td>
+          <td>Audit complete, forecast recalibrated, expansion targets identified</td>
+          <td>Top 20 deals advanced, expansion pipeline activated, Agent Studio pipeline building</td>
+          <td>Measurable improvement in pipeline velocity and average deal size</td>
+          <td>Americas pipeline at target coverage ratio with diversified sources</td>
+        </tr>
+        <tr>
+          <td>Expansion Revenue</td>
+          <td>Top 100 accounts ranked, account plans initiated</td>
+          <td>First expansion deals closing (Recommend, Browse AI, Agent Studio)</td>
+          <td>Expansion motion repeatable and documented</td>
+          <td>Expansion revenue as a meaningful percentage of total Americas growth</td>
+        </tr>
+        <tr>
+          <td>Enterprise New Business</td>
+          <td>50 target accounts identified, outbound launched</td>
+          <td>Enterprise meetings generating qualified pipeline</td>
+          <td>Enterprise deals in late stages, first closes in progress</td>
+          <td>Consistent enterprise deal flow with improving win rates</td>
+        </tr>
+        <tr>
+          <td>Team Development</td>
+          <td>Full team assessment, coaching plans in place</td>
+          <td>Deal coaching active, playbooks deployed, competitive training delivered</td>
+          <td>Scaling plan presented, hiring underway where needed</td>
+          <td>Full Americas team operating at target capacity and productivity</td>
+        </tr>
+        <tr>
+          <td>Partner Channel</td>
+          <td>Top partners identified, engagement initiated</td>
+          <td>First co-sell motions active with commerce platforms and SIs</td>
+          <td>Partner pipeline contributing to Americas forecast</td>
+          <td>30%+ of pipeline partner-sourced or partner-influenced</td>
+        </tr>
+      </table>
+
+      <div class="divider"></div>
+
+      <div class="card card-red" style="margin-top: 20px;">
+        <p style="font-family: Poppins, sans-serif; font-size: 1.1em; color: var(--white); margin-bottom: 0.5em;">Algolia has built something rare: a platform that 18,000 businesses already depend on, a technology advantage that Gartner recognizes as a category leader, and a new product line in Agent Studio that opens an entirely new market. The Americas revenue engine needs a leader who can scale an existing business while capturing a new one. That is exactly what I do.</p>
+        <p style="font-family: Poppins, sans-serif; font-size: 1.1em; color: var(--bright); margin-bottom: 0;">This plan is built from the outside looking in. I would welcome the chance to refine it with you and your team.</p>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="plan-footer">
+      <p class="name">Jeff Aragon</p>
+      <p class="contact">jeff@jozuconsultinggroup.com | +1 303-638-1390 (mobile and WhatsApp)</p>
+      <p class="confidential">Confidential - Prepared for Algolia Leadership</p>
+    </div>
+
+  </div>
+</body>
+</html>
