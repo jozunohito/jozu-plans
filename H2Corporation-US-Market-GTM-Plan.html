@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H2 Corporation US Market GTM Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --bg-card: rgba(255,255,255,0.03);
+      --bg-card-border: rgba(255,255,255,0.06);
+      --accent: #e34115;
+      --accent-dim: rgba(227,65,21,0.12);
+      --gold: #c9a84c;
+      --gold-dim: rgba(201,168,76,0.10);
+      --green: #22c55e;
+      --green-dim: rgba(34,197,94,0.10);
+      --slate: #64748b;
+      --white: #ffffff;
+      --gray: #cbd5e1;
+      --bright: #e2e8f0;
+      --radius: 10px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--gray);
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      font-weight: 700;
+      margin-bottom: 0.3em;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 1.45em;
+      font-weight: 600;
+      margin-bottom: 0.5em;
+      margin-top: 2.5em;
+    }
+
+    h3 {
+      font-size: 1.05em;
+      font-weight: 600;
+      margin-bottom: 0.4em;
+      color: var(--white);
+    }
+
+    h4 {
+      font-size: 0.95em;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 0.3em;
+    }
+
+    p {
+      margin-bottom: 1em;
+      color: var(--gray);
+      font-weight: 300;
+    }
+
+    .section-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.8em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--accent);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .subtitle {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.1em;
+      color: var(--bright);
+      font-weight: 300;
+      margin-bottom: 0.5em;
+    }
+
+    .tagline {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85em;
+      color: var(--gold);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      margin-top: 1em;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius);
+      padding: 22px 26px;
+      margin-bottom: 14px;
+    }
+
+    .card-red { border-left: 3px solid var(--accent); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-green { border-left: 3px solid var(--green); }
+    .card-slate { border-left: 3px solid var(--slate); }
+
+    .card h3 { margin-bottom: 0.3em; }
+    .card h4 { margin-bottom: 0.25em; }
+    .card p { margin-bottom: 0.5em; font-size: 0.92em; }
+    .card ul { margin: 0.4em 0 0.2em 1.2em; }
+    .card li { margin-bottom: 0.3em; font-size: 0.92em; color: var(--gray); }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+
+    .stat {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.6em;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 0.8em;
+      color: var(--gray);
+      font-weight: 300;
+      margin-top: 0.2em;
+    }
+
+    .stat-gold { color: var(--gold); }
+    .stat-green { color: var(--green); }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: var(--accent);
+      margin: 2em 0;
+      opacity: 0.5;
+    }
+
+    .metrics-row {
+      display: flex;
+      gap: 30px;
+      margin: 1.2em 0;
+      flex-wrap: wrap;
+    }
+
+    .metric-item {
+      text-align: left;
+    }
+
+    .timeline-phase {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 28px;
+    }
+
+    .timeline-phase::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .timeline-phase::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 22px;
+      width: 2px;
+      height: calc(100% - 10px);
+      background: rgba(227,65,21,0.2);
+    }
+
+    .timeline-phase:last-child::after { display: none; }
+
+    .phase-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75em;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.3em;
+    }
+
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1em 0;
+      font-size: 0.88em;
+    }
+
+    .comp-table th {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.8em;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--bg-card-border);
+      background: var(--bg-card);
+    }
+
+    .comp-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--bg-card-border);
+      color: var(--gray);
+      vertical-align: top;
+    }
+
+    .comp-table tr:hover td {
+      background: var(--bg-card);
+    }
+
+    .text-accent { color: var(--accent); }
+    .text-gold { color: var(--gold); }
+    .text-green { color: var(--green); }
+    .text-white { color: var(--white); }
+    .text-bright { color: var(--bright); }
+    .fw-600 { font-weight: 600; }
+
+    .footer {
+      margin-top: 4em;
+      padding-top: 2em;
+      border-top: 1px solid var(--bg-card-border);
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 0.85em;
+      color: var(--gray);
+    }
+
+    .footer .name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: var(--white);
+      font-size: 1em;
+    }
+
+    @media print {
+      body { background: #0a0e17; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .container { padding: 30px 20px; }
+    }
+
+    @media (max-width: 700px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .container { padding: 30px 20px; }
+      h1 { font-size: 1.6em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="section-label">Prepared by Jozu Consulting Group</div>
+    <h1>H2 Corporation (AISekisan)<br>90 Day US Market GTM Plan</h1>
+    <p class="subtitle">Go-to-market framework for accelerating AISekisan's commercial traction in the US construction market</p>
+    <p class="tagline">April 2026</p>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 1: COMPANY PROFILE -->
+    <div class="section-label">Section 01</div>
+    <h2>Company Profile</h2>
+
+    <p>H2 Corporation is the developer of AISekisan Platform (AISP), the most advanced AI platform for construction material takeoffs, estimation, and order management. Headquartered in Tokyo and founded by Hiro Kawashima and Keiji Kawashima, the company has built its platform through deep collaboration with Japan's largest building materials manufacturers, distributors, general contractors, and specialized construction companies. AISekisan automates the material takeoff process with up to 95% accuracy while reducing the time required by up to 90%, transforming one of the most labor-intensive workflows in the construction industry.</p>
+
+    <div class="grid-3" style="margin: 1.5em 0;">
+      <div class="card card-red">
+        <div class="stat">500%</div>
+        <div class="stat-label">Year-over-Year Growth</div>
+      </div>
+      <div class="card card-gold">
+        <div class="stat stat-gold">NEA</div>
+        <div class="stat-label">Pre-Series A Extension Lead (First Japanese Investment)</div>
+      </div>
+      <div class="card card-slate">
+        <div class="stat" style="color: var(--bright);">10x</div>
+        <div class="stat-label">Estimating Efficiency Improvement</div>
+      </div>
+    </div>
+
+    <div class="card card-red">
+      <h3>Product Capabilities</h3>
+      <ul>
+        <li><span class="text-white fw-600">AI Material Takeoff:</span> Automatically reads construction drawings and extracts material quantities with 95% accuracy, eliminating manual counting and measurement</li>
+        <li><span class="text-white fw-600">Estimation Automation:</span> Converts takeoff data into cost estimates by integrating real-time material pricing and labor rates</li>
+        <li><span class="text-white fw-600">Order Management:</span> Connects estimation directly to procurement, creating a "System of Record" for construction materials</li>
+        <li><span class="text-white fw-600">Platform Integrations:</span> Built to collaborate with major building materials manufacturers and distributors for seamless supply chain connectivity</li>
+      </ul>
+    </div>
+
+    <div class="card card-gold" style="margin-top: 14px;">
+      <h3>Funding and Investor Backing</h3>
+      <p>H2 Corporation closed its Pre-Series A Extension in December 2025 led by NEA (New Enterprise Associates), which manages $28 billion in assets. This marks NEA's first investment in a Japanese company. Additional investors include Spiral Capital, JAFCO, MetaProp (US based construction tech VC), One Capital, and Boost Capital. The company is expanding its US forward-deployed engineering and customer success presence tenfold and projecting over 300% growth in the coming year.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 2: MARKET OPPORTUNITY -->
+    <div class="section-label">Section 02</div>
+    <h2>US Market Opportunity</h2>
+
+    <p>The US construction estimating software market was valued at $626 million in 2025 and is growing at 8.7% annually. The broader global construction estimating market reached $2.73 billion in 2025 and is projected to hit $5.01 billion by 2030 at a 12.89% CAGR. Takeoff technology leads the segment with 42% market share, and 73.5% of deployments are now cloud based. The market is ripe for disruption by AI-native platforms like AISekisan.</p>
+
+    <div class="card card-red">
+      <h3>Why the US Market Is Ready for AISekisan</h3>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div>
+          <h4>Demand Drivers</h4>
+          <ul>
+            <li>Severe labor shortage in construction estimating. Experienced estimators are retiring faster than new ones enter the field.</li>
+            <li>Rising material costs and bid competition pressure contractors to estimate faster and more accurately.</li>
+            <li>The Infrastructure Investment and Jobs Act is generating unprecedented project volume requiring faster bid turnaround.</li>
+            <li>General contractors losing bids because manual takeoff processes cannot keep pace with opportunity volume.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Technology Gap</h4>
+          <ul>
+            <li>Incumbent tools (PlanSwift, Bluebeam, On-Screen Takeoff) digitize the process but still require manual measurement.</li>
+            <li>No dominant AI-native takeoff solution has captured the US market yet. The window is open.</li>
+            <li>Autodesk launched Autodesk Estimate in late 2025, validating the category but lacking AISekisan's AI depth.</li>
+            <li>Cloud adoption at 73.5% means buyers are ready for modern, SaaS delivered solutions.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-gold" style="margin-top: 14px;">
+      <h3>The Core Value Proposition for US Buyers</h3>
+      <p>A typical estimating team spends 40 or more hours on a single bid. AISekisan reduces that to 4. The question for every general contractor and subcontractor is straightforward: how many bids are you losing each quarter because your estimating team cannot keep up with the volume? AISekisan does not replace estimators. It gives each estimator the capacity to handle ten times the workload, which means more bids submitted, more bids won, and more revenue captured per estimating dollar spent.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 3: COMPETITIVE LANDSCAPE -->
+    <div class="section-label">Section 03</div>
+    <h2>Competitive Landscape</h2>
+
+    <p>The US construction estimation and takeoff market includes both legacy digitization tools and emerging AI entrants. AISekisan's advantage is its AI-native architecture, built from the ground up for automated takeoff rather than retrofitted onto manual workflows.</p>
+
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Competitor</th>
+          <th>Approach</th>
+          <th>AISekisan Advantage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-white fw-600">PlanSwift</td>
+          <td>Digital takeoff with manual measurement tools. Strong in residential and light commercial.</td>
+          <td>AISekisan automates the measurement itself. 90% time reduction vs. PlanSwift's manual digitization.</td>
+        </tr>
+        <tr>
+          <td class="text-white fw-600">Bluebeam Revu</td>
+          <td>PDF markup and collaboration platform with takeoff features. Popular with architects and engineers.</td>
+          <td>Bluebeam is a collaboration tool with takeoff bolted on. AISekisan is purpose-built for AI-driven takeoff and estimation.</td>
+        </tr>
+        <tr>
+          <td class="text-white fw-600">STACK Construction Technologies</td>
+          <td>Cloud based takeoff and estimating. Good UX but still manual measurement workflows.</td>
+          <td>STACK digitized the workflow. AISekisan automates it. Fundamentally different value proposition.</td>
+        </tr>
+        <tr>
+          <td class="text-white fw-600">Autodesk Estimate</td>
+          <td>Launched November 2025. Cloud tool linking 2D/3D takeoffs to costs in Autodesk Construction Cloud.</td>
+          <td>AISekisan has years of AI training data from real construction projects. Autodesk is entering with a new product and limited AI maturity.</td>
+        </tr>
+        <tr>
+          <td class="text-white fw-600">ProEst</td>
+          <td>Cloud estimating with digital takeoff. Strong in commercial construction.</td>
+          <td>ProEst requires manual takeoff input. AISekisan's AI reads drawings and extracts quantities automatically.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="card card-gold" style="margin-top: 1.5em;">
+      <h3>Competitive Positioning Summary</h3>
+      <p>Every incumbent in this market digitized the manual process. AISekisan eliminates it. That is not an incremental improvement. It is a category shift. The positioning for US buyers should be clear: "Your current tool helps you measure faster. AISekisan measures for you." When the estimating labor shortage is the number one constraint on bid volume, automation is not a nice-to-have. It is the competitive advantage that determines which contractors win and which ones watch projects go to competitors.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 4: TARGET BUYER SEGMENTS -->
+    <div class="section-label">Section 04</div>
+    <h2>Target Buyer Segments</h2>
+
+    <div class="card card-red">
+      <h3>General Contractors (Priority Segment)</h3>
+      <p class="text-bright">The highest volume, fastest path to revenue. GCs submit dozens of bids per month and feel the estimating bottleneck most acutely.</p>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div>
+          <h4>Target Profiles</h4>
+          <ul>
+            <li>Mid-market GCs ($50M to $500M annual revenue) with 3 to 15 estimators</li>
+            <li>Commercial construction firms bidding on office, retail, healthcare, and education projects</li>
+            <li>Infrastructure contractors responding to IIJA-funded projects</li>
+            <li>Design-build firms managing both design and estimation internally</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Buying Dynamics</h4>
+          <ul>
+            <li><span class="text-white fw-600">Decision Makers:</span> VP of Preconstruction, Chief Estimator, COO</li>
+            <li><span class="text-white fw-600">Deal Size:</span> $30K to $150K annually (based on estimator seats)</li>
+            <li><span class="text-white fw-600">Sales Cycle:</span> 60 to 120 days with pilot evaluation</li>
+            <li><span class="text-white fw-600">Key Objection:</span> Accuracy proof on US drawing formats and standards</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-gold" style="margin-top: 14px;">
+      <h3>Specialty Subcontractors</h3>
+      <p class="text-bright">Electrical, mechanical, plumbing, and concrete subcontractors who bid on high volumes of projects with tight margins.</p>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div>
+          <h4>Target Profiles</h4>
+          <ul>
+            <li>Electrical contractors estimating conduit, wire, and fixture quantities</li>
+            <li>Mechanical and HVAC subcontractors managing ductwork and piping takeoffs</li>
+            <li>Concrete and masonry contractors calculating material volumes</li>
+            <li>Roofing and insulation contractors with repetitive measurement workflows</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Buying Dynamics</h4>
+          <ul>
+            <li><span class="text-white fw-600">Decision Makers:</span> Owner/President, Estimating Manager</li>
+            <li><span class="text-white fw-600">Deal Size:</span> $15K to $60K annually</li>
+            <li><span class="text-white fw-600">Sales Cycle:</span> 30 to 90 days (faster decisions, smaller organizations)</li>
+            <li><span class="text-white fw-600">Key Objection:</span> Trade-specific accuracy for their material types</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-slate" style="margin-top: 14px;">
+      <h3>Building Materials Distributors</h3>
+      <p class="text-bright">Distributors who can offer AISekisan as a value-added service to their contractor customers, creating a channel-driven growth engine.</p>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div>
+          <h4>Target Profiles</h4>
+          <ul>
+            <li>National distributors (ABC Supply, Beacon Building Products, SRS Distribution)</li>
+            <li>Regional building materials suppliers with contractor loyalty programs</li>
+            <li>Manufacturer representatives serving specific product categories</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Buying Dynamics</h4>
+          <ul>
+            <li><span class="text-white fw-600">Decision Makers:</span> VP of Sales, VP of Digital, Chief Commercial Officer</li>
+            <li><span class="text-white fw-600">Deal Structure:</span> Enterprise license or revenue share on contractor adoption</li>
+            <li><span class="text-white fw-600">Sales Cycle:</span> 90 to 180 days (partnership complexity)</li>
+            <li><span class="text-white fw-600">Strategic Value:</span> Each distributor relationship unlocks hundreds of contractor customers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 5: PARTNERSHIP AND CHANNEL STRATEGY -->
+    <div class="section-label">Section 05</div>
+    <h2>Partnership and Channel Strategy</h2>
+
+    <p>Direct sales will build initial traction, but partnerships will drive scale. H2 Corporation should pursue four categories of partners simultaneously to accelerate US market penetration beyond what a standalone sales team can achieve.</p>
+
+    <div class="card card-red">
+      <h3>Construction Technology Platforms</h3>
+      <p>Integrate AISekisan into the platforms contractors already use daily. Integration partnerships create distribution at scale without direct sales effort for each customer.</p>
+      <ul>
+        <li><span class="text-white fw-600">Procore:</span> The dominant construction management platform. AISekisan integration would make takeoff data flow directly into Procore project workflows.</li>
+        <li><span class="text-white fw-600">Autodesk Construction Cloud:</span> BIM-to-takeoff integration creates a powerful end-to-end workflow. Position as complementary to Autodesk Estimate, not competitive.</li>
+        <li><span class="text-white fw-600">Oracle Aconex / Primavera:</span> Enterprise-grade construction platforms used by the largest GCs and owners.</li>
+        <li><span class="text-white fw-600">Partnership Model:</span> Marketplace listings, API integrations, co-marketing agreements, joint customer success.</li>
+      </ul>
+    </div>
+
+    <div class="card card-gold" style="margin-top: 14px;">
+      <h3>Building Materials Manufacturers and Distributors</h3>
+      <p>This is a channel H2 Corporation has already validated in Japan. Replicate the model in the US where materials companies have strong contractor relationships and incentive to drive product specification.</p>
+      <ul>
+        <li><span class="text-white fw-600">National Distributors:</span> ABC Supply, Beacon Building Products, SRS Distribution, BMC Stock Holdings</li>
+        <li><span class="text-white fw-600">Manufacturers:</span> USG, CertainTeed (Saint-Gobain), Owens Corning, Johns Manville</li>
+        <li><span class="text-white fw-600">Partnership Model:</span> Co-branded AISekisan instances with pre-loaded product catalogs. Distributors offer AISekisan to their contractor customers, driving adoption while ensuring materials are specified from their catalog.</li>
+      </ul>
+    </div>
+
+    <div class="card card-green" style="margin-top: 14px;">
+      <h3>Industry Associations and Trade Organizations</h3>
+      <p>Construction is a relationship-driven industry. Association partnerships provide credibility, conference access, and direct engagement with buyers who trust their trade organizations.</p>
+      <ul>
+        <li><span class="text-white fw-600">Associated General Contractors of America (AGC):</span> 27,000+ member firms. Conference sponsorship and technology showcase opportunities.</li>
+        <li><span class="text-white fw-600">Associated Builders and Contractors (ABC):</span> Focused on merit-based construction. Strong technology adoption programs.</li>
+        <li><span class="text-white fw-600">American Institute of Constructors (AIC):</span> Professional estimator community. Ideal for product validation and word-of-mouth.</li>
+        <li><span class="text-white fw-600">Construction Financial Management Association (CFMA):</span> CFOs and controllers who approve technology purchases.</li>
+      </ul>
+    </div>
+
+    <div class="card card-slate" style="margin-top: 14px;">
+      <h3>Japan-US Business Networks</h3>
+      <p>Leverage the Japan connection as a strategic advantage, not a liability. Japanese construction companies operating in the US are a natural beachhead, and Japan-US business organizations provide warm introductions to US partners.</p>
+      <ul>
+        <li><span class="text-white fw-600">JETRO (Japan External Trade Organization):</span> Programs specifically designed to support Japanese companies entering the US market. Conference sponsorships, business matching, and market research support.</li>
+        <li><span class="text-white fw-600">Japanese General Contractors in the US:</span> Obayashi, Shimizu, Kajima, and Taisei all have active US operations and can serve as reference customers and advocates.</li>
+        <li><span class="text-white fw-600">US-Japan Business Council:</span> Executive-level introductions to US construction and technology companies.</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 6: 90-DAY GTM EXECUTION PLAN -->
+    <div class="section-label">Section 06</div>
+    <h2>90 Day GTM Execution Plan</h2>
+
+    <p>The first 90 days must produce qualified pipeline, validated messaging, and at least one signed pilot. H2 Corporation has NEA's backing and 500% growth momentum. The US execution plan needs to match that velocity.</p>
+
+    <div class="timeline-phase">
+      <div class="phase-label">Days 1 to 30: Foundation</div>
+      <h3>Build the US Sales Engine</h3>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div class="card card-red">
+          <h4>Sales Operations</h4>
+          <ul>
+            <li>Deploy CRM with pipeline stages mapped to construction sales cycle (Demo, Pilot, Evaluation, Close)</li>
+            <li>Build target account list: 75 general contractors, 50 specialty subcontractors, 15 distributors</li>
+            <li>Define ICP by geography (start with markets where H2 has existing US customer traction)</li>
+            <li>Create sales playbook with objection handling specific to AI accuracy concerns</li>
+          </ul>
+        </div>
+        <div class="card card-gold">
+          <h4>Messaging and Materials</h4>
+          <ul>
+            <li>Develop US-market positioning. Not a translation from Japanese materials but a ground-up US narrative.</li>
+            <li>Create ROI calculator: "How many bids per month does your team miss because of estimating capacity?"</li>
+            <li>Build 3 case studies from existing deployments showing time savings and accuracy results</li>
+            <li>Produce a 3-minute product demo video optimized for outbound prospecting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-phase">
+      <div class="phase-label">Days 31 to 60: Activation</div>
+      <h3>Launch Outreach and Generate Pipeline</h3>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div class="card card-red">
+          <h4>Direct Pipeline</h4>
+          <ul>
+            <li>Begin outbound sequences to 100+ target accounts with personalized messaging</li>
+            <li>Lead with the economic argument: estimating capacity is the bottleneck, AISekisan removes it</li>
+            <li>Target 2 to 3 construction technology conferences (ENR FutureTech, CONEXPO-CON/AGG, Autodesk University)</li>
+            <li>Schedule 10 to 15 live demonstrations with qualified prospects</li>
+          </ul>
+        </div>
+        <div class="card card-gold">
+          <h4>Channel Development</h4>
+          <ul>
+            <li>Initiate partnership conversations with Procore and 2 other construction platforms</li>
+            <li>Approach 3 building materials distributors about co-branded pilot programs</li>
+            <li>Engage JETRO US programs and Japanese GC US subsidiaries for warm introductions</li>
+            <li>Apply for AGC and ABC technology partner programs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-phase">
+      <div class="phase-label">Days 61 to 90: Acceleration</div>
+      <h3>Convert Pipeline to Revenue</h3>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div class="card card-red">
+          <h4>Pipeline Targets</h4>
+          <ul>
+            <li>20+ qualified meetings completed with GCs and subcontractors</li>
+            <li>5 to 8 active pilot evaluations in progress</li>
+            <li>1 to 2 signed contracts from early pipeline</li>
+            <li>Pipeline value: $500K to $1M in identified opportunities</li>
+          </ul>
+        </div>
+        <div class="card card-gold">
+          <h4>Market Validation</h4>
+          <ul>
+            <li>Document US-specific accuracy benchmarks across different drawing types and construction categories</li>
+            <li>Capture and publish first US customer testimonials and case studies</li>
+            <li>Refine ICP based on 90 days of real US market data: which segments convert fastest, which objections are most common</li>
+            <li>Present 6-month scaling plan to H2 leadership with data-backed recommendations for team expansion</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-green" style="margin-top: 1.5em;">
+      <h3>Year One Revenue Targets</h3>
+      <div class="grid-3" style="margin-top: 0.8em;">
+        <div>
+          <div class="stat stat-green">$2M+</div>
+          <div class="stat-label">Qualified Pipeline by Month 6</div>
+        </div>
+        <div>
+          <div class="stat stat-green">$750K+</div>
+          <div class="stat-label">ARR by Month 12</div>
+        </div>
+        <div>
+          <div class="stat stat-green">15 to 25</div>
+          <div class="stat-label">US Customers by Month 12</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 7: WHY JEFF -->
+    <div class="section-label">Section 07</div>
+    <h2>Why Jeff Aragon</h2>
+
+    <p>H2 Corporation needs someone who can build a US sales operation from scratch, close enterprise deals in a market where the company has no brand recognition, and navigate the dynamics between a Tokyo headquarters and a US commercial team. I have done all of this, multiple times, and I bring something that almost no other US sales leader can offer: direct Japan business experience.</p>
+
+    <div class="grid-2" style="margin-top: 1.2em;">
+      <div class="card card-red">
+        <h3>Enterprise Sales Track Record</h3>
+        <ul>
+          <li><span class="text-white fw-600">$150M+ in career revenue</span> generated across enterprise technology, SaaS, and consulting engagements</li>
+          <li><span class="text-white fw-600">$24M TCV at a Series A startup</span> in less than 2 years, building the entire sales function from zero with no existing pipeline or brand recognition</li>
+          <li><span class="text-white fw-600">Award winning at UKG</span> for nearly 6 years, consistently exceeding targets at one of the largest HCM companies in the world</li>
+          <li>Built pipeline and sales processes from nothing multiple times across multiple industries and company stages</li>
+          <li>Full-cycle enterprise sales: prospecting, discovery, demonstration, negotiation, close. Not hand-offs. Closed deals.</li>
+        </ul>
+      </div>
+      <div class="card card-gold">
+        <h3>Direct Japan Business Experience</h3>
+        <ul>
+          <li><span class="text-white fw-600">Direct experience working across US and Japan business contexts.</span> This is not theoretical. I have navigated the communication patterns, decision-making structures, and trust-building processes that define how Japanese companies operate in the US market.</li>
+          <li>Deep understanding of consensus-driven decision making (nemawashi, ringi) and how it intersects with the speed requirements of US sales cycles</li>
+          <li>Fluency in bridging Japanese corporate governance and reporting expectations with US market execution realities</li>
+          <li>Understanding of the specific challenges Japanese companies face when entering the US: localized positioning, buyer education, building credibility without a US reference base</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card card-green" style="margin-top: 14px;">
+      <h3>What I Will Deliver in the First 90 Days</h3>
+      <p>I will not spend three months learning the construction market or studying the product. I will arrive with this plan and execute immediately. Within 90 days, H2 Corporation will have a functioning US sales operation: CRM infrastructure deployed, target accounts identified and contacted, outbound sequences generating qualified meetings, partnership conversations in progress, and pipeline being built with measurable velocity. I have done this multiple times. At my last Series A startup, there was no playbook, no brand recognition, no inbound pipeline. I built all of it and generated $24M in total contract value in under two years.</p>
+    </div>
+
+    <div class="card card-slate" style="margin-top: 14px;">
+      <h3>The Alignment</h3>
+      <p>This engagement represents a rare convergence. A Japanese company with genuinely differentiated technology, entering a US market with massive demand, backed by a world-class investor in NEA, and needing someone who can build the commercial engine while navigating the cultural bridge between Tokyo and the US. My career has been defined by exactly this type of challenge: building revenue where nothing existed before, in markets where the product was unknown. The Japan business experience I bring is the differentiator that makes this more than just another sales hire. It is the foundation for a partnership built on real understanding of how H2 Corporation operates, how decisions are made, and what it takes to build trust between a Japanese headquarters and a US revenue team.</p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p class="name">Jeff Aragon</p>
+      <p>jeff@jozuconsultinggroup.com | +1 303-638-1390 (mobile and WhatsApp)</p>
+      <p style="margin-top: 0.5em; font-size: 0.78em; color: var(--gray);">Jozu Consulting Group | Confidential</p>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LayerX US Market GTM Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --bg-card: rgba(255,255,255,0.03);
+      --bg-card-border: rgba(255,255,255,0.06);
+      --accent: #e34115;
+      --accent-dim: rgba(227,65,21,0.12);
+      --gold: #c9a84c;
+      --gold-dim: rgba(201,168,76,0.10);
+      --green: #22c55e;
+      --green-dim: rgba(34,197,94,0.10);
+      --slate: #64748b;
+      --white: #ffffff;
+      --gray: #cbd5e1;
+      --bright: #e2e8f0;
+      --radius: 10px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--gray);
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      font-weight: 700;
+      margin-bottom: 0.3em;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 1.45em;
+      font-weight: 600;
+      margin-bottom: 0.5em;
+      margin-top: 2.5em;
+    }
+
+    h3 {
+      font-size: 1.05em;
+      font-weight: 600;
+      margin-bottom: 0.4em;
+      color: var(--white);
+    }
+
+    h4 {
+      font-size: 0.95em;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 0.3em;
+    }
+
+    p {
+      margin-bottom: 1em;
+      color: var(--gray);
+      font-weight: 300;
+    }
+
+    .section-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.8em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--accent);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .subtitle {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.1em;
+      color: var(--bright);
+      font-weight: 300;
+      margin-bottom: 0.5em;
+    }
+
+    .tagline {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85em;
+      color: var(--gold);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      margin-top: 1em;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius);
+      padding: 22px 26px;
+      margin-bottom: 14px;
+    }
+
+    .card-red { border-left: 3px solid var(--accent); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-green { border-left: 3px solid var(--green); }
+    .card-slate { border-left: 3px solid var(--slate); }
+
+    .card h3 { margin-bottom: 0.3em; }
+    .card h4 { margin-bottom: 0.25em; }
+    .card p { margin-bottom: 0.5em; font-size: 0.92em; }
+    .card ul { margin: 0.4em 0 0.2em 1.2em; }
+    .card li { margin-bottom: 0.3em; font-size: 0.92em; color: var(--gray); }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+
+    .stat {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.6em;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 0.8em;
+      color: var(--gray);
+      font-weight: 300;
+      margin-top: 0.2em;
+    }
+
+    .stat-gold { color: var(--gold); }
+    .stat-green { color: var(--green); }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: var(--accent);
+      margin: 2em 0;
+      opacity: 0.5;
+    }
+
+    .metrics-row {
+      display: flex;
+      gap: 30px;
+      margin: 1.2em 0;
+      flex-wrap: wrap;
+    }
+
+    .metric-item {
+      text-align: left;
+    }
+
+    .timeline-phase {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 28px;
+    }
+
+    .timeline-phase::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .timeline-phase::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 22px;
+      width: 2px;
+      height: calc(100% - 10px);
+      background: rgba(227,65,21,0.2);
+    }
+
+    .timeline-phase:last-child::after { display: none; }
+
+    .phase-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75em;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.3em;
+    }
+
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1em 0;
+      font-size: 0.88em;
+    }
+
+    .comp-table th {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.8em;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--bg-card-border);
+      background: var(--bg-card);
+    }
+
+    .comp-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--bg-card-border);
+      color: var(--gray);
+      vertical-align: top;
+    }
+
+    .comp-table tr:hover td {
+      background: var(--bg-card);
+    }
+
+    .text-accent { color: var(--accent); }
+    .text-gold { color: var(--gold); }
+    .text-green { color: var(--green); }
+    .text-white { color: var(--white); }
+    .text-bright { color: var(--bright); }
+    .fw-600 { font-weight: 600; }
+
+    .footer {
+      margin-top: 4em;
+      padding-top: 2em;
+      border-top: 1px solid var(--bg-card-border);
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 0.85em;
+      color: var(--gray);
+    }
+
+    .footer .name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: var(--white);
+      font-size: 1em;
+    }
+
+    @media print {
+      body { background: #0a0e17; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .container { padding: 30px 20px; }
+    }
+
+    @media (max-width: 700px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .container { padding: 30px 20px; }
+      h1 { font-size: 1.6em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="section-label">Prepared by Jozu Consulting Group</div>
+    <h1>LayerX<br>90 Day US Market GTM Plan</h1>
+    <p class="subtitle">Strategic framework for launching Bakuraku's AI back-office automation platform in the US market</p>
+    <p class="tagline">April 2026</p>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 1: COMPANY PROFILE -->
+    <div class="section-label">Section 01</div>
+    <h2>Company Profile</h2>
+
+    <p>LayerX is one of Japan's fastest growing AI SaaS companies, founded by Yoshinori Fukushima. The company's flagship platform, Bakuraku, automates corporate back-office workflows including invoice processing, expense management, corporate cards, approval workflows, and compliance. Bakuraku serves over 15,000 companies in Japan and is on track to reach $68 million in ARR faster than any SaaS company in Japanese history. The company's AI agents handle over 90% of historically manual invoice processing by learning account and department mappings, delivering a level of automation that US incumbents have not matched.</p>
+
+    <div class="grid-3" style="margin: 1.5em 0;">
+      <div class="card card-red">
+        <div class="stat">$192M</div>
+        <div class="stat-label">Total Funding Raised</div>
+      </div>
+      <div class="card card-gold">
+        <div class="stat stat-gold">15,000+</div>
+        <div class="stat-label">Customers in Japan</div>
+      </div>
+      <div class="card card-slate">
+        <div class="stat" style="color: var(--bright);">430</div>
+        <div class="stat-label">Employees (targeting 1,000 by 2028)</div>
+      </div>
+    </div>
+
+    <div class="card card-red">
+      <h3>Bakuraku Platform: Core Capabilities</h3>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div>
+          <h4>Invoice and AP Automation</h4>
+          <ul>
+            <li>AI-powered inbound invoice processing via email, upload, or scanner</li>
+            <li>AI agents automate 90%+ of manual invoice coding by learning historical patterns</li>
+            <li>Automatic account and department mapping with continuous improvement</li>
+            <li>Direct ERP integration eliminating manual CSV transfers</li>
+          </ul>
+          <h4>Expense Management</h4>
+          <ul>
+            <li>Mobile receipt capture with automatic categorization</li>
+            <li>Integrated approval workflows with configurable routing</li>
+            <li>Policy enforcement and compliance checking built in</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Corporate Cards</h4>
+          <ul>
+            <li>Virtual cards issued instantly, physical VISA cards within five days</li>
+            <li>Real-time spend limits and merchant category controls</li>
+            <li>Unlimited sub-cards with 1.0% to 1.5% cash-back rewards</li>
+            <li>Automated reconciliation with no manual data entry</li>
+          </ul>
+          <h4>AI Agent Business</h4>
+          <ul>
+            <li>Next-generation AI agents for document-intensive workflow automation</li>
+            <li>Targeting $340M ARR from AI agents by FY2030 (half of total revenue target)</li>
+            <li>Team includes 12+ former CTOs and a Kaggle Grandmaster</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-gold" style="margin-top: 14px;">
+      <h3>Funding and Investor Backing</h3>
+      <p>LayerX closed a $100 million Series B in September 2025 led by TCV (Technology Crossover Ventures), marking TCV's first investment in a Japanese company. TCV's portfolio includes Netflix, Spotify, Zillow, ExactTarget, and other defining technology companies. Additional investors include MUFG Bank, Mitsubishi UFJ Innovation Partners, JAFCO Group, Keyrock Capital, Coreline Ventures, and JP Investment. The company targets approximately $680 million in ARR by FY2030.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 2: MARKET OPPORTUNITY -->
+    <div class="section-label">Section 02</div>
+    <h2>US Market Opportunity</h2>
+
+    <p>The US AP automation market was valued at $6.94 billion in 2026 and is growing at a 12.44% CAGR, projected to reach $12.46 billion by 2031. North America commands 37% of global revenue. Large enterprises represent 60% of the market, but small and medium enterprises are the fastest growing segment at 18.15% CAGR. The market is large, growing, and fragmented enough for a differentiated entrant to capture meaningful share.</p>
+
+    <div class="card card-red">
+      <h3>Why the US Market Is Ready for LayerX</h3>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div>
+          <h4>Demand Drivers</h4>
+          <ul>
+            <li>US companies process an average of 500+ invoices per month, with AP teams spending 60% of their time on manual data entry and coding.</li>
+            <li>FedNow rollout is enabling instant interbank settlement, creating demand for AP systems that can keep pace.</li>
+            <li>CFOs are under pressure to reduce back-office headcount while maintaining compliance and control.</li>
+            <li>Remote and hybrid work has exposed the fragility of paper-based and legacy AP processes.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Technology Gap</h4>
+          <ul>
+            <li>Incumbent US platforms (Bill.com, Tipalti, Ramp) digitize AP but do not truly automate coding and categorization at LayerX's level.</li>
+            <li>Most US AP tools still require significant manual intervention for invoice matching, approval routing, and exception handling.</li>
+            <li>No US platform offers LayerX's combination of AI invoice processing, expense management, and corporate cards in a single integrated product.</li>
+            <li>The AI agent capability (90%+ automatic coding) is a genuine technical differentiation, not marketing language.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-gold" style="margin-top: 14px;">
+      <h3>The Core Value Proposition for US Buyers</h3>
+      <p>Every US finance leader has the same problem: their AP team is drowning in invoices, expense reports, and manual reconciliation. They have tried digitizing the process with tools like Bill.com or Tipalti, but the work still requires human intervention at every step. LayerX's Bakuraku platform is fundamentally different. Its AI agents learn your coding patterns and automate 90% of the work that your team currently does manually. The result is not just faster processing. It is a structurally different cost model for back-office operations, one that scales without adding headcount.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 3: COMPETITIVE LANDSCAPE -->
+    <div class="section-label">Section 03</div>
+    <h2>Competitive Landscape</h2>
+
+    <p>The US AP automation and spend management market is crowded but not consolidated. Each incumbent has carved out a niche, leaving meaningful white space for a platform that combines genuine AI automation with comprehensive spend management in a single product.</p>
+
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Competitor</th>
+          <th>Positioning</th>
+          <th>LayerX Advantage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-white fw-600">Bill.com (BILL)</td>
+          <td>Dual AP/AR platform for SMBs. Strong brand but limited AI automation. Relies on manual coding.</td>
+          <td>LayerX's AI agents automate 90%+ of invoice coding. BILL requires manual categorization and matching for most transactions.</td>
+        </tr>
+        <tr>
+          <td class="text-white fw-600">Tipalti</td>
+          <td>Global AP automation for mid-market. Strong in multi-currency payments and tax compliance.</td>
+          <td>LayerX offers deeper AI automation on the invoice processing side. Tipalti's strength is payment execution, not intelligent coding.</td>
+        </tr>
+        <tr>
+          <td class="text-white fw-600">Ramp</td>
+          <td>Corporate card and spend management. Free tier with strong UX. Growing fast in SMB.</td>
+          <td>Ramp leads with cards and adds AP. LayerX leads with AI-powered AP automation and adds cards. Different entry point, different depth of automation.</td>
+        </tr>
+        <tr>
+          <td class="text-white fw-600">Brex</td>
+          <td>Corporate cards, expense management, bill pay. Unified spend platform for startups and mid-market.</td>
+          <td>Brex is a financial product company. LayerX is an AI company that happens to serve finance teams. The automation depth is structurally different.</td>
+        </tr>
+        <tr>
+          <td class="text-white fw-600">SAP Concur</td>
+          <td>Enterprise expense management and travel. Dominant in large enterprise but aging UX.</td>
+          <td>LayerX's modern AI-native architecture vs. Concur's legacy platform. Faster to deploy, lower total cost, better automation.</td>
+        </tr>
+        <tr>
+          <td class="text-white fw-600">Coupa</td>
+          <td>Enterprise spend management (BSM). Acquired by Thoma Bravo. Comprehensive but complex.</td>
+          <td>Coupa requires 6 to 12 month implementations. LayerX deploys in weeks with AI that learns from day one.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="card card-gold" style="margin-top: 1.5em;">
+      <h3>Competitive Positioning Summary</h3>
+      <p>LayerX should not try to out-feature Ramp on cards or out-scale BILL on SMB volume. The winning position is clear: LayerX is the AI-first back-office platform. Every competitor digitized the AP workflow. LayerX automates it. The 90%+ automatic coding rate is not a roadmap item for competitors. It is the result of years of AI development and 15,000 customer deployments in Japan. That technical lead is real, and it translates directly to measurable cost savings for US buyers. Position against the category, not against individual competitors.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 4: TARGET BUYER SEGMENTS -->
+    <div class="section-label">Section 04</div>
+    <h2>Target Buyer Segments</h2>
+
+    <div class="card card-red">
+      <h3>Mid-Market Companies (Priority Segment)</h3>
+      <p class="text-bright">Companies with 200 to 2,000 employees that have outgrown basic AP tools but cannot justify the cost and complexity of SAP Concur or Coupa.</p>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div>
+          <h4>Target Profiles</h4>
+          <ul>
+            <li>Companies processing 500 to 5,000 invoices per month</li>
+            <li>Organizations with 3 to 15 person AP teams looking to reduce headcount dependency</li>
+            <li>Multi-location businesses with decentralized expense management</li>
+            <li>Companies currently using Bill.com or Tipalti and frustrated with manual coding requirements</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Buying Dynamics</h4>
+          <ul>
+            <li><span class="text-white fw-600">Decision Makers:</span> VP of Finance, Controller, CFO</li>
+            <li><span class="text-white fw-600">Deal Size:</span> $50K to $200K annually</li>
+            <li><span class="text-white fw-600">Sales Cycle:</span> 60 to 120 days</li>
+            <li><span class="text-white fw-600">Key Objection:</span> Integration with existing ERP (NetSuite, Sage, QuickBooks Enterprise)</li>
+            <li><span class="text-white fw-600">Entry Strategy:</span> Start with AP automation, expand to expense management and cards</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-gold" style="margin-top: 14px;">
+      <h3>Japanese Companies Operating in the US (Beachhead Segment)</h3>
+      <p class="text-bright">The fastest path to initial revenue and reference customers. These companies already trust Japanese technology providers and face unique compliance challenges operating across both markets.</p>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div>
+          <h4>Target Profiles</h4>
+          <ul>
+            <li>Japanese manufacturers with US operations (Toyota suppliers, Honda suppliers, Sony, Panasonic)</li>
+            <li>Japanese trading companies with US subsidiaries (Mitsubishi, Mitsui, Sumitomo, ITOCHU)</li>
+            <li>Japanese financial institutions with US offices (MUFG, Mizuho, Nomura, SMBC)</li>
+            <li>Mid-market Japanese companies expanding to the US for the first time</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Buying Dynamics</h4>
+          <ul>
+            <li><span class="text-white fw-600">Decision Makers:</span> US CFO/Controller with Japan HQ approval</li>
+            <li><span class="text-white fw-600">Deal Size:</span> $30K to $150K annually (US subsidiary scope)</li>
+            <li><span class="text-white fw-600">Sales Cycle:</span> 90 to 150 days (dual approval process)</li>
+            <li><span class="text-white fw-600">Key Advantage:</span> LayerX's Japanese heritage creates immediate trust and cultural alignment</li>
+            <li><span class="text-white fw-600">Entry Strategy:</span> Leverage Tokyo HQ relationships for warm introductions to US finance leadership</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-green" style="margin-top: 14px;">
+      <h3>Growth Stage Technology Companies</h3>
+      <p class="text-bright">Fast-growing companies that need to professionalize their financial operations without the overhead of enterprise tools. Strong cultural fit with LayerX's AI-first approach.</p>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div>
+          <h4>Target Profiles</h4>
+          <ul>
+            <li>Series B through Series D startups scaling from 100 to 1,000 employees</li>
+            <li>Companies transitioning from founder-managed finances to dedicated finance teams</li>
+            <li>Organizations scaling internationally and needing multi-entity financial management</li>
+            <li>Companies currently using Ramp or Brex for cards but lacking AP automation</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Buying Dynamics</h4>
+          <ul>
+            <li><span class="text-white fw-600">Decision Makers:</span> VP of Finance, Head of Operations, CFO</li>
+            <li><span class="text-white fw-600">Deal Size:</span> $25K to $100K annually</li>
+            <li><span class="text-white fw-600">Sales Cycle:</span> 30 to 60 days (faster decisions at growth companies)</li>
+            <li><span class="text-white fw-600">Key Objection:</span> Why switch from Ramp/Brex when they already have a card solution</li>
+            <li><span class="text-white fw-600">Entry Strategy:</span> Position as the AI automation layer that complements or replaces their current fragmented stack</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 5: PARTNERSHIP AND CHANNEL STRATEGY -->
+    <div class="section-label">Section 05</div>
+    <h2>Partnership and Channel Strategy</h2>
+
+    <p>LayerX's US market entry requires partnerships across four categories to generate deal flow, establish credibility, and create distribution that a standalone sales team cannot match in year one.</p>
+
+    <div class="card card-red">
+      <h3>Accounting and ERP Platforms</h3>
+      <p>Integration partnerships with the platforms US finance teams already use daily. These integrations are table stakes for enterprise AP automation and create marketplace distribution.</p>
+      <ul>
+        <li><span class="text-white fw-600">NetSuite (Oracle):</span> The dominant mid-market ERP. Integration is essential for the priority buyer segment. NetSuite's SuiteApp marketplace provides visibility to thousands of target accounts.</li>
+        <li><span class="text-white fw-600">Sage Intacct:</span> Growing fast in mid-market accounting. Deep integration with approval workflows and GL coding.</li>
+        <li><span class="text-white fw-600">QuickBooks Enterprise (Intuit):</span> Entry point for companies graduating from basic accounting into more sophisticated AP automation.</li>
+        <li><span class="text-white fw-600">SAP S/4HANA:</span> LayerX already integrates with SAP in Japan. Extend this integration to the US for larger enterprise opportunities.</li>
+        <li><span class="text-white fw-600">Partnership Model:</span> Certified integrations, marketplace listings, co-marketing with ERP partner sales teams.</li>
+      </ul>
+    </div>
+
+    <div class="card card-gold" style="margin-top: 14px;">
+      <h3>Accounting Firms and Outsourced Finance Providers</h3>
+      <p>Accounting firms influence technology decisions for thousands of mid-market companies. A single partnership with a Top 25 firm can generate more qualified pipeline than months of direct outbound.</p>
+      <ul>
+        <li><span class="text-white fw-600">Top 25 Accounting Firms:</span> BDO, Grant Thornton, RSM, Crowe, CohnReznick. Each has hundreds of mid-market clients who need AP automation.</li>
+        <li><span class="text-white fw-600">Outsourced CFO/Controller Firms:</span> Fractional finance firms that manage AP for multiple companies simultaneously. Each firm is a multi-account opportunity.</li>
+        <li><span class="text-white fw-600">Japan Practice Desks:</span> Big Four firms (EY, PwC, KPMG, Deloitte) all maintain Japan practice desks serving Japanese companies operating in the US. These desks are warm introduction channels for the beachhead segment.</li>
+        <li><span class="text-white fw-600">Partnership Model:</span> Referral agreements, co-branded implementation support, volume licensing for multi-client deployments.</li>
+      </ul>
+    </div>
+
+    <div class="card card-green" style="margin-top: 14px;">
+      <h3>Industry Associations and Trade Organizations</h3>
+      <p>Finance and technology associations provide conference access, buyer engagement, and credibility in a market where LayerX has no US brand recognition yet.</p>
+      <ul>
+        <li><span class="text-white fw-600">AFP (Association for Financial Professionals):</span> 16,000+ members including treasury, AP, and finance operations leaders. Annual conference is the premier US event for finance technology.</li>
+        <li><span class="text-white fw-600">IMA (Institute of Management Accountants):</span> Controllers and management accountants who evaluate and approve AP technology purchases.</li>
+        <li><span class="text-white fw-600">AICPA:</span> Certified public accountants who advise clients on financial systems. Thought leadership and certification partnerships.</li>
+        <li><span class="text-white fw-600">SaaStr:</span> US SaaS community. Showcase LayerX's T2D3 growth story and AI differentiation to attract technology-forward US buyers.</li>
+      </ul>
+    </div>
+
+    <div class="card card-slate" style="margin-top: 14px;">
+      <h3>Japan-US Business Networks</h3>
+      <p>LayerX's Japanese heritage is a strategic asset for the beachhead segment. Japan-US business organizations provide warm introductions, market research, and credibility with Japanese companies operating in the US.</p>
+      <ul>
+        <li><span class="text-white fw-600">JETRO (Japan External Trade Organization):</span> Market entry support, business matching events, and conference sponsorships designed specifically for Japanese companies expanding to the US.</li>
+        <li><span class="text-white fw-600">Japanese Chamber of Commerce (US chapters):</span> Los Angeles, New York, Chicago, and San Francisco chapters provide direct access to Japanese company US executives.</li>
+        <li><span class="text-white fw-600">US-Japan Business Council:</span> Executive-level introductions between Japanese and American business leaders.</li>
+        <li><span class="text-white fw-600">TCV Network:</span> TCV's portfolio companies (Netflix, Spotify, Zillow alumni) represent a warm network of US technology executives who can serve as advisors, early adopters, and references.</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 6: 90-DAY GTM EXECUTION PLAN -->
+    <div class="section-label">Section 06</div>
+    <h2>90 Day GTM Execution Plan</h2>
+
+    <p>LayerX has the funding, the product, and the growth trajectory. The US execution plan needs to answer the critical questions first: which segments convert, what messaging resonates, and what the US sales motion looks like, before committing to headcount and office space.</p>
+
+    <div class="timeline-phase">
+      <div class="phase-label">Days 1 to 30: Foundation</div>
+      <h3>Build US Market Intelligence and Infrastructure</h3>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div class="card card-red">
+          <h4>Market Validation</h4>
+          <ul>
+            <li>Conduct 15 to 20 discovery conversations with US finance leaders to validate positioning and pricing</li>
+            <li>Map the US AP automation buying process: who initiates, who evaluates, who approves, what triggers the purchase</li>
+            <li>Define US ICP: company size, invoice volume, current tools, pain thresholds, budget authority</li>
+            <li>Identify 3 to 5 Japanese companies operating in the US as beachhead targets</li>
+          </ul>
+        </div>
+        <div class="card card-gold">
+          <h4>Messaging and Localization</h4>
+          <ul>
+            <li>Develop US-market positioning from the ground up. Not translated Japanese materials. US buyer language.</li>
+            <li>Create ROI calculator: "What does your AP team cost per invoice processed? What if 90% of that was automated?"</li>
+            <li>Build competitive battle cards for Bill.com, Tipalti, Ramp, Brex, and Concur</li>
+            <li>Produce product demonstration optimized for US buyer expectations (speed, integration, ROI focus)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-phase">
+      <div class="phase-label">Days 31 to 60: Activation</div>
+      <h3>Launch Outbound and Channel Development</h3>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div class="card card-red">
+          <h4>Direct Pipeline</h4>
+          <ul>
+            <li>Begin outbound sequences to 100+ target accounts across mid-market and beachhead segments</li>
+            <li>Lead with AI automation differentiation: "90% of your manual invoice coding, eliminated from day one."</li>
+            <li>Target AFP annual conference and 2 to 3 regional finance technology events</li>
+            <li>Schedule 10 to 15 live product demonstrations with qualified prospects</li>
+          </ul>
+        </div>
+        <div class="card card-gold">
+          <h4>Channel Development</h4>
+          <ul>
+            <li>Initiate NetSuite and Sage Intacct integration certifications</li>
+            <li>Approach 3 to 5 mid-market accounting firms about referral partnerships</li>
+            <li>Engage Japan practice desks at Big Four firms for beachhead introductions</li>
+            <li>Connect with JETRO US programs and Japanese Chamber of Commerce chapters</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-phase">
+      <div class="phase-label">Days 61 to 90: Acceleration</div>
+      <h3>Convert Conversations to Pipeline and First Revenue</h3>
+      <div class="grid-2" style="margin-top: 0.8em;">
+        <div class="card card-red">
+          <h4>Pipeline Targets</h4>
+          <ul>
+            <li>20+ qualified meetings completed across all segments</li>
+            <li>5 to 8 active evaluation or pilot engagements</li>
+            <li>1 to 3 signed customers (prioritize beachhead Japanese companies for speed)</li>
+            <li>Pipeline value: $1M to $2M in identified opportunities</li>
+          </ul>
+        </div>
+        <div class="card card-gold">
+          <h4>Strategic Decisions</h4>
+          <ul>
+            <li>Validate US pricing model based on real market feedback (per-invoice, per-user, or platform fee)</li>
+            <li>Determine US entity and compliance requirements (SOC 2, data residency, state-level regulations)</li>
+            <li>Refine ICP based on 90 days of data: which segments convert, which objections are hardest, which channels produce</li>
+            <li>Present 12-month US expansion plan to LayerX leadership and TCV with data-backed recommendations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-green" style="margin-top: 1.5em;">
+      <h3>Year One Revenue Targets</h3>
+      <div class="grid-3" style="margin-top: 0.8em;">
+        <div>
+          <div class="stat stat-green">$3M+</div>
+          <div class="stat-label">Qualified Pipeline by Month 6</div>
+        </div>
+        <div>
+          <div class="stat stat-green">$1M+</div>
+          <div class="stat-label">ARR by Month 12</div>
+        </div>
+        <div>
+          <div class="stat stat-green">20 to 30</div>
+          <div class="stat-label">US Customers by Month 12</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 7: WHY JEFF -->
+    <div class="section-label">Section 07</div>
+    <h2>Why Jeff Aragon</h2>
+
+    <p>LayerX is preparing to enter the most competitive SaaS market in the world with a product that has genuine technical differentiation. The challenge is not the product. It is building the commercial infrastructure, establishing credibility with US buyers, and navigating the cultural bridge between Tokyo and the US operation. I have done all of this, multiple times, and I bring something that separates me from every other US sales leader LayerX will evaluate: direct Japan business experience.</p>
+
+    <div class="grid-2" style="margin-top: 1.2em;">
+      <div class="card card-red">
+        <h3>Enterprise Sales Track Record</h3>
+        <ul>
+          <li><span class="text-white fw-600">$150M+ in career revenue</span> generated across enterprise SaaS, technology, and consulting engagements</li>
+          <li><span class="text-white fw-600">$24M TCV at a Series A startup</span> in less than 2 years, building the complete sales function from zero. No brand recognition. No inbound pipeline. Built everything.</li>
+          <li><span class="text-white fw-600">Award winning at UKG</span> for nearly 6 years, consistently recognized for exceeding targets at one of the largest HCM companies globally</li>
+          <li>Deep experience selling financial operations and back-office technology to VP Finance, Controller, and CFO buyers</li>
+          <li>Proven ability to build sales teams, processes, and pipeline infrastructure in markets with no existing presence</li>
+        </ul>
+      </div>
+      <div class="card card-gold">
+        <h3>Direct Japan Business Experience</h3>
+        <ul>
+          <li><span class="text-white fw-600">Direct experience working across US and Japan business contexts.</span> I have navigated the communication patterns, decision-making structures, and trust-building processes that define how Japanese companies operate internationally. This is not theoretical knowledge. It is real-world experience.</li>
+          <li>Deep understanding of consensus-driven decision making and how it intersects with the speed requirements of US enterprise sales cycles</li>
+          <li>Fluency in bridging Japanese corporate governance and reporting expectations with US market execution demands</li>
+          <li>Experience positioning technology from relationship-oriented business cultures into the results-driven US enterprise market</li>
+          <li>Understanding of the specific challenges Japanese companies face in the US: establishing credibility, localizing messaging, building a US reference base from zero</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card card-green" style="margin-top: 14px;">
+      <h3>What I Will Deliver in the First 90 Days</h3>
+      <p>I will not spend three months learning the market or waiting for direction from Tokyo. I will arrive with this plan and execute immediately. Within 90 days, LayerX will have validated US positioning, a functioning sales operation with CRM and outbound sequences running, 20+ qualified buyer conversations completed, partnership conversations in progress with ERP platforms and accounting firms, and a data-backed recommendation for the 12-month US expansion plan. I have done this multiple times. At my last Series A startup, I built $24M in pipeline from nothing. That is exactly what LayerX needs: someone who does not wait for infrastructure to be built for them, but builds it themselves.</p>
+    </div>
+
+    <div class="card card-slate" style="margin-top: 14px;">
+      <h3>The Alignment</h3>
+      <p>LayerX represents a rare opportunity: a Japanese company with world-class AI technology, backed by TCV, growing faster than any SaaS company in Japanese history, and preparing to enter the US market. My entire career has been building revenue where nothing existed before. The Japan business experience I bring is the differentiator that makes this more than a sales hire. It is the foundation for a partnership built on genuine understanding of how LayerX operates, how decisions flow between Tokyo and the US, and what it takes to build trust across both cultures while generating revenue at the pace TCV expects. Every engagement I have had, from enterprise sales at UKG to building a startup from zero to $24M, has prepared me for exactly this challenge.</p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p class="name">Jeff Aragon</p>
+      <p>jeff@jozuconsultinggroup.com | +1 303-638-1390 (mobile and WhatsApp)</p>
+      <p style="margin-top: 0.5em; font-size: 0.78em; color: var(--gray);">Jozu Consulting Group | Confidential</p>
+    </div>
+
+  </div>
+</body>
+</html>
