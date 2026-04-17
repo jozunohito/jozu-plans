@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script async src="https://plausible.io/js/pa-1razrYiA4atISy5-RXcrX.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notch - US Market GTM Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --bg-card: rgba(255,255,255,0.03);
+      --bg-card-border: rgba(255,255,255,0.06);
+      --accent: #e34115;
+      --accent-dim: rgba(227,65,21,0.12);
+      --gold: #c9a84c;
+      --gold-dim: rgba(201,168,76,0.10);
+      --green: #22c55e;
+      --green-dim: rgba(34,197,94,0.10);
+      --slate: #64748b;
+      --white: #ffffff;
+      --gray: #cbd5e1;
+      --bright: #e2e8f0;
+      --radius: 10px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--gray);
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 2.4em;
+      font-weight: 700;
+      margin-bottom: 0.2em;
+      line-height: 1.15;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      font-weight: 600;
+      margin-bottom: 0.6em;
+    }
+
+    h3 {
+      font-size: 1.1em;
+      font-weight: 600;
+      margin-bottom: 0.4em;
+    }
+
+    h4 {
+      font-size: 0.95em;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 0.3em;
+    }
+
+    p { margin-bottom: 1em; color: var(--gray); }
+
+    ul, ol { color: var(--gray); padding-left: 1.2em; }
+    li { margin-bottom: 0.5em; line-height: 1.6; }
+
+    strong { color: var(--white); font-weight: 600; }
+
+    .section-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.8em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .section {
+      margin-bottom: 60px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .section:last-of-type {
+      border-bottom: none;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+    }
+
+    .card-red { border-left: 3px solid var(--accent); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-green { border-left: 3px solid var(--green); }
+    .card-slate { border-left: 3px solid var(--slate); }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+    .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; }
+
+    .stat-value {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8em;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.1;
+      margin-bottom: 0.15em;
+    }
+
+    .stat-label {
+      font-size: 0.85em;
+      color: var(--gray);
+      font-weight: 400;
+    }
+
+    .text-accent { color: var(--accent); }
+    .text-gold { color: var(--gold); }
+    .text-green { color: var(--green); }
+    .text-white { color: var(--white); }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: var(--accent);
+      margin: 1.2em 0;
+      opacity: 0.6;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1em 0;
+    }
+
+    th {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.8em;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.9em;
+      color: var(--gray);
+    }
+
+    td:first-child { color: var(--white); font-weight: 400; }
+
+    .timeline-phase {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 30px;
+    }
+
+    .timeline-phase::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .timeline-phase::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 22px;
+      width: 2px;
+      height: calc(100% + 10px);
+      background: rgba(227,65,21,0.2);
+    }
+
+    .timeline-phase:last-child::after {
+      display: none;
+    }
+
+    .phase-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75em;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.3em;
+    }
+
+    .phase-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.15em;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5em;
+    }
+
+    .plan-header {
+      text-align: left;
+      margin-bottom: 50px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .plan-header .subtitle {
+      font-size: 1.15em;
+      color: var(--slate);
+      font-weight: 300;
+      margin-bottom: 1.5em;
+    }
+
+    .plan-header .meta {
+      font-size: 0.85em;
+      color: var(--gray);
+    }
+
+    .plan-header .meta span {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.7em;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+
+    .tag-red { background: var(--accent-dim); color: var(--accent); }
+    .tag-gold { background: var(--gold-dim); color: var(--gold); }
+    .tag-green { background: var(--green-dim); color: var(--green); }
+
+    .plan-footer {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+    }
+
+    .plan-footer p {
+      font-size: 0.85em;
+      color: var(--gray);
+      margin-bottom: 0.3em;
+    }
+
+    .plan-footer .name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: var(--white);
+      font-size: 1em;
+    }
+
+    .plan-footer .contact {
+      color: var(--gray);
+      font-size: 0.85em;
+    }
+
+    .plan-footer .confidential {
+      font-size: 0.75em;
+      color: var(--slate);
+      margin-top: 1.5em;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 30px 20px; }
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      h1 { font-size: 1.8em; }
+    }
+
+    @media print {
+      body { background: #0a0e17; }
+      .container { max-width: 100%; padding: 30px; }
+      .section { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="plan-header">
+      <div class="section-label">Confidential GTM Strategy</div>
+      <h1>Notch</h1>
+      <h1 style="color: var(--accent); font-size: 1.4em; font-weight: 600; margin-bottom: 0.4em;">US Market GTM Plan</h1>
+      <p class="subtitle">AI agents for regulated industries. 12x ARR growth. $45M raised. New York office open. Ready to scale US enterprise revenue in insurance, healthcare, and financial services.</p>
+      <div class="divider"></div>
+      <p class="meta">Prepared by <span>Jeff Aragon</span> | Jozu Consulting Group | April 2026</p>
+    </div>
+
+    <!-- SECTION 1: COMPANY PROFILE -->
+    <div class="section">
+      <div class="section-label">Company Profile</div>
+      <h2>About Notch</h2>
+      <p>Notch builds autonomous AI agents for organizations operating in complex, regulated environments. Founded in 2021 by <strong>Rafael Broshi</strong> (CEO), <strong>Elool Jacoby</strong> (CPO), and <strong>Yuval Peled</strong> (CTO), the company designs and deploys AI systems that handle customer interactions with structured workflows, compliance-aware guardrails, and full audit trails. Notch has recently opened its New York office as the strategic hub for Sales, GTM, and Implementation teams.</p>
+
+      <div class="grid-4" style="margin-top: 24px; margin-bottom: 28px;">
+        <div class="card card-red" style="text-align: center;">
+          <div class="stat-value">$45M</div>
+          <div class="stat-label">Total Funding</div>
+        </div>
+        <div class="card card-gold" style="text-align: center;">
+          <div class="stat-value" style="color: var(--gold);">12x</div>
+          <div class="stat-label">ARR Growth (12 Mo)</div>
+        </div>
+        <div class="card card-green" style="text-align: center;">
+          <div class="stat-value" style="color: var(--green);">87%</div>
+          <div class="stat-label">End-to-End Resolution</div>
+        </div>
+        <div class="card card-slate" style="text-align: center;">
+          <div class="stat-value" style="color: var(--white);">50</div>
+          <div class="stat-label">Employees (Israel + US)</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card card-red">
+          <h4 style="color: var(--accent);">Founders</h4>
+          <p style="margin-bottom: 0.5em;"><strong>Rafael Broshi, CEO</strong> - Former Israeli Air Force officer (9 years). Background in product strategy (AGT International) and venture investing (Orca Capital, Foundation Partners). Ben-Gurion University, Mathematics and Computer Science.</p>
+          <p style="margin-bottom: 0.5em;"><strong>Elool Jacoby, CPO</strong> - Co-founder leading product vision. Deep expertise in workflow automation and process design for regulated environments.</p>
+          <p style="margin-bottom: 0;"><strong>Yuval Peled, CTO</strong> - Co-founder leading engineering. Building the AI agent infrastructure that powers autonomous resolution across insurance, healthcare, and financial services.</p>
+        </div>
+        <div class="card card-gold">
+          <h4>Investors</h4>
+          <ul style="margin-top: 8px;">
+            <li><strong>Headline</strong> - Series A lead. Global venture firm with deep enterprise SaaS expertise.</li>
+            <li><strong>Lightspeed Venture Partners</strong> - Tier-one US VC with extensive enterprise portfolio</li>
+            <li><strong>Jibe Ventures</strong> - Strategic investor</li>
+            <li><strong>Illuminate Financial</strong> - Fintech-focused venture investor</li>
+            <li><strong>Phoenix Insurance</strong> - Strategic LP, one of Israel's largest insurance groups</li>
+          </ul>
+          <p style="margin-top: 12px; margin-bottom: 0; font-size: 0.85em;">Featured in the <strong>Microsoft for Startups</strong> program. SOC 2 Type II and ISO 27001 certified. HIPAA, GDPR, CCPA, PCI, and ISO 42001 compliant.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: PRODUCT -->
+    <div class="section">
+      <div class="section-label">Product Overview</div>
+      <h2>The Notch Platform</h2>
+      <p>Notch deploys AI agents that automate and execute operational workflows end-to-end, spanning both conversational and back-office processes. The platform handles the entire workflow from intake through resolution: processing documents, verifying coverage, executing payments, and managing escalations without human handoffs. Every action follows defined compliance logic with full audit trails.</p>
+
+      <h3 style="color: var(--accent); margin-top: 24px;">Core Platform Capabilities</h3>
+      <div class="grid-2" style="margin-top: 16px;">
+        <div class="card card-red">
+          <h4 style="color: var(--accent);">Autonomous Resolution</h4>
+          <p style="margin-bottom: 0;">Achieves 70-73% autonomous resolution across customer deployments, with some implementations reaching 87% end-to-end resolution within 12 months. The system handles entire workflows from intake through settlement, processing documents, verifying coverage, and executing payments without human handoffs.</p>
+        </div>
+        <div class="card card-gold">
+          <h4>Compliance-First Architecture</h4>
+          <p style="margin-bottom: 0;">Deterministic rules control when and how AI engages across claim handling, policy servicing, and customer communications. Every action follows defined workflows and compliance logic. Full visibility into each AI decision, including reasoning and source references, logged for claims review, QA, and regulatory audits.</p>
+        </div>
+        <div class="card card-green">
+          <h4 style="color: var(--green);">Omnichannel Coverage</h4>
+          <p style="margin-bottom: 0;">Delivers resolution across chat, email, social, and voice channels with compliant routing, approvals, and escalation built into every workflow. Consistent customer experience regardless of engagement channel, with unified audit trails across all touchpoints.</p>
+        </div>
+        <div class="card card-slate">
+          <h4 style="color: var(--white);">Insurance Workflow Automation</h4>
+          <p style="margin-bottom: 0;">Autonomously processes FNOL (First Notice of Loss), endorsements, deductible waivers, and cancellations within defined authority levels. Uses deterministic rules, audit-ready decisioning, and escalation paths to maintain compliance and control at every step.</p>
+        </div>
+      </div>
+
+      <div class="grid-3" style="margin-top: 20px;">
+        <div class="card card-slate">
+          <h4 style="color: var(--white);">Security Certifications</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">SOC 2 Type II, ISO 27001, ISO 42001, HIPAA, GDPR, CCPA, PCI. Enterprise-grade security across all regulated verticals.</p>
+        </div>
+        <div class="card card-slate">
+          <h4 style="color: var(--white);">200% ROI</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Customer deployments deliver 200% return on investment within the first year. Cost per interaction drops from $8-$15 (phone) to under $1 (AI agent).</p>
+        </div>
+        <div class="card card-slate">
+          <h4 style="color: var(--white);">10M+ Tickets Processed</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Platform has processed over 10 million support tickets across customer deployments, validating scale and reliability in production environments.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: MARKET ANALYSIS -->
+    <div class="section">
+      <div class="section-label">Market Analysis</div>
+      <h2>AI in Regulated Industries</h2>
+
+      <div class="grid-3" style="margin-bottom: 28px;">
+        <div class="card card-red" style="text-align: center;">
+          <div class="stat-value">$13.4B</div>
+          <div class="stat-label">AI in Insurance Market (2026)</div>
+        </div>
+        <div class="card card-gold" style="text-align: center;">
+          <div class="stat-value" style="color: var(--gold);">35.7%</div>
+          <div class="stat-label">CAGR Through 2034</div>
+        </div>
+        <div class="card card-green" style="text-align: center;">
+          <div class="stat-value" style="color: var(--green);">$154B</div>
+          <div class="stat-label">Projected Market (2034)</div>
+        </div>
+      </div>
+
+      <h3 style="color: var(--accent);">Why Now: Regulated Industries at the AI Inflection Point</h3>
+      <p>Insurance, healthcare, and financial services companies are under simultaneous pressure to reduce operational costs, improve customer experience, and maintain regulatory compliance. AI automation offers the only path to achieving all three simultaneously. However, these industries cannot adopt generic AI tools. They require purpose-built solutions with compliance guardrails, audit trails, and deterministic decision frameworks that generic chatbot platforms cannot provide.</p>
+
+      <div class="grid-2" style="margin-top: 20px;">
+        <div class="card card-red">
+          <h4 style="color: var(--accent);">Enterprise Buyer Pain</h4>
+          <ul>
+            <li>Customer service costs consuming 15-25% of operating budgets in insurance</li>
+            <li>Agent turnover exceeding 30% annually, creating training and quality gaps</li>
+            <li>Compliance requirements making generic AI chatbots unacceptable</li>
+            <li>EU AI Act high-risk provisions taking effect August 2026</li>
+            <li>23 US states adopting NAIC AI Model Bulletin with more expected</li>
+            <li>Policyholders demanding faster resolution and digital-first engagement</li>
+          </ul>
+        </div>
+        <div class="card card-gold">
+          <h4>Market Tailwinds</h4>
+          <ul>
+            <li>48% of insurance businesses now using agentic AI, up from single digits in 2024</li>
+            <li>AI chatbots projected to save insurance industry $2.3B annually by end of 2026</li>
+            <li>Cost per phone interaction ($8-$15) vs. AI agent ($0.50-$0.70) creates urgent ROI case</li>
+            <li>92% of health insurers using or planning AI deployment</li>
+            <li>Regulatory clarity emerging, creating confidence for enterprise adoption</li>
+            <li>Competitive pressure as early adopters gain measurable cost and CX advantages</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card card-green" style="margin-top: 20px;">
+        <h4 style="color: var(--green);">Notch's Market Position</h4>
+        <p style="margin-bottom: 0;">Notch occupies the critical intersection of AI automation and regulatory compliance. While generic AI customer service platforms struggle to meet the demands of regulated industries, and legacy insurance technology vendors lack AI-native capabilities, Notch has built the only platform that delivers autonomous resolution with full compliance guardrails, audit trails, and deterministic decisioning. The 12x ARR growth and 87% resolution rates prove enterprise buyers are choosing Notch because no other solution addresses their specific requirements.</p>
+      </div>
+    </div>
+
+    <!-- SECTION 4: COMPETITIVE LANDSCAPE -->
+    <div class="section">
+      <div class="section-label">Competitive Landscape</div>
+      <h2>How Notch Compares</h2>
+      <p>The customer service automation market is crowded with generic tools, but the regulated industries segment has far fewer credible players. Notch competes against both horizontal AI platforms attempting to enter regulated verticals and legacy insurance technology vendors adding AI capabilities.</p>
+
+      <table style="margin-top: 20px;">
+        <thead>
+          <tr>
+            <th>Vendor</th>
+            <th>Focus</th>
+            <th>Compliance</th>
+            <th>Resolution Rate</th>
+            <th>Regulated Expertise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color: var(--accent);">Notch</strong></td>
+            <td>Purpose-built for regulated</td>
+            <td><span class="tag tag-green">Full stack</span></td>
+            <td>70-87% autonomous</td>
+            <td><span class="tag tag-green">Deep</span></td>
+          </tr>
+          <tr>
+            <td>Ada</td>
+            <td>Horizontal customer service</td>
+            <td><span class="tag tag-gold">Partial</span></td>
+            <td>40-60%</td>
+            <td><span class="tag tag-red">Limited</span></td>
+          </tr>
+          <tr>
+            <td>Intercom (Fin)</td>
+            <td>Horizontal customer service</td>
+            <td><span class="tag tag-gold">Partial</span></td>
+            <td>50-65%</td>
+            <td><span class="tag tag-red">Limited</span></td>
+          </tr>
+          <tr>
+            <td>Salesforce (Einstein)</td>
+            <td>CRM-integrated service</td>
+            <td><span class="tag tag-gold">Partial</span></td>
+            <td>30-50%</td>
+            <td><span class="tag tag-gold">Moderate</span></td>
+          </tr>
+          <tr>
+            <td>Guidewire</td>
+            <td>Insurance core systems</td>
+            <td><span class="tag tag-green">Strong</span></td>
+            <td>Low (workflow only)</td>
+            <td><span class="tag tag-green">Deep</span></td>
+          </tr>
+          <tr>
+            <td>Duck Creek</td>
+            <td>Insurance core systems</td>
+            <td><span class="tag tag-green">Strong</span></td>
+            <td>Low (workflow only)</td>
+            <td><span class="tag tag-green">Deep</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="grid-3" style="margin-top: 24px;">
+        <div class="card card-red">
+          <h4 style="color: var(--accent);">Win Against Horizontal AI</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Purpose-built compliance guardrails vs. retrofitted controls. Deterministic decisioning for regulated workflows. Full audit trails that pass regulatory scrutiny. Insurance-specific workflow automation (FNOL, endorsements, claims) that generic platforms cannot replicate.</p>
+        </div>
+        <div class="card card-gold">
+          <h4>Win Against Legacy Insurtech</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">AI-native architecture vs. legacy systems with AI bolted on. 87% autonomous resolution vs. workflow routing. Deploys in weeks vs. months-long integration projects. Omnichannel coverage across chat, email, social, and voice.</p>
+        </div>
+        <div class="card card-green">
+          <h4 style="color: var(--green);">Win Against Build-Your-Own</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Production-ready platform vs. 12-18 months of internal development. Pre-built compliance framework vs. building from scratch. 10M+ tickets of production learning vs. starting at zero. SOC 2, HIPAA, GDPR, PCI certifications already in place.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 5: BUYER SEGMENTS -->
+    <div class="section">
+      <div class="section-label">Target Segments</div>
+      <h2>US Enterprise Buyer Map</h2>
+      <p>Notch targets large organizations in regulated industries where customer service automation requires compliance guardrails, audit trails, and deterministic decisioning. The US market represents the largest addressable opportunity across all three primary verticals.</p>
+
+      <div class="grid-2" style="margin-top: 20px;">
+        <div class="card card-red">
+          <h3 style="color: var(--accent);">Property and Casualty Insurance</h3>
+          <span class="tag tag-red">Priority 1</span>
+          <div class="divider"></div>
+          <p><strong>Why:</strong> Highest volume of customer interactions (claims, FNOL, endorsements, renewals). Intense cost pressure on customer service operations. Agent turnover creating quality gaps. Regulatory requirements for claims handling documentation.</p>
+          <p><strong>Decision Makers:</strong> CIO, VP Claims, VP Customer Experience, Chief Digital Officer</p>
+          <p><strong>Deal Size:</strong> $300K - $1.5M+ ACV</p>
+          <p><strong>Sales Cycle:</strong> 4-6 months</p>
+          <p style="margin-bottom: 0;"><strong>Entry Point:</strong> Claims FNOL automation pilot. Demonstrate autonomous resolution on highest-volume workflow, then expand to full customer service coverage.</p>
+        </div>
+        <div class="card card-gold">
+          <h3 style="color: var(--gold);">Life and Health Insurance</h3>
+          <span class="tag tag-gold">Priority 1</span>
+          <div class="divider" style="background: var(--gold);"></div>
+          <p><strong>Why:</strong> HIPAA compliance requirements make generic AI tools unacceptable. High call volumes for benefits inquiries, claims status, and prior authorizations. 92% of health insurers using or planning AI. Cost pressure from medical loss ratio management.</p>
+          <p><strong>Decision Makers:</strong> CIO, VP Operations, VP Member Services, Chief Digital Officer</p>
+          <p><strong>Deal Size:</strong> $250K - $1M ACV</p>
+          <p><strong>Sales Cycle:</strong> 5-8 months</p>
+          <p style="margin-bottom: 0;"><strong>Entry Point:</strong> Member services automation. Start with benefits inquiries and claims status, expand to prior authorization and enrollment workflows.</p>
+        </div>
+        <div class="card card-green">
+          <h3 style="color: var(--green);">Financial Services</h3>
+          <span class="tag tag-green">Priority 2</span>
+          <div class="divider" style="background: var(--green);"></div>
+          <p><strong>Why:</strong> Complex regulatory environment (SEC, FINRA, CFPB). High-volume customer service operations. Competitive pressure to improve digital experience. Compliance documentation requirements for every customer interaction.</p>
+          <p><strong>Decision Makers:</strong> CIO, VP Digital, VP Operations, Chief Compliance Officer</p>
+          <p><strong>Deal Size:</strong> $200K - $750K ACV</p>
+          <p><strong>Sales Cycle:</strong> 4-7 months</p>
+          <p style="margin-bottom: 0;"><strong>Entry Point:</strong> Customer service automation for account inquiries and routine transactions. Demonstrate compliance guardrails and audit trail capabilities.</p>
+        </div>
+        <div class="card card-slate">
+          <h3>Healthcare Providers and Payers</h3>
+          <span class="tag tag-gold">Priority 2</span>
+          <div class="divider"></div>
+          <p><strong>Why:</strong> HIPAA review requirements for every patient interaction. Scheduling, billing inquiries, and benefits verification consuming massive staff hours. Labor shortage making automation essential. Patient experience scores tied to reimbursement.</p>
+          <p><strong>Decision Makers:</strong> CIO, VP Revenue Cycle, VP Patient Experience, CMIO</p>
+          <p><strong>Deal Size:</strong> $200K - $600K ACV</p>
+          <p><strong>Sales Cycle:</strong> 5-9 months</p>
+          <p style="margin-bottom: 0;"><strong>Entry Point:</strong> Patient scheduling and billing inquiry automation. Demonstrate HIPAA-compliant AI handling of routine patient interactions.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 6: PARTNERSHIP CHANNELS -->
+    <div class="section">
+      <div class="section-label">Channel Strategy</div>
+      <h2>Partnership and Channel Ecosystem</h2>
+      <p>Notch's expansion into the US market benefits from partnerships that provide distribution into large insurance, healthcare, and financial services enterprises. The channel strategy prioritizes partners with established relationships in regulated verticals and the trust to introduce AI solutions into compliance-sensitive environments.</p>
+
+      <div class="grid-2" style="margin-top: 24px;">
+        <div class="card card-red">
+          <h3 style="color: var(--accent);">Insurance Technology Consultants</h3>
+          <span class="tag tag-red">High Priority</span>
+          <div class="divider"></div>
+          <h4 style="color: var(--white); font-size: 0.85em;">Why Insurance Consultants</h4>
+          <p style="font-size: 0.9em;">Insurance carriers rely on specialized consultants for technology selection, implementation, and digital transformation. These firms control vendor shortlists and influence buying decisions at the C-suite level.</p>
+          <h4 style="color: var(--white); font-size: 0.85em;">Target Partners</h4>
+          <ul style="font-size: 0.9em;">
+            <li><strong>Deloitte Insurance</strong> - Largest insurance advisory practice, deep carrier relationships</li>
+            <li><strong>McKinsey Insurance Practice</strong> - Strategic advisory, digital transformation</li>
+            <li><strong>Accenture Insurance</strong> - Implementation partner with carrier portfolio</li>
+            <li><strong>EY Insurance</strong> - Advisory and regulatory compliance expertise</li>
+          </ul>
+          <h4 style="color: var(--white); font-size: 0.85em;">Partnership Model</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Advisory partnership with referral fees. Joint digital transformation engagements. Co-authored thought leadership on AI in regulated industries. Implementation partnership for complex deployments.</p>
+        </div>
+        <div class="card card-gold">
+          <h3 style="color: var(--gold);">Insurance Core System Vendors</h3>
+          <span class="tag tag-gold">High Priority</span>
+          <div class="divider" style="background: var(--gold);"></div>
+          <h4 style="color: var(--white); font-size: 0.85em;">Why Core System Partners</h4>
+          <p style="font-size: 0.9em;">Insurance carriers operate on core platforms (Guidewire, Duck Creek, Majesco) that manage policy, billing, and claims. Integration with these systems creates a natural distribution channel and reduces deployment friction.</p>
+          <h4 style="color: var(--white); font-size: 0.85em;">Target Partners</h4>
+          <ul style="font-size: 0.9em;">
+            <li><strong>Guidewire</strong> - Dominant P&C core platform, marketplace ecosystem</li>
+            <li><strong>Duck Creek</strong> - Cloud-native core platform, growing P&C share</li>
+            <li><strong>Majesco</strong> - L&A and P&C core systems with API-first architecture</li>
+            <li><strong>Sapiens</strong> - Insurance core platform serving carriers globally</li>
+          </ul>
+          <h4 style="color: var(--white); font-size: 0.85em;">Partnership Model</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Marketplace listing on partner ecosystems. Pre-built integrations for policy, claims, and billing data. Joint go-to-market for digital CX transformation. Co-sell through partner account teams.</p>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top: 20px;">
+        <div class="card card-green">
+          <h3 style="color: var(--green);">Healthcare IT Partners</h3>
+          <span class="tag tag-green">Medium Priority</span>
+          <div class="divider" style="background: var(--green);"></div>
+          <h4 style="color: var(--white); font-size: 0.85em;">Why Healthcare IT</h4>
+          <p style="font-size: 0.9em;">Healthcare organizations procure technology through established IT partnerships. Integration with EHR and revenue cycle platforms creates natural distribution into health systems and payers.</p>
+          <h4 style="color: var(--white); font-size: 0.85em;">Target Partners</h4>
+          <ul style="font-size: 0.9em;">
+            <li><strong>Epic</strong> - Dominant EHR, App Orchard marketplace</li>
+            <li><strong>Verint</strong> - Contact center and CX platform for healthcare</li>
+            <li><strong>Salesforce Health Cloud</strong> - Healthcare CRM with payer and provider focus</li>
+            <li><strong>NICE</strong> - Contact center infrastructure for healthcare</li>
+          </ul>
+          <h4 style="color: var(--white); font-size: 0.85em;">Partnership Model</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Marketplace listings on partner ecosystems. HIPAA-compliant integrations. Joint go-to-market for patient engagement automation. Co-branded case studies with health system customers.</p>
+        </div>
+        <div class="card card-slate">
+          <h3>Industry Associations and GPOs</h3>
+          <span class="tag tag-gold">Medium Priority</span>
+          <div class="divider"></div>
+          <h4 style="color: var(--white); font-size: 0.85em;">Why Associations</h4>
+          <p style="font-size: 0.9em;">Industry associations and group purchasing organizations provide access to hundreds of member organizations through endorsed vendor programs, conference sponsorships, and educational partnerships.</p>
+          <h4 style="color: var(--white); font-size: 0.85em;">Target Partners</h4>
+          <ul style="font-size: 0.9em;">
+            <li><strong>ACORD</strong> - Insurance industry standards organization</li>
+            <li><strong>AHIP</strong> - Health insurance association representing 100+ payers</li>
+            <li><strong>IIA (Insurance Institute of America)</strong> - Education and industry credentialing</li>
+            <li><strong>HFMA</strong> - Healthcare financial management association</li>
+          </ul>
+          <h4 style="color: var(--white); font-size: 0.85em;">Partnership Model</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Conference sponsorship and speaking engagements. Endorsed vendor programs. Educational content partnerships on AI in regulated industries. Member-exclusive pilot programs.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 7: 90-DAY GTM EXECUTION -->
+    <div class="section">
+      <div class="section-label">Execution Plan</div>
+      <h2>90-Day US Market GTM Roadmap</h2>
+      <p>A phased approach to scaling Notch's US revenue engine from the new New York office. Focused on converting 12x ARR momentum into a repeatable, enterprise-grade sales motion targeting insurance, healthcare, and financial services buyers.</p>
+
+      <!-- Phase 1 -->
+      <div class="timeline-phase">
+        <div class="phase-label">Days 1-30</div>
+        <div class="phase-title">Foundation and Positioning</div>
+        <div class="grid-2">
+          <div class="card card-red">
+            <h4 style="color: var(--accent);">Sales Infrastructure</h4>
+            <ul style="font-size: 0.9em;">
+              <li>Define ICP scoring model weighted by carrier size, lines of business, claims volume, and digital maturity</li>
+              <li>Build target account list: 150 insurance carriers and 50 healthcare payers across the US</li>
+              <li>Map decision-maker personas (CIO, VP Claims, VP CX, CDO) with tailored messaging per persona</li>
+              <li>Deploy CRM pipeline with insurance-specific stage definitions and conversion metrics</li>
+              <li>Create competitive battle cards against Ada, Intercom Fin, Salesforce Einstein, and build-your-own approaches</li>
+            </ul>
+          </div>
+          <div class="card card-gold">
+            <h4>Positioning and Narrative</h4>
+            <ul style="font-size: 0.9em;">
+              <li>Develop US-market messaging: "The only AI agent platform built for regulated industries"</li>
+              <li>Build CIO-level pitch deck, compliance-focused deck, and ROI analysis deck</li>
+              <li>Draft founder-led thought leadership on AI compliance in insurance and healthcare</li>
+              <li>Create ROI calculator: cost per interaction reduction, resolution rate improvement, agent turnover savings</li>
+              <li>Develop customer proof points from existing deployments (12x ARR growth, 87% resolution, 200% ROI)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="timeline-phase">
+        <div class="phase-label">Days 31-60</div>
+        <div class="phase-title">Pipeline Generation and Channel Activation</div>
+        <div class="grid-2">
+          <div class="card card-green">
+            <h4 style="color: var(--green);">Outbound Pipeline</h4>
+            <ul style="font-size: 0.9em;">
+              <li>Launch multi-channel outbound: personalized sequences to 200 target CIOs and VP Claims across top carriers</li>
+              <li>Founder-led outreach to 15 strategic accounts (top 25 P&C and top 10 health insurers)</li>
+              <li>LinkedIn thought leadership campaign: Rafael publishing weekly on AI in regulated CX</li>
+              <li>Target 20-25 qualified discovery meetings with insurance and healthcare buyers</li>
+              <li>Launch "Compliance-Ready AI Assessment" as entry point for risk-averse enterprise buyers</li>
+            </ul>
+          </div>
+          <div class="card card-slate">
+            <h4 style="color: var(--white);">Channel Activation</h4>
+            <ul style="font-size: 0.9em;">
+              <li>Begin conversations with Deloitte Insurance and Accenture Insurance advisory practices</li>
+              <li>Submit Guidewire Marketplace and Duck Creek Marketplace listing applications</li>
+              <li>Engage ACORD for standards partnership and conference sponsorship</li>
+              <li>Initiate Salesforce Health Cloud integration partnership</li>
+              <li>Develop partner enablement kit: compliance documentation, demo environment, co-branded materials</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="timeline-phase">
+        <div class="phase-label">Days 61-90</div>
+        <div class="phase-title">Pipeline Conversion and Scale Preparation</div>
+        <div class="grid-2">
+          <div class="card card-red">
+            <h4 style="color: var(--accent);">Pipeline Acceleration</h4>
+            <ul style="font-size: 0.9em;">
+              <li>Convert discovery meetings to pilots: target 6-10 active carrier or payer evaluations</li>
+              <li>Deploy rapid pilot process: demonstrate 70%+ resolution on live claims or member service workflows</li>
+              <li>Develop procurement-ready materials: security questionnaires, MSA templates, compliance certifications</li>
+              <li>Target 3-4 closed deals or late-stage commitments by Day 90</li>
+              <li>Launch customer advisory board with existing US enterprise customers</li>
+            </ul>
+          </div>
+          <div class="card card-gold">
+            <h4>Scale Infrastructure</h4>
+            <ul style="font-size: 0.9em;">
+              <li>Hire 2 US-based enterprise AEs (insurance and healthcare vertical expertise)</li>
+              <li>Hire US-based Solutions Engineer for pilot delivery and technical validation</li>
+              <li>Finalize first insurance technology consultant partnership agreement</li>
+              <li>Submit Gartner and Forrester analyst briefing requests for insurance AI coverage</li>
+              <li>Plan InsureTech Connect 2027 and HIMSS presence for brand visibility</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-green" style="margin-top: 24px;">
+        <h3 style="color: var(--green);">Day 90 Success Metrics</h3>
+        <div class="grid-4" style="margin-top: 16px;">
+          <div style="text-align: center;">
+            <div class="stat-value" style="color: var(--green); font-size: 1.4em;">200</div>
+            <div class="stat-label">Target Accounts Engaged</div>
+          </div>
+          <div style="text-align: center;">
+            <div class="stat-value" style="color: var(--green); font-size: 1.4em;">35+</div>
+            <div class="stat-label">Discovery Meetings</div>
+          </div>
+          <div style="text-align: center;">
+            <div class="stat-value" style="color: var(--green); font-size: 1.4em;">6-10</div>
+            <div class="stat-label">Active Pilots</div>
+          </div>
+          <div style="text-align: center;">
+            <div class="stat-value" style="color: var(--green); font-size: 1.4em;">3-4</div>
+            <div class="stat-label">Closed / Late-Stage</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 8: WHY JEFF -->
+    <div class="section" style="border-bottom: none;">
+      <div class="section-label">Why Jeff Aragon</div>
+      <h2>The Right GTM Leader for This Stage</h2>
+      <p>Notch has proven product-market fit with 12x ARR growth, 87% autonomous resolution, and enterprise customers across regulated industries. What comes next is scaling the US revenue engine from the new New York office into the largest insurance and healthcare market in the world. That is exactly what I do.</p>
+
+      <div class="grid-2" style="margin-top: 24px;">
+        <div class="card card-red">
+          <h3 style="color: var(--accent);">Career Track Record</h3>
+          <div class="divider"></div>
+          <ul>
+            <li><strong>$150M+ in career revenue</strong> across enterprise software, healthcare technology, and regulated industries</li>
+            <li><strong>$24M TCV closed in less than 2 years</strong> at my last Series A startup, building the entire sales function from zero</li>
+            <li><strong>Award winning at UKG</strong> for nearly 6 years, recognized multiple times for performance selling workforce management and HR technology to healthcare systems, senior living, and long-term care organizations</li>
+            <li><strong>Deep healthcare vertical expertise.</strong> I sold HCM software to hospitals, health systems, senior living operators, and post-acute care organizations. I understand HIPAA requirements, healthcare procurement cycles, and the operational challenges these buyers face.</li>
+          </ul>
+        </div>
+        <div class="card card-gold">
+          <h3 style="color: var(--gold);">Why This Matters for Notch</h3>
+          <div class="divider" style="background: var(--gold);"></div>
+          <ul>
+            <li><strong>Regulated industry fluency.</strong> I have sold enterprise software to healthcare and insurance buyers for years. I understand compliance requirements, procurement cycles, and the trust-building process that regulated buyers require before adopting new technology.</li>
+            <li><strong>Series A GTM expertise.</strong> I have built go-to-market at this exact stage before. I know how to take a product with proven traction and build the repeatable sales engine that investors expect to see.</li>
+            <li><strong>Channel and partnership acumen.</strong> Built consulting firm, GPO, and technology alliance programs. I know how to activate channel revenue in healthcare and insurance through the partners that carriers and health systems already trust.</li>
+            <li><strong>Operator, not advisor.</strong> I do the work. Outbound sequences, CRM hygiene, deal strategy, partner enablement, competitive intelligence. I do not delegate what I can execute directly.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card card-green" style="margin-top: 20px;">
+        <h3 style="color: var(--green);">What I Bring to Day 1</h3>
+        <p style="margin-bottom: 0;">I can start generating pipeline from the New York office immediately. I come with the sales infrastructure already built: CRM workflows, outbound sequences, ICP frameworks, competitive battle cards, partnership playbooks, and a proven methodology for converting early-stage enterprise interest into closed revenue. My healthcare background means I already understand the buyer personas, procurement processes, and compliance requirements that Notch's target customers demand. Notch does not need someone who needs 90 days to learn the market. You need someone who has already sold to these buyers, who can build the US revenue engine while the founders stay focused on product and fundraising.</p>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="plan-footer">
+      <p class="name">Jeff Aragon</p>
+      <p class="contact">jeff@jozuconsultinggroup.com | +1 303-638-1390 (mobile and WhatsApp)</p>
+      <p class="contact">Jozu Consulting Group</p>
+      <p class="confidential">Confidential - Prepared for Notch Leadership</p>
+    </div>
+
+  </div>
+</body>
+</html>

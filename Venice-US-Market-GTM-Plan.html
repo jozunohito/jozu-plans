@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script async src="https://plausible.io/js/pa-1razrYiA4atISy5-RXcrX.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venice - US Market GTM Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --bg-card: rgba(255,255,255,0.03);
+      --bg-card-border: rgba(255,255,255,0.06);
+      --accent: #e34115;
+      --accent-dim: rgba(227,65,21,0.12);
+      --gold: #c9a84c;
+      --gold-dim: rgba(201,168,76,0.10);
+      --green: #22c55e;
+      --green-dim: rgba(34,197,94,0.10);
+      --slate: #64748b;
+      --white: #ffffff;
+      --gray: #cbd5e1;
+      --bright: #e2e8f0;
+      --radius: 10px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--gray);
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 2.4em;
+      font-weight: 700;
+      margin-bottom: 0.2em;
+      line-height: 1.15;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      font-weight: 600;
+      margin-bottom: 0.6em;
+    }
+
+    h3 {
+      font-size: 1.1em;
+      font-weight: 600;
+      margin-bottom: 0.4em;
+    }
+
+    h4 {
+      font-size: 0.95em;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 0.3em;
+    }
+
+    p { margin-bottom: 1em; color: var(--gray); }
+
+    ul, ol { color: var(--gray); padding-left: 1.2em; }
+    li { margin-bottom: 0.5em; line-height: 1.6; }
+
+    strong { color: var(--white); font-weight: 600; }
+
+    .section-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.8em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .section {
+      margin-bottom: 60px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .section:last-of-type {
+      border-bottom: none;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+    }
+
+    .card-red { border-left: 3px solid var(--accent); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-green { border-left: 3px solid var(--green); }
+    .card-slate { border-left: 3px solid var(--slate); }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+    .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; }
+
+    .stat-value {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8em;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.1;
+      margin-bottom: 0.15em;
+    }
+
+    .stat-label {
+      font-size: 0.85em;
+      color: var(--gray);
+      font-weight: 400;
+    }
+
+    .text-accent { color: var(--accent); }
+    .text-gold { color: var(--gold); }
+    .text-green { color: var(--green); }
+    .text-white { color: var(--white); }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: var(--accent);
+      margin: 1.2em 0;
+      opacity: 0.6;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1em 0;
+    }
+
+    th {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.8em;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.9em;
+      color: var(--gray);
+    }
+
+    td:first-child { color: var(--white); font-weight: 400; }
+
+    .timeline-phase {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 30px;
+    }
+
+    .timeline-phase::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .timeline-phase::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 22px;
+      width: 2px;
+      height: calc(100% + 10px);
+      background: rgba(227,65,21,0.2);
+    }
+
+    .timeline-phase:last-child::after {
+      display: none;
+    }
+
+    .phase-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75em;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.3em;
+    }
+
+    .phase-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.15em;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5em;
+    }
+
+    .plan-header {
+      text-align: left;
+      margin-bottom: 50px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .plan-header .subtitle {
+      font-size: 1.15em;
+      color: var(--slate);
+      font-weight: 300;
+      margin-bottom: 1.5em;
+    }
+
+    .plan-header .meta {
+      font-size: 0.85em;
+      color: var(--gray);
+    }
+
+    .plan-header .meta span {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.7em;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+
+    .tag-red { background: var(--accent-dim); color: var(--accent); }
+    .tag-gold { background: var(--gold-dim); color: var(--gold); }
+    .tag-green { background: var(--green-dim); color: var(--green); }
+
+    .plan-footer {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+    }
+
+    .plan-footer p {
+      font-size: 0.85em;
+      color: var(--gray);
+      margin-bottom: 0.3em;
+    }
+
+    .plan-footer .name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: var(--white);
+      font-size: 1em;
+    }
+
+    .plan-footer .contact {
+      color: var(--gray);
+      font-size: 0.85em;
+    }
+
+    .plan-footer .confidential {
+      font-size: 0.75em;
+      color: var(--slate);
+      margin-top: 1.5em;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 30px 20px; }
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      h1 { font-size: 1.8em; }
+    }
+
+    @media print {
+      body { background: #0a0e17; }
+      .container { max-width: 100%; padding: 30px; }
+      .section { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="plan-header">
+      <div class="section-label">Confidential GTM Strategy</div>
+      <h1>Venice</h1>
+      <h1 style="color: var(--accent); font-size: 1.4em; font-weight: 600; margin-bottom: 0.4em;">US Market GTM Plan</h1>
+      <p class="subtitle">Next-generation privileged access management for the AI era. Unit 8200 founders. $33M raised. Already replacing CyberArk at Fortune 500 enterprises. Ready to scale US revenue.</p>
+      <div class="divider"></div>
+      <p class="meta">Prepared by <span>Jeff Aragon</span> | Jozu Consulting Group | April 2026</p>
+    </div>
+
+    <!-- SECTION 1: COMPANY PROFILE -->
+    <div class="section">
+      <div class="section-label">Company Profile</div>
+      <h2>About Venice</h2>
+      <p>Venice is redefining privileged access management for the AI era. Founded in 2024 by <strong>Rotem Lurie</strong> (CEO) and <strong>Or Vaknin</strong> (CTO), the company emerged from stealth in February 2026 with $33M in funding and a platform that replaces static enterprise permissions with dynamic, just-in-time access control for humans, machines, and AI agents. Venice is already displacing legacy identity solutions at large US enterprises, selling primarily to Fortune 500 organizations.</p>
+
+      <div class="grid-4" style="margin-top: 24px; margin-bottom: 28px;">
+        <div class="card card-red" style="text-align: center;">
+          <div class="stat-value">$33M</div>
+          <div class="stat-label">Total Funding ($8M Seed + $25M Series A)</div>
+        </div>
+        <div class="card card-gold" style="text-align: center;">
+          <div class="stat-value" style="color: var(--gold);">35</div>
+          <div class="stat-label">Employees</div>
+        </div>
+        <div class="card card-green" style="text-align: center;">
+          <div class="stat-value" style="color: var(--green);">F500</div>
+          <div class="stat-label">Enterprise Customers</div>
+        </div>
+        <div class="card card-slate" style="text-align: center;">
+          <div class="stat-value" style="color: var(--white);">2024</div>
+          <div class="stat-label">Founded (Israel)</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card card-red">
+          <h4 style="color: var(--accent);">Founders</h4>
+          <p style="margin-bottom: 0.5em;"><strong>Rotem Lurie, CEO</strong> - Forbes 30 Under 30. Four and a half years as a lieutenant in Unit 8200. Head of Product Management at Axis Security (acquired by HPE). Started at Microsoft as an intern during her undergraduate degree. Comes from a family of programmers; her mother was among Israel's early software developers.</p>
+          <p style="margin-bottom: 0;"><strong>Or Vaknin, CTO</strong> - Unit 8200 veteran. Early team member at Transmit Security and Flow Security (acquired by CrowdStrike). Deep technical expertise in identity security architecture and access management systems.</p>
+        </div>
+        <div class="card card-gold">
+          <h4>Investors</h4>
+          <ul style="margin-top: 8px;">
+            <li><strong>IVP</strong> - Series A lead. Top-tier US growth fund (backed Slack, Dropbox, CrowdStrike)</li>
+            <li><strong>Index Ventures</strong> - Seed lead and Series A participant. One of Europe's most successful venture firms.</li>
+            <li><strong>Vine Ventures</strong> - Series A participant</li>
+            <li><strong>Holly Ventures</strong> - Series A participant</li>
+          </ul>
+          <h4 style="margin-top: 16px;">Angel Investors</h4>
+          <ul style="margin-top: 8px;">
+            <li><strong>Assaf Rappaport</strong> - Co-founder and CEO of Wiz</li>
+            <li><strong>Raz Herzberg</strong> - CMO of Wiz</li>
+            <li><strong>Dor Knafo and Gil Azrielant</strong> - Founders of Axis Security</li>
+            <li><strong>Founders of Descope</strong> - Identity security leaders</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: PRODUCT -->
+    <div class="section">
+      <div class="section-label">Product Overview</div>
+      <h2>The Venice Platform</h2>
+      <p>Venice maps access across an entire organization and eliminates permanent access to sensitive information. The platform provides uniform and consistent control over the identities of employees, contractors, machines, and AI systems, ensuring that access is granted only to authorized entities and only for the time required. Venice consolidates privileged access sprawl into a single system that handles privileged access across on-premises servers, SaaS applications, and cloud infrastructure.</p>
+
+      <h3 style="color: var(--accent); margin-top: 24px;">Core Platform Capabilities</h3>
+      <div class="grid-2" style="margin-top: 16px;">
+        <div class="card card-red">
+          <h4 style="color: var(--accent);">Just-in-Time Access</h4>
+          <p style="margin-bottom: 0;">Replaces permanent credentials with just-in-time permissions scoped to the individual and the moment. Access is granted only when needed and automatically revoked when the session or task is complete. Eliminates the standing privileges that credential abuse attacks exploit.</p>
+        </div>
+        <div class="card card-gold">
+          <h4>Unified Identity Control</h4>
+          <p style="margin-bottom: 0;">Single platform governing privileged access for humans, machines, and AI agents across all environments. Covers on-premises servers, SaaS applications, and cloud infrastructure. Eliminates the fragmented access controls that create security gaps in hybrid enterprises.</p>
+        </div>
+        <div class="card card-green">
+          <h4 style="color: var(--green);">AI Agent Governance</h4>
+          <p style="margin-bottom: 0;">Purpose-built for the era where every employee will have tens of AI agents acting on their behalf. Extends privileged access controls to autonomous AI agents, ensuring they operate within defined permission boundaries. Legacy PAM tools built for a static world cannot address this expanding attack surface.</p>
+        </div>
+        <div class="card card-slate">
+          <h4 style="color: var(--white);">Access Consolidation</h4>
+          <p style="margin-bottom: 0;">Maps and consolidates privileged access sprawl across the entire organization. Provides visibility into who has access to what, when, and why. Replaces the patchwork of legacy tools that enterprises have accumulated, reducing complexity and improving security posture simultaneously.</p>
+        </div>
+      </div>
+
+      <div class="card card-gold" style="margin-top: 24px;">
+        <h4>The CyberArk Displacement Opportunity</h4>
+        <p style="margin-bottom: 0;">Venice is already replacing CyberArk and other legacy identity solutions at Fortune 500 companies. The company positions itself not as a cheaper alternative, but as a modern architecture that consolidates privileged access management for the AI era. With CyberArk's $1.54B acquisition of Venafi and increasing platform complexity, enterprise buyers are looking for simpler, more modern alternatives. Venice's cloud-native, SaaS-delivered platform offers a fundamentally different approach: dynamic access control instead of static credential vaulting, with native support for the non-human and AI identities that now outnumber human identities 40 to 1 in the average enterprise.</p>
+      </div>
+    </div>
+
+    <!-- SECTION 3: MARKET ANALYSIS -->
+    <div class="section">
+      <div class="section-label">Market Analysis</div>
+      <h2>Privileged Access Management Landscape</h2>
+
+      <div class="grid-3" style="margin-bottom: 28px;">
+        <div class="card card-red" style="text-align: center;">
+          <div class="stat-value">$5.2B</div>
+          <div class="stat-label">PAM Market (2026)</div>
+        </div>
+        <div class="card card-gold" style="text-align: center;">
+          <div class="stat-value" style="color: var(--gold);">21.7%</div>
+          <div class="stat-label">CAGR Through 2031</div>
+        </div>
+        <div class="card card-green" style="text-align: center;">
+          <div class="stat-value" style="color: var(--green);">$13.8B</div>
+          <div class="stat-label">Projected Market (2031)</div>
+        </div>
+      </div>
+
+      <h3 style="color: var(--accent);">Why Now: The Identity Crisis in Enterprise Security</h3>
+      <p>Machine identities now outnumber human identities 40 to 1 in the average enterprise. As organizations deploy AI agents that access databases, APIs, and internal systems autonomously, the number of privileged identities requiring governance is exploding. Legacy PAM solutions were designed for a world where a human administrator logged into a server with a vaulted credential. That world no longer exists. Enterprises need privileged access management rebuilt for dynamic, ephemeral, and autonomous access patterns.</p>
+
+      <div class="grid-2" style="margin-top: 20px;">
+        <div class="card card-red">
+          <h4 style="color: var(--accent);">Enterprise Buyer Pain</h4>
+          <ul>
+            <li>Legacy PAM deployments taking 6-12 months, creating extended exposure windows</li>
+            <li>Standing privileges creating persistent attack surface for credential abuse</li>
+            <li>AI agent proliferation outpacing existing identity governance capabilities</li>
+            <li>Tool sprawl: separate solutions for human, machine, and cloud privileged access</li>
+            <li>Compliance audits revealing gaps in non-human identity governance</li>
+            <li>CyberArk/Venafi merger creating uncertainty and migration opportunities</li>
+          </ul>
+        </div>
+        <div class="card card-gold">
+          <h4>Market Tailwinds</h4>
+          <ul>
+            <li>Cloud and SaaS privilege management growing at 23.9% CAGR, the fastest-growing segment</li>
+            <li>North America holds 38% market share, representing the largest addressable market</li>
+            <li>Zero-trust mandates requiring just-in-time access as a foundational control</li>
+            <li>Insurance carriers beginning to require PAM as a condition of cyber coverage</li>
+            <li>Board-level focus on identity security after high-profile credential abuse breaches</li>
+            <li>AI agent adoption creating entirely new identity governance requirements</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card card-green" style="margin-top: 20px;">
+        <h4 style="color: var(--green);">Venice's Market Position</h4>
+        <p style="margin-bottom: 0;">Venice enters the PAM market at the exact moment when legacy solutions are being exposed as inadequate for the AI era. The company is not competing on price. It is competing on architecture: dynamic vs. static, consolidated vs. fragmented, AI-ready vs. legacy. The fact that Fortune 500 enterprises are already ripping out CyberArk and replacing it with Venice validates that the market is ready for this shift. The Wiz CEO's personal investment signals that Israel's most successful cybersecurity entrepreneurs see Venice as the next platform winner in identity security.</p>
+      </div>
+    </div>
+
+    <!-- SECTION 4: COMPETITIVE LANDSCAPE -->
+    <div class="section">
+      <div class="section-label">Competitive Landscape</div>
+      <h2>How Venice Compares</h2>
+      <p>The PAM market is dominated by legacy vendors that built their platforms for a pre-cloud, pre-AI world. Venice represents the first ground-up rebuild of privileged access management for modern enterprise environments.</p>
+
+      <table style="margin-top: 20px;">
+        <thead>
+          <tr>
+            <th>Vendor</th>
+            <th>Architecture</th>
+            <th>Access Model</th>
+            <th>AI Agent Support</th>
+            <th>Deployment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color: var(--accent);">Venice</strong></td>
+            <td>Cloud-native SaaS</td>
+            <td>Just-in-time, dynamic</td>
+            <td><span class="tag tag-green">Native</span></td>
+            <td>Weeks</td>
+          </tr>
+          <tr>
+            <td>CyberArk</td>
+            <td>On-prem + cloud hybrid</td>
+            <td>Credential vaulting (static)</td>
+            <td><span class="tag tag-gold">Partial (Venafi)</span></td>
+            <td>6-12 months</td>
+          </tr>
+          <tr>
+            <td>BeyondTrust</td>
+            <td>On-prem + cloud hybrid</td>
+            <td>Endpoint privilege + vaulting</td>
+            <td><span class="tag tag-red">Limited</span></td>
+            <td>3-6 months</td>
+          </tr>
+          <tr>
+            <td>Delinea</td>
+            <td>Cloud-first (from on-prem)</td>
+            <td>Secret vaulting + PEDM</td>
+            <td><span class="tag tag-red">Limited</span></td>
+            <td>2-4 months</td>
+          </tr>
+          <tr>
+            <td>HashiCorp Vault</td>
+            <td>Cloud-native (developer)</td>
+            <td>Secrets management</td>
+            <td><span class="tag tag-gold">Partial</span></td>
+            <td>Weeks (DevOps)</td>
+          </tr>
+          <tr>
+            <td>Okta PIM</td>
+            <td>Cloud-native (identity)</td>
+            <td>IGA + limited PAM</td>
+            <td><span class="tag tag-red">Limited</span></td>
+            <td>1-3 months</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="grid-3" style="margin-top: 24px;">
+        <div class="card card-red">
+          <h4 style="color: var(--accent);">Win Against CyberArk</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Modern SaaS vs. legacy on-prem architecture. Just-in-time access vs. static credential vaulting. Native AI agent governance vs. Venafi bolt-on. Weeks to deploy vs. 6-12 months. Consolidated platform vs. growing product complexity after acquisition.</p>
+        </div>
+        <div class="card card-gold">
+          <h4>Win Against BeyondTrust / Delinea</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Unified platform covering humans, machines, and AI agents vs. fragmented capabilities. Dynamic access model vs. vault-centric approach. Cloud-native architecture vs. cloud-adapted legacy. Simpler deployment and faster time-to-value.</p>
+        </div>
+        <div class="card card-green">
+          <h4 style="color: var(--green);">Win Against HashiCorp / Okta</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Enterprise PAM depth vs. developer-focused secrets management (HashiCorp) or identity-focused partial PAM (Okta). Full privileged access lifecycle vs. point capabilities. Cross-environment coverage (on-prem, SaaS, cloud) vs. cloud-only focus.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 5: BUYER SEGMENTS -->
+    <div class="section">
+      <div class="section-label">Target Segments</div>
+      <h2>US Enterprise Buyer Map</h2>
+      <p>Venice targets Fortune 500 and large enterprises where privileged access management is a board-level priority. The following segments represent the highest-value US market opportunities for a CyberArk displacement strategy.</p>
+
+      <div class="grid-2" style="margin-top: 20px;">
+        <div class="card card-red">
+          <h3 style="color: var(--accent);">Financial Services</h3>
+          <span class="tag tag-red">Priority 1</span>
+          <div class="divider"></div>
+          <p><strong>Why:</strong> Highest regulatory requirements for privileged access control (SOX, SEC, FINRA, OCC). Largest installed base of legacy CyberArk deployments. Board-level mandate for identity security improvement. AI agent adoption creating new privileged access requirements.</p>
+          <p><strong>Decision Makers:</strong> CISO, VP Identity Security, Chief Risk Officer, VP IT Infrastructure</p>
+          <p><strong>Deal Size:</strong> $400K - $2M+ ACV</p>
+          <p><strong>Sales Cycle:</strong> 4-7 months</p>
+          <p style="margin-bottom: 0;"><strong>Entry Point:</strong> CyberArk displacement assessment. Demonstrate consolidated access management and faster time-to-compliance vs. existing legacy deployment.</p>
+        </div>
+        <div class="card card-gold">
+          <h3 style="color: var(--gold);">Technology and SaaS</h3>
+          <span class="tag tag-gold">Priority 1</span>
+          <div class="divider" style="background: var(--gold);"></div>
+          <p><strong>Why:</strong> Highest AI agent adoption, creating urgent need for non-human identity governance. Cloud-native environments aligned with Venice's architecture. Developer-friendly deployment model. IP protection requirements for source code and customer data access.</p>
+          <p><strong>Decision Makers:</strong> CISO, VP Security, VP Platform Engineering, CTO</p>
+          <p><strong>Deal Size:</strong> $200K - $750K ACV</p>
+          <p><strong>Sales Cycle:</strong> 3-5 months</p>
+          <p style="margin-bottom: 0;"><strong>Entry Point:</strong> AI agent access governance pilot. Start with non-human identity discovery and control, expand to full privileged access consolidation.</p>
+        </div>
+        <div class="card card-green">
+          <h3 style="color: var(--green);">Healthcare and Life Sciences</h3>
+          <span class="tag tag-green">Priority 2</span>
+          <div class="divider" style="background: var(--green);"></div>
+          <p><strong>Why:</strong> HIPAA requirements for access control to patient data. High-value research IP requiring privileged access governance. Legacy PAM systems struggling with cloud and SaaS sprawl. Growing AI adoption in diagnostics and research requiring identity governance.</p>
+          <p><strong>Decision Makers:</strong> CISO, Chief Privacy Officer, VP IT Security, VP Infrastructure</p>
+          <p><strong>Deal Size:</strong> $250K - $800K ACV</p>
+          <p><strong>Sales Cycle:</strong> 5-8 months</p>
+          <p style="margin-bottom: 0;"><strong>Entry Point:</strong> HIPAA access control assessment. Demonstrate unified privileged access governance that simplifies compliance reporting.</p>
+        </div>
+        <div class="card card-slate">
+          <h3>Critical Infrastructure and Energy</h3>
+          <span class="tag tag-gold">Priority 2</span>
+          <div class="divider"></div>
+          <p><strong>Why:</strong> NERC CIP and TSA security directive requirements for privileged access. OT/IT convergence creating new privileged access surfaces. Nation-state targeting making identity security a national security priority. Multi-year contract structures.</p>
+          <p><strong>Decision Makers:</strong> CISO, VP OT Security, VP Cybersecurity, Compliance Director</p>
+          <p><strong>Deal Size:</strong> $300K - $1.5M+ ACV</p>
+          <p><strong>Sales Cycle:</strong> 6-12 months</p>
+          <p style="margin-bottom: 0;"><strong>Entry Point:</strong> Compliance-driven privileged access assessment for NERC CIP or TSA requirements. Demonstrate unified access control across IT and OT environments.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 6: PARTNERSHIP CHANNELS -->
+    <div class="section">
+      <div class="section-label">Channel Strategy</div>
+      <h2>Partnership and Channel Ecosystem</h2>
+      <p>Venice's channel strategy is designed to accelerate CyberArk displacement at scale. The company needs partners who have existing relationships with enterprise identity and security buyers, can facilitate competitive evaluations, and can support enterprise procurement processes.</p>
+
+      <div class="grid-2" style="margin-top: 24px;">
+        <div class="card card-red">
+          <h3 style="color: var(--accent);">Identity Security Consultants</h3>
+          <span class="tag tag-red">High Priority</span>
+          <div class="divider"></div>
+          <h4 style="color: var(--white); font-size: 0.85em;">Why Identity Consultants</h4>
+          <p style="font-size: 0.9em;">Identity consulting firms manage PAM implementations, migrations, and assessments for Fortune 500 enterprises. They control vendor selection during identity program buildouts and can drive CyberArk displacement opportunities directly.</p>
+          <h4 style="color: var(--white); font-size: 0.85em;">Target Partners</h4>
+          <ul style="font-size: 0.9em;">
+            <li><strong>Deloitte Cyber (Identity Practice)</strong> - Largest identity consulting practice globally</li>
+            <li><strong>Accenture Security</strong> - Enterprise identity implementation at scale</li>
+            <li><strong>KPMG Cyber</strong> - Identity governance and compliance advisory</li>
+            <li><strong>Optiv (Identity Solutions)</strong> - Specialized identity security consulting</li>
+          </ul>
+          <h4 style="color: var(--white); font-size: 0.85em;">Partnership Model</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Advisory partnership with referral fees. Joint CyberArk migration assessment offerings. Co-authored thought leadership on PAM modernization. Implementation partnership for complex enterprise deployments.</p>
+        </div>
+        <div class="card card-gold">
+          <h3 style="color: var(--gold);">Cloud and Infrastructure Partners</h3>
+          <span class="tag tag-gold">High Priority</span>
+          <div class="divider" style="background: var(--gold);"></div>
+          <h4 style="color: var(--white); font-size: 0.85em;">Why Cloud Partners</h4>
+          <p style="font-size: 0.9em;">Cloud providers are pushing enterprises toward modern identity controls as part of zero-trust architectures. Venice's cloud-native approach aligns with their platform strategies and creates natural co-sell opportunities.</p>
+          <h4 style="color: var(--white); font-size: 0.85em;">Target Partners</h4>
+          <ul style="font-size: 0.9em;">
+            <li><strong>AWS</strong> - Marketplace listing. Security Competency pursuit. Co-sell program with enterprise sales.</li>
+            <li><strong>Microsoft Azure</strong> - Entra integration. Marketplace listing. Identity partner program.</li>
+            <li><strong>Google Cloud</strong> - Chronicle and IAM integration. Marketplace listing.</li>
+            <li><strong>CrowdStrike</strong> - Identity protection integration (Or Vaknin's Flow Security was acquired by CrowdStrike)</li>
+          </ul>
+          <h4 style="color: var(--white); font-size: 0.85em;">Partnership Model</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Marketplace listings with co-sell agreements. Native platform integrations. Joint zero-trust reference architectures. Partner-funded marketing and demand generation.</p>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top: 20px;">
+        <div class="card card-green">
+          <h3 style="color: var(--green);">VAR and Distribution</h3>
+          <span class="tag tag-green">Medium Priority</span>
+          <div class="divider" style="background: var(--green);"></div>
+          <h4 style="color: var(--white); font-size: 0.85em;">Target Partners</h4>
+          <ul style="font-size: 0.9em;">
+            <li><strong>SHI International</strong> - Enterprise IT solutions with growing security portfolio</li>
+            <li><strong>CDW</strong> - Broad enterprise reach, identity security practice</li>
+            <li><strong>Carahsoft</strong> - Government and defense IT distributor</li>
+            <li><strong>Climb Channel Solutions</strong> - Cybersecurity-focused VAR</li>
+          </ul>
+          <h4 style="color: var(--white); font-size: 0.85em;">Partnership Model</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Standard channel margin structure. Deal registration and protection. Partner portal with enablement content. CyberArk competitive displacement training and resources.</p>
+        </div>
+        <div class="card card-slate">
+          <h3>Identity Ecosystem Partners</h3>
+          <span class="tag tag-gold">Strategic Priority</span>
+          <div class="divider"></div>
+          <h4 style="color: var(--white); font-size: 0.85em;">Target Partners</h4>
+          <ul style="font-size: 0.9em;">
+            <li><strong>Okta</strong> - IGA integration. Joint identity governance across workforce and privileged access.</li>
+            <li><strong>SailPoint</strong> - Identity governance integration. Complementary PAM for IGA customers.</li>
+            <li><strong>Wiz</strong> - Cloud security posture + privileged access correlation (Rappaport is an investor)</li>
+            <li><strong>ServiceNow</strong> - Identity workflow automation and access request management</li>
+          </ul>
+          <h4 style="color: var(--white); font-size: 0.85em;">Partnership Model</h4>
+          <p style="margin-bottom: 0; font-size: 0.9em;">Technology integration partnerships. Joint reference architectures for identity-first security. Co-sell agreements with complementary identity vendors. Shared customer success programs.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 7: 90-DAY GTM EXECUTION -->
+    <div class="section">
+      <div class="section-label">Execution Plan</div>
+      <h2>90-Day US Market GTM Roadmap</h2>
+      <p>A phased approach to scaling Venice's US go-to-market engine. Focused on accelerating CyberArk displacement opportunities, building enterprise pipeline, and establishing the channel foundation for scale.</p>
+
+      <!-- Phase 1 -->
+      <div class="timeline-phase">
+        <div class="phase-label">Days 1-30</div>
+        <div class="phase-title">Foundation and Positioning</div>
+        <div class="grid-2">
+          <div class="card card-red">
+            <h4 style="color: var(--accent);">Sales Infrastructure</h4>
+            <ul style="font-size: 0.9em;">
+              <li>Define ICP scoring model weighted by CyberArk install base, AI agent adoption, cloud migration stage, and identity program maturity</li>
+              <li>Build target account list: 200 Fortune 500 and large enterprise accounts with known CyberArk deployments</li>
+              <li>Map decision-maker personas (CISO, VP Identity, VP Infrastructure) with tailored CyberArk displacement messaging</li>
+              <li>Deploy CRM pipeline with identity security-specific stage definitions and conversion metrics</li>
+              <li>Create competitive battle cards against CyberArk, BeyondTrust, Delinea, HashiCorp, and Okta PIM</li>
+            </ul>
+          </div>
+          <div class="card card-gold">
+            <h4>Positioning and Narrative</h4>
+            <ul style="font-size: 0.9em;">
+              <li>Develop US-market messaging: "Privileged access management rebuilt for the AI era"</li>
+              <li>Build CISO-level pitch deck, CyberArk displacement deck, and AI agent governance deck</li>
+              <li>Draft founder-led thought leadership: "Why static credential vaulting fails in the age of AI agents"</li>
+              <li>Create ROI calculator: deployment time savings, tool consolidation value, compliance automation</li>
+              <li>Develop customer proof points from Fortune 500 CyberArk displacement wins</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="timeline-phase">
+        <div class="phase-label">Days 31-60</div>
+        <div class="phase-title">Pipeline Generation and Channel Activation</div>
+        <div class="grid-2">
+          <div class="card card-green">
+            <h4 style="color: var(--green);">Outbound Pipeline</h4>
+            <ul style="font-size: 0.9em;">
+              <li>Launch multi-channel outbound: personalized sequences to 200 target CISOs and VP Identity Security</li>
+              <li>Founder-led outreach to 20 strategic accounts with known CyberArk frustration or contract renewals</li>
+              <li>LinkedIn thought leadership campaign: Rotem publishing weekly on PAM modernization and AI identity governance</li>
+              <li>Target 20-25 qualified discovery meetings in this phase</li>
+              <li>Launch "PAM Modernization Assessment" as a free entry point for enterprises evaluating CyberArk alternatives</li>
+            </ul>
+          </div>
+          <div class="card card-slate">
+            <h4 style="color: var(--white);">Channel Activation</h4>
+            <ul style="font-size: 0.9em;">
+              <li>Engage identity consulting practices at Deloitte and Accenture for partnership conversations</li>
+              <li>Submit AWS and Azure Marketplace listing applications</li>
+              <li>Initiate CrowdStrike integration partnership (leveraging Or Vaknin's Flow Security connection)</li>
+              <li>Begin Wiz integration conversations (leveraging Rappaport angel investment)</li>
+              <li>Develop partner enablement kit: CyberArk migration guides, demo environment, co-branded collateral</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="timeline-phase">
+        <div class="phase-label">Days 61-90</div>
+        <div class="phase-title">Pipeline Conversion and Scale Preparation</div>
+        <div class="grid-2">
+          <div class="card card-red">
+            <h4 style="color: var(--accent);">Pipeline Acceleration</h4>
+            <ul style="font-size: 0.9em;">
+              <li>Convert discovery meetings to POCs and pilots: target 6-10 active enterprise evaluations</li>
+              <li>Deploy rapid POC process: demonstrate CyberArk displacement value within weeks, not months</li>
+              <li>Develop procurement-ready materials: security questionnaires, MSA templates, SOC 2 documentation</li>
+              <li>Target 3-4 closed deals or late-stage commitments by Day 90</li>
+              <li>Launch customer advisory board with Fortune 500 early adopters</li>
+            </ul>
+          </div>
+          <div class="card card-gold">
+            <h4>Scale Infrastructure</h4>
+            <ul style="font-size: 0.9em;">
+              <li>Hire 2 US-based enterprise AEs (identity security sales background, CyberArk competitive experience)</li>
+              <li>Hire US-based Solutions Engineer for POC delivery and technical validation</li>
+              <li>Finalize first identity consulting firm partnership agreement</li>
+              <li>Submit Gartner analyst briefing for PAM Magic Quadrant inclusion</li>
+              <li>Plan RSA Conference 2027 and Identiverse presence for brand visibility</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-green" style="margin-top: 24px;">
+        <h3 style="color: var(--green);">Day 90 Success Metrics</h3>
+        <div class="grid-4" style="margin-top: 16px;">
+          <div style="text-align: center;">
+            <div class="stat-value" style="color: var(--green); font-size: 1.4em;">200</div>
+            <div class="stat-label">Target Accounts Engaged</div>
+          </div>
+          <div style="text-align: center;">
+            <div class="stat-value" style="color: var(--green); font-size: 1.4em;">35+</div>
+            <div class="stat-label">Discovery Meetings</div>
+          </div>
+          <div style="text-align: center;">
+            <div class="stat-value" style="color: var(--green); font-size: 1.4em;">6-10</div>
+            <div class="stat-label">Active POCs</div>
+          </div>
+          <div style="text-align: center;">
+            <div class="stat-value" style="color: var(--green); font-size: 1.4em;">3-4</div>
+            <div class="stat-label">Closed / Late-Stage</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 8: WHY JEFF -->
+    <div class="section" style="border-bottom: none;">
+      <div class="section-label">Why Jeff Aragon</div>
+      <h2>The Right GTM Leader for This Stage</h2>
+      <p>Venice has a product that Fortune 500 enterprises are already buying to replace CyberArk. What comes next is building the US go-to-market engine that turns those early wins into a repeatable, scalable revenue machine. That is exactly what I do.</p>
+
+      <div class="grid-2" style="margin-top: 24px;">
+        <div class="card card-red">
+          <h3 style="color: var(--accent);">Career Track Record</h3>
+          <div class="divider"></div>
+          <ul>
+            <li><strong>$150M+ in career revenue</strong> across enterprise software, healthcare technology, and cybersecurity</li>
+            <li><strong>$24M TCV closed in less than 2 years</strong> at my last Series A startup, building the entire sales function from zero</li>
+            <li><strong>Award winning at UKG</strong> for nearly 6 years, recognized multiple times for performance in one of the most competitive enterprise sales environments in the industry</li>
+            <li><strong>Competitive displacement expertise.</strong> I have run competitive displacement campaigns against established enterprise vendors throughout my career. I know how to position against incumbents, identify contract renewal windows, and execute the multi-threaded sales process that enterprise displacement requires.</li>
+          </ul>
+        </div>
+        <div class="card card-gold">
+          <h3 style="color: var(--gold);">Why This Matters for Venice</h3>
+          <div class="divider" style="background: var(--gold);"></div>
+          <ul>
+            <li><strong>Series A GTM expertise.</strong> I have built go-to-market at this exact stage before. I know the difference between founder-led sales and a scalable sales engine, and I know how to build the bridge between them.</li>
+            <li><strong>Enterprise security buyer fluency.</strong> I understand CISO priorities, procurement cycles, competitive displacement, and the identity governance requirements that drive PAM purchasing decisions.</li>
+            <li><strong>Channel and partnership acumen.</strong> Built consulting firm, VAR, and technology alliance programs. I know how to activate channel revenue through the identity consultants and cloud partners that enterprise buyers already trust.</li>
+            <li><strong>Operator, not advisor.</strong> I do the work. Outbound sequences, CRM hygiene, deal strategy, partner enablement, competitive intelligence. I do not delegate what I can execute directly.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card card-green" style="margin-top: 20px;">
+        <h3 style="color: var(--green);">What I Bring to Day 1</h3>
+        <p style="margin-bottom: 0;">I can start generating pipeline immediately. I come with the sales infrastructure already built: CRM workflows, outbound sequences, ICP frameworks, competitive battle cards, partnership playbooks, and a proven methodology for converting early-stage enterprise interest into closed revenue. Venice does not need someone who needs 90 days to figure out the market. You need someone who has already done this, who can build the US revenue engine while Rotem and Or stay focused on product and the enterprise relationships they are already cultivating.</p>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="plan-footer">
+      <p class="name">Jeff Aragon</p>
+      <p class="contact">jeff@jozuconsultinggroup.com | +1 303-638-1390 (mobile and WhatsApp)</p>
+      <p class="contact">Jozu Consulting Group</p>
+      <p class="confidential">Confidential - Prepared for Venice Leadership</p>
+    </div>
+
+  </div>
+</body>
+</html>
