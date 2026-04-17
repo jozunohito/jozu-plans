@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Translucent - US Market GTM Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #0a0e17;
+        --bg-card: rgba(255,255,255,0.03);
+        --bg-card-border: rgba(255,255,255,0.06);
+        --accent: #e34115;
+        --accent-dim: rgba(227,65,21,0.12);
+        --gold: #c9a84c;
+        --gold-dim: rgba(201,168,76,0.10);
+        --green: #22c55e;
+        --green-dim: rgba(34,197,94,0.10);
+        --slate: #64748b;
+        --white: #ffffff;
+        --gray: #cbd5e1;
+        --bright: #e2e8f0;
+        --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: var(--bg);
+        color: var(--gray);
+        font-family: 'Open Sans', sans-serif;
+        font-size: 15px;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        padding: 50px 40px;
+    }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+
+    .container { max-width: 1060px; margin: 0 auto; }
+
+    .header {
+        margin-bottom: 48px;
+        padding-bottom: 28px;
+        border-bottom: 2px solid var(--accent);
+    }
+    .doc-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 10px;
+    }
+    .doc-title {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 6px;
+    }
+    .doc-subtitle {
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-weight: 300;
+        color: var(--gray);
+        margin-bottom: 4px;
+    }
+    .doc-meta {
+        font-size: 12px;
+        color: var(--gray);
+        margin-top: 8px;
+    }
+
+    .section { margin-bottom: 44px; }
+    .section-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .section-label::before {
+        content: '';
+        width: 24px; height: 2px;
+        background: var(--accent);
+    }
+    h2 { font-size: 20px; font-weight: 600; margin-bottom: 16px; }
+    h3 { font-size: 15px; font-weight: 500; color: var(--accent); margin-bottom: 8px; }
+    h4 { font-size: 13px; font-weight: 500; color: var(--gold); margin-bottom: 6px; }
+
+    .card {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin-bottom: 14px;
+    }
+    .card-red { border-left: 3px solid var(--accent); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+    .card-green { border-left: 3px solid var(--green); }
+
+    .card-grid { display: grid; gap: 14px; margin-bottom: 16px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    .divider { width: 60px; height: 2px; background: var(--accent); margin: 32px 0; opacity: 0.4; }
+
+    ul { padding-left: 20px; margin: 8px 0; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--white); font-weight: 600; }
+
+    .stat-row { display: flex; gap: 14px; margin: 16px 0; }
+    .stat-box {
+        flex: 1;
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 18px;
+        text-align: center;
+    }
+    .stat-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--accent);
+    }
+    .stat-label {
+        font-size: 11px;
+        color: var(--gray);
+        margin-top: 4px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+        font-size: 14px;
+    }
+    th {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 10px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--accent);
+        text-align: left;
+        padding: 10px 14px;
+        border-bottom: 1px solid rgba(227,65,21,0.2);
+        background: var(--accent-dim);
+    }
+    td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--bg-card-border);
+        color: var(--gray);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .callout {
+        background: rgba(227,65,21,0.06);
+        border: 1px solid rgba(227,65,21,0.15);
+        border-radius: var(--radius);
+        padding: 18px 24px;
+        margin: 14px 0;
+        color: var(--bright);
+    }
+    .callout-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: var(--accent);
+        margin-bottom: 6px;
+    }
+
+    .timeline {
+        position: relative;
+        padding-left: 28px;
+    }
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 8px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, var(--accent), var(--gold), var(--green));
+        opacity: 0.4;
+    }
+    .timeline-item {
+        position: relative;
+        margin-bottom: 20px;
+    }
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -24px;
+        top: 6px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid var(--accent);
+        background: var(--bg);
+    }
+    .timeline-item.gold::before { border-color: var(--gold); }
+    .timeline-item.green::before { border-color: var(--green); }
+
+    .phase-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+    }
+    .phase-red { color: var(--accent); }
+    .phase-gold { color: var(--gold); }
+    .phase-green { color: var(--green); }
+
+    .footer {
+        margin-top: 60px;
+        padding-top: 24px;
+        border-top: 1px solid var(--bg-card-border);
+        text-align: center;
+        color: var(--gray);
+        font-size: 13px;
+    }
+    .footer strong { color: var(--white); }
+
+    @media print {
+        body { background: var(--bg); padding: 30px; }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+    <div class="doc-label">US Market GTM Strategy</div>
+    <h1 class="doc-title">Translucent - 90 Day US Market GTM Plan</h1>
+    <div class="doc-subtitle">Agentic AI Financial Intelligence for Healthcare</div>
+    <div class="doc-meta">Prepared by Jeff Aragon | April 2026</div>
+</div>
+
+<!-- SECTION 1: COMPANY PROFILE -->
+<div class="section">
+    <div class="section-label">Company Profile</div>
+    <h2>Translucent at a Glance</h2>
+
+    <div class="stat-row">
+        <div class="stat-box">
+            <div class="stat-number">$34M</div>
+            <div class="stat-label">Total Funding (Seed + Series A)</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">GV</div>
+            <div class="stat-label">Series A Lead (Google Ventures)</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">97%</div>
+            <div class="stat-label">Routine Analysis Automated</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">56%</div>
+            <div class="stat-label">Finance Team Capacity Increase</div>
+        </div>
+    </div>
+
+    <div class="card card-red">
+        <h3>The Company</h3>
+        <p>Translucent is the first agentic AI platform built specifically for healthcare finance. Founded by Jack O'Hara, the company raised a $27M Series A led by GV (Google Ventures) in March 2026, with participation from NEA, Virtue, and FPV Ventures. The oversubscribed round came just months after a $7M seed round, bringing total funding to $34M.</p>
+        <p style="margin-top:12px;">The platform connects directly to hospital EHR, ERP, and billing systems, consolidating operational, clinical, and financial data into a unified view. It continuously monitors live signals across the organization, from physician productivity metrics to shifting claim denial patterns, and immediately surfaces the root causes of financial leakage. Health systems including Northwestern Medicine, Duly Health and Care, and Springfield Clinic are already live on the platform.</p>
+    </div>
+
+    <div class="card card-gold">
+        <h3 style="color:var(--gold)">Leadership</h3>
+        <table>
+            <tr><th>Leader</th><th>Role</th><th>Background</th></tr>
+            <tr>
+                <td><strong>Jack O'Hara</strong></td>
+                <td>CEO and Founder</td>
+                <td>Former CIO at two multi-billion-dollar medical groups (ChenMed and Springfield Clinic). Led teams of 300+ across product, engineering, and AI. At ChenMed, rebuilt the financial claims system from the ground up. Witnessed firsthand how opaque financial operations put healthcare facilities at risk.</td>
+            </tr>
+            <tr>
+                <td><strong>Max Jones</strong></td>
+                <td>Co-Founder and COO</td>
+                <td>Deep healthcare domain expertise from consulting (Deloitte) and healthcare investing (Redesign). Brings operational discipline to scaling Translucent across enterprise health systems.</td>
+            </tr>
+            <tr>
+                <td><strong>Anca Marinescu</strong></td>
+                <td>Head of Product</td>
+                <td>Distinguished AI/ML product leader at Flatiron Health, where she scaled her product line from $0 to $60M ARR. Extensive healthcare background spanning product and clinical research roles at Flatiron, Elysium Health, and HSS.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card card-green">
+        <h3 style="color:var(--green)">Platform Capabilities</h3>
+        <p>Translucent covers six domains of healthcare finance, automating analysis that finance teams previously performed by hand.</p>
+        <ul style="margin-top:10px;">
+            <li><strong>Claims Intelligence</strong> - Monitors claim denial patterns, identifies root causes of denials in real time, and surfaces actionable interventions before revenue leakage compounds</li>
+            <li><strong>Labor Analytics</strong> - Tracks physician productivity, staffing efficiency, and labor cost trends against revenue generation to identify optimization opportunities</li>
+            <li><strong>Clinical Output Monitoring</strong> - Connects clinical volume and service mix data to financial performance, surfacing the operational drivers behind revenue variance</li>
+            <li><strong>P&L Analysis</strong> - Automated profit and loss analysis across departments, service lines, and facilities with real-time variance detection and root cause identification</li>
+            <li><strong>Budget and Forecast</strong> - AI-driven budgeting and forecasting that incorporates operational signals, not just historical financial data, for more accurate projections</li>
+            <li><strong>Contract Economics</strong> - Payer contract analysis that identifies underpayment patterns, rate discrepancies, and renegotiation opportunities across the payer mix</li>
+        </ul>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 2: MARKET ANALYSIS -->
+<div class="section">
+    <div class="section-label">Market Analysis</div>
+    <h2>The Healthcare Finance Intelligence Landscape</h2>
+
+    <div class="stat-row">
+        <div class="stat-box">
+            <div class="stat-number">$21.4B</div>
+            <div class="stat-label">Healthcare Financial Analytics Market by 2030</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">17%</div>
+            <div class="stat-label">Market CAGR</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">700+</div>
+            <div class="stat-label">Rural Hospitals at Financial Risk</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">20</div>
+            <div class="stat-label">Hospital Bankruptcies Last Year</div>
+        </div>
+    </div>
+
+    <div class="card card-red">
+        <h3>Why This Market, Why Now</h3>
+        <p>Healthcare finance is in crisis. Last year alone, 20 hospitals declared bankruptcy and 23 hospitals and emergency departments closed permanently. More than 700 rural hospitals are currently considered at financial risk. The margin pressure on health systems is relentless: rising labor costs, declining reimbursement rates, increasing claim denials, and payer mix shifts are compressing margins at institutions that operate on 2 to 3% net margins in the best of times.</p>
+        <p style="margin-top:12px;">The problem is not a lack of data. Hospitals generate enormous volumes of financial, clinical, and operational data. The problem is that finance teams cannot synthesize it fast enough to act. By the time a CFO identifies a revenue leakage problem through traditional FP&A processes, the problem has already cost the organization millions. Translucent solves this by providing real-time financial intelligence that identifies issues the moment they emerge, not weeks or months later.</p>
+    </div>
+
+    <div class="card card-gold">
+        <h3 style="color:var(--gold)">Buyer Pain in Healthcare Finance</h3>
+        <ul>
+            <li><strong>"We do not know we are losing money until it is too late."</strong> - Health system CFOs operate with financial data that is weeks old by the time it reaches their desk. Monthly close processes, manual reconciliation, and disconnected systems create blind spots where revenue leakage compounds undetected.</li>
+            <li><strong>"Our finance team spends all their time building reports, not analyzing them."</strong> - Healthcare finance teams are consumed by manual data aggregation, spreadsheet analysis, and report generation. The people who should be identifying financial risks and opportunities are instead functioning as data clerks.</li>
+            <li><strong>"Claim denials are accelerating and we cannot keep up."</strong> - Payer denial rates continue to increase. Identifying denial patterns, root causes, and intervention strategies requires correlating clinical, operational, and financial data that lives in separate systems.</li>
+            <li><strong>"We cannot connect clinical decisions to financial outcomes."</strong> - Physician productivity, service mix changes, and clinical workflow modifications all impact revenue, but the financial effects are invisible until monthly or quarterly reporting catches up.</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">Market Timing</div>
+        Translucent enters the market at a moment when healthcare financial distress is at historic levels and 57% of health systems are planning AI-based technology investments for 2026 and 2027. The combination of existential financial pressure and growing AI adoption readiness creates the ideal conditions for rapid market penetration. Northwestern Medicine, Duly Health and Care, and Springfield Clinic validate that the platform delivers results in production healthcare environments.
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 3: COMPETITIVE LANDSCAPE -->
+<div class="section">
+    <div class="section-label">Competitive Landscape</div>
+    <h2>How Translucent Wins Against Incumbents</h2>
+
+    <div class="card card-slate">
+        <table>
+            <tr>
+                <th>Competitor</th>
+                <th>Strengths</th>
+                <th>Weaknesses</th>
+                <th>Translucent Advantage</th>
+            </tr>
+            <tr>
+                <td><strong>Epic (Cogito)</strong></td>
+                <td>Dominant EHR with deep hospital integration. Cogito analytics platform leverages comprehensive clinical data. Installed at most large health systems.</td>
+                <td>Analytics are an add-on to the EHR, not a purpose-built financial intelligence platform. Limited focus on real-time financial root cause analysis. Slow innovation cycle for analytics modules.</td>
+                <td>Translucent is purpose-built for financial intelligence with agentic AI that actively monitors and alerts. Epic provides data; Translucent provides insight and action.</td>
+            </tr>
+            <tr>
+                <td><strong>Oracle Health (Cerner)</strong></td>
+                <td>Second-largest EHR platform. Growing analytics capabilities post-Oracle acquisition. Cloud migration creating modernization opportunities.</td>
+                <td>Post-acquisition integration challenges. Financial analytics are secondary to clinical workflows. Analytics innovation has slowed during the Oracle integration period.</td>
+                <td>Translucent integrates with Oracle Health as a data source and provides the financial intelligence layer that Oracle's platform does not deliver natively.</td>
+            </tr>
+            <tr>
+                <td><strong>Strata Decision Technology</strong></td>
+                <td>Established healthcare financial planning platform. Strong relationships with large health system CFOs. Comprehensive budgeting and cost accounting modules.</td>
+                <td>Built on traditional planning and budgeting architecture. Not AI-native. Requires significant manual configuration and maintenance. Backward-looking analysis rather than real-time intelligence.</td>
+                <td>Translucent delivers real-time, autonomous financial intelligence that monitors live operational signals. Strata requires finance teams to build analyses; Translucent surfaces them automatically.</td>
+            </tr>
+            <tr>
+                <td><strong>Kaufman Hall (Axiom)</strong></td>
+                <td>Long-standing healthcare financial planning platform. Strong advisory relationships. Deep budgeting and forecasting capabilities.</td>
+                <td>Legacy architecture. Manual workflow-driven. Limited real-time monitoring or AI-native analysis. Focused on periodic planning cycles rather than continuous intelligence.</td>
+                <td>Translucent operates continuously, not periodically. The platform identifies financial risks and opportunities in real time rather than during quarterly planning cycles.</td>
+            </tr>
+            <tr>
+                <td><strong>FinThrive</strong></td>
+                <td>Revenue cycle management leader. Strong in claims processing, denials management, and payment optimization. Broad install base.</td>
+                <td>Revenue cycle focused, not comprehensive financial intelligence. Does not connect clinical output, labor analytics, or operational data to financial outcomes. Point solution rather than platform.</td>
+                <td>Translucent covers six domains of healthcare finance, connecting claims data to labor, clinical output, P&L, budgets, and contract economics in a single unified platform.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">Competitive Positioning</div>
+        Translucent is not competing to be a better budgeting tool or a faster revenue cycle system. It is the first agentic AI platform that continuously monitors the entire financial operation of a health system and autonomously surfaces insights that would take human analysts weeks to discover. The positioning is "your AI financial analyst," and Northwestern Medicine's adoption validates that this is not a science project but a production-grade platform delivering measurable results.
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 4: BUYER SEGMENTS -->
+<div class="section">
+    <div class="section-label">Buyer Segments</div>
+    <h2>Target Accounts, Decision Makers, and Deal Mechanics</h2>
+
+    <div class="card-grid cols-2">
+        <div class="card card-red">
+            <h3>Segment 1: Large Health Systems (2,500+ Beds)</h3>
+            <h4>Profile</h4>
+            <p>Multi-hospital health systems with complex financial operations spanning dozens of facilities, service lines, and payer contracts. These organizations have dedicated finance teams but struggle to synthesize data from disparate systems fast enough to act on emerging financial risks.</p>
+            <h4 style="margin-top:14px;">Decision Makers</h4>
+            <ul>
+                <li><strong>CFO</strong> - Budget authority. Responsible for financial performance reporting to the board. Cares about real-time visibility and margin protection.</li>
+                <li><strong>VP of Finance / Controller</strong> - Operational buyer. Manages the finance team and close processes. Evaluates workflow impact.</li>
+                <li><strong>CIO</strong> - Technical stakeholder. Evaluates integration with existing EHR and ERP systems.</li>
+            </ul>
+            <h4 style="margin-top:14px;">Deal Characteristics</h4>
+            <ul>
+                <li>ACV range: $200K to $750K+</li>
+                <li>Sales cycle: 90 to 180 days</li>
+                <li>Pilot at 1 to 2 facilities before enterprise rollout</li>
+                <li>Procurement and compliance review adds 30 to 60 days</li>
+            </ul>
+        </div>
+
+        <div class="card card-gold">
+            <h3 style="color:var(--gold)">Segment 2: Regional Health Systems (500 to 2,500 Beds)</h3>
+            <h4>Profile</h4>
+            <p>Regional hospital systems operating 3 to 10 facilities with growing financial complexity but smaller finance teams. These organizations feel margin pressure acutely and need to maximize the productivity of their existing finance staff rather than hiring additional headcount.</p>
+            <h4 style="margin-top:14px;">Decision Makers</h4>
+            <ul>
+                <li><strong>CFO</strong> - Often the sole financial executive. Wears both strategic and operational hats.</li>
+                <li><strong>VP of Revenue Cycle</strong> - Manages claims, denials, and payer relationships. Key stakeholder for claims intelligence module.</li>
+            </ul>
+            <h4 style="margin-top:14px;">Deal Characteristics</h4>
+            <ul>
+                <li>ACV range: $100K to $300K</li>
+                <li>Sales cycle: 60 to 120 days</li>
+                <li>Faster decision-making with fewer stakeholders</li>
+                <li>Finance team capacity narrative drives urgency: "56% more capacity without adding headcount"</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card-grid cols-2">
+        <div class="card card-green">
+            <h3 style="color:var(--green)">Segment 3: Large Medical Groups and Physician Enterprises</h3>
+            <h4>Profile</h4>
+            <p>Multi-specialty medical groups, physician-owned practices with 100+ providers, and physician enterprise divisions of health systems. These organizations manage complex provider compensation models, service line profitability analysis, and payer contract negotiations.</p>
+            <h4 style="margin-top:14px;">Decision Makers</h4>
+            <ul>
+                <li><strong>CFO / VP of Finance</strong> - Financial performance and provider compensation modeling</li>
+                <li><strong>CEO / COO</strong> - Operational buyer. Cares about provider productivity and service line profitability.</li>
+                <li><strong>Medical Director</strong> - Clinical stakeholder. Evaluates clinical output monitoring and provider productivity analytics.</li>
+            </ul>
+            <h4 style="margin-top:14px;">Deal Characteristics</h4>
+            <ul>
+                <li>ACV range: $75K to $250K</li>
+                <li>Sales cycle: 45 to 90 days</li>
+                <li>Provider productivity and compensation analytics are primary buying triggers</li>
+                <li>Referral dynamics within health system networks</li>
+            </ul>
+        </div>
+
+        <div class="card card-slate">
+            <h3 style="color:var(--gray)">Segment 4: Rural and Critical Access Hospitals</h3>
+            <h4>Profile</h4>
+            <p>Smaller hospitals and critical access facilities operating on razor-thin margins with minimal finance staff. More than 700 rural hospitals are at financial risk, and a single missed revenue leakage can threaten the viability of the entire facility. These are the organizations where Translucent's mission resonates most deeply.</p>
+            <h4 style="margin-top:14px;">Decision Makers</h4>
+            <ul>
+                <li><strong>CEO</strong> - Often the primary financial decision-maker at smaller facilities</li>
+                <li><strong>CFO / Finance Director</strong> - May be a single-person finance department managing all financial operations</li>
+            </ul>
+            <h4 style="margin-top:14px;">Deal Characteristics</h4>
+            <ul>
+                <li>ACV range: $30K to $100K</li>
+                <li>Sales cycle: 30 to 60 days</li>
+                <li>Mission-driven selling: keeping hospitals open for communities that depend on them</li>
+                <li>Grant funding and rural health support programs may subsidize technology investment</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 5: PARTNERSHIP CHANNELS -->
+<div class="section">
+    <div class="section-label">Partnership Channels</div>
+    <h2>Channel Strategy for Healthcare Market Penetration</h2>
+
+    <p style="margin-bottom:16px;">Healthcare technology sales require trust, clinical credibility, and institutional relationships. Channel partnerships with organizations that already have established health system relationships will accelerate Translucent's market penetration beyond what a direct sales motion can achieve alone.</p>
+
+    <div class="card card-red">
+        <h3>Healthcare Consulting and Advisory Firms</h3>
+        <h4>Why This Channel</h4>
+        <p>Healthcare consulting firms advise health system C-suites on financial strategy, operational improvement, and technology selection. They see the financial challenges firsthand and can recommend Translucent as part of broader financial transformation engagements.</p>
+        <h4 style="margin-top:12px;">Target Partners</h4>
+        <ul>
+            <li><strong>Kaufman Hall (Advisory Division)</strong> - Leading healthcare management consulting firm with deep CFO relationships across large health systems</li>
+            <li><strong>Guidehouse</strong> - Healthcare consulting practice serving hospitals and health systems on financial performance improvement</li>
+            <li><strong>Huron Consulting</strong> - Healthcare advisory firm specializing in financial operations, revenue cycle, and performance improvement</li>
+            <li><strong>Vizient</strong> - Healthcare performance improvement company serving academic medical centers and community health systems</li>
+        </ul>
+    </div>
+
+    <div class="card card-gold">
+        <h3 style="color:var(--gold)">Revenue Cycle Management Companies</h3>
+        <h4>Why This Channel</h4>
+        <p>RCM companies manage claims processing, denials management, and payment optimization for hundreds of health systems. Integrating Translucent's claims intelligence into their service offerings creates a differentiated capability that improves client outcomes and increases per-client revenue.</p>
+        <h4 style="margin-top:12px;">Target Partners</h4>
+        <ul>
+            <li><strong>R1 RCM</strong> - Largest independent RCM company. Manages revenue cycle for over 900 healthcare organizations</li>
+            <li><strong>Ensemble Health Partners</strong> - RCM provider serving community and regional health systems</li>
+            <li><strong>AGS Health</strong> - RCM services provider actively investing in AI capabilities</li>
+            <li><strong>Conifer Health Solutions</strong> - Revenue cycle and population health management services</li>
+        </ul>
+    </div>
+
+    <div class="card card-green">
+        <h3 style="color:var(--green)">EHR and Health IT Platform Partners</h3>
+        <h4>Why This Channel</h4>
+        <p>Translucent integrates with hospital EHR and ERP systems to access clinical, operational, and financial data. Formal integration partnerships and marketplace listings with major health IT platforms create distribution leverage and reduce buyer friction around integration risk.</p>
+        <h4 style="margin-top:12px;">Target Partners</h4>
+        <ul>
+            <li><strong>Epic App Orchard</strong> - Marketplace listing and integration certification with the dominant hospital EHR platform</li>
+            <li><strong>Oracle Health Marketplace</strong> - Integration partnership with the second-largest EHR platform</li>
+            <li><strong>Workday / Infor</strong> - ERP integration partnerships for financial data connectivity</li>
+            <li><strong>AWS / Azure Healthcare</strong> - Cloud platform partnerships for deployment infrastructure and marketplace visibility</li>
+        </ul>
+    </div>
+
+    <div class="card-grid cols-2">
+        <div class="card card-slate">
+            <h3 style="color:var(--gray)">Healthcare Industry Associations</h3>
+            <h4>Why This Channel</h4>
+            <p>Healthcare finance and operations associations provide credibility, visibility, and access to decision-makers through conferences, publications, and member programs.</p>
+            <h4 style="margin-top:12px;">Target Associations</h4>
+            <ul>
+                <li><strong>HFMA (Healthcare Financial Management Association)</strong> - Primary association for healthcare finance professionals. Conference sponsorship and thought leadership</li>
+                <li><strong>AHA (American Hospital Association)</strong> - Advocacy and member services organization for hospitals and health systems</li>
+                <li><strong>CHIME (College of Healthcare Information Management Executives)</strong> - CIO and health IT leadership community</li>
+            </ul>
+        </div>
+
+        <div class="card card-red">
+            <h3>Rural Health Networks</h3>
+            <h4>Why This Channel</h4>
+            <p>Rural health networks and state hospital associations aggregate purchasing power and technology recommendations for their member facilities. Partnerships with these organizations provide access to the 700+ at-risk rural hospitals that represent Translucent's mission-driven market segment.</p>
+            <h4 style="margin-top:12px;">Target Partners</h4>
+            <ul>
+                <li><strong>National Rural Health Association</strong> - Advocacy and support for rural healthcare facilities</li>
+                <li><strong>State Hospital Associations</strong> - State-level organizations that influence technology purchasing across member hospitals</li>
+                <li><strong>USDA Rural Development</strong> - Grant programs that can fund technology investments for rural healthcare facilities</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 6: 90-DAY EXECUTION PLAN -->
+<div class="section">
+    <div class="section-label">Execution Plan</div>
+    <h2>90-Day US Market GTM Execution</h2>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="phase-label phase-red">Phase 1: Days 1 to 30 - Foundation</div>
+        </div>
+
+        <div class="timeline-item">
+            <h4>Sales Infrastructure</h4>
+            <ul>
+                <li>Define ICP tiers by health system size, financial distress indicators, EHR platform, and geographic region. Build a target account list of 300+ health systems, medical groups, and hospitals segmented by segment and priority.</li>
+                <li>Build outbound sequences for CFOs, VP of Finance, and VP of Revenue Cycle personas. Separate messaging tracks for "financial distress" versus "operational efficiency" versus "claims intelligence" entry points.</li>
+                <li>Establish CRM pipeline with deal stages mapped to the healthcare enterprise buying process: executive introduction, financial assessment, technical integration review, stakeholder alignment, compliance and security review, and contract negotiation.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <h4>Messaging and Positioning</h4>
+            <ul>
+                <li>Develop Power Messages for each buyer persona. Lead with Northwestern Medicine's adoption, the 97% automation and 56% capacity increase metrics, and the "20 hospital bankruptcies" market urgency narrative.</li>
+                <li>Create competitive positioning guides for Epic/Cogito, Strata Decision Technology, and FinThrive. Position Translucent as the agentic AI platform that complements existing systems rather than replacing them.</li>
+                <li>Build a "financial intelligence" demo flow showing real-time claim denial detection, automated P&L variance analysis, and labor productivity monitoring with root cause identification.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <h4>Healthcare Sales Expertise</h4>
+            <ul>
+                <li>Map the complete healthcare enterprise procurement process including HIPAA review, BAA execution, security assessment, and integration validation protocols.</li>
+                <li>Build reference case studies from Northwestern Medicine, Duly Health and Care, and Springfield Clinic with specific ROI metrics and deployment timelines.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item gold">
+            <div class="phase-label phase-gold">Phase 2: Days 31 to 60 - Pipeline Generation</div>
+        </div>
+
+        <div class="timeline-item gold">
+            <h4>Outbound Execution</h4>
+            <ul>
+                <li>Launch multi-channel outbound campaigns targeting health system CFOs and VP-level finance leaders. Email, LinkedIn, phone, and warm introductions through GV, NEA, and existing customer networks.</li>
+                <li>Execute targeted account-based campaigns against health systems with known financial distress indicators: margin compression, recent layoffs, service line closures, or bond rating downgrades. Message: "Your finance team should be solving these problems, not discovering them weeks too late."</li>
+                <li>Target 25 to 40 qualified meetings in this phase. Focus on regional and large health systems with 500+ beds across the Midwest, Southeast, and Northeast.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item gold">
+            <h4>Event and Community Strategy</h4>
+            <ul>
+                <li>Activate presence at HFMA Annual Conference, HIMSS, and regional health system CFO roundtables.</li>
+                <li>Host "Healthcare Finance Intelligence" webinar series featuring Jack O'Hara's perspective as a former health system CIO, combined with customer testimonials from live deployments.</li>
+                <li>Develop thought leadership content addressing the hospital financial crisis with data-driven analysis of how AI-powered financial intelligence prevents the cascade from margin compression to facility closure.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item gold">
+            <h4>Partnership Development</h4>
+            <ul>
+                <li>Initiate Epic App Orchard certification process for marketplace listing and integration validation.</li>
+                <li>Formalize 1 to 2 healthcare consulting firm partnerships with referral agreements for financial transformation engagements.</li>
+                <li>Begin conversations with 2 to 3 RCM companies about integrating Translucent's claims intelligence into their managed services.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item green">
+            <div class="phase-label phase-green">Phase 3: Days 61 to 90 - Pipeline Conversion</div>
+        </div>
+
+        <div class="timeline-item green">
+            <h4>Deal Progression</h4>
+            <ul>
+                <li>Advance 8 to 15 qualified opportunities into pilot or technical integration stage. Deploy Translucent in prospect health system environments to demonstrate financial insight discovery, root cause identification, and team capacity improvement using their actual data.</li>
+                <li>Develop pilot success criteria framework: time to first actionable insight, revenue leakage identified, claim denial pattern detection, finance team capacity improvement, and close cycle acceleration.</li>
+                <li>Target 3 to 6 deals in late-stage negotiation by end of Day 90, with a combined pipeline representing significant first-year ARR growth.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item green">
+            <h4>Scaling Readiness</h4>
+            <ul>
+                <li>Document repeatable sales process from first touch through close. Capture healthcare-specific objection patterns, integration requirements by EHR platform, and compliance review navigation best practices.</li>
+                <li>Build hiring plan for sales team expansion: 2 to 3 enterprise AEs with healthcare sales experience, 1 to 2 SDRs for outbound pipeline, and 1 channel/partner manager for consulting firm and RCM relationships.</li>
+                <li>Establish QBR cadence with channel partners to measure partner-sourced pipeline, joint win rates, and integration adoption metrics.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item green">
+            <h4>Metrics and Milestones</h4>
+            <ul>
+                <li>Pipeline target: qualified pipeline representing significant ARR growth by Day 90</li>
+                <li>Meeting volume: 50 to 80 qualified meetings across all segments</li>
+                <li>Pilot conversion: 50 to 60% of pilots converting to enterprise contracts</li>
+                <li>Channel pipeline: 15 to 20% of total pipeline sourced through consulting firms, RCM partners, and health IT platforms</li>
+                <li>First closed revenue: 3 to 6 enterprise contracts signed or in final negotiation</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 7: WHY JEFF -->
+<div class="section">
+    <div class="section-label">Why Jeff Aragon</div>
+    <h2>The Right Sales Leader for This Stage</h2>
+
+    <div class="card card-red">
+        <h3>Healthcare Revenue Track Record</h3>
+        <p>$150M+ in career revenue across enterprise software, healthcare technology, and technical platform sales. This is not theoretical. It is closed business, signed contracts, and revenue recognized.</p>
+        <ul style="margin-top:12px;">
+            <li><strong>$24M TCV at a Series A startup in less than 2 years</strong> - Built the go-to-market function from the ground up, selling complex technical platforms into healthcare and government buyers. Navigated HIPAA review, multi-stakeholder procurement, compliance requirements, and competitive displacement in regulated healthcare environments. This is directly relevant to selling Translucent into health systems.</li>
+            <li><strong>Award-winning at UKG for nearly 6 years</strong> - Recognized multiple times for quota attainment and deal execution at one of the largest HCM platforms in the world, selling directly into healthcare organizations including hospitals, health systems, senior living operators, and long-term care providers. Deep understanding of how healthcare buyers evaluate, procure, and implement enterprise technology.</li>
+            <li><strong>OnShift: Senior Living and Long-Term Care</strong> - Sold workforce management technology directly into healthcare operators in the senior living and long-term care segments. Navigated clinical leadership, operations teams, regulatory requirements, and budget constraints specific to healthcare facilities. This experience selling technology into financially constrained healthcare environments maps directly to Translucent's buyer profile.</li>
+        </ul>
+    </div>
+
+    <div class="card card-gold">
+        <h3 style="color:var(--gold)">Why This Matters for Translucent</h3>
+        <p>Translucent is at the inflection point where exceptional product-market fit meets the need for scalable revenue operations. Northwestern Medicine, Duly Health, and Springfield Clinic validate the platform. GV's investment validates the market. The challenge now is building a sales engine that converts this momentum into predictable, repeatable revenue across the healthcare landscape.</p>
+        <ul style="margin-top:12px;">
+            <li><strong>Healthcare sales expertise</strong> - Selling into health systems is fundamentally different from selling into general enterprise. I have spent years closing significant revenue in healthcare across multiple companies and understand the compliance requirements, procurement patterns, clinical stakeholder dynamics, and budget cycles that drive buying decisions in this space. This is not something that can be learned on the job at Translucent's current stage.</li>
+            <li><strong>Series A scaling experience</strong> - I have built go-to-market functions at this exact stage, where the product works, early customers deliver measurable results, and the company needs a structured sales process to scale. The $24M TCV result at my last Series A company was built on the same foundation Translucent needs now.</li>
+            <li><strong>Regulated environment navigation</strong> - Healthcare procurement involves HIPAA review, BAA execution, security assessments, and integration validation processes that add weeks to every deal. I know how to front-load compliance requirements so they accelerate deals rather than stalling them.</li>
+            <li><strong>Channel development</strong> - Building partnerships with healthcare consulting firms, RCM companies, and health IT platforms requires deep domain knowledge and structured engagement. I have built channel programs in healthcare and understand how to create partner-sourced pipeline in this ecosystem.</li>
+        </ul>
+    </div>
+
+    <div class="card card-green">
+        <h3 style="color:var(--green)">What I Will Deliver</h3>
+        <p>I operate as a hands-on sales leader, not a strategist who delivers a plan and disappears. My work is embedded in live deals, live pipeline, and live revenue operations.</p>
+        <ul style="margin-top:12px;">
+            <li>Direct participation in deal execution: discovery calls with health system CFOs, platform demonstrations, negotiation, and close plans</li>
+            <li>Sales process and messaging framework development with real-time iteration based on buyer feedback from healthcare finance leaders</li>
+            <li>Pipeline and forecast management with weekly deal inspection and qualification rigor</li>
+            <li>Channel partner activation and co-selling coordination with consulting firms and RCM companies</li>
+            <li>Hiring support and onboarding framework for sales team members with healthcare domain requirements</li>
+        </ul>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="footer">
+    <strong>Jeff Aragon</strong> | jeff@jozuconsultinggroup.com | +1 303-638-1390 (mobile and WhatsApp)
+</div>
+
+</div>
+</body>
+</html>

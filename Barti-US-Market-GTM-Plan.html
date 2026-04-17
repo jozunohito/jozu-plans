@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barti - US Market GTM Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #0a0e17;
+        --bg-card: rgba(255,255,255,0.03);
+        --bg-card-border: rgba(255,255,255,0.06);
+        --accent: #e34115;
+        --accent-dim: rgba(227,65,21,0.12);
+        --gold: #c9a84c;
+        --gold-dim: rgba(201,168,76,0.10);
+        --green: #22c55e;
+        --green-dim: rgba(34,197,94,0.10);
+        --slate: #64748b;
+        --white: #ffffff;
+        --gray: #cbd5e1;
+        --bright: #e2e8f0;
+        --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: var(--bg);
+        color: var(--gray);
+        font-family: 'Open Sans', sans-serif;
+        font-size: 15px;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        padding: 50px 40px;
+    }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+
+    .container { max-width: 1060px; margin: 0 auto; }
+
+    .header {
+        margin-bottom: 48px;
+        padding-bottom: 28px;
+        border-bottom: 2px solid var(--accent);
+    }
+    .doc-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 10px;
+    }
+    .doc-title {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 6px;
+    }
+    .doc-subtitle {
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-weight: 300;
+        color: var(--gray);
+        margin-bottom: 4px;
+    }
+    .doc-meta {
+        font-size: 12px;
+        color: var(--gray);
+        margin-top: 8px;
+    }
+
+    .section { margin-bottom: 44px; }
+    .section-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .section-label::before {
+        content: '';
+        width: 24px; height: 2px;
+        background: var(--accent);
+    }
+    h2 { font-size: 20px; font-weight: 600; margin-bottom: 16px; }
+    h3 { font-size: 15px; font-weight: 500; color: var(--accent); margin-bottom: 8px; }
+    h4 { font-size: 13px; font-weight: 500; color: var(--gold); margin-bottom: 6px; }
+
+    .card {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin-bottom: 14px;
+    }
+    .card-red { border-left: 3px solid var(--accent); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+    .card-green { border-left: 3px solid var(--green); }
+
+    .card-grid { display: grid; gap: 14px; margin-bottom: 16px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    .divider { width: 60px; height: 2px; background: var(--accent); margin: 32px 0; opacity: 0.4; }
+
+    ul { padding-left: 20px; margin: 8px 0; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--white); font-weight: 600; }
+
+    .stat-row { display: flex; gap: 14px; margin: 16px 0; }
+    .stat-box {
+        flex: 1;
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 18px;
+        text-align: center;
+    }
+    .stat-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--accent);
+    }
+    .stat-label {
+        font-size: 11px;
+        color: var(--gray);
+        margin-top: 4px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+        font-size: 14px;
+    }
+    th {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 10px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--accent);
+        text-align: left;
+        padding: 10px 14px;
+        border-bottom: 1px solid rgba(227,65,21,0.2);
+        background: var(--accent-dim);
+    }
+    td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--bg-card-border);
+        color: var(--gray);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .callout {
+        background: rgba(227,65,21,0.06);
+        border: 1px solid rgba(227,65,21,0.15);
+        border-radius: var(--radius);
+        padding: 18px 24px;
+        margin: 14px 0;
+        color: var(--bright);
+    }
+    .callout-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: var(--accent);
+        margin-bottom: 6px;
+    }
+
+    .timeline {
+        position: relative;
+        padding-left: 28px;
+    }
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 8px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, var(--accent), var(--gold), var(--green));
+        opacity: 0.4;
+    }
+    .timeline-item {
+        position: relative;
+        margin-bottom: 20px;
+    }
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -24px;
+        top: 6px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid var(--accent);
+        background: var(--bg);
+    }
+    .timeline-item.gold::before { border-color: var(--gold); }
+    .timeline-item.green::before { border-color: var(--green); }
+
+    .phase-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+    }
+    .phase-red { color: var(--accent); }
+    .phase-gold { color: var(--gold); }
+    .phase-green { color: var(--green); }
+
+    .footer {
+        margin-top: 60px;
+        padding-top: 24px;
+        border-top: 1px solid var(--bg-card-border);
+        text-align: center;
+        color: var(--gray);
+        font-size: 13px;
+    }
+    .footer strong { color: var(--white); }
+
+    @media print {
+        body { background: var(--bg); padding: 30px; }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+    <div class="doc-label">US Market GTM Strategy</div>
+    <h1 class="doc-title">Barti - 90 Day US Market GTM Plan</h1>
+    <div class="doc-subtitle">AI-Powered EHR and Practice Management for Eye Care</div>
+    <div class="doc-meta">Prepared by Jeff Aragon | April 2026</div>
+</div>
+
+<!-- SECTION 1: COMPANY PROFILE -->
+<div class="section">
+    <div class="section-label">Company Profile</div>
+    <h2>Barti at a Glance</h2>
+
+    <div class="stat-row">
+        <div class="stat-box">
+            <div class="stat-number">$12M</div>
+            <div class="stat-label">Series A (Five Elms Capital)</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">200+</div>
+            <div class="stat-label">Practices Onboarded</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">AOA</div>
+            <div class="stat-label">First EHR Endorsed by AOAExcel</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">80%</div>
+            <div class="stat-label">Admin Work Automation Target</div>
+        </div>
+    </div>
+
+    <div class="card card-red">
+        <h3>The Company</h3>
+        <p>Barti is the first AI-powered operating system built specifically for eye care. Founded in 2021 by Colton Calandrella (CEO) and Kelly Cai, OD (COO), the platform unifies clinical, operational, and financial workflows into a single system designed by eye care providers and built by Silicon Valley engineers. The company is headquartered in San Francisco.</p>
+        <p style="margin-top:12px;">With more than 200 practices onboarded, Barti has established itself as the fastest-growing EHR in eye care. The platform is the first and only EHR invested in and endorsed by AOAExcel, the for-profit subsidiary of the American Optometric Association. This endorsement provides a distribution channel and credibility signal that no competitor can match.</p>
+    </div>
+
+    <div class="card card-gold">
+        <h3 style="color:var(--gold)">Leadership</h3>
+        <table>
+            <tr><th>Leader</th><th>Role</th><th>Background</th></tr>
+            <tr>
+                <td><strong>Colton Calandrella</strong></td>
+                <td>CEO and Co-Founder</td>
+                <td>Named to Vision Monday's 2025 "30 Under 30" list. Built Barti from inception to 200+ practices and $12M Series A in under four years.</td>
+            </tr>
+            <tr>
+                <td><strong>Kelly Cai, OD</strong></td>
+                <td>COO and Co-Founder</td>
+                <td>Practicing optometrist who co-designed the platform from clinical experience. Ensures the product solves real practitioner pain points.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card card-green">
+        <h3 style="color:var(--green)">Platform Capabilities</h3>
+        <ul>
+            <li><strong>AI Scribe</strong> - Captures patient conversations in real time and generates exam notes automatically, reducing documentation burden for providers</li>
+            <li><strong>AI Office Copilot</strong> - Answers phone calls, books appointments, and handles routine patient inquiries around the clock</li>
+            <li><strong>Unified Clinical Workflows</strong> - Complete EHR with exam templates designed by 30+ leading eye care providers across optometry and ophthalmology</li>
+            <li><strong>Practice Management</strong> - Scheduling, billing, claims processing, and revenue cycle management in one integrated system</li>
+            <li><strong>Myopia Management</strong> - Specialized clinical templates for the growing myopia management market segment</li>
+            <li><strong>Ophthalmology Expansion</strong> - Currently extending capabilities from optometry into the broader ophthalmology market</li>
+        </ul>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 2: MARKET ANALYSIS -->
+<div class="section">
+    <div class="section-label">Market Analysis</div>
+    <h2>The Eye Care EHR Landscape</h2>
+
+    <div class="stat-row">
+        <div class="stat-box">
+            <div class="stat-number">$432M</div>
+            <div class="stat-label">Ophthalmology EMR Market (2026)</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">44K+</div>
+            <div class="stat-label">Optometry Practices in the US</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">9.1%</div>
+            <div class="stat-label">Market CAGR Through 2032</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">60%</div>
+            <div class="stat-label">North America Market Share</div>
+        </div>
+    </div>
+
+    <div class="card card-red">
+        <h3>Why This Market, Why Now</h3>
+        <p>The eye care EHR market is dominated by legacy platforms that were built for general healthcare and adapted for ophthalmology and optometry. Providers in this specialty face unique clinical workflows, from refraction data and contact lens management to surgical planning and myopia tracking, that generic EHR systems handle poorly.</p>
+        <p style="margin-top:12px;">The consolidation wave in eye care (private equity roll-ups, DSO formation, and multi-location expansion) is creating demand for platforms that can scale across practices while maintaining clinical specificity. At the same time, the labor shortage in healthcare administration is pushing practices toward AI-powered automation. Barti is positioned at the intersection of both trends.</p>
+    </div>
+
+    <div class="card card-gold">
+        <h3 style="color:var(--gold)">Buyer Pain in Eye Care</h3>
+        <ul>
+            <li><strong>"Our EHR slows us down instead of helping us."</strong> - Eye care providers spend hours documenting exams in systems designed for primary care. Click-heavy interfaces and template limitations force workarounds that reduce patient volume and increase burnout.</li>
+            <li><strong>"We cannot find front desk staff."</strong> - The healthcare labor shortage is acute in small and mid-size practices. Phone management, appointment scheduling, and patient intake consume time that practices cannot staff for.</li>
+            <li><strong>"We are stuck on a platform from 2010."</strong> - Legacy EHR vendors have not invested in AI or modern workflows. Practices are locked into multi-year contracts with vendors that deliver incremental updates rather than transformational capabilities.</li>
+            <li><strong>"Our billing is disconnected from our clinical system."</strong> - Many practices run separate billing and practice management tools alongside their EHR, creating data silos, reconciliation headaches, and revenue leakage.</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">Market Timing</div>
+        Barti enters its growth phase at the exact moment when eye care practices are seeking AI-native alternatives to legacy EHR platforms. The AOAExcel endorsement provides institutional credibility that would take any competitor years to replicate, and the ophthalmology expansion doubles the addressable market.
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 3: COMPETITIVE LANDSCAPE -->
+<div class="section">
+    <div class="section-label">Competitive Landscape</div>
+    <h2>How Barti Wins Against Incumbents</h2>
+
+    <div class="card card-slate">
+        <table>
+            <tr>
+                <th>Competitor</th>
+                <th>Strengths</th>
+                <th>Weaknesses</th>
+                <th>Barti Advantage</th>
+            </tr>
+            <tr>
+                <td><strong>ModMed</strong></td>
+                <td>Large install base in ophthalmology. Full suite including revenue cycle. Strong brand recognition among surgical practices.</td>
+                <td>Complex implementation. High cost. Enterprise-oriented, making it heavy for smaller practices. Limited AI capabilities in clinical documentation.</td>
+                <td>Barti delivers comparable clinical depth with AI-native automation, faster implementation, and lower total cost of ownership for practices scaling from 1 to 50 locations.</td>
+            </tr>
+            <tr>
+                <td><strong>Nextech</strong></td>
+                <td>Established in ophthalmology and dermatology. On-premise and cloud options. Integrated practice management.</td>
+                <td>Legacy architecture. Slow to adopt AI. On-premise installations require IT overhead. User experience has not kept pace with modern expectations.</td>
+                <td>Barti's cloud-native, AI-first architecture eliminates IT burden and delivers automation capabilities that Nextech's platform cannot match without a complete rebuild.</td>
+            </tr>
+            <tr>
+                <td><strong>RevolutionEHR</strong></td>
+                <td>Strong in optometry. 13,000+ users. 97% retention rate. Built "by ODs for ODs." Solid workflow for independent practices.</td>
+                <td>Limited AI integration. Narrow focus on optometry without ophthalmology depth. Feature set has matured without significant innovation in automation.</td>
+                <td>Barti matches RevolutionEHR's optometry DNA with Kelly Cai's clinical co-founding, while adding AI Scribe, AI Copilot, and a platform designed for the consolidation era.</td>
+            </tr>
+            <tr>
+                <td><strong>EyeMD EMR</strong></td>
+                <td>Purpose-built for ophthalmology. Strong surgical workflow support. Established among surgical practices.</td>
+                <td>Ophthalmology-only. Does not serve optometry. Smaller development team. Limited automation and AI roadmap.</td>
+                <td>Barti covers both optometry and ophthalmology in one platform, enabling DSOs and multi-specialty groups to standardize on a single system across all eye care providers.</td>
+            </tr>
+            <tr>
+                <td><strong>Epic / Oracle Health</strong></td>
+                <td>Dominant in hospital systems. Deep integration with health system infrastructure. Comprehensive modules.</td>
+                <td>Not designed for independent eye care practices. Massive implementation cost and complexity. Generic ophthalmology modules lack specialty depth.</td>
+                <td>Barti serves the 90%+ of eye care that happens outside hospital systems. Independent practices and DSOs need purpose-built solutions, not hospital EHR modules.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">Competitive Positioning</div>
+        Barti is not competing as another EHR with eye care features bolted on. It is the first AI-native operating system purpose-built for eye care from the ground up. The AOAExcel endorsement, clinical co-founder, and platform-wide AI automation create a competitive moat that legacy vendors cannot replicate with incremental product updates.
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 4: BUYER SEGMENTS -->
+<div class="section">
+    <div class="section-label">Buyer Segments</div>
+    <h2>Target Accounts, Decision Makers, and Deal Mechanics</h2>
+
+    <div class="card-grid cols-2">
+        <div class="card card-red">
+            <h3>Segment 1: Independent Optometry Practices</h3>
+            <h4>Profile</h4>
+            <p>Solo and small group optometry practices (1 to 5 providers) looking for a modern, all-in-one platform that reduces administrative overhead and improves patient throughput. These practices typically run on legacy EHR systems with separate billing tools.</p>
+            <h4 style="margin-top:14px;">Decision Makers</h4>
+            <ul>
+                <li><strong>Practice Owner / OD</strong> - Clinical and business authority. Makes the technology decision directly.</li>
+                <li><strong>Office Manager</strong> - Operational influencer. Evaluates workflow impact and training requirements.</li>
+            </ul>
+            <h4 style="margin-top:14px;">Deal Characteristics</h4>
+            <ul>
+                <li>ACV range: $8K to $25K per practice</li>
+                <li>Sales cycle: 30 to 60 days</li>
+                <li>Demo-to-close motion with free trial or pilot period</li>
+                <li>Volume play with high velocity</li>
+            </ul>
+        </div>
+
+        <div class="card card-gold">
+            <h3 style="color:var(--gold)">Segment 2: Multi-Location Groups and DSOs</h3>
+            <h4>Profile</h4>
+            <p>Dental Support Organization (DSO) equivalents in eye care, private equity-backed groups, and multi-location practices with 5 to 100+ locations. These buyers need platform standardization, centralized reporting, and scalable infrastructure.</p>
+            <h4 style="margin-top:14px;">Decision Makers</h4>
+            <ul>
+                <li><strong>CEO / Managing Partner</strong> - Strategic buyer. Cares about operational efficiency across locations.</li>
+                <li><strong>VP of Operations</strong> - Evaluates platform scalability and implementation complexity.</li>
+                <li><strong>Clinical Director</strong> - Validates clinical workflow quality and provider satisfaction.</li>
+            </ul>
+            <h4 style="margin-top:14px;">Deal Characteristics</h4>
+            <ul>
+                <li>ACV range: $50K to $500K+ (based on location count)</li>
+                <li>Sales cycle: 60 to 120 days</li>
+                <li>Pilot at 2 to 3 locations before enterprise rollout</li>
+                <li>Multi-year contracts with expansion built in</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card-grid cols-2">
+        <div class="card card-green">
+            <h3 style="color:var(--green)">Segment 3: Ophthalmology Practices</h3>
+            <h4>Profile</h4>
+            <p>Surgical ophthalmology practices and ambulatory surgery centers (ASCs) expanding from optometry into surgical workflows. This segment represents Barti's growth market as the platform extends into ophthalmology capabilities.</p>
+            <h4 style="margin-top:14px;">Decision Makers</h4>
+            <ul>
+                <li><strong>Lead Surgeon / Medical Director</strong> - Clinical authority. Evaluates surgical workflow support.</li>
+                <li><strong>Practice Administrator</strong> - Operational buyer. Manages revenue cycle and compliance.</li>
+            </ul>
+            <h4 style="margin-top:14px;">Deal Characteristics</h4>
+            <ul>
+                <li>ACV range: $30K to $150K</li>
+                <li>Sales cycle: 60 to 90 days</li>
+                <li>Clinical validation critical before commitment</li>
+                <li>Higher switching costs from incumbent platforms</li>
+            </ul>
+        </div>
+
+        <div class="card card-slate">
+            <h3 style="color:var(--gray)">Segment 4: Academic and Institutional Eye Care</h3>
+            <h4>Profile</h4>
+            <p>Optometry schools, university eye clinics, and teaching hospitals with eye care departments. These institutions train the next generation of providers, creating long-term brand adoption patterns.</p>
+            <h4 style="margin-top:14px;">Decision Makers</h4>
+            <ul>
+                <li><strong>Department Chair / Dean</strong> - Curriculum and technology selection authority</li>
+                <li><strong>IT Director</strong> - Integration and compliance requirements</li>
+            </ul>
+            <h4 style="margin-top:14px;">Deal Characteristics</h4>
+            <ul>
+                <li>ACV range: $15K to $75K</li>
+                <li>Sales cycle: 90 to 180 days (academic procurement)</li>
+                <li>Strategic value beyond revenue: graduates trained on Barti become lifelong users</li>
+                <li>Reference and credibility value for commercial sales</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 5: PARTNERSHIP CHANNELS -->
+<div class="section">
+    <div class="section-label">Partnership Channels</div>
+    <h2>Channel Strategy for Accelerated Growth</h2>
+
+    <p style="margin-bottom:16px;">Barti's AOAExcel partnership is a foundational channel advantage. Building additional partnerships across the eye care ecosystem will multiply pipeline generation and accelerate market penetration beyond what a direct sales motion can achieve alone.</p>
+
+    <div class="card card-red">
+        <h3>Professional Associations and Industry Groups</h3>
+        <h4>Why This Channel</h4>
+        <p>Eye care is a relationship-driven market where professional associations and buying groups influence technology adoption at scale. Barti's existing AOAExcel endorsement is the gold standard, and expanding association relationships deepens market access.</p>
+        <h4 style="margin-top:12px;">Target Partners</h4>
+        <ul>
+            <li><strong>State Optometric Associations</strong> - Each state has an active optometric association with events, publications, and technology advisory committees that influence member purchasing decisions</li>
+            <li><strong>ACQUIOS Advisors</strong> - Already partnered with Barti as of April 2026. Practice management advisory firm serving optometry clients across the US</li>
+            <li><strong>Vision Source</strong> - Largest network of independent optometry practices in North America. Alliance partnership could provide access to thousands of practices</li>
+            <li><strong>AAO (American Academy of Ophthalmology)</strong> - As Barti expands into ophthalmology, AAO relationships become critical for credibility and distribution</li>
+        </ul>
+    </div>
+
+    <div class="card card-gold">
+        <h3 style="color:var(--gold)">Group Purchasing Organizations and Buying Groups</h3>
+        <h4>Why This Channel</h4>
+        <p>Eye care GPOs aggregate purchasing power for independent practices. Technology partnerships with GPOs provide pre-negotiated pricing, simplified procurement, and trusted endorsement that accelerates sales cycles.</p>
+        <h4 style="margin-top:12px;">Target Partners</h4>
+        <ul>
+            <li><strong>PECAA (Primary Eyecare Network)</strong> - Major buying group serving independent optometry practices with technology vendor partnerships</li>
+            <li><strong>ABB Optical Group</strong> - Contact lens and optical distributor with technology advisory services for practices</li>
+            <li><strong>Essilor/Luxottica</strong> - Strategic alliance with the dominant optical lens and frame company could provide distribution leverage through their practice support programs</li>
+        </ul>
+    </div>
+
+    <div class="card card-green">
+        <h3 style="color:var(--green)">Practice Management Consultants and PE Advisory</h3>
+        <h4>Why This Channel</h4>
+        <p>Private equity groups acquiring eye care practices and the consultants advising them need standardized technology platforms. Becoming the recommended EHR for PE-backed roll-ups creates large, multi-location deals with expansion built into the relationship.</p>
+        <h4 style="margin-top:12px;">Target Partners</h4>
+        <ul>
+            <li><strong>PE-Backed Eye Care Platforms</strong> - EyeCare Partners, MyEyeDr, US Vision, and similar consolidators evaluating technology standardization across portfolios</li>
+            <li><strong>Healthcare IT Consultants</strong> - Advisory firms guiding practices through EHR selection and implementation, particularly during M&A transitions</li>
+            <li><strong>Revenue Cycle Management Firms</strong> - Billing companies serving eye care practices that can recommend Barti's integrated billing capabilities</li>
+        </ul>
+    </div>
+
+    <div class="card card-slate">
+        <h3 style="color:var(--gray)">Technology Integration Partners</h3>
+        <h4>Why This Channel</h4>
+        <p>Eye care practices use specialized diagnostic equipment, optical lab systems, and patient engagement tools. Integration partnerships create stickiness and provide co-marketing opportunities.</p>
+        <h4 style="margin-top:12px;">Target Integrations</h4>
+        <ul>
+            <li><strong>Diagnostic Equipment Manufacturers</strong> - Topcon, Zeiss, Heidelberg. Direct integration with imaging and diagnostic devices creates clinical workflow advantages</li>
+            <li><strong>Optical Lab Management</strong> - Integration with lens ordering and lab management systems streamlines the optical dispensary workflow</li>
+            <li><strong>Patient Communication Platforms</strong> - Integration with recall, review management, and patient engagement tools</li>
+        </ul>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 6: 90-DAY EXECUTION PLAN -->
+<div class="section">
+    <div class="section-label">Execution Plan</div>
+    <h2>90-Day US Market GTM Execution</h2>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="phase-label phase-red">Phase 1: Days 1 to 30 - Foundation</div>
+        </div>
+
+        <div class="timeline-item">
+            <h4>Sales Infrastructure</h4>
+            <ul>
+                <li>Define ICP tiers by practice size, location count, current EHR vendor, and buying timeline. Build a target account list of 500+ practices segmented by segment and geography.</li>
+                <li>Build outbound sequences for practice owners, office managers, and DSO executives. Separate messaging tracks for "replacing legacy EHR" versus "first-time platform selection" versus "multi-location standardization."</li>
+                <li>Establish CRM pipeline with deal stages mapped to the eye care buying process: demo request, clinical evaluation, practice workflow review, contract negotiation, and implementation kickoff.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <h4>Messaging and Positioning</h4>
+            <ul>
+                <li>Develop Power Messages for each buyer persona. Lead with the AOAExcel endorsement, 200+ practice proof points, and the 80% admin automation narrative.</li>
+                <li>Create competitive displacement playbooks for ModMed, Nextech, RevolutionEHR, and generic EHR systems. Position Barti as the modern, AI-native alternative built by eye care for eye care.</li>
+                <li>Build a "day in the life" demo flow showing a complete patient encounter from check-in through exam documentation, billing, and follow-up, highlighting AI automation at each step.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <h4>Healthcare Sales Expertise</h4>
+            <ul>
+                <li>Map compliance and procurement requirements for healthcare technology purchasing, including HIPAA review, BAA execution, and data migration protocols.</li>
+                <li>Build reference library from existing 200+ practices, organized by practice type, size, and previous EHR platform for competitive displacement conversations.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item gold">
+            <div class="phase-label phase-gold">Phase 2: Days 31 to 60 - Pipeline Generation</div>
+        </div>
+
+        <div class="timeline-item gold">
+            <h4>Outbound Execution</h4>
+            <ul>
+                <li>Launch multi-channel outbound campaigns targeting independent practices and multi-location groups. Email, LinkedIn, phone, and warm introductions through AOAExcel and ACQUIOS networks.</li>
+                <li>Execute targeted account-based campaigns against practices running ModMed, Nextech, or RevolutionEHR with contract renewal timelines approaching. Message: "Your EHR was built for 2015. Your practice is ready for 2026."</li>
+                <li>Target 40 to 60 qualified demos in this phase across all segments.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item gold">
+            <h4>Event and Community Strategy</h4>
+            <ul>
+                <li>Activate presence at Vision Expo, AAO Annual Meeting, and state optometric association conferences. Barti's AOAExcel endorsement provides preferred positioning at AOA-affiliated events.</li>
+                <li>Host regional "AI in Eye Care" lunch-and-learn events in top metro markets. Bring existing Barti practices as references for peer-to-peer validation.</li>
+                <li>Develop thought leadership content featuring Kelly Cai's clinical perspective on how AI transforms the provider experience in eye care.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item gold">
+            <h4>Partnership Development</h4>
+            <ul>
+                <li>Formalize GPO and buying group partnerships with PECAA and state associations for member pricing and co-marketing programs.</li>
+                <li>Initiate conversations with 2 to 3 PE-backed eye care platforms evaluating technology standardization across their portfolios.</li>
+                <li>Begin diagnostic equipment integration partnerships with Topcon and Zeiss for clinical workflow differentiation.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item green">
+            <div class="phase-label phase-green">Phase 3: Days 61 to 90 - Pipeline Conversion</div>
+        </div>
+
+        <div class="timeline-item green">
+            <h4>Deal Progression</h4>
+            <ul>
+                <li>Advance 15 to 25 qualified opportunities into clinical evaluation or pilot stage. Deploy Barti in prospect practices to demonstrate workflow improvement, documentation time savings, and patient throughput impact.</li>
+                <li>Develop pilot success criteria framework: documentation time reduction, patient volume impact, staff satisfaction, and billing accuracy metrics.</li>
+                <li>Target 5 to 10 deals in late-stage negotiation by end of Day 90, with a combined pipeline representing significant first-year ARR growth.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item green">
+            <h4>Scaling Readiness</h4>
+            <ul>
+                <li>Document repeatable sales process from first touch through close, capturing objection patterns, competitive displacement sequences, and implementation best practices.</li>
+                <li>Build hiring plan for sales team expansion: 2 to 3 field AEs covering top metro markets, 1 to 2 SDRs for outbound pipeline, and 1 channel/partner manager for association and GPO relationships.</li>
+                <li>Establish QBR cadence with channel partners to measure partner-sourced pipeline, joint win rates, and integration adoption.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item green">
+            <h4>Metrics and Milestones</h4>
+            <ul>
+                <li>Pipeline target: qualified pipeline representing significant ARR growth by Day 90</li>
+                <li>Demo volume: 80 to 120 qualified demos across all segments</li>
+                <li>Pilot conversion: 50 to 60% of pilots converting to signed contracts</li>
+                <li>Channel pipeline: 20 to 25% of total pipeline sourced through association, GPO, and advisor partnerships</li>
+                <li>First closed revenue: 5 to 10 new practice contracts signed or in final negotiation</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 7: WHY JEFF -->
+<div class="section">
+    <div class="section-label">Why Jeff Aragon</div>
+    <h2>The Right Sales Leader for This Stage</h2>
+
+    <div class="card card-red">
+        <h3>Healthcare Revenue Track Record</h3>
+        <p>$150M+ in career revenue across enterprise software, healthcare technology, and technical platform sales. This is not theoretical. It is closed business, signed contracts, and revenue recognized.</p>
+        <ul style="margin-top:12px;">
+            <li><strong>$24M TCV at a Series A startup in less than 2 years</strong> - Built the go-to-market function from the ground up, selling complex technical platforms into healthcare buyers. Navigated HIPAA review, multi-stakeholder procurement, and competitive displacement in regulated healthcare environments. This is directly relevant to scaling Barti from 200 practices to thousands.</li>
+            <li><strong>Award-winning at UKG for nearly 6 years</strong> - Recognized multiple times for quota attainment and deal execution at one of the largest HCM platforms in the world, selling into healthcare organizations including hospitals, health systems, and long-term care providers. Deep understanding of how healthcare buyers evaluate, procure, and implement technology platforms.</li>
+            <li><strong>OnShift: Senior Living and Long-Term Care</strong> - Sold workforce management technology directly into healthcare operators, navigating clinical leadership, operations teams, and compliance requirements. This experience selling technology into clinical environments maps directly to the eye care practice buying process.</li>
+        </ul>
+    </div>
+
+    <div class="card card-gold">
+        <h3 style="color:var(--gold)">Why This Matters for Barti</h3>
+        <p>Barti is at the inflection point where product-market fit meets the need for scalable revenue operations. 200+ practices validate the technology and the market demand. The question now is how to build a repeatable, predictable sales engine that takes Barti from hundreds of practices to thousands.</p>
+        <ul style="margin-top:12px;">
+            <li><strong>Healthcare sales expertise</strong> - Selling into healthcare is different from selling into general enterprise. I have closed significant revenue in healthcare across multiple companies and understand the compliance, procurement, and relationship dynamics that drive buying decisions in this space.</li>
+            <li><strong>Series A scaling experience</strong> - I have built go-to-market functions at this exact stage, where the product works, early customers love it, and the company needs a structured sales process to scale. The $24M TCV result at my last Series A company was built on the same foundation Barti needs now.</li>
+            <li><strong>Pipeline discipline</strong> - At this stage, every deal matters. I bring forecast methodology, deal inspection rigor, and qualification frameworks that prevent wasted cycles and ensure the sales team focuses on opportunities with real buying intent.</li>
+            <li><strong>Channel development</strong> - Building partnerships with associations, buying groups, and advisory firms requires structured engagement and clear value propositions. I have built and managed channel relationships alongside direct sales motions throughout my career.</li>
+        </ul>
+    </div>
+
+    <div class="card card-green">
+        <h3 style="color:var(--green)">What I Will Deliver</h3>
+        <p>I operate as a hands-on sales leader, not a strategist who delivers a plan and disappears. My work is embedded in live deals, live pipeline, and live revenue operations.</p>
+        <ul style="margin-top:12px;">
+            <li>Direct participation in deal execution: discovery calls, demos, negotiation, and close plans with practice owners and DSO executives</li>
+            <li>Sales process and messaging framework development with real-time iteration based on market feedback</li>
+            <li>Pipeline and forecast management with weekly deal inspection and qualification rigor</li>
+            <li>Channel partner activation and co-selling coordination with associations and buying groups</li>
+            <li>Hiring support and onboarding framework for the sales team as pipeline velocity justifies expansion</li>
+        </ul>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="footer">
+    <strong>Jeff Aragon</strong> | jeff@jozuconsultinggroup.com | +1 303-638-1390 (mobile and WhatsApp)
+</div>
+
+</div>
+</body>
+</html>

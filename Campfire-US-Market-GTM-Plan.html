@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campfire - US Market GTM Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #0a0e17;
+        --bg-card: rgba(255,255,255,0.03);
+        --bg-card-border: rgba(255,255,255,0.06);
+        --accent: #e34115;
+        --accent-dim: rgba(227,65,21,0.12);
+        --gold: #c9a84c;
+        --gold-dim: rgba(201,168,76,0.10);
+        --green: #22c55e;
+        --green-dim: rgba(34,197,94,0.10);
+        --slate: #64748b;
+        --white: #ffffff;
+        --gray: #cbd5e1;
+        --bright: #e2e8f0;
+        --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: var(--bg);
+        color: var(--gray);
+        font-family: 'Open Sans', sans-serif;
+        font-size: 15px;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        padding: 50px 40px;
+    }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+
+    .container { max-width: 1060px; margin: 0 auto; }
+
+    .header {
+        margin-bottom: 48px;
+        padding-bottom: 28px;
+        border-bottom: 2px solid var(--accent);
+    }
+    .doc-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 10px;
+    }
+    .doc-title {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 6px;
+    }
+    .doc-subtitle {
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-weight: 300;
+        color: var(--gray);
+        margin-bottom: 4px;
+    }
+    .doc-meta {
+        font-size: 12px;
+        color: var(--gray);
+        margin-top: 8px;
+    }
+
+    .section { margin-bottom: 44px; }
+    .section-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .section-label::before {
+        content: '';
+        width: 24px; height: 2px;
+        background: var(--accent);
+    }
+    h2 { font-size: 20px; font-weight: 600; margin-bottom: 16px; }
+    h3 { font-size: 15px; font-weight: 500; color: var(--accent); margin-bottom: 8px; }
+    h4 { font-size: 13px; font-weight: 500; color: var(--gold); margin-bottom: 6px; }
+
+    .card {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        margin-bottom: 14px;
+    }
+    .card-red { border-left: 3px solid var(--accent); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+    .card-green { border-left: 3px solid var(--green); }
+
+    .card-grid { display: grid; gap: 14px; margin-bottom: 16px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    .divider { width: 60px; height: 2px; background: var(--accent); margin: 32px 0; opacity: 0.4; }
+
+    ul { padding-left: 20px; margin: 8px 0; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--white); font-weight: 600; }
+
+    .stat-row { display: flex; gap: 14px; margin: 16px 0; }
+    .stat-box {
+        flex: 1;
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 18px;
+        text-align: center;
+    }
+    .stat-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--accent);
+    }
+    .stat-label {
+        font-size: 11px;
+        color: var(--gray);
+        margin-top: 4px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+        font-size: 14px;
+    }
+    th {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 10px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--accent);
+        text-align: left;
+        padding: 10px 14px;
+        border-bottom: 1px solid rgba(227,65,21,0.2);
+        background: var(--accent-dim);
+    }
+    td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--bg-card-border);
+        color: var(--gray);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .callout {
+        background: rgba(227,65,21,0.06);
+        border: 1px solid rgba(227,65,21,0.15);
+        border-radius: var(--radius);
+        padding: 18px 24px;
+        margin: 14px 0;
+        color: var(--bright);
+    }
+    .callout-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: var(--accent);
+        margin-bottom: 6px;
+    }
+
+    .timeline {
+        position: relative;
+        padding-left: 28px;
+    }
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 8px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, var(--accent), var(--gold), var(--green));
+        opacity: 0.4;
+    }
+    .timeline-item {
+        position: relative;
+        margin-bottom: 20px;
+    }
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -24px;
+        top: 6px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid var(--accent);
+        background: var(--bg);
+    }
+    .timeline-item.gold::before { border-color: var(--gold); }
+    .timeline-item.green::before { border-color: var(--green); }
+
+    .phase-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+    }
+    .phase-red { color: var(--accent); }
+    .phase-gold { color: var(--gold); }
+    .phase-green { color: var(--green); }
+
+    .footer {
+        margin-top: 60px;
+        padding-top: 24px;
+        border-top: 1px solid var(--bg-card-border);
+        text-align: center;
+        color: var(--gray);
+        font-size: 13px;
+    }
+    .footer strong { color: var(--white); }
+
+    @media print {
+        body { background: var(--bg); padding: 30px; }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+    <div class="doc-label">US Market GTM Strategy</div>
+    <h1 class="doc-title">Campfire - 90 Day US Market GTM Plan</h1>
+    <div class="doc-subtitle">AI-Native ERP for Modern Finance Teams</div>
+    <div class="doc-meta">Prepared by Jeff Aragon | April 2026</div>
+</div>
+
+<!-- SECTION 1: COMPANY PROFILE -->
+<div class="section">
+    <div class="section-label">Company Profile</div>
+    <h2>Campfire at a Glance</h2>
+
+    <div class="stat-row">
+        <div class="stat-box">
+            <div class="stat-number">$103M</div>
+            <div class="stat-label">Total Funding (Series A + B)</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">10x</div>
+            <div class="stat-label">Revenue Growth YTD</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">95%+</div>
+            <div class="stat-label">LAM Task Accuracy</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">100+</div>
+            <div class="stat-label">Employees and Growing</div>
+        </div>
+    </div>
+
+    <div class="card card-red">
+        <h3>The Company</h3>
+        <p>Campfire is the AI-native ERP built to replace legacy financial systems like NetSuite, Sage Intacct, and SAP for modern finance teams. Founded by John Glasgow, the company raised $100M+ in just 12 weeks, closing a $65M Series B co-led by Accel and Ribbit Capital barely three months after a $35M Series A from Accel. The company is headquartered in San Francisco and is YC-backed.</p>
+        <p style="margin-top:12px;">Campfire has built LAM (Large Accounting Model), the first ERP-native foundational AI model trained entirely on accounting data. LAM achieves over 95% accuracy on key accounting tasks including transaction categorization, reconciliation, and variance analysis. The platform serves hundreds of corporate clients with headcounts ranging from 50 to 5,000 employees, including unicorns like Replit and Decagon.</p>
+    </div>
+
+    <div class="card card-gold">
+        <h3 style="color:var(--gold)">Leadership</h3>
+        <table>
+            <tr><th>Leader</th><th>Role</th><th>Background</th></tr>
+            <tr>
+                <td><strong>John Glasgow</strong></td>
+                <td>CEO and Founder</td>
+                <td>Previously at Invoice2go, a fintech startup acquired by Bill for $625M in 2021. Built Campfire to create the AI-native ERP that legacy vendors are unable to deliver. Led the company from founding to $100M+ raised and 10x revenue growth.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card card-green">
+        <h3 style="color:var(--green)">Platform Capabilities</h3>
+        <ul>
+            <li><strong>LAM (Large Accounting Model)</strong> - First ERP-native AI model trained on accounting data. Automates transaction categorization, reconciliation, variance detection, and journal preparation with 95%+ accuracy.</li>
+            <li><strong>Core Accounting</strong> - AI-powered general ledger with automated month-end close, real-time financial reporting, and multi-entity consolidation</li>
+            <li><strong>Revenue Recognition</strong> - Automated ASC 606 compliance with contract-level recognition schedules and unbilled receivables management</li>
+            <li><strong>Accounts Payable</strong> - Intelligent invoice processing, approval workflows, and vendor management with AI-driven coding and matching</li>
+            <li><strong>Accounts Receivable</strong> - Automated invoicing, collections management, and cash application powered by LAM</li>
+            <li><strong>Financial Planning</strong> - Budget creation, variance analysis, and forecasting with AI-driven insights and scenario modeling</li>
+        </ul>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 2: MARKET ANALYSIS -->
+<div class="section">
+    <div class="section-label">Market Analysis</div>
+    <h2>The ERP and Accounting Software Landscape</h2>
+
+    <div class="stat-row">
+        <div class="stat-box">
+            <div class="stat-number">$70B+</div>
+            <div class="stat-label">Global ERP Market (Annual)</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">12 Wks</div>
+            <div class="stat-label">$100M Raised in Record Time</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">10x</div>
+            <div class="stat-label">Campfire Revenue Growth</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">$625M</div>
+            <div class="stat-label">Founder's Prior Exit (Invoice2go)</div>
+        </div>
+    </div>
+
+    <div class="card card-red">
+        <h3>Why This Market, Why Now</h3>
+        <p>The ERP market is undergoing its most significant disruption in two decades. Legacy platforms like NetSuite, Sage Intacct, and SAP were built before AI was viable and have bolted on automation features without reimagining the core architecture. Finance teams are stuck in manual month-end close processes, spreadsheet-based reconciliation, and workflow bottlenecks that AI-native platforms can eliminate.</p>
+        <p style="margin-top:12px;">The timing is driven by three converging forces. First, growing companies are hitting the "QuickBooks ceiling" earlier as financial complexity accelerates. Second, CFOs are under pressure to close faster, forecast more accurately, and operate with leaner teams. Third, the emergence of large language models trained on domain-specific data (like Campfire's LAM) makes it possible to automate accounting tasks that previously required human judgment. Campfire is positioned at the intersection of all three.</p>
+    </div>
+
+    <div class="card card-gold">
+        <h3 style="color:var(--gold)">Buyer Pain in Finance Operations</h3>
+        <ul>
+            <li><strong>"Month-end close takes our team two weeks."</strong> - Finance teams at growing companies spend days on manual reconciliation, journal entries, and variance analysis. Every hour spent closing the books is an hour not spent on strategic analysis or forecasting.</li>
+            <li><strong>"We outgrew QuickBooks but cannot afford a NetSuite implementation."</strong> - The gap between starter accounting tools and enterprise ERP systems forces growing companies into expensive, complex migrations that consume 6 to 12 months and hundreds of thousands in implementation fees.</li>
+            <li><strong>"Our ERP requires an army of consultants to maintain."</strong> - Legacy ERP platforms create ongoing dependency on implementation partners for configuration changes, report building, and system upgrades. Finance teams lose control of their own systems.</li>
+            <li><strong>"We cannot trust our forecast numbers."</strong> - Manual data aggregation, disconnected systems, and spreadsheet-based models produce forecasts that are outdated before they are presented. Boards and investors demand accuracy that manual processes cannot deliver.</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">Market Timing</div>
+        Campfire's 10x revenue growth validates that the market is ready for an AI-native ERP alternative. The $100M+ raised in 12 weeks signals investor conviction that this disruption window is real and that Campfire is the company best positioned to capture it. The next 90 days are about converting market momentum into scalable, repeatable revenue operations.
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 3: COMPETITIVE LANDSCAPE -->
+<div class="section">
+    <div class="section-label">Competitive Landscape</div>
+    <h2>How Campfire Wins Against Incumbents</h2>
+
+    <div class="card card-slate">
+        <table>
+            <tr>
+                <th>Competitor</th>
+                <th>Strengths</th>
+                <th>Weaknesses</th>
+                <th>Campfire Advantage</th>
+            </tr>
+            <tr>
+                <td><strong>NetSuite (Oracle)</strong></td>
+                <td>Market leader in cloud ERP. Massive install base. Deep module library covering financials, CRM, inventory, and e-commerce.</td>
+                <td>Complex implementation (6 to 12 months typical). High total cost of ownership including consultant fees. AI capabilities are bolted on, not native. User experience has not kept pace with modern expectations.</td>
+                <td>Campfire delivers comparable financial depth in weeks, not months, with AI automation built into every workflow. Lower total cost of ownership and no consultant dependency.</td>
+            </tr>
+            <tr>
+                <td><strong>Sage Intacct</strong></td>
+                <td>Strong mid-market financials. Good multi-entity support. AICPA preferred provider. Solid reporting capabilities.</td>
+                <td>Limited AI automation. Narrow focus on financials without broader ERP capabilities. Implementation still requires certified partners. Innovation pace has slowed.</td>
+                <td>Campfire matches Sage Intacct's financial depth while adding LAM-powered automation that eliminates manual reconciliation and journal entry work.</td>
+            </tr>
+            <tr>
+                <td><strong>SAP</strong></td>
+                <td>Enterprise ERP standard. Deep industry-specific modules. Global presence and brand trust.</td>
+                <td>Not built for mid-market. Massive implementation cost and complexity. Years-long deployment cycles. S/4HANA migration is painful for existing customers.</td>
+                <td>Campfire targets the companies that SAP is too heavy for. Modern architecture, rapid deployment, and AI-native automation without the enterprise overhead.</td>
+            </tr>
+            <tr>
+                <td><strong>Rillet</strong></td>
+                <td>AI-native ERP competitor. Similar positioning to Campfire. Modern architecture. Growing customer base.</td>
+                <td>Smaller team and funding base. Less domain-specific AI depth. Narrower product surface area compared to Campfire's expanding platform.</td>
+                <td>Campfire's LAM model, $100M+ funding, 10x revenue growth, and unicorn customer logos (Replit, Decagon) establish market leadership in the AI-native ERP category.</td>
+            </tr>
+            <tr>
+                <td><strong>QuickBooks (Intuit)</strong></td>
+                <td>Dominant at entry level. Massive user base. Low cost. Simple to implement. Growing AI features with Intuit Assist.</td>
+                <td>Not built for scale. Breaks down at multi-entity, complex revenue recognition, and sophisticated financial reporting. "Growing out of QuickBooks" is a universal pain point.</td>
+                <td>Campfire is the natural next step for companies outgrowing QuickBooks. Migration path that preserves simplicity while adding enterprise-grade capabilities.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">Competitive Positioning</div>
+        Campfire is not competing to be a better version of NetSuite. It is competing to define what ERP looks like when AI is the foundation, not a feature. The positioning is "your finance team's AI-native operating system," and the 10x revenue growth proves the market agrees that the legacy ERP era is ending.
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 4: BUYER SEGMENTS -->
+<div class="section">
+    <div class="section-label">Buyer Segments</div>
+    <h2>Target Accounts, Decision Makers, and Deal Mechanics</h2>
+
+    <div class="card-grid cols-2">
+        <div class="card card-red">
+            <h3>Segment 1: High-Growth Startups (50 to 500 Employees)</h3>
+            <h4>Profile</h4>
+            <p>Venture-backed companies outgrowing QuickBooks or preparing for their first ERP implementation. Series A through Series C stage, often facing their first audit, complex revenue recognition requirements, or multi-entity structures. These companies want speed and automation, not a 12-month implementation project.</p>
+            <h4 style="margin-top:14px;">Decision Makers</h4>
+            <ul>
+                <li><strong>VP of Finance / Controller</strong> - Primary buyer. Owns the ERP decision and month-end close process.</li>
+                <li><strong>CFO</strong> - Strategic sponsor. Cares about close speed, forecast accuracy, and audit readiness.</li>
+                <li><strong>CEO</strong> - Often involved at startup stage. Cares about financial visibility and investor reporting.</li>
+            </ul>
+            <h4 style="margin-top:14px;">Deal Characteristics</h4>
+            <ul>
+                <li>ACV range: $30K to $100K</li>
+                <li>Sales cycle: 30 to 60 days</li>
+                <li>Demo-driven with rapid trial or proof of concept</li>
+                <li>Expansion as headcount and entity count grow</li>
+            </ul>
+        </div>
+
+        <div class="card card-gold">
+            <h3 style="color:var(--gold)">Segment 2: Mid-Market Companies (500 to 5,000 Employees)</h3>
+            <h4>Profile</h4>
+            <p>Established companies running NetSuite, Sage Intacct, or SAP looking for a modern alternative. Frustrated by implementation complexity, consultant dependency, and manual processes that AI should be automating. Often triggered by a system renewal, acquisition, or new CFO mandate.</p>
+            <h4 style="margin-top:14px;">Decision Makers</h4>
+            <ul>
+                <li><strong>CFO</strong> - Budget authority and strategic sponsor for ERP modernization.</li>
+                <li><strong>VP of Finance</strong> - Operational buyer. Evaluates workflow impact and team productivity.</li>
+                <li><strong>IT Director</strong> - Integration and security requirements. Evaluates technical architecture.</li>
+            </ul>
+            <h4 style="margin-top:14px;">Deal Characteristics</h4>
+            <ul>
+                <li>ACV range: $100K to $500K</li>
+                <li>Sales cycle: 60 to 120 days</li>
+                <li>Competitive displacement from incumbent ERP</li>
+                <li>Pilot with one entity before full rollout</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card-grid cols-2">
+        <div class="card card-green">
+            <h3 style="color:var(--green)">Segment 3: Private Equity Portfolio Companies</h3>
+            <h4>Profile</h4>
+            <p>PE-backed companies undergoing operational improvement, platform standardization, or carve-out from a larger entity. PE firms want faster close cycles, better financial visibility, and lower operating costs across their portfolios. ERP modernization is a standard PE playbook item.</p>
+            <h4 style="margin-top:14px;">Decision Makers</h4>
+            <ul>
+                <li><strong>PE Operating Partner</strong> - Drives technology standardization across portfolio companies</li>
+                <li><strong>Portfolio Company CFO</strong> - Executes the ERP transition and owns ongoing operations</li>
+                <li><strong>VP of Finance</strong> - Day-to-day user and process owner</li>
+            </ul>
+            <h4 style="margin-top:14px;">Deal Characteristics</h4>
+            <ul>
+                <li>ACV range: $75K to $300K per portfolio company</li>
+                <li>Sales cycle: 60 to 90 days</li>
+                <li>Land with one company, expand across the portfolio</li>
+                <li>PE relationship creates multi-deal pipeline from a single partnership</li>
+            </ul>
+        </div>
+
+        <div class="card card-slate">
+            <h3 style="color:var(--gray)">Segment 4: Professional Services and SaaS Companies</h3>
+            <h4>Profile</h4>
+            <p>Software companies and professional services firms with recurring revenue models, complex revenue recognition (ASC 606), and multi-entity structures. These buyers prioritize automation of revenue recognition, deferred revenue management, and subscription billing reconciliation.</p>
+            <h4 style="margin-top:14px;">Decision Makers</h4>
+            <ul>
+                <li><strong>Controller</strong> - Owns revenue recognition and compliance processes</li>
+                <li><strong>VP of Finance</strong> - Strategic buyer focused on close speed and forecast accuracy</li>
+            </ul>
+            <h4 style="margin-top:14px;">Deal Characteristics</h4>
+            <ul>
+                <li>ACV range: $40K to $200K</li>
+                <li>Sales cycle: 45 to 75 days</li>
+                <li>Revenue recognition and ASC 606 compliance are primary buying triggers</li>
+                <li>Strong referral and word-of-mouth dynamics within SaaS finance networks</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 5: PARTNERSHIP CHANNELS -->
+<div class="section">
+    <div class="section-label">Partnership Channels</div>
+    <h2>Channel Strategy for Accelerated Growth</h2>
+
+    <p style="margin-bottom:16px;">Campfire's explosive growth creates an opportunity to build channel partnerships that multiply pipeline generation beyond direct sales. The ERP market has deep channel infrastructure, and inserting Campfire into existing advisory and implementation ecosystems accelerates market penetration significantly.</p>
+
+    <div class="card card-red">
+        <h3>Accounting Firms and Advisory Practices</h3>
+        <h4>Why This Channel</h4>
+        <p>Accounting firms are the most trusted advisors to CFOs and finance teams when it comes to ERP selection. They guide technology decisions during audits, system implementations, and financial process redesigns. Building relationships with accounting firms creates a steady referral pipeline of pre-qualified buyers.</p>
+        <h4 style="margin-top:12px;">Target Partners</h4>
+        <ul>
+            <li><strong>Top 25 Accounting Firms</strong> - BDO, Grant Thornton, RSM, and Marcum serve thousands of mid-market clients evaluating ERP options during audit engagements and advisory projects</li>
+            <li><strong>Startup-Focused Firms</strong> - Kruze Consulting, Pilot, and Bench serve the exact startup and scale-up segment that Campfire targets. These firms process thousands of transactions monthly and can recommend Campfire during QuickBooks-to-ERP migrations</li>
+            <li><strong>Big Four Innovation Arms</strong> - Deloitte, PwC, EY, and KPMG innovation teams evaluate emerging platforms for their mid-market advisory practices</li>
+        </ul>
+    </div>
+
+    <div class="card card-gold">
+        <h3 style="color:var(--gold)">Private Equity and Venture Capital Firms</h3>
+        <h4>Why This Channel</h4>
+        <p>PE and VC firms influence technology decisions across their portfolios. A partnership with a PE firm's operating team can generate multiple ERP deals across portfolio companies, creating a repeatable multi-deal motion from a single relationship.</p>
+        <h4 style="margin-top:12px;">Target Partners</h4>
+        <ul>
+            <li><strong>Growth PE Firms</strong> - Vista Equity Partners, Thoma Bravo, and Francisco Partners standardize financial systems across portfolios and actively seek modern ERP alternatives to reduce operating costs</li>
+            <li><strong>Venture Capital Portfolio Support</strong> - Accel (already an investor), Ribbit Capital, and other top-tier VCs can recommend Campfire to portfolio companies hitting the QuickBooks ceiling</li>
+            <li><strong>PE Operating Partners Network</strong> - CFO networks and PE operating communities where technology recommendations flow across firm boundaries</li>
+        </ul>
+    </div>
+
+    <div class="card card-green">
+        <h3 style="color:var(--green)">Technology Integration Partners</h3>
+        <h4>Why This Channel</h4>
+        <p>Modern finance teams operate across multiple systems. Integration partnerships with complementary platforms create distribution leverage, marketplace visibility, and co-sell opportunities that accelerate adoption.</p>
+        <h4 style="margin-top:12px;">Target Partners</h4>
+        <ul>
+            <li><strong>Banking and Payment Platforms</strong> - Brex, Ramp, Mercury, and SVB. These platforms serve the same customer base and can recommend Campfire as the ERP backbone for financial operations</li>
+            <li><strong>HRIS and Payroll</strong> - Rippling, Gusto, and Deel. Payroll data flows into the GL, making integration a natural partnership opportunity</li>
+            <li><strong>Revenue Operations</strong> - Stripe, Chargebee, and Maxio. Subscription billing data flowing directly into Campfire's revenue recognition engine creates a compelling integration story</li>
+        </ul>
+    </div>
+
+    <div class="card card-slate">
+        <h3 style="color:var(--gray)">CFO and Finance Communities</h3>
+        <h4>Why This Channel</h4>
+        <p>Finance leaders share technology recommendations within professional communities. Becoming the recommended ERP in these networks creates organic pipeline through peer-to-peer validation.</p>
+        <h4 style="margin-top:12px;">Target Communities</h4>
+        <ul>
+            <li><strong>CFO Connect</strong> - Community of 8,000+ finance leaders at high-growth companies. Sponsorship and content partnerships drive awareness among active buyers</li>
+            <li><strong>Controllers Council</strong> - Professional network for controllers and VP-level finance professionals evaluating technology platforms</li>
+            <li><strong>SaaStr Annual</strong> - Premier SaaS conference where CFOs and finance leaders evaluate vendors and share recommendations</li>
+        </ul>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 6: 90-DAY EXECUTION PLAN -->
+<div class="section">
+    <div class="section-label">Execution Plan</div>
+    <h2>90-Day US Market GTM Execution</h2>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="phase-label phase-red">Phase 1: Days 1 to 30 - Foundation</div>
+        </div>
+
+        <div class="timeline-item">
+            <h4>Sales Infrastructure</h4>
+            <ul>
+                <li>Define ICP tiers by company size, current ERP vendor, industry vertical, and buying timeline. Build a target account list of 500+ companies segmented by "QuickBooks migration," "NetSuite displacement," and "first ERP implementation."</li>
+                <li>Build outbound sequences for CFOs, VP of Finance, and Controllers. Separate messaging tracks for each migration path: QuickBooks graduation, NetSuite/Sage Intacct replacement, and greenfield ERP selection.</li>
+                <li>Establish CRM pipeline with deal stages mapped to the ERP buying process: discovery, financial workflow assessment, LAM demo, technical evaluation, stakeholder alignment, and contract negotiation.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <h4>Messaging and Positioning</h4>
+            <ul>
+                <li>Develop Power Messages for each buyer persona. Lead with the 10x revenue growth, LAM accuracy metrics, and unicorn customer proof points (Replit, Decagon).</li>
+                <li>Create competitive displacement playbooks for NetSuite, Sage Intacct, and QuickBooks. Position Campfire as "the ERP built for AI-first finance teams" with clear ROI narratives around close time reduction and headcount efficiency.</li>
+                <li>Build a "close the books" demo flow showing month-end close, automated reconciliation, variance analysis, and financial reporting with LAM handling tasks that traditionally require manual effort.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <h4>Channel Activation</h4>
+            <ul>
+                <li>Identify and initiate conversations with 3 to 5 priority accounting firms and startup-focused advisory practices.</li>
+                <li>Leverage Accel and Ribbit Capital portfolio networks for warm introductions to companies evaluating ERP options.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item gold">
+            <div class="phase-label phase-gold">Phase 2: Days 31 to 60 - Pipeline Generation</div>
+        </div>
+
+        <div class="timeline-item gold">
+            <h4>Outbound Execution</h4>
+            <ul>
+                <li>Launch multi-channel outbound campaigns targeting CFOs and VP-level finance leaders. Email, LinkedIn, and warm introductions through investor networks and existing customer referrals.</li>
+                <li>Execute targeted account-based campaigns against companies with known NetSuite or Sage Intacct deployments approaching renewal. Message: "Your ERP was built before AI existed. Your finance team deserves better."</li>
+                <li>Target 40 to 60 qualified meetings in this phase. Focus on companies with 50 to 5,000 employees across SaaS, professional services, and PE-backed businesses.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item gold">
+            <h4>Event and Community Strategy</h4>
+            <ul>
+                <li>Activate presence at SaaStr Annual, CFO Connect events, and regional finance leader meetups in San Francisco, New York, and Austin.</li>
+                <li>Host "AI-First Finance" webinar series featuring existing Campfire customers sharing month-end close time reduction and operational efficiency results.</li>
+                <li>Develop thought leadership content positioning John Glasgow's perspective on why the ERP market is ripe for disruption.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item gold">
+            <h4>Partnership Development</h4>
+            <ul>
+                <li>Formalize 2 to 3 accounting firm partnerships with referral agreements and joint marketing commitments.</li>
+                <li>Launch integration partnerships with 2 to 3 complementary platforms (banking, payroll, or billing) for co-marketing and marketplace visibility.</li>
+                <li>Initiate conversations with PE operating partners at 2 to 3 growth equity firms for portfolio-wide ERP standardization discussions.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item green">
+            <div class="phase-label phase-green">Phase 3: Days 61 to 90 - Pipeline Conversion</div>
+        </div>
+
+        <div class="timeline-item green">
+            <h4>Deal Progression</h4>
+            <ul>
+                <li>Advance 15 to 25 qualified opportunities into technical evaluation or pilot stage. Deploy Campfire with prospect financial data to demonstrate LAM accuracy, close time reduction, and workflow automation in their actual environment.</li>
+                <li>Develop pilot success criteria framework: month-end close time reduction, reconciliation automation rate, manual journal entry elimination, and finance team capacity improvement.</li>
+                <li>Target 5 to 10 deals in late-stage negotiation by end of Day 90, with a combined pipeline representing significant first-year ARR growth.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item green">
+            <h4>Scaling Readiness</h4>
+            <ul>
+                <li>Document repeatable sales process from first touch through close. Capture objection patterns, competitive displacement playbooks, and migration best practices for each source ERP platform.</li>
+                <li>Build hiring plan for sales team expansion: 3 to 5 AEs covering enterprise and mid-market segments, 2 to 3 SDRs for outbound pipeline, and 1 channel/partner manager for accounting firm and PE relationships.</li>
+                <li>Establish QBR cadence with channel partners to measure partner-sourced pipeline, joint win rates, and integration adoption.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item green">
+            <h4>Metrics and Milestones</h4>
+            <ul>
+                <li>Pipeline target: qualified pipeline representing significant ARR growth by Day 90</li>
+                <li>Meeting volume: 80 to 120 qualified meetings across all segments</li>
+                <li>Pilot conversion: 50 to 60% of pilots converting to signed contracts</li>
+                <li>Channel pipeline: 15 to 20% of total pipeline sourced through accounting firms, PE networks, and integration partners</li>
+                <li>First closed revenue: 5 to 10 new enterprise contracts signed or in final negotiation</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 7: WHY JEFF -->
+<div class="section">
+    <div class="section-label">Why Jeff Aragon</div>
+    <h2>The Right Sales Leader for This Stage</h2>
+
+    <div class="card card-red">
+        <h3>Enterprise Revenue Track Record</h3>
+        <p>$150M+ in career revenue across enterprise software and technical platform sales. This is not theoretical. It is closed business, signed contracts, and revenue recognized.</p>
+        <ul style="margin-top:12px;">
+            <li><strong>$24M TCV at a Series A startup in less than 2 years</strong> - Built the go-to-market function from the ground up, selling complex technical platforms into enterprise buyers. Navigated multi-stakeholder procurement, long sales cycles, and competitive displacement against entrenched incumbents. This is directly relevant to displacing NetSuite and Sage Intacct at Campfire's target accounts.</li>
+            <li><strong>Award-winning at UKG for nearly 6 years</strong> - Recognized multiple times for quota attainment and deal execution at one of the largest enterprise platforms in the world. UKG sells into the same CFO and VP of Finance buying center that Campfire targets, and the enterprise sales motion, from discovery through procurement and multi-year contract negotiation, maps directly.</li>
+            <li><strong>GTM architecture expertise</strong> - Designed and executed sales processes, pipeline systems, messaging frameworks, and territory plans for companies scaling from founder-led sales to repeatable revenue machines. This is exactly the transition Campfire is navigating now.</li>
+        </ul>
+    </div>
+
+    <div class="card card-gold">
+        <h3 style="color:var(--gold)">Why This Matters for Campfire</h3>
+        <p>Campfire is at the most critical moment in its growth trajectory. The product is validated, funding is secured, and revenue is growing 10x. The challenge now is building a sales organization that can sustain and accelerate that growth, converting market momentum into predictable, repeatable revenue operations.</p>
+        <ul style="margin-top:12px;">
+            <li><strong>Enterprise sales process design</strong> - Campfire needs a structured, repeatable sales motion for displacing incumbent ERP platforms. Not a demo and a proposal, but a full sequence of events from initial discovery through financial workflow assessment, stakeholder alignment, procurement, and implementation planning. I build these systems.</li>
+            <li><strong>Competitive displacement experience</strong> - Selling against entrenched incumbents (NetSuite, Sage Intacct) requires specific playbooks for each competitor, objection handling frameworks, and migration narratives that reduce buyer risk. I have displaced incumbent platforms throughout my career.</li>
+            <li><strong>Pipeline discipline</strong> - At 10x growth, the risk is losing control of pipeline quality while chasing volume. I bring forecast methodology, deal inspection rigor, and qualification frameworks that ensure the sales team focuses on opportunities with real buying intent and achievable timelines.</li>
+            <li><strong>Channel development</strong> - Building partnerships with accounting firms, PE operating teams, and technology platforms requires structured engagement and clear partner value propositions. I have built channel programs alongside direct sales motions and understand how to create partner-sourced pipeline without cannibalizing direct efforts.</li>
+        </ul>
+    </div>
+
+    <div class="card card-green">
+        <h3 style="color:var(--green)">What I Will Deliver</h3>
+        <p>I operate as a hands-on sales leader, not a strategist who delivers a plan and disappears. My work is embedded in live deals, live pipeline, and live revenue operations.</p>
+        <ul style="margin-top:12px;">
+            <li>Direct participation in deal execution: discovery calls, product demonstrations, negotiation, and close plans with CFOs and VP-level finance leaders</li>
+            <li>Sales process and messaging framework development with real-time iteration based on competitive feedback and buyer objections</li>
+            <li>Pipeline and forecast management with weekly deal inspection and qualification rigor</li>
+            <li>Channel partner activation and co-selling coordination with accounting firms and PE networks</li>
+            <li>Hiring support, onboarding framework, and ramp plan design for the sales team as pipeline velocity justifies expansion</li>
+        </ul>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="footer">
+    <strong>Jeff Aragon</strong> | jeff@jozuconsultinggroup.com | +1 303-638-1390 (mobile and WhatsApp)
+</div>
+
+</div>
+</body>
+</html>
