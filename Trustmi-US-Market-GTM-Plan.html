@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script async src="https://plausible.io/js/pa-1razrYiA4atISy5-RXcrX.js"></script>
+<script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>90-Day US Market GTM Plan - Trustmi | JEFF ARAGON</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    @page {
+        size: letter;
+        margin: 0;
+    }
+    :root {
+        --bg: #0a0e17;
+        --bg-card: rgba(255,255,255,0.03);
+        --bg-card-border: rgba(255,255,255,0.06);
+        --accent: #e34115;
+        --accent-dim: rgba(227,65,21,0.12);
+        --gold: #c9a84c;
+        --gold-dim: rgba(201,168,76,0.10);
+        --green: #22c55e;
+        --slate: #64748b;
+        --white: #ffffff;
+        --gray: #cbd5e1;
+        --bright: #e2e8f0;
+        --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: var(--bg);
+        color: var(--gray);
+        font-family: 'Open Sans', sans-serif;
+        font-size: 11pt;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--white); }
+
+    /* Page container */
+    .page {
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0 auto;
+        padding: 48px 56px;
+        background: var(--bg);
+        position: relative;
+        overflow: hidden;
+        page-break-after: always;
+    }
+    .page:last-child { page-break-after: auto; }
+
+    /* Subtle background glow */
+    .page::before {
+        content: '';
+        position: absolute;
+        top: -150px; right: -150px;
+        width: 500px; height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+    }
+    .page > * { position: relative; z-index: 1; }
+
+    /* Header */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 36px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--accent);
+    }
+    .header-left { flex: 1; }
+    .doc-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9pt;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 6px;
+    }
+    .doc-title {
+        font-size: 22pt;
+        font-weight: 700;
+        line-height: 1.15;
+        margin-bottom: 4px;
+    }
+    .doc-title .accent { color: var(--accent); }
+    .doc-subtitle {
+        font-family: 'Poppins', sans-serif;
+        font-size: 11pt;
+        font-weight: 300;
+        color: var(--slate);
+    }
+    .doc-date {
+        font-size: 9pt;
+        color: var(--slate);
+        margin-top: 8px;
+    }
+
+    /* Section headers */
+    .section-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .section-label::before {
+        content: '';
+        width: 24px; height: 2px;
+        background: var(--accent);
+    }
+    h2 { font-size: 16pt; font-weight: 600; margin-bottom: 14px; }
+    h3 { font-size: 12pt; font-weight: 500; color: var(--accent); margin-bottom: 8px; }
+    h4 { font-size: 10pt; font-weight: 500; color: var(--gold); margin-bottom: 6px; }
+
+    /* Cards */
+    .card {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 18px 20px;
+        margin-bottom: 12px;
+    }
+    .card-red { border-left: 3px solid var(--accent); }
+    .card-gold { border-left: 3px solid var(--gold); }
+    .card-slate { border-left: 3px solid var(--slate); }
+    .card-green { border-left: 3px solid var(--green); }
+
+    .card-grid { display: grid; gap: 12px; margin-bottom: 16px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    /* Phase timeline */
+    .phase-block {
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        margin-bottom: 16px;
+        position: relative;
+    }
+    .phase-block::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 4px; height: 100%;
+        border-radius: 4px 0 0 4px;
+    }
+    .phase-1::before { background: var(--accent); }
+    .phase-2::before { background: var(--gold); }
+    .phase-3::before { background: var(--green); }
+    .phase-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 9pt;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+    }
+    .phase-1 .phase-number { color: var(--accent); }
+    .phase-2 .phase-number { color: var(--gold); }
+    .phase-3 .phase-number { color: var(--green); }
+    .phase-title {
+        font-family: 'Poppins', sans-serif;
+        font-size: 13pt;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 10px;
+    }
+
+    /* Deliverable list */
+    .deliverable {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+    .deliverable-check {
+        color: var(--accent);
+        font-size: 11pt;
+        margin-top: 1px;
+        flex-shrink: 0;
+    }
+
+    /* Stats row */
+    .stat-row {
+        display: flex;
+        gap: 16px;
+        margin: 16px 0;
+    }
+    .stat-box {
+        flex: 1;
+        background: var(--bg-card);
+        border: 1px solid var(--bg-card-border);
+        border-radius: var(--radius);
+        padding: 16px;
+        text-align: center;
+    }
+    .stat-number {
+        font-family: 'Poppins', sans-serif;
+        font-size: 20pt;
+        font-weight: 700;
+        color: var(--accent);
+    }
+    .stat-label {
+        font-size: 8.5pt;
+        color: var(--gray);
+        margin-top: 2px;
+    }
+
+    /* Table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+        font-size: 10pt;
+    }
+    th {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 8.5pt;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--accent);
+        text-align: left;
+        padding: 10px 14px;
+        border-bottom: 1px solid rgba(227,65,21,0.2);
+        background: var(--accent-dim);
+    }
+    td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--bg-card-border);
+        color: var(--gray);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    /* Divider */
+    .divider { width: 50px; height: 2px; background: var(--accent); margin: 16px 0; opacity: 0.5; }
+
+    /* Footer */
+    .footer {
+        margin-top: 32px;
+        padding-top: 16px;
+        border-top: 1px solid var(--bg-card-border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8.5pt;
+        color: var(--slate);
+    }
+    .footer a { color: var(--accent); text-decoration: none; }
+
+    /* Confidential banner */
+    .confidential {
+        font-family: 'Poppins', sans-serif;
+        font-size: 7pt;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--slate);
+        text-align: center;
+        margin-top: 12px;
+    }
+
+    /* Print optimization */
+    @media print {
+        body { background: var(--bg); }
+        .page { margin: 0; box-shadow: none; }
+    }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: Cover + Situation Assessment -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">90-Day US Market GTM Plan</div>
+            <h1 class="doc-title">
+                <span class="accent">Trustmi</span>
+            </h1>
+            <div class="doc-subtitle">Behavioral AI Payment Security and Fraud Prevention</div>
+            <div class="doc-date">Prepared by Jeff Aragon | April 2026</div>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <!-- Situation Assessment -->
+    <div class="section-label">Situation Assessment</div>
+    <h2>Where Trustmi Is Right Now</h2>
+
+    <div class="card-grid cols-2">
+        <div class="card card-red">
+            <h4 style="color:var(--accent)">What You Have</h4>
+            <p>A differentiated behavioral AI platform that unifies email, ERP, and payment system signals to deliver real time SAFE/UNSAFE verdicts before transactions complete. $21M in total funding from Cyberstarts, Zeev Ventures, and strategic angels including Assaf Rappaport (Wiz CEO) and Chen Amit (Tipalti CEO). Enterprise logos like Deloitte, Colgate-Palmolive, Chipotle, United Rentals, and Baxter. $240B in annual payments protected. $1B in fraud prevented. 30+ native integrations across SAP, Oracle, Workday, and Microsoft 365. The product is proven. The proof points are real.</p>
+        </div>
+        <div class="card card-gold">
+            <h4>What You Need</h4>
+            <p>A US sales leader who can take proven enterprise traction and turn it into a repeatable, scalable revenue engine across the Americas. The company has SVP Worldwide Sales Mike Guglielmi in place, strong product market fit, and marquee customers. Now you need someone who can build territory plans, drive pipeline discipline, and close enterprise deals in financial services, manufacturing, healthcare, and insurance, the verticals where payment fraud risk is highest.</p>
+        </div>
+    </div>
+
+    <div class="card card-slate">
+        <h4 style="color:var(--slate)">The Core Challenge</h4>
+        <p>Trustmi sits at the intersection of cybersecurity and fintech, a category that is still emerging and requires buyer education alongside deal execution. 96% of US companies were targeted by payment fraud in 2025. Business email compromise losses exceeded $3B in a single year. The market is massive and growing, but buyers often split responsibility between finance and security teams, creating organizational friction that slows procurement. The VP Sales needs to navigate both buying centers, translate technical capability into business outcomes, and build a pipeline that reflects the urgency of the threat landscape.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">Why This Matters Now</div>
+    <h2>The Market Opportunity</h2>
+
+    <div class="stat-row">
+        <div class="stat-box">
+            <div class="stat-number">$240B</div>
+            <div class="stat-label">in annual payments protected</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">96%</div>
+            <div class="stat-label">of US companies targeted by payment fraud</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">$3B+</div>
+            <div class="stat-label">annual BEC losses in the United States</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">10x+</div>
+            <div class="stat-label">average customer ROI reported</div>
+        </div>
+    </div>
+
+    <p>AI-driven payment fraud is accelerating faster than legacy tools can detect it. Generative AI makes business email compromise attacks more convincing and harder to catch with traditional email security. Trustmi's cross-system behavioral AI approach is built specifically for this new threat environment. The window to capture US market share is open now, before larger cybersecurity incumbents build comparable capabilities.</p>
+
+    <div class="footer">
+        <span>Jeff Aragon | <a href="mailto:jeff@jozuconsultinggroup.com">jeff@jozuconsultinggroup.com</a> | +1 303-638-1390 (mobile and WhatsApp)</span>
+        <span>Page 1 of 4</span>
+    </div>
+</div>
+
+<!-- PAGE 2: The 90-Day Plan -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">The Plan</div>
+            <h1 class="doc-title">90 Days to <span class="accent">US Revenue Growth</span></h1>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <!-- Phase 1 -->
+    <div class="phase-block phase-1">
+        <div class="phase-number">Phase 1: Days 1 to 30</div>
+        <div class="phase-title">Assess, Align, Map the Territory</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Audit current pipeline and deal quality.</strong> Complete assessment of all active opportunities. Validate stage accuracy, identify stalled deals, and map decision-making structures. Determine what is real, what needs to be requalified, and what should be removed.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Define ICP and vertical prioritization.</strong> Analyze existing customer data to identify the verticals, company sizes, and buyer profiles where Trustmi wins fastest. Manufacturing, financial services, healthcare, and insurance show the strongest product fit. Build tiered target account lists for each vertical.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Align with leadership on targets and cadence.</strong> Establish working rhythm with CEO Shai Gabay and SVP Sales Mike Guglielmi. Agree on revenue targets, pipeline coverage ratios, forecasting methodology, and reporting structure. Ensure complete alignment before scaling execution.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Build competitive positioning framework.</strong> Map Trustmi's differentiation against Abnormal Security, Sift, DataVisor, and legacy email security vendors. Develop battle cards that anchor on Trustmi's cross-system behavioral AI, the ability to correlate signals across email, ERP, and payment systems in a way point solutions cannot.</span>
+        </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="phase-block phase-2">
+        <div class="phase-number">Phase 2: Days 31 to 60</div>
+        <div class="phase-title">Activate Pipeline, Drive Enterprise Deals</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Launch targeted enterprise outreach.</strong> Execute outbound campaigns focused on CFOs, CISOs, and VP Finance/Treasury at companies processing high volumes of B2B payments. Lead with the one-week assessment that uncovers $300K to $15M in fraud and error exposure, a proven conversion mechanism.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Activate the "AI versus AI" narrative.</strong> Generative AI is making BEC attacks nearly indistinguishable from legitimate communications. Traditional email security is not enough. Position Trustmi as the only platform that fights AI-driven fraud with behavioral AI, detecting anomalies that rule-based systems miss entirely.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Drive multi-product expansion.</strong> Trustmi has four product modules: Behavioral AI Email Security, Behavioral AI Payment Security, Payment Flows, and Vendor Onboarding. Target multi-module deals that increase average contract value and create deeper platform stickiness within accounts.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Build reference customer program.</strong> Activate Deloitte, Colgate-Palmolive, Chipotle, and other existing logos as referenceable accounts. Enterprise buyers in regulated industries require peer validation. Structure case studies around specific fraud prevention outcomes and measurable ROI.</span>
+        </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="phase-block phase-3">
+        <div class="phase-number">Phase 3: Days 61 to 90</div>
+        <div class="phase-title">Scale the Revenue Engine</div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Deliver data-driven revenue plan.</strong> Present a 4-quarter Americas revenue forecast built on 60 days of real pipeline data. Territory assignments, conversion benchmarks, segment targets, and hiring recommendations, all grounded in observed deal dynamics, not assumptions.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Establish repeatable sales process.</strong> Document the end-to-end sales motion from initial assessment through close. Define stage criteria, stakeholder mapping templates, proof of value frameworks, and forecast gates. Build a process that new hires can follow from day one.</span>
+        </div>
+        <div class="deliverable">
+            <span class="deliverable-check">&#10003;</span>
+            <span><strong style="color:var(--white)">Define team expansion roadmap.</strong> Based on pipeline analysis and territory coverage gaps, recommend the hiring plan for the US sales organization. Roles, profiles, territories, and compensation structures designed to support the growth trajectory investors expect.</span>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>Jeff Aragon | <a href="mailto:jeff@jozuconsultinggroup.com">jeff@jozuconsultinggroup.com</a> | +1 303-638-1390 (mobile and WhatsApp)</span>
+        <span>Page 2 of 4</span>
+    </div>
+</div>
+
+<!-- PAGE 3: Partnership Channel + Target Segments -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">Revenue Channels</div>
+            <h1 class="doc-title">Partnership <span class="accent">Strategy</span></h1>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <div class="section-label">Channel Partners</div>
+    <h2>Building Indirect Revenue Streams</h2>
+
+    <p style="margin-bottom:16px;">Direct enterprise sales will drive the majority of near-term revenue. But a strategic partnership channel accelerates pipeline, extends market reach, and creates trust signals that shorten deal cycles. These partnerships should be activated in Phase 2 and formalized by the end of Phase 3.</p>
+
+    <div class="card-grid cols-2">
+        <div class="card card-red">
+            <h4 style="color:var(--accent)">ERP and Financial System Integrators</h4>
+            <p>SAP, Oracle, and Workday consulting firms are already embedded inside the finance organizations Trustmi needs to reach. Partners like Deloitte (already a Trustmi customer), Accenture, and KPMG can position Trustmi within active ERP transformation projects where payment security is a natural conversation.</p>
+        </div>
+        <div class="card card-gold">
+            <h4>Cybersecurity Channel Partners</h4>
+            <p>MSSPs and cybersecurity VARs serve as trusted advisors to CISOs. Trustmi fills a gap in most security portfolios: payment fraud prevention that goes beyond email filtering. Partners like Optiv, WWT, and GuidePoint Security can bundle Trustmi into broader enterprise security assessments.</p>
+        </div>
+    </div>
+
+    <div class="card-grid cols-2">
+        <div class="card card-green">
+            <h4 style="color:var(--green)">Payment and Treasury Platforms</h4>
+            <p>Treasury management systems, accounts payable automation vendors, and payment processors are adjacent platforms. Integration partnerships with companies in the Tipalti, Coupa, or Kyriba ecosystem create embedded distribution where Trustmi enhances the platform's value proposition with fraud prevention.</p>
+        </div>
+        <div class="card card-slate">
+            <h4 style="color:var(--slate)">Compliance and Risk Advisory Firms</h4>
+            <p>As payment fraud regulations tighten, compliance consultants are advising clients on vendor risk management and payment controls. Trustmi's Vendor Onboarding module and Payment Flows product align directly with compliance advisory engagements, creating warm introductions to qualified buyers.</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">Target Segments</div>
+    <h2>US Enterprise Vertical Prioritization</h2>
+
+    <table>
+        <tr>
+            <th>Vertical</th>
+            <th>Why Trustmi Wins</th>
+            <th>Key Buyer</th>
+        </tr>
+        <tr>
+            <td style="color:var(--white)">Manufacturing</td>
+            <td>High volume vendor payments, complex supply chains, frequent targets for invoice fraud and vendor impersonation</td>
+            <td style="color:var(--bright)">CFO, VP Finance</td>
+        </tr>
+        <tr>
+            <td style="color:var(--white)">Financial Services</td>
+            <td>Regulatory pressure, high transaction volumes, existing security budgets, and demonstrated need for AI-driven fraud detection</td>
+            <td style="color:var(--bright)">CISO, VP Risk</td>
+        </tr>
+        <tr>
+            <td style="color:var(--white)">Healthcare</td>
+            <td>Large payment operations, vendor proliferation, HIPAA compliance creates security-first culture that accelerates procurement</td>
+            <td style="color:var(--bright)">CFO, CISO</td>
+        </tr>
+        <tr>
+            <td style="color:var(--white)">Insurance</td>
+            <td>Complex claims payments, regulatory requirements, high exposure to social engineering attacks targeting payment workflows</td>
+            <td style="color:var(--bright)">VP Finance, CRO</td>
+        </tr>
+        <tr>
+            <td style="color:var(--white)">Retail and Consumer</td>
+            <td>Large vendor ecosystems, frequent payment cycles, proven traction with Colgate-Palmolive and Chipotle validates the value proposition</td>
+            <td style="color:var(--bright)">CFO, VP Procurement</td>
+        </tr>
+    </table>
+
+    <div class="footer">
+        <span>Jeff Aragon | <a href="mailto:jeff@jozuconsultinggroup.com">jeff@jozuconsultinggroup.com</a> | +1 303-638-1390 (mobile and WhatsApp)</span>
+        <span>Page 3 of 4</span>
+    </div>
+</div>
+
+<!-- PAGE 4: Why Jeff + Next Steps -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <div class="doc-label">Why Me</div>
+            <h1 class="doc-title">What I <span class="accent">Bring</span></h1>
+        </div>
+        <div style="font-family:Poppins,sans-serif;font-size:14pt;font-weight:700;color:#e34115;letter-spacing:2px;text-align:right;">JEFF<br><span style="color:#cbd5e1;font-weight:300;">ARAGON</span></div>
+    </div>
+
+    <div class="card card-red" style="margin-bottom:16px;">
+        <h4 style="color:var(--accent); margin-bottom:10px;">$150M+ in career revenue. Proven at every stage.</h4>
+        <p style="color:var(--bright);">I have generated over $150M in career revenue across enterprise technology, from early stage startups to global platforms. At a Series A startup, I closed $24M in total contract value in less than two years. At UKG, I was award winning for nearly six years, selling workforce management and HCM solutions into healthcare, senior living, and long-term care. I know how to build pipeline from zero, close complex enterprise deals, and deliver results against aggressive timelines.</p>
+    </div>
+
+    <div class="card card-gold" style="margin-bottom:16px;">
+        <h4 style="color:var(--gold); margin-bottom:10px;">Enterprise security and compliance selling.</h4>
+        <p>25 years selling complex enterprise technology to security-conscious, compliance-driven buyers. I have sold into financial institutions, healthcare systems, and Fortune 500 enterprises where procurement cycles are long, stakeholder maps are deep, and trust is the currency that closes deals. Payment security sits at the intersection of finance and security, two buying centers I have sold into multiple times across my career.</p>
+    </div>
+
+    <div class="card card-green" style="margin-bottom:16px;">
+        <h4 style="color:var(--green); margin-bottom:10px;">Cross-cultural leadership. Japan experience.</h4>
+        <p>I have lived and worked in Japan and bring direct experience navigating cross-cultural business relationships. Trustmi is an Israeli company building a US go-to-market operation. I understand the dynamics of bridging headquarters culture with local market execution, ensuring alignment without slowing down the speed of US sales motion.</p>
+    </div>
+
+    <div class="card card-slate" style="margin-bottom:16px;">
+        <h4 style="color:var(--slate); margin-bottom:10px;">Early stage revenue building.</h4>
+        <p>I have built sales teams, defined processes, and created pipeline at companies where none of that existed before. Trustmi has strong product market fit and marquee customers. The next step is building the repeatable US revenue engine. That is exactly the stage where I have the most experience and the strongest track record.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- The Ask -->
+    <div class="section-label">Next Step</div>
+    <div style="margin-top:8px; margin-bottom:24px;">
+        <p style="font-family:Poppins,sans-serif; font-size:14pt; font-weight:400; color:var(--white); line-height:1.6;">I put real thought into this plan. It is based on what I know about Trustmi's products, market position, competitive landscape, and the opportunity ahead. I would welcome the chance to discuss and refine it together.</p>
+        <p style="font-family:Poppins,sans-serif; font-size:14pt; font-weight:400; color:var(--bright); line-height:1.6; margin-top:12px;">Where would you want to start?</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Contact -->
+    <div style="text-align:center; margin-top:16px;">
+        <p style="font-family:Poppins,sans-serif; font-size:15pt; font-weight:600; color:var(--white); margin-bottom:8px;">Let us talk.</p>
+        <p style="color:var(--gray); font-size:11pt;">Jeff Aragon</p>
+        <p style="margin-top:6px;"><a href="mailto:jeff@jozuconsultinggroup.com" style="color:var(--accent); text-decoration:none;">jeff@jozuconsultinggroup.com</a></p>
+        <p style="margin-top:4px; color:var(--gray);">+1 303-638-1390 (mobile and WhatsApp)</p>
+        <p style="margin-top:4px;"><a href="https://www.linkedin.com/in/jeffreyaragon" style="color:var(--accent); text-decoration:none;">linkedin.com/in/jeffreyaragon</a></p>
+    </div>
+
+    <div class="footer">
+        <span>Jeff Aragon | <a href="mailto:jeff@jozuconsultinggroup.com">jeff@jozuconsultinggroup.com</a> | +1 303-638-1390 (mobile and WhatsApp)</span>
+        <span>Page 4 of 4</span>
+    </div>
+    <div class="confidential">Prepared exclusively for Trustmi</div>
+</div>
+
+</body>
+</html>
