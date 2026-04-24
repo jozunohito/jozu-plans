@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Jozu Operating Dashboard | Jeff Aragon</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-343BVDJ9KX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-343BVDJ9KX');
+</script>
+<style>
+:root {
+  --bg: #0a0e17;
+  --card: #141a26;
+  --red: #CD2620;
+  --gold: #d4a858;
+  --text: #e8ecf2;
+  --muted: #8892a6;
+  --green: #4ade80;
+  --amber: #fbbf24;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  padding: 32px 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+h1 {
+  font-size: 28px;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.subtitle { color: var(--muted); font-size: 14px; margin-bottom: 32px; }
+.score-card {
+  background: linear-gradient(135deg, #1a2236, #0f1624);
+  border: 1px solid #252e44;
+  border-left: 4px solid var(--red);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+.score-card h2 {
+  font-size: 14px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.score-big {
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.score-label {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 6px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid #252e44;
+  border-radius: 8px;
+  padding: 18px 20px;
+}
+.card h3 {
+  font-size: 13px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 6px 0;
+  border-bottom: 1px solid #1e2638;
+}
+.metric-row:last-child { border-bottom: none; }
+.metric-name { font-size: 14px; }
+.metric-value { font-size: 18px; font-weight: 600; color: var(--gold); }
+.status-pass { color: var(--green); }
+.status-warn { color: var(--amber); }
+.status-fail { color: var(--red); }
+.progress-bar {
+  background: #1e2638;
+  border-radius: 4px;
+  height: 8px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+.progress-fill {
+  background: linear-gradient(90deg, var(--red), var(--gold));
+  height: 100%;
+  border-radius: 4px;
+}
+.agents-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+.agents-table th, .agents-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid #1e2638;
+  font-size: 13px;
+}
+.agents-table th {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 11px;
+}
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.badge-live { background: rgba(74, 222, 128, 0.15); color: var(--green); }
+.footer {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid #1e2638;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+.section-title {
+  font-size: 18px;
+  color: var(--gold);
+  margin: 24px 0 12px 0;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #252e44;
+}
+</style>
+</head>
+<body>
+
+<h1>Jozu Operating Dashboard</h1>
+<div class="subtitle">Jeff Aragon · Jozu Consulting Group · Last updated 2026-04-24 (overnight Claude build)</div>
+
+<div class="score-card">
+  <h2>Jozu Score</h2>
+  <div class="score-big">8%</div>
+  <div class="score-label">5 of 65 plan-backed targets engaged · Path to 100% Tier 1 in 5-7 days</div>
+</div>
+
+<h2 class="section-title">Tier 1 · Your role applications</h2>
+<div class="grid">
+  <div class="card">
+    <h3>Submitted</h3>
+    <div class="metric-row"><span class="metric-name">Vanta — Head of Sales Enterprise</span><span class="metric-value status-pass">✓</span></div>
+    <div class="metric-row"><span class="metric-name">Omada Health — CRO</span><span class="metric-value status-pass">✓</span></div>
+    <div class="metric-row"><span class="metric-name">Omada — VP Jumbo Enterprise</span><span class="metric-value status-pass">✓</span></div>
+    <div class="metric-row"><span class="metric-name">Total submitted</span><span class="metric-value">3 / 15</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width: 20%"></div></div>
+  </div>
+  <div class="card">
+    <h3>Open with plan built</h3>
+    <div class="metric-row"><span class="metric-name">AmbientAI — VP Sales East</span><span class="metric-value status-warn">○</span></div>
+    <div class="metric-row"><span class="metric-name">BiopharmaAI — CRO</span><span class="metric-value status-warn">○</span></div>
+    <div class="metric-row"><span class="metric-name">Function Health — VP Sales Enterprise</span><span class="metric-value status-warn">○</span></div>
+    <div class="metric-row"><span class="metric-name">GetWellNetwork — CRO</span><span class="metric-value status-warn">○</span></div>
+    <div class="metric-row"><span class="metric-name">Peach Finance — CRO</span><span class="metric-value status-warn">○</span></div>
+    <div class="metric-row"><span class="metric-name">Tortus.ai — CRO</span><span class="metric-value status-warn">○</span></div>
+    <div class="metric-row"><span class="metric-name">Trustmi — VP Sales</span><span class="metric-value status-warn">○</span></div>
+    <div class="metric-row"><span class="metric-name">WunderGraph — GTM Lead</span><span class="metric-value status-warn">○</span></div>
+    <div class="metric-row"><span class="metric-name">Miro — VP Americas</span><span class="metric-value status-warn">○</span></div>
+    <div class="metric-row"><span class="metric-name">Gong — Enterprise Revenue</span><span class="metric-value status-warn">○</span></div>
+    <div class="metric-row"><span class="metric-name">Gusto — PEO Revenue</span><span class="metric-value status-warn">○</span></div>
+    <div class="metric-row"><span class="metric-name">CrowdStrike — Strategic Sales</span><span class="metric-value status-warn">○</span></div>
+  </div>
+</div>
+
+<h2 class="section-title">Tier 2 · Jozu consulting pipeline</h2>
+<div class="grid">
+  <div class="card">
+    <h3>Prospects in Airtable</h3>
+    <div class="metric-row"><span class="metric-name">Total RGI_QUEUE rows</span><span class="metric-value">294</span></div>
+    <div class="metric-row"><span class="metric-name">Plans published (/plans/)</span><span class="metric-value">46</span></div>
+    <div class="metric-row"><span class="metric-name">Revenue Architecture plans</span><span class="metric-value">24</span></div>
+    <div class="metric-row"><span class="metric-name">US Market GTM plans</span><span class="metric-value">22</span></div>
+  </div>
+  <div class="card">
+    <h3>Outreach status</h3>
+    <div class="metric-row"><span class="metric-name">RGI email sent</span><span class="metric-value status-pass">✓</span></div>
+    <div class="metric-row"><span class="metric-name">RGI start date</span><span class="metric-value">Monday</span></div>
+    <div class="metric-row"><span class="metric-name">Sequences live</span><span class="metric-value status-warn">0</span></div>
+    <div class="metric-row"><span class="metric-name">Responses logged</span><span class="metric-value">0</span></div>
+  </div>
+  <div class="card">
+    <h3>Live warm leads</h3>
+    <div class="metric-row"><span class="metric-name">StackOne plan visit (2026-04-23)</span><span class="metric-value status-pass">!</span></div>
+    <div class="metric-row"><span class="metric-name">Follow-up drafted</span><span class="metric-value status-pass">✓</span></div>
+    <div class="metric-row"><span class="metric-name">Phillip Vincent (PnP Japan)</span><span class="metric-value status-warn">○</span></div>
+    <div class="metric-row"><span class="metric-name">Jeff Matsuda (500 Global)</span><span class="metric-value status-pass">✓</span></div>
+  </div>
+</div>
+
+<h2 class="section-title">Japan · Partner outreach</h2>
+<div class="grid">
+  <div class="card">
+    <h3>Contacts engaged</h3>
+    <div class="metric-row"><span class="metric-name">Jeff Matsuda — 500 Global SVEP</span><span class="metric-value status-pass">sent</span></div>
+    <div class="metric-row"><span class="metric-name">Phillip Vincent — PnP Japan</span><span class="metric-value status-warn">drafted</span></div>
+    <div class="metric-row"><span class="metric-name">Masami Takahashi — Scrum</span><span class="metric-value">pending</span></div>
+    <div class="metric-row"><span class="metric-name">Takeshi Komatsubara — WiL</span><span class="metric-value">pending</span></div>
+  </div>
+  <div class="card">
+    <h3>JETRO bids</h3>
+    <div class="metric-row"><span class="metric-name">AI GTM RFP (Apr 24, 15:00 PDT)</span><span class="metric-value status-warn">partial drafted</span></div>
+    <div class="metric-row"><span class="metric-name">J-Bridge Coordinator SF (Apr 28)</span><span class="metric-value">pending</span></div>
+    <div class="metric-row"><span class="metric-name">Grassroots Advisory LA (May 4)</span><span class="metric-value">pending</span></div>
+  </div>
+</div>
+
+<h2 class="section-title">Agent operating system</h2>
+<table class="agents-table">
+<thead><tr><th>Agent</th><th>Cadence</th><th>Purpose</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>jozu-role-search</td><td>Every 12h :00</td><td>Global role + prospect sourcing</td><td><span class="badge badge-live">live</span></td></tr>
+<tr><td>jozu-rfp-fed-intel</td><td>Every 12h :17</td><td>USAJOBS + JETRO + accelerators</td><td><span class="badge badge-live">live</span></td></tr>
+<tr><td>jozu-apac-sourcing</td><td>Every 12h :25</td><td>Japan/Korea/China/SEA/ANZ native</td><td><span class="badge badge-live">live</span></td></tr>
+<tr><td>jozu-emea-sourcing</td><td>Every 12h :30</td><td>UK/EU/Israel/MEA native</td><td><span class="badge badge-live">live</span></td></tr>
+<tr><td>jozu-qa-watchdog</td><td>Every 12h :40</td><td>Validates all sourcing output</td><td><span class="badge badge-live">live</span></td></tr>
+<tr><td>jozu-signals</td><td>Every 12h :50</td><td>Trigger-event enrichment on Airtable</td><td><span class="badge badge-live">live</span></td></tr>
+<tr><td>jozu-application-drafter</td><td>Daily 11:00 UTC / 5 AM MDT</td><td>Drafts cover letter + bullets for Tier 1</td><td><span class="badge badge-live">live</span></td></tr>
+<tr><td>jozu-warm-network</td><td>Daily 13:00 UTC / 7 AM MDT</td><td>LinkedIn 1st-degree cross-reference</td><td><span class="badge badge-live">live</span></td></tr>
+<tr><td>jozu-networking-events</td><td>Daily 14:00 UTC / 8 AM MDT</td><td>Tech + Japan-US events scan</td><td><span class="badge badge-live">live</span></td></tr>
+</tbody>
+</table>
+
+<h2 class="section-title">Top 5 actions for Jeff this morning</h2>
+<div class="card">
+  <ol style="padding-left: 24px; line-height: 1.8;">
+    <li><strong>Send StackOne follow-up.</strong> Warm lead from last night. Draft at <code>/outreach/stackone-followup-2026-04-24.md</code>. 5 minutes of LinkedIn sleuthing to find the right contact, then send.</li>
+    <li><strong>Review overnight agent output.</strong> Check <code>/tier1/inbox/</code>, <code>/intel/jozu-rfp-fed-intel/</code>, <code>/qa/LATEST.md</code>, and <code>/applications/</code>. Use morning command <strong>"jozu status"</strong>.</li>
+    <li><strong>Submit 5 Tier 1 applications</strong> (application-drafter fires at 5 AM MDT and prepares the packages). Pick top 5 by fit, submit before noon.</li>
+    <li><strong>Send Phillip Vincent email</strong> at Plug and Play Japan. Draft exists. Include Tricia Floehrenger warm-path reference.</li>
+    <li><strong>Draft J-Bridge Coordinator SF bid</strong> (deadline Apr 28). Reserve afternoon block.</li>
+  </ol>
+</div>
+
+<div class="footer">
+Built overnight by Claude · 2026-04-24 · Use the morning command <strong>"jozu status"</strong> for automated hydration · Dashboard regenerates via commits to jozu-plans repo
+</div>
+
+</body>
+</html>
