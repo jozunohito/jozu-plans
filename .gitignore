@@ -1,0 +1,14 @@
+# Office lock files
+~$*
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Editor backups
+*.swp
+*~
+
+# Local environment
+.env
+.env.local

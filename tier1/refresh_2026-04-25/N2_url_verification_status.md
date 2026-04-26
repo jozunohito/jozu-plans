@@ -1,0 +1,643 @@
+# N2 - URL Verification Status - 2026-04-25
+
+Agent N2 verification sweep across all K-agent and J-agent output files in refresh_2026-04-25.
+Method: HTTP GET via curl with Mozilla/5.0 browser User-Agent, 15s max-time, follow-redirects.
+APEX RULE: 100% truth. No fabricated statuses.
+
+- Total unique URLs extracted across K + J files: 588
+- Template / placeholder URLs excluded (curly braces, XXX): 15
+- LinkedIn URLs (auth-gated by default - Jeff verifies): 101
+- URLs HTTP-verified via curl: 471
+
+## Section A - VERIFIED 200 LIVE (with role title cross-check)
+
+Count: 400 URLs returned 200 OK (incl. redirected). Titles captured for apply/job URLs (greenhouse, ashby, lever, builtin, ycombinator, workatastartup, etc.).
+
+### A.1 Direct 200 (no redirect)
+
+- https://8vc.com/jobs
+- https://aerobotics.com/careers
+- https://agfundernews.com/notco-ceo-on-the-road-to-profitability-the-evolving-business-model-and-its-new-glp-1-booster
+- https://app.dealroom.co/companies/stockmark
+- https://app.welcometothejungle.com/jobs/8NHCdY50
+- https://app.welcometothejungle.com/jobs/n1PJwOwA
+- https://apply.workable.com/caddi/ | TITLE: CADDi - Current Openings
+- https://aspireapp.com/blog/aspire-us-launch
+- https://atlan.com/
+- https://ats.rippling.com/patronus-ai-jobs/jobs | TITLE: Patronus AI Careers
+- https://avpcap.com/orkes-raises-60m-as-developers-increasingly-use-its-platform-to-deploy-ai-confidently-in-production/ | TITLE: Orkes raises $60M as developers increasingly use its platform to deploy AI confidently in production &#8212; AVP
+- https://bitso.com
+- https://builtin.com/company/caddi/jobs
+- https://builtin.com/job/channel-sales-manager-eastern-us/8006035 | TITLE: Channel Sales Manager (Eastern US) - Mujin Corp | Built In
+- https://builtin.com/job/channel-sales-manager-western-us/8006036 | TITLE: Channel Sales Manager (Western US) - Mujin Corp | Built In
+- https://builtin.com/job/chief-commercial-officer/8876964 | TITLE: Chief Commercial Officer - UP.Labs | Built In
+- https://builtin.com/job/chief-revenue-officer-cro-agentforce-process-automation-intelligence/8956301 | TITLE: Chief Revenue Officer (CRO), Agentforce Process Automation & Intelligence - Salesforce | Built In
+- https://builtin.com/job/chief-revenue-officer/8629279 | TITLE: Chief Revenue Officer - Skillz | Built In
+- https://builtin.com/job/director-smb-sales/8904266 | TITLE: Head of Sales, SMB - AtoB | Built In
+- https://builtin.com/job/enterprise-account-executive-founding-team/8993649 | TITLE: Enterprise Account Executive (Founding Team) - Apollo.io | Built In
+- https://builtin.com/job/enterprise-account-executive/8023002 | TITLE: Founding Enterprise Account Executive - Pylon (usepylon.com) | Built In
+- https://builtin.com/job/founding-account-executive-canada/8810774 | TITLE: Founding Account Executive (Canada) - Reacher | Built In
+- https://builtin.com/job/founding-account-executive-north-america/7779357 | TITLE: Founding Account Executive - North America - Plotline | Built In
+- https://builtin.com/job/founding-account-executive-usa/9152138 | TITLE: Founding Account Executive - USA - doinstruct Software GmbH | Built In
+- https://builtin.com/job/founding-account-executive/7032406 | TITLE: Founding Account Executive - Glide | Built In
+- https://builtin.com/job/founding-account-executive/8002504 | TITLE: Founding Account Executive - Brale | Built In
+- https://builtin.com/job/founding-account-executive/8565488 | TITLE: Founding Account Executive - Spice AI | Built In
+- https://builtin.com/job/founding-account-executive/9126283 | TITLE: Founding Account Executive - Concourse | Built In
+- https://builtin.com/job/founding-account-executive/9157817 | TITLE: Founding Account Executive - Ajax | Built In
+- https://builtin.com/job/founding-channel-lead/9103712 | TITLE: Founding Channel Lead - Tracebit | Built In
+- https://builtin.com/job/founding-director-partnerships/8532090 | TITLE: Founding Director of Partnerships - Rox | Built In
+- https://builtin.com/job/founding-director-sales-regulated-industries-us/8890000 | TITLE: Founding Director of Sales, Regulated Industries (US) - Alinia AI | Built In
+- https://builtin.com/job/founding-enterprise-ae/9036565 | TITLE: Founding Enterprise AE - Adapt (adaptinsurance.com) | Built In
+- https://builtin.com/job/founding-gtm/8890646 | TITLE: Founding GTM - Alpharun | Built In
+- https://builtin.com/job/founding-gtm/9022588 | TITLE: Founding GTM - Datawizz | Built In
+- https://builtin.com/job/founding-gtm/9119945 | TITLE: Founding GTM - Avathon | Built In
+- https://builtin.com/job/founding-head-ad-sales/9023060 | TITLE: Founding Head of Ad Sales - Koah | Built In
+- https://builtin.com/job/founding-head-gtm-revenue/9024365 | TITLE: Founding Head of GTM / Revenue - Final Round AI | Built In
+- https://builtin.com/job/founding-head-gtm/8777301 | TITLE: Founding Head of GTM - Captur | Built In
+- https://builtin.com/job/founding-sales-account-executive-u-s-east-central-and-west/8885293 | TITLE: Founding Sales Account Executive (U.S. East, Central, and West) - Genspark AI | Built In
+- https://builtin.com/job/founding-sales/9153517 | TITLE: Founding Sales - Sphinx | Built In
+- https://builtin.com/job/founding-us-gtm-lead-agentic-ai/8537812 | TITLE: Founding US GTM Lead - Agentic AI - Humaans | Built In
+- https://builtin.com/job/gtm-lead/6406216 | TITLE: Head of Revenue - Firstbase | Built In
+- https://builtin.com/job/gtm-lead/7985510 | TITLE: Founding GTM/Sales Lead - Symbolica AI | Built In
+- https://builtin.com/job/head-director-sales-exchange/9122028 | TITLE: Head / Director of Sales (Exchange) - Crypto.com | Built In
+- https://builtin.com/job/head-federal-sales/9155114 | TITLE: Head of Federal Sales - Manifest | Built In
+- https://builtin.com/job/head-industry-sales-north-america/9069155 | TITLE: Head Of Industry Sales, North America - Valiantys | Built In
+- https://builtin.com/job/head-public-sector-sales/8500276 | TITLE: Head of Public Sector Sales - Rapid7 | Built In
+- https://builtin.com/job/head-sales-300-000-400-000-equity-snapmagic/8853978 | TITLE: Head of Sales ($300,000 - $400,000 + Equity) at SnapMagic - Jack & Jill AI | Built In
+- https://builtin.com/job/head-sales-and-business-development/9045686 | TITLE: Head of Sales and Business Development - System Six | Built In
+- https://builtin.com/job/head-sales-enablement-and-partnerships/8922627 | TITLE: Head of Sales Enablement and Partnerships - mabl | Built In
+- https://builtin.com/job/head-sales-financial-technology-services/9060303 | TITLE: Head of Sales - Financial Technology Services - Vichara Technologies | Built In
+- https://builtin.com/job/head-sales-rlhf-vertical/7148615 | TITLE: Head of Sales - RLHF Vertical - Ryz Labs | Built In
+- https://builtin.com/job/head-sales-vp-sales-usa/8583851 | TITLE: Head of Sales/VP of Sales - USA - Ayming | Built In
+- https://builtin.com/job/head-sales/7242746 | TITLE: VP, Sales/ CRO - Campfire | Built In
+- https://builtin.com/job/head-sales/8593533 | TITLE: Head of Sales - Sully.ai | Built In
+- https://builtin.com/job/head-sales/8846016 | TITLE: Head of Sales - Snowball (snowball.agency) | Built In
+- https://builtin.com/job/head-sales/9125602 | TITLE: Head of Sales - Hauler Hero Inc. | Built In
+- https://builtin.com/job/regional-account-director-southeast-tn-ms-al/4379973 | TITLE: Regional Account Director (Southeast - TN, MS, AL) - Aidoc | Built In
+- https://builtin.com/job/sales-director/8898213 | TITLE: Founding NYC Sales Director - Encord | Built In
+- https://builtin.com/job/us-market-launcher-founding-sales/6981791 | TITLE: US Market Launcher (Founding Sales) - SleekFlow | Built In
+- https://builtin.com/job/vice-president-sales-quality-technical-north-america/8356340 | TITLE: Head of Sales- Quality & Technical - North America - Foods Connected | Built In
+- https://builtin.com/job/vice-president-sales/9143571 | TITLE: Vice President, Sales - CSI | Built In
+- https://builtin.com/job/vp-employer-sales-rethinkcare/8365328 | TITLE: VP of Employer Sales - RethinkCare - RethinkFirst | Built In
+- https://builtin.com/job/vp-sales-national-accounts-south-central-region-remote/9058647 | TITLE: VP Sales, National Accounts - South Central Region - Remote - Optum | Built In
+- https://builtin.com/job/vp-sales/9146618 | TITLE: VP, Sales - Muck Rack | Built In
+- https://calendly.com/firstquest/quest
+- https://careers.greenly.earth/jobs/7155910-sales-development-representative-sdr-bdr-us-market | TITLE: Sales Development Representative (SDR / BDR) US Market - Greenly
+- https://careers.zocks.io/career-openings
+- https://chameleoncollective.com/skill/fractional-cro-chief-revenue-officer/ | TITLE: Fractional CRO - Find and Hire Your Next Expert
+- https://channel.io/en/careers/a3a3b39e-ca19-416a-b1a5-39764db51ef5
+- https://climatebase.org
+- https://climatebase.org/job/48580462/sales-manager-financial-services
+- https://community.revgenius.com/x/chat-fulltime-jobs
+- https://descomplica.com.br
+- https://dev.to/agenthustler/how-to-scrape-linkedin-job-listings-in-2026-public-data-without-login-5094
+- https://developer.usajobs.gov | TITLE: USAJOBS - Developer Portal
+- https://developer.usajobs.gov/api-reference/get-api-search | TITLE: USAJOBS - GET /api/Search
+- https://developers.ashbyhq.com/docs/public-job-posting-api | TITLE: Ashby Job Postings API
+- https://developers.greenhouse.io/job-board.html | TITLE: Job Board API | Greenhouse
+- https://elicit.com/careers
+- https://en.sedaily.com/finance/2026/04/07/lunit-cto-medical-ai-platform-built-with-microsoft-to
+- https://en.sedaily.com/technology/2026/04/22/furiosaai-recruits-former-nvidia-executive-charlie-foo-to
+- https://fastwork.co/
+- https://financefeeds.com/plata-secures-405m-series-c-at-5b-valuation-to-lead-latin-america-digital-banking/
+- https://fintechnews.hk/34876/fintechkorea/toss-2026-us-ipo-funding/
+- https://flowaccount.com/
+- https://fortune.com/2026/04/07/aspire-built-a-financial-stack-used-by-50000-firms-now-its-coming-to-the-u-s-to-take-on-ramp-and-mercury/
+- https://fortune.com/2026/04/15/exclusive-artemis-raises-70m-to-help-fight-ai-powered-attacks-with-ai/
+- https://fortune.com/2026/04/23/exclusive-omni-raises-120-million-ai-iconiq-lookr-unicorn-semantic-layer/
+- https://fractional.quest
+- https://fractionalpulse.com | TITLE: Fractional Executive Jobs & Salary Data | Fractional Pulse
+- https://fractionus.com
+- https://furiosa.ai/careers/sales-business-development-executive | TITLE: Furiosa AI Careers | Sales &amp; Business Development Executive – Global
+- https://g42.ai
+- https://github.com/lever/postings-api | TITLE: GitHub - lever/postings-api: API documentation and examples for the lever postings REST API · GitHub
+- https://gnani.ai/
+- https://gtmpartners.com
+- https://hala.com
+- https://healthverity.com/careers/jobs/?gh_jid=5118959008
+- https://healthverity.com/careers/jobs/?gh_jid=5173144008
+- https://hidejobs.com/learn/ghost-jobs
+- https://innovaccer.com/
+- https://insightfinder.com/company/careers/
+- https://japan.plugandplaytechcenter.com/jobs/
+- https://job-boards.greenhouse.io/altanaai/jobs/7584265003 | TITLE: Job Application for Client Value Partner, Trade and Customs at Altana
+- https://job-boards.greenhouse.io/altanaai/jobs/7619461003 | TITLE: Job Application for Strategic Account Manager, Enterprise at Altana
+- https://job-boards.greenhouse.io/amwell/jobs/4185112009 | TITLE: Job Application for VP, Payer Sales at Amwell
+- https://job-boards.greenhouse.io/appier/jobs/6677419 | TITLE: Job Application for Account Executive(Hunter Sales)*Remote* AD Cloud, DSP at Appier
+- https://job-boards.greenhouse.io/bluefishai | TITLE: Jobs at Bluefish AI
+- https://job-boards.greenhouse.io/brave/jobs/7637733 | TITLE: Job Application for VP of Sales - API at Brave
+- https://job-boards.greenhouse.io/courierhealth | TITLE: Jobs at Courier Health
+- https://job-boards.greenhouse.io/eve/jobs/4204336009 | TITLE: Job Application for Account Executive, Mid Market at Eve
+- https://job-boards.greenhouse.io/eve/jobs/4204342009 | TITLE: Job Application for Director of Enterprise Sales at Eve
+- https://job-boards.greenhouse.io/eve/jobs/4204346009 | TITLE: Job Application for Enterprise Account Executive at Eve
+- https://job-boards.greenhouse.io/eve/jobs/4204363009 | TITLE: Job Application for Strategic Account Executive at Eve
+- https://job-boards.greenhouse.io/garnerhealth | TITLE: Jobs at Garner Health
+- https://job-boards.greenhouse.io/oneimaging/jobs/4018826009 | TITLE: Job Application for VP, Health Plan Sales at OneImaging
+- https://job-boards.greenhouse.io/oneimaging/jobs/4029383009 | TITLE: Job Application for Vice President, Employer Sales at OneImaging
+- https://job-boards.greenhouse.io/sixfold/jobs/5072713008 | TITLE: Job Application for VP, Customer Success at Sixfold
+- https://job-boards.greenhouse.io/springhealth66/jobs/4656884005 | TITLE: Job Application for Vice President, Partnerships at Spring Health
+- https://job-boards.greenhouse.io/vtex | TITLE: Jobs at VTEX
+- https://jobo.world/ats/workday
+- https://jobs.a16z.com/jobs
+- https://jobs.accel.com/companies/omnea/jobs/73865236-founding-gtm-lead | TITLE: Founding GTM Lead @ Omnea | Accel Job Board
+- https://jobs.ashbyhq.com/adaptivesecurity/70d82028-5a7a-496e-80c7-cad0a802e9f3 | TITLE: Jobs
+- https://jobs.ashbyhq.com/amperos | TITLE: Amperos Jobs
+- https://jobs.ashbyhq.com/bankjoy/b0be8661-81ac-451b-9add-6bc55bfd723e | TITLE: Jobs
+- https://jobs.ashbyhq.com/barti/04349c82-9ad7-4687-9e0e-19fb0f98b603 | TITLE: Jobs
+- https://jobs.ashbyhq.com/basis-ai | TITLE: Basis AI Jobs
+- https://jobs.ashbyhq.com/carnot-ai/188a54f1-bd8b-48ad-a62d-b0be8168878a | TITLE: Founding Sales Lead @ Jinba.io
+- https://jobs.ashbyhq.com/causaly | TITLE: Causaly Jobs
+- https://jobs.ashbyhq.com/causaly/32840c8c-9632-4dcc-a251-e9e25d0377db | TITLE: Strategic Client Partner, USA @ Causaly
+- https://jobs.ashbyhq.com/cruxclimate | TITLE: Crux Jobs
+- https://jobs.ashbyhq.com/cruxclimate/a0b8355d-2271-482f-83da-8a24d9bde2ac | TITLE: Jobs
+- https://jobs.ashbyhq.com/cruxclimate/e61ae962-6e7a-4bfb-9926-2ec38c365db5 | TITLE: Senior Manager, Tax Investor Coverage @ Crux
+- https://jobs.ashbyhq.com/fitt/d5a9398c-3153-474a-b49b-01ecd7518ded | TITLE: Jobs
+- https://jobs.ashbyhq.com/furtherai | TITLE: FurtherAI Jobs
+- https://jobs.ashbyhq.com/generalintelligencecompany/199bfb65-5c76-426f-8b2e-355f16982e80 | TITLE: Head of Agentic GTM @ The General Intelligence Company of New York
+- https://jobs.ashbyhq.com/humaans/ed1b4c9d-31cd-492b-9a7d-909e05425276 | TITLE: Founding US GTM Lead - Agentic AI @ Humaans
+- https://jobs.ashbyhq.com/lavendo/03dae875-05b8-4ae2-8af6-f941c8fa035b | TITLE: Jobs
+- https://jobs.ashbyhq.com/litellm/fc620747-43c1-4551-9d59-b1f5cf45fdfe | TITLE: Founding Account Executive @ LiteLLM
+- https://jobs.ashbyhq.com/Oso/5fd0a8dc-abb1-4314-b763-58e9163831ce | TITLE: Head of Sales  @ Oso
+- https://jobs.ashbyhq.com/simular/b82a9739-1d5f-4d7e-8f05-b1f8e932e26a | TITLE: Jobs
+- https://jobs.ashbyhq.com/sphere/2e159b02-536e-4ce8-932a-0280af46a95d | TITLE: Founding Account Executive (Europe) @ Sphere, Inc.
+- https://jobs.ashbyhq.com/stackone/af00fcee-4737-42e4-a11a-ce0aa188b729 | TITLE: Founding GTM  @ StackOne
+- https://jobs.ashbyhq.com/sully-ai/bbdda688-023c-495f-83c9-2f2c61848a97 | TITLE: Jobs
+- https://jobs.ashbyhq.com/sybill-ai/0b7dda99-80d7-4f6c-a461-0d0fed238035 | TITLE: Head of Sales @ Sybill AI
+- https://jobs.ashbyhq.com/synthflow/3d196356-4a25-4119-8837-72659655b9cc | TITLE: Jobs
+- https://jobs.ashbyhq.com/Vori/d323d8ec-071f-4132-bf93-bff1acebf728 | TITLE: VP of Sales, US East Coast @ Vori
+- https://jobs.ashbyhq.com/workos/70cedfd9-1ed8-4e4e-bc6a-9f0bbcc4756d | TITLE: GTM - Enterprise Sales @ WorkOS
+- https://jobs.ashbyhq.com/workos/821bcec6-7149-47fb-93a4-49cee4aaae74 | TITLE: Account Manager @ WorkOS
+- https://jobs.ashbyhq.com/workos/afdd651f-c97a-4ba2-88af-c790eb9e1a1d | TITLE: GTM - AI Native Sales @ WorkOS
+- https://jobs.bvp.com/jobs
+- https://jobs.climatedraft.org/companies/weave-grid/jobs/73473193-head-of-go-to-market-gtm | TITLE: Head of Go-to-Market (GTM) @ Weave Grid | Climate Draft Job Board
+- https://jobs.gohire.io/marqo-n6oehhnh/ | TITLE: Jobs at Marqo
+- https://jobs.greylock.com/jobs
+- https://jobs.insightpartners.com/companies/inovalon/jobs/54661880-chief-revenue-officer | TITLE: Chief Revenue Officer @ Inovalon | Insight Partners Job Board
+- https://jobs.insightpartners.com/jobs | TITLE: Jobs | Insight Partners Job Board
+- https://jobs.lever.co/dlocal | TITLE: dLocal
+- https://jobs.lever.co/mujininc | TITLE: Mujin
+- https://jobs.lever.co/wingtra-2/ea7c37de-5c45-488a-8c89-e351787c4462 | TITLE: Wingtra AG - Head of Sales US West
+- https://jobs.lsvp.com/jobs
+- https://jobs.pnptc.com/jobs
+- https://jobs.sequoiacap.com/jobs
+- https://jobs.southparkcommons.com/jobs
+- https://khealth.com
+- https://komodor.com/job/CF.866-9B.50F/rvp-sales-west-coast/
+- https://komodor.com/job/CF.866-A4.60A/rvp-sales-west-coast/
+- https://komodor.com/job/CF.866/rvp-sales-west-coast/
+- https://konfio.mx
+- https://latamlist.com/colombian-startup-treble-ai-closes-15m-series-a-round/
+- https://latamlist.com/plata-raises-405m-series-c-at-5b-valuation/
+- https://latamlist.com/tako-raises-18m-to-launch-ai-agents/
+- https://leantech.me
+- https://lemon.me
+- https://lovable.dev/careers/global-head-of-strategic-partnerships-and-business-development-c8ae02 | TITLE: Global Head of Strategic Partnerships and Business Development - Lovable Careers
+- https://lovable.dev/careers/head-of-global-sales-3001d6
+- https://mekari.com/
+- https://mexico.endeavor.org/saas-latam/
+- https://mexicobusiness.news/automotive/news/kavak-raises-us127-million-valuation-drops-75
+- https://miranda-intelligence.com/en/fintech-chatter/mexico-fintech-chatter-september-8-2025/
+- https://moises.ai
+- https://moises.ai/newsroom/company-milestones/2025-year-in-review/
+- https://omni.co/blog/press-release-omni-series-c-funding
+- https://people-jobs.com/aspire/
+- https://rebellions.ai/careers/
+- https://sakana.ai/careers/
+- https://salessmyth.com/careers/vp-sales-interim
+- https://scrapfly.io/blog/posts/403-forbidden-web-scraping
+- https://share.hsforms.com/1BeXduy3KTsyjEqX6dhJwmwe06mw
+- https://siliconangle.com/2026/04/14/german-startup-synera-lands-40-million-automate-engineering-workflows-ai-agents/
+- https://smartpay.co/en/about/
+- https://sprinto.com/
+- https://tako.com.br/
+- https://talent.cherry.vc/companies/synera | TITLE: Synera | Cherry Ventures Job Board
+- https://talent.seedcamp.com/companies/fifth-dimension-ai/jobs/41714610-founding-head-of-sales-nyc | TITLE: Founding Head of Sales - NYC @ Fifth Dimension AI | Seedcamp Job Board
+- https://techcrunch.com/2024/11/11/brazilian-fintech-tako-emerges-from-stealth-with-sizable-seed-round-led-by-a16z-and-ribbit-capital/
+- https://techcrunch.com/2026/02/11/former-founders-fund-vc-sam-blond-launches-ai-sales-startup-to-upend-salesforce/
+- https://techcrunch.com/2026/03/30/ai-chip-startup-rebellions-raises-400-million-at-2-3b-valuation-in-pre-ipo-round/
+- https://techcrunch.com/2026/04/15/parasail-raises-32m-to-feed-tokenmaxxing-ai-developers/ | TITLE: This startup is betting tokenmaxxing will create the next compute giant | TechCrunch
+- https://techcrunch.com/2026/04/16/insightfinder-raises-15m-to-help-companies-figure-out-where-ai-agents-go-wrong/
+- https://techjobs.sosv.com/jobs
+- https://theaiinsider.tech/2026/04/21/insightfinder-ai-closes-15m-series-b-to-fix-how-enterprises-monitor-ai-systems/
+- https://tracxn.com/d/companies/quintoandar/__JHy-zcSeuWVw8VgAepPg3eueKftoEvZnqc6X6-Iq4c0
+- https://us.caddi.com
+- https://watershed.com/careers
+- https://web3.career/web3-companies/bitso
+- https://wellfound.com | TITLE: Wellfound - Startup Job Search
+- https://workos.com | TITLE: WorkOS — Your app, Enterprise Ready.
+- https://www.above.security/about-us
+- https://www.accel.com/companies | TITLE: Accel - Relationships
+- https://www.aidoc.com/about/careers/co/united-states/92.25A/regional-account-director-exploratory/all/
+- https://www.alchemistaccelerator.com/jobs
+- https://www.appliedintuition.com/careers
+- https://www.augury.com/careers/rvp-enterprise-8452682002/
+- https://www.augury.com/careers/rvp-strategic-8440280002/
+- https://www.axios.com/pro/enterprise-software-deals/2026/04/23/orkes-reliable-ai-workloads-enterprise
+- https://www.belo.app
+- https://www.bold.co
+- https://www.bolster.com
+- https://www.browserstack.com/
+- https://www.browserstack.com/guide/playwright-vs-puppeteer
+- https://www.builtinboston.com/company/cohere-health
+- https://www.builtinsf.com/articles/mintlify-raises-45m-series-b-20260417
+- https://www.builtinsf.com/job/vp-sales/4746775
+- https://www.calcalistech.com/ctechnews/article/rq8lzbs4c
+- https://www.calcalistech.com/ctechnews/article/sjrecjr5wx
+- https://www.calcalistech.com/ctechnews/article/syk3dddpzx
+- https://www.camus.energy/careers/job-openings
+- https://www.captivatetalent.com/fractional-revenue-executive-hiring | TITLE: Fractional Executives: Hire VP of Sales, CMOs, CX, &amp; RevOps leaders
+- https://www.chargebee.com/
+- https://www.chiefoutsiders.com/become-an-outsider
+- https://www.climatetechlist.com
+- https://www.cloudwalk.io/
+- https://www.cloudwalk.io/newsroom/cloudwalk-hits-1-3-billion-annualized-revenue-run-rate-and-1-8-million-revenue-per-employee-in-2025 | TITLE: CloudWalk Hits $1.3 Billion Annualized Revenue Run Rate and $1.8 Million Revenue Per Employee in 2025
+- https://www.coherehealth.com/careers | TITLE: Careers | Cohere Health®
+- https://www.congress.gov/crs-product/IF12977
+- https://www.craniometrix.com
+- https://www.crehana.com
+- https://www.crowdfundinsider.com/2025/07/244396-mexican-fintech-klar-secures-190m-via-series-c/
+- https://www.dlocal.com
+- https://www.doctronic.ai/careers/
+- https://www.elcolombiano.com/negocios/colombia-empresas-endeavor-2026-rappi-addi-bold-habi-siigo-erco-GH35326725
+- https://www.fiercehealthcare.com/ai-and-machine-learning/amperos-health-secures-16m-series-funding-announces-industrys-new-first-ai | TITLE: Amperos Health nabs $16M in series A
+- https://www.financialcontent.com/article/bizwire-2026-4-23-cloudsmith-raises-72m-series-c-led-by-tcv-with-participation-from-insight-partners-to-control-and-secure-the-ai-powered-software-supply-chain
+- https://www.fintechfutures.com/b2b-b2c-payments/aspire-enters-us-market-with-key-revolut-talent-grab
+- https://www.fintechfutures.com/financial-inclusion/mexico-s-stori-lands-212m-in-mix-of-equity-and-debt-financing
+- https://www.fintechfutures.com/venture-capital-funding/colombian-fintech-truora-raises-15m-series-a-led-by-bbva-fund
+- https://www.fintechfutures.com/venture-capital-funding/crypto-fintech-lemon-raises-20m-series-b
+- https://www.fintechfutures.com/venture-capital-funding/latam-fintech-pomelo-secures-55m-series-c
+- https://www.fractionaljobs.io | TITLE: Fractional Jobs | The Job Board For Fractional Work
+- https://www.fractionaljobs.io/jobs/chief-revenue-officer-at-altfest-personal-wealth-management | TITLE: New Job | Fractional Chief Revenue Officer at Altfest
+- https://www.fractionaljobs.io/jobs/head-of-bd-at-a-property-management-saas-for-hoas | TITLE: New Job | Fractional Head of BD at A Property Management SaaS for HOAs
+- https://www.fractionaljobs.io/jobs/head-of-sales-at-a-longevity-healthtech-startup | TITLE: New Job | Fractional Head of Sales at A Longevity Healthtech Startup
+- https://www.getauctor.com/careers
+- https://www.gigx.com/user/register
+- https://www.globant.com
+- https://www.gofractional.com
+- https://www.govinfosecurity.com/artemis-gets-70m-to-build-ai-agents-for-detection-response-a-31436
+- https://www.gtmcouncil.com
+- https://www.gv.com/portfolio
+- https://www.highradius.com/
+- https://www.holmusk.com/careers
+- https://www.increase.app
+- https://www.inngest.com/careers | TITLE: Careers at Inngest - Inngest
+- https://www.investmentnews.com/fintech/wealthcom-raises-65m-series-b-as-ai-adoption-accelerates-across-firms/266175
+- https://www.joinpavilion.com
+- https://www.joinpavilion.com/membership
+- https://www.kavak.com
+- https://www.larepublica.co/empresas/rappi-habi-y-frubana-son-las-startups-que-mas-han-levantado-capital-en-colombia-3736489
+- https://www.lema.ai/careers/07.86B | TITLE: Careers at Lema
+- https://www.lunit.io/en/careers/
+- https://www.mahdlo.net/fractional-cro-services
+- https://www.mahdlo.net/join
+- https://www.marvik.ai
+- https://www.maya.ph/
+- https://www.mintlify.com/blog/series-b
+- https://www.multiverse.io/en-GB/careers
+- https://www.mural.co
+- https://www.nea.com/blog/bluefish-the-ai-marketing-platform-for-the-agentic-era
+- https://www.notco.ai
+- https://www.notta.ai/recruit
+- https://www.oakhcft.com/blog-post/building-a-better-foundation-for-life-altering-care-why-were-partnering-with-courier-health
+- https://www.patsnap.com/careers/
+- https://www.pedidosya.com
+- https://www.pomelo.la
+- https://www.postman.com/
+- https://www.prnewswire.com/news-releases/amperos-health-secures-16m-investment-as-it-launches-industrys-first-ai-native-denial-management-and-revenue-recovery-platform-302749446.html | TITLE: Amperos Health Secures $16M Investment as it Launches Industry's First AI-Native Denial Management and Revenue Recovery Platform
+- https://www.prnewswire.com/news-releases/apono-raises-34m-series-b-to-redefine-privileged-access-for-the-agentic-era-302618621.html
+- https://www.prnewswire.com/news-releases/bluefish-raises-43-million-series-b-to-power-agentic-marketing-for-the-fortune-500-302741124.html
+- https://www.prnewswire.com/news-releases/courier-health-raises-50-million-series-b-to-revolutionize-the-biopharma-patient-experience-302749752.html
+- https://www.prnewswire.com/news-releases/parasail-raises-32m-series-a-to-build-the-supercloud-that-puts-developers-in-control-of-their-ai-302742856.html | TITLE: Parasail Raises $32M Series A to Build the Supercloud that Puts Developers in Control of their AI
+- https://www.quintoandar.com.br
+- https://www.reco.ai/jobs/head-of-revops
+- https://www.revgenius.com
+- https://www.riotimesonline.com/brazils-loft-proptech-hits-1-2m-transactions-in-2025/
+- https://www.rocketlane.com/
+- https://www.sagehealth.com/company/careers#open-roles
+- https://www.salesqb.com/careers/ | TITLE: Exciting Career Opportunities | SalesQB
+- https://www.sarvam.ai/
+- https://www.securityweek.com/cloudsmith-raises-72-million-in-series-c-funding/
+- https://www.singulate.com/post/hiring-founding-account-executive-gtm-lead
+- https://www.sixfold.ai/careers | TITLE: Careers | Work At Sixfold
+- https://www.spellbook.legal/careers | TITLE: Spellbook Careers - We&#x27;re Hiring
+- https://www.spotdraft.com/
+- https://www.storicard.com
+- https://www.synera.io/about
+- https://www.synera.io/careers
+- https://www.synera.io/press/synera-joins-german-accelerators-us-market-discovery-ai-program
+- https://www.totvs.com
+- https://www.truewind.ai/careers
+- https://www.truora.com
+- https://www.twill.health/careers
+- https://www.useparallel.com/app/candidate/job/66963b8bc4e89adf8dc57b73
+- https://www.vcmo.uk
+- https://www.vendux.org
+- https://www.workatastartup.com/companies/hadrius | TITLE: Jobs at Hadrius (W23) | Y Combinator&#39;s Work at a Startup
+- https://www.workatastartup.com/jobs | TITLE: Software Engineer jobs at Y Combinator startups | Y Combinator&#39;s Work at a Startup
+- https://www.workatastartup.com/jobs/85916 | TITLE: Founding Sales at Venta AI | Y Combinator&#39;s Work at a Startup
+- https://www.workatastartup.com/jobs/88063 | TITLE: Founding GTM Lead  at Macadamia | Y Combinator&#39;s Work at a Startup
+- https://www.workatastartup.com/jobs/89102 | TITLE: Founding GTM  at GhostEye | Y Combinator&#39;s Work at a Startup
+- https://www.workatastartup.com/jobs/89155 | TITLE: Founding Account Executive at JustAI | Y Combinator&#39;s Work at a Startup
+- https://www.workatastartup.com/jobs/93197 | TITLE: Founding Enterprise Sales at Windmill | Y Combinator&#39;s Work at a Startup
+- https://www.workatastartup.com/jobs/93448 | TITLE: Founding GTM Lead (AI-Native Outbound &amp; Sales) at Humwork | Y Combinator&#39;s Work at a Startup
+- https://www.ycombinator.com/companies?batch=Winter+2026 | TITLE: The YC Startup Directory | Y Combinator
+- https://www.ycombinator.com/companies/21st/jobs/HC9gQnk-founding-gtm-lead | TITLE: Founding GTM Lead at 21st | Y Combinator
+- https://www.ycombinator.com/companies/agentmail/jobs/7WRQSNz-founding-gtm-lead | TITLE: Founding GTM Lead at AgentMail | Y Combinator
+- https://www.ycombinator.com/companies/arcline/jobs/mLJtw4g-founding-gtm | TITLE: Founding GTM at Arcline | Y Combinator
+- https://www.ycombinator.com/companies/arva-ai/jobs/CJWwGwd-founding-account-executive | TITLE: Founding Account Executive at Arva AI | Y Combinator
+- https://www.ycombinator.com/companies/channel3/jobs/DXixURX-chief-of-staff-head-of-gtm-strategy-ops | TITLE: Chief of Staff / Head of GTM / Strategy + Ops at Channel3 | Y Combinator
+- https://www.ycombinator.com/companies/claimsorted/jobs/9jsPuCe-founding-gtm-go-to-market-sales | TITLE: Founding GTM (Go-to-Market Sales) at ClaimSorted | Y Combinator
+- https://www.ycombinator.com/companies/clicks/jobs/9StLpWD-founding-gtm-lead | TITLE: Founding GTM Lead at Clicks | Y Combinator
+- https://www.ycombinator.com/companies/corgi-insurance/jobs/doLhfbu-founding-head-of-sales | TITLE: Founding Head of Sales at Corgi Insurance | Y Combinator
+- https://www.ycombinator.com/companies/coval/jobs/E0tFFfN-head-of-sales | TITLE: Head of Sales at Coval | Y Combinator
+- https://www.ycombinator.com/companies/cozmo-ai/jobs/htPfvUa-founding-gtm-lead | TITLE: Founding GTM Lead  at Cozmo AI | Y Combinator
+- https://www.ycombinator.com/companies/craniometrix/jobs/Er9Yu3k-head-of-sales-series-a-healthtech-ote-300-450k | TITLE: Head of Sales (Series A Healthtech) (OTE $300 - $450K) at Craniometrix | Y Combinator
+- https://www.ycombinator.com/companies/escape/jobs/yfEXoM2-head-of-sales | TITLE: Head of Sales  at Escape | Y Combinator
+- https://www.ycombinator.com/companies/foreman | TITLE: Foreman: Keeping contractors on the job site, not behind a desk. | Y Combinator
+- https://www.ycombinator.com/companies/gauge/jobs/juhjUfl-founding-sales | TITLE: Founding Sales at Gauge | Y Combinator
+- https://www.ycombinator.com/companies/ghosteye/jobs/S6ppQ9j-founding-gtm | TITLE: Founding GTM  at GhostEye | Y Combinator
+- https://www.ycombinator.com/companies/humwork/jobs/sRM7p12-founding-gtm-lead-ai-native-outbound-sales | TITLE: Founding GTM Lead (AI-Native Outbound &amp; Sales) at Humwork | Y Combinator
+- https://www.ycombinator.com/companies/justai/jobs/NOV6eqU-founding-account-executive | TITLE: Founding Account Executive at JustAI | Y Combinator
+- https://www.ycombinator.com/companies/litellm/jobs/YKs6YQu-founding-account-executive | TITLE: Founding Account Executive at LiteLLM | Y Combinator
+- https://www.ycombinator.com/companies/macadamia/jobs/0FN5u8j-founding-gtm-lead | TITLE: Founding GTM Lead  at Macadamia | Y Combinator
+- https://www.ycombinator.com/companies/procindex/jobs/Yc1rWKz-sales-executive | TITLE: Sales Executive at ProcIndex | Y Combinator
+- https://www.ycombinator.com/companies/pure/jobs/dNGIvgd-founding-gtm-leader-sales | TITLE: Founding GTM Leader (Sales) at Pure | Y Combinator
+- https://www.ycombinator.com/companies/qualgent/jobs/uG2XyZv-founding-head-of-gtm | TITLE: Founding Head of GTM at QualGent | Y Combinator
+- https://www.ycombinator.com/companies/ramain/jobs/bwtwd9W-founding-gtm-operations-lead | TITLE: Founding GTM &amp; Operations Lead  at RamAIn | Y Combinator
+- https://www.ycombinator.com/companies/roger-2/jobs/yIVxpJW-head-of-sales | TITLE: Head of Sales at Roger | Y Combinator
+- https://www.ycombinator.com/companies/shadeform/jobs/ZBDwwU6-founding-sales | TITLE: Founding Sales at Shadeform | Y Combinator
+- https://www.ycombinator.com/companies/snappr/jobs/lEEMtF8-head-of-sales | TITLE: Head of Sales at Snappr | Y Combinator
+- https://www.ycombinator.com/companies/stilta/jobs/ZkPwXbt-founding-gtm | TITLE: Founding GTM at Stilta | Y Combinator
+- https://www.ycombinator.com/companies/windmill/jobs/4swi05r-founding-enterprise-sales | TITLE: Founding Enterprise Sales at Windmill | Y Combinator
+- https://yellow.ai/
+
+### A.2 Redirected but resolves 200 (final URL captured)
+
+- https://aerobotics.breezy.hr/ -> https://breezy.hr/ | TITLE: Modern Hiring Software &amp; Applicant Tracking System | Breezy HR
+- https://ai21.com -> https://www.ai21.com/
+- https://aidoc.com -> https://www.aidoc.com/
+- https://augury.com -> https://www.augury.com/
+- https://boards.greenhouse.io/figma/jobs/5728495004 -> https://job-boards.greenhouse.io/figma/jobs/5728495004 | TITLE: Job Application for Director, Federal Sales at Figma
+- https://careers.upstage.ai -> https://careers.upstage.ai/ko/upstage
+- https://channel.io/en/jobs -> https://channel.io/en/careers
+- https://contxto.com/en/startups/ -> https://contxto.com/es/noticias/startups-brasil-despidos-covid-culpable/
+- https://coro.net -> https://www.coro.net/
+- https://cpx.net -> https://www.cpx.net/
+- https://fintual.com -> https://fintual.cl/
+- https://fractionalpulse.com/jobs -> https://fractionalpulse.com/jobs/ | TITLE: Fractional Executive Jobs - 186 Part-Time | Fractional Pulse
+- https://greylock.com/edge -> https://greylock.com/edge/
+- https://hotmart.com -> https://hotmart.com/en
+- https://hub71.com -> https://www.hub71.com/
+- https://jobs.climatedraft.org -> https://jobs.climatedraft.org/companies | TITLE: Companies | Climate Draft Job Board
+- https://jobs.initialized.com/ -> https://jobs.initialized.com/jobs
+- https://jobs.lsvp.com -> https://jobs.lsvp.com/jobs
+- https://klar.mx -> https://www.klar.mx/
+- https://mihup.com/ -> https://mihup.ai/
+- https://optibus.com/company/careers/jobs/co/eastern-united-states/7B.46F/regional-director-east-coast/all -> https://optibus.com/company/careers/jobs/co/eastern-united-states/7B.46F/regional-director-east-coast/all/
+- https://paymongo.com/ -> https://www.paymongo.com/
+- https://pinecone.io -> https://www.pinecone.io/
+- https://propertyfinder.com -> https://www.propertyfinder.com/
+- https://qure.ai/ -> https://www.qure.ai/
+- https://rebellions.career.greetinghr.com/o/213949 -> https://rebellions.career.greetinghr.com/ko/o/213949
+- https://tabby.ai -> https://tabby.ai/en-AE
+- https://tamara.co -> https://tamara.co/en-sa
+- https://tonomus.neom.com -> https://www.neom.com/en-us/our-business/sectors/technology-and-digital
+- https://vtex.com -> https://www.vtex.com/ | TITLE: VTEX - The AI-Native Commerce Suite for CIOs and CEOs
+- https://www.aidoc.com/about/careers/co/boston-ma/76.65F/regional-account-director-new-england/all/ -> https://www.aidoc.com/about/careers/
+- https://www.aidoc.com/about/careers/co/dallas/A2.C40/regional-account-director-dallas-metro-area/all/ -> https://www.aidoc.com/about/careers/
+- https://www.andela.com/careers -> https://www.andela.com/for-talent
+- https://www.healthifyme.com/ -> https://www.healthifyme.com/us/
+- https://www.iconiqcapital.com/careers -> https://www.iconiq.com/careers
+- https://www.loft.com.br -> https://loft.com.br/
+- https://www.notta.ai/ -> https://www.notta.ai/en/
+- https://www.rappi.com -> https://www.rappi.com.mx/
+- https://www.techcxo.com/contact-us -> https://www.techcxo.com/about-us/contact-us/
+- https://www.techcxo.com/cro/ -> https://www.techcxo.com/functional-roles/cro/
+- https://www.treble.ai -> https://treble.ai/
+- https://www.xendit.co/ -> https://www.xendit.co/en/
+- https://www.yalo.com -> https://www.yalo.ai/
+- https://www.ycombinator.com/companies/flai/jobs/qCddsM1-founding-sales -> https://www.ycombinator.com/companies/flai/jobs/qCddsM1-regional-account-executive | TITLE: Regional Account Executive at Flai | Y Combinator
+- https://www.ycombinator.com/companies/scout-out/jobs/72VMRIq-founding-gtm-lead -> https://www.ycombinator.com/companies/foreman/jobs/72VMRIq-founding-gtm-lead | TITLE: Founding GTM Lead at Foreman | Y Combinator
+
+## Section B - DEAD URLs (move to skip list)
+
+Count: 45 URLs are dead.
+
+### B.1 HTTP 404 / 410 / 405
+
+- [404] https://builtin.com/job/founding-head-gtm/8783211  (source: J1_vc_portfolio_sweep.md)
+- [404] https://builtin.com/job/founding-sales-leader-cpq-industrial  (source: J1_vc_portfolio_sweep.md)
+- [405] https://careers-bah.icims.com/jobs/search?ss=1&searchKeyword=&searchLocation=&in_iframe=1`  (source: J4_limits_workarounds.md)
+- [410] https://careers.genieai.co/jobs/6459273-head-of-sales-legal-ai  (source: K5_vertical_depth_devtools_climatetech.md)
+- [404] https://data.usajobs.gov/api/Search`  (source: J4_limits_workarounds.md)
+- [404] https://firstround.com/network/jobs  (source: J1_vc_portfolio_sweep.md)
+- [404] https://jobs.ashbyhq.com/api/non-user-graphql`  (source: J4_limits_workarounds.md)
+- [404] https://jobs.dnx.vc/jobs  (source: J2_accelerator_portfolio_sweep.md)
+- [404] https://jobs.lever.co/skypointcloud/7add0091-9cd8-449c-bed9-af524af76255  (source: J8_master_ranked_refresh.md)
+- [404] https://jobs.lever.co/topazlabs/004f8cdd-d70d-47ca-ae18-522a7dd5bb41  (source: J8_master_ranked_refresh.md)
+- [404] https://jobs.treasure.ai/*  (source: J8_master_ranked_refresh.md)
+- [404] https://octaura.com/careers/  (source: K5_vertical_depth_devtools_climatetech.md)
+- [404] https://pages.bolster.com/join  (source: J6_fractional_platforms.md, J8_master_ranked_refresh.md)
+- [404] https://pear.vc/jobs/  (source: J1_vc_portfolio_sweep.md)
+- [404] https://remotive.com/remote/jobs/sales-business/founding-gtm-leader-3484192  (source: J9_founder_hiring_social_scan.md)
+- [404] https://us.caddi.com/careers  (source: J7_international_bridge.md)
+- [404] https://us.caddi.com/job/director-customer-success/8117357  (source: J7_international_bridge.md, K9_apac_bridge_expansion.md)
+- [404] https://us.caddi.com/job/pre-sales-specialist/7559003  (source: J7_international_bridge.md)
+- [404] https://www.battery.com/jobs/  (source: J1_vc_portfolio_sweep.md)
+- [404] https://www.cfcxo.org/contact  (source: J6_fractional_platforms.md)
+- [404] https://www.forerunnerventures.com/jobs  (source: J1_vc_portfolio_sweep.md)
+- [404] https://www.generalcatalyst.com/jobs  (source: J1_vc_portfolio_sweep.md)
+- [404] https://www.indexventures.com/talent/jobs  (source: J1_vc_portfolio_sweep.md)
+- [404] https://www.khoslaventures.com/jobs  (source: J1_vc_portfolio_sweep.md)
+- [404] https://www.luxcapital.com/jobs  (source: J1_vc_portfolio_sweep.md)
+- [404] https://www.nea.com/jobs  (source: J1_vc_portfolio_sweep.md)
+- [404] https://www.remotefront.com/remote-jobs/aidoc-regional-account-director-northern-ca-9c3us  (source: J7_international_bridge.md)
+- [404] https://www.voyantis.ai/career/job?uid=4C.846&position=Strategic-Account-Director&department=Sales&location=San-Francisco  (source: J7_international_bridge.md)
+- [404] https://www.workatastartup.com/companies/venta-ai/jobs/JE3rg9f-founding-sales  (source: J2_accelerator_portfolio_sweep.md)
+- [404] https://www.workatastartup.com/jobs/75518  (source: K2_eu_israel_bridge_expansion.md)
+- [404] https://www.ycombinator.com/companies/anglera/jobs/tI2CpWS-founding-sales-lead  (source: J2_accelerator_portfolio_sweep.md)
+- [404] https://www.ycombinator.com/companies/beanstalk/jobs/QaQR9mO-vp-of-sales  (source: J2_accelerator_portfolio_sweep.md)
+- [404] https://www.ycombinator.com/companies/cyble/jobs/voNzywa-vp-of-sales-north-america  (source: J2_accelerator_portfolio_sweep.md)
+- [404] https://www.ycombinator.com/companies/flower/jobs/YpmVZf7-founding-account-executive-founding-sales-lead-head-of-revenue  (source: J2_accelerator_portfolio_sweep.md)
+
+### B.2 HTTP 200 but redirect to error page (job removed)
+
+These URLs return 200 but the ATS silently redirects to the company general jobs board with `?error=true` or `?not_found=true`. The specific role posting is gone.
+
+- https://job-boards.greenhouse.io/beyondtrust/jobs/7402084 -> https://job-boards.greenhouse.io/beyondtrust?error=true | TITLE: Jobs at BeyondTrust  (source: J8_master_ranked_refresh.md)
+- https://job-boards.greenhouse.io/coherehealth/jobs/5177593003 -> https://job-boards.greenhouse.io/coherehealth?error=true | TITLE: Jobs at Cohere Health  (source: J8_master_ranked_refresh.md)
+- https://job-boards.greenhouse.io/coherehealth/jobs/5754188003 -> https://job-boards.greenhouse.io/coherehealth?error=true | TITLE: Jobs at Cohere Health  (source: J8_master_ranked_refresh.md)
+- https://job-boards.greenhouse.io/garnerhealth/jobs/5575193004 -> https://job-boards.greenhouse.io/garnerhealth?error=true | TITLE: Jobs at Garner Health  (source: K7_wellfound_otta_sweep.md)
+- https://job-boards.greenhouse.io/garnerhealth/jobs/5694879004 -> https://job-boards.greenhouse.io/garnerhealth?error=true | TITLE: Jobs at Garner Health  (source: K7_wellfound_otta_sweep.md)
+- https://job-boards.greenhouse.io/garnerhealth/jobs/5791131004 -> https://job-boards.greenhouse.io/garnerhealth?error=true | TITLE: Jobs at Garner Health  (source: K7_wellfound_otta_sweep.md)
+- https://job-boards.greenhouse.io/mavenclinic/jobs/7530738002 -> https://job-boards.greenhouse.io/mavenclinic?error=true | TITLE: Jobs at Maven Clinic  (source: J8_master_ranked_refresh.md)
+- https://job-boards.greenhouse.io/medeanalytics/jobs/7634297002 -> https://job-boards.greenhouse.io/medeanalytics?error=true | TITLE: Jobs at MedeAnalytics  (source: J8_master_ranked_refresh.md)
+- https://job-boards.greenhouse.io/snorkelai/jobs/4419671004 -> https://job-boards.greenhouse.io/snorkelai?error=true | TITLE: Jobs at Snorkel AI  (source: K5_vertical_depth_devtools_climatetech.md)
+- https://job-boards.greenhouse.io/workera/jobs/4299550005 -> https://job-boards.greenhouse.io/workera?error=true | TITLE: Jobs at Workera AI  (source: K5_vertical_depth_devtools_climatetech.md)
+- https://apply.workable.com/vatica-health/j/C804EE3E33 -> https://apply.workable.com/vatica-health/?not_found=true | TITLE: Vatica Health - Current Openings  (source: J8_master_ranked_refresh.md)
+
+## Section C - REDIRECTED (captured in Section A.2)
+
+Count: 45 URLs followed a redirect chain to a live final URL. Already enumerated in Section A.2 above. Notable redirect patterns:
+
+- Bare-domain to www subdomain (cosmetic, no concern)
+- `boards.greenhouse.io/X/jobs/Y` -> `job-boards.greenhouse.io/X/jobs/Y` (greenhouse domain migration, both endpoints work)
+- `aerobotics.breezy.hr/` -> `breezy.hr/` (Aerobotics subdomain dead, lands on generic ATS marketing page - no Aerobotics jobs)
+- `contxto.com/en/startups/` -> `contxto.com/es/noticias/startups-brasil-despidos-covid-culpable/` (article moved, content drifted)
+- `tonomus.neom.com` -> `neom.com/en-us/our-business/sectors/technology-and-digital` (Tonomus rolled into NEOM)
+
+## Section D - AUTH-GATED (flagged for Jeff manual)
+
+Count: 19 HTTP 401/403 + 101 LinkedIn URLs.
+
+### D.1 LinkedIn (default auth-gated - Jeff verifies on his end)
+
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/in/amyvolas
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/in/andreabaronchelli/
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/in/ashwendt
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/in/davidkreiger
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/in/handotdev
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/in/jamiecrosbie
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/in/loririchardson
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/in/marshallchoy/
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/in/megandaversa
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/in/pauldaversa
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/in/sam-pemberton-ahmed/
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/in/scottleese
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/in/stevenpopper
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/in/sungrokkim/
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/in/trishbertuzzi
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/in/yushiro-kato/
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/search?keywords=fifth%20dimension%20ai
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/4375437799
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/4393211077
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/4398007333
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/4405357401
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/4406680462
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/chief-revenue-officer-at-4sight-labs-4404224175
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/chief-revenue-officer-at-assurecare-llc-4405760229
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/chief-revenue-officer-at-briq-4319562548
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/chief-revenue-officer-at-charterup-4334866183
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/chief-revenue-officer-at-omada-health-4402479901
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/chief-revenue-officer-at-omada-health-4402486519
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/chief-revenue-officer-at-openiam-4403682015
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/chief-revenue-officer-at-peach-4371607990
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/chief-revenue-officer-at-precor-4372624615
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/chief-revenue-officer-at-rapiddev-4405689291
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/chief-revenue-officer-at-robert-half-4404111574
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/chief-revenue-officer-at-safeguard-global-4403105877
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/chief-revenue-officer-at-wrs-health-4403616885
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/chief-revenue-officer-cro-at-siftwell-4402324173
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/chief-revenue-officer-cro-at-talent-harbor-4405809572
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/chief-revenue-officer-healthcare-at-the-encompass-group-4405357240
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/chief-revenue-officer-series-c-ai-automation-business-100%25-yoy-growth-at-zearch-4403934986
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/director-us-ads-sales-at-smartnews-4180200187
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-business-development-lead-americas-at-planhat-4361534870
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-commercial-engagement-lead-at-meet-life-sciences-4351984267
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-director-of-growth-at-metric-bio-4404318741
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-director-of-sales-at-polargrid-4405692744
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-growth-revenue-lead-at-faida-foods-4145202747
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-gtm-at-conversion-4126184586
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-gtm-at-reform-4240215336
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-gtm-at-unicorn-formerly-wiser-elite-4406163657
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-gtm-cofounder-food-nutrition-healthtech-at-peppermint-4403637068
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-gtm-growth-lead-at-octave-4275060435
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-gtm-head-of-growth-at-arcline-yc-w26-4405437512
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-gtm-lead-%40-vc-backed-ai-data-workers-company-at-stealth-startup-4167791991
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-gtm-lead-at-crossing-hurdles-4368510412
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-gtm-lead-at-genpeach-ai-4370349554
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-gtm-lead-at-omnea-4400232956
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-gtm-lead-at-pincites-4011263438
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-gtm-lead-at-settl-x-4381009371
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-gtm-lead-at-skyhook-4344378546
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-gtm-lead-at-wedo-4374030642
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-gtm-lead-enterprise-ai-at-essential-ai-4037921492
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-gtm-lead-growth-operator-at-minutes-mojo-4393543412
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-gtm-lead-san-francisco-at-jack-jill-4360591955
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-gtm-lead-us-ny-$280-340k-ote-at-stigg-4109586373
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-gtm-partner-at-grayn-4398914137
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-gtm-sales-lead-at-wayo-4380505098
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-head-of-sales-%E2%80%93-versori-by-avalara-at-avalara-4406661927
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-head-of-sales-at-fastino-labs-4404484959
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-head-of-sales-at-toma-yc-w24-4145958954
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-head-of-sales-saas-full-remote-at-leonar-4403944103
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-nyc-account-executive-at-encord-4393255918
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-nyc-sales-director-at-encord-4392098191
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-revenue-lead-%E2%80%93-restaurant-retail-tech-full-cycle-at-froogal-ai-4401448682
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-sales-and-go-to-market-at-voltify-4397974584
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/founding-sales-executive-at-machine-select-4403771113
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/fractional-chief-revenue-officer-cro-%E2%80%93-usa-at-learntastic-4398007333
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/fractional-cro-at-cxowork-4406680462
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/fractional-go-to-market-gtm-consultant-at-revive-4406166079
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/fractional-head-of-sales-ai-security-financial-services-4405086640
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/global-head-of-sales-at-applied-intuition-4217612891
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/global-vp-head-of-sales-at-aarki-4386875371
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/growth-strategist-at-caddi-4405679426
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/head-of-americas-sales-at-miro-4399066385
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/head-of-americas-strategic-sales-at-dremio-4373354845
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/head-of-go-to-market-at-the-value-maximizer-4401713729
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/head-of-go-to-market-gtm-at-wiselayer-4201079171
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/head-of-sales-account-management-capital-markets-north-america-at-xceptor-4384382472
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/head-of-sales-alliances-americas-at-sios-technology-corp-4399694865
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/head-of-sales-at-wayvia-formerly-pricespider-4365149541
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/head-of-sales-us-based-at-nutrium-4398707282
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/head-of-sales-us-west-at-wingtra-4400406324
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/head-of-sales-vindexa-first-sales-hire-at-ai-fund-4404243710
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/head-of-sales-vindexa-first-sales-hire-at-ai-fund-4404448272
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/sales-director-fractional-at-salesqb-4403604489
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/sales-director-strategic-pharma-accounts-at-owkin-4348117724
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/sales-enablement-manager-at-caddi-4381844609
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/senior-vice-president-of-sales-go-to-market-at-firmpilot-4405884465
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/vice-president-health-system-payer-partnerships-at-carbon-health-3763907451
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/vice-president-of-software-sales-at-oscar-4398643039
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/vp-head-of-commercial-%E2%80%93-americas-at-hrs-hospitality-retail-systems-4398267374
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/jobs/view/vp-sales-at-velsera-4393504955
+- AUTH-GATED (LinkedIn): https://www.linkedin.com/posts/ioanahreninciuc_today-at-runware-we-announce-our-50m-series-activity-7404844373177204736-A96b
+
+### D.2 Other auth-gated / blocked (HTTP 401, 403)
+
+- [403] https://wellfound.com/job-collections/x-ai-driven-startups-transforming-our-future-one-automation-at-a-time  Wellfound blocks default fetchers; Jeff verifies.  (source: K7_wellfound_otta_sweep.md)
+- [403] https://wellfound.com/jobs/3538683  Wellfound blocks default fetchers; Jeff verifies.  (source: J9_founder_hiring_social_scan.md, K7_wellfound_otta_sweep.md)
+- [403] https://wellfound.com/jobs/3538683-founding-account-executive-agentic-ai-messaging-automation-remote-high-growth-series-b-uncapped-commission  Wellfound blocks default fetchers; Jeff verifies.  (source: K7_wellfound_otta_sweep.md)
+- [403] https://wellfound.com/jobs/3858955-fractional-cro  Wellfound blocks default fetchers; Jeff verifies.  (source: J8_master_ranked_refresh.md)
+- [403] https://wellfound.com/jobs/3886107  Wellfound blocks default fetchers; Jeff verifies.  (source: J9_founder_hiring_social_scan.md)
+- [403] https://wellfound.com/jobs/3904360  Wellfound blocks default fetchers; Jeff verifies.  (source: K7_wellfound_otta_sweep.md)
+- [403] https://wellfound.com/role/l/vp-of-sales/north-america  Wellfound blocks default fetchers; Jeff verifies.  (source: K7_wellfound_otta_sweep.md)
+- [403] https://wellfound.com/role/l/vp-of-sales/united-states?page=5  Wellfound blocks default fetchers; Jeff verifies.  (source: K7_wellfound_otta_sweep.md)
+- [403] https://wellfound.com/role/r/vp-of-sales  Wellfound blocks default fetchers; Jeff verifies.  (source: K7_wellfound_otta_sweep.md)
+- [403] https://www.bloomberg.com/news/articles/2024-01-18/brazil-payments-unicorn-targets-us-in-start-of-lofty-global-push  Paywall/anti-bot; news article - not a job URL.  (source: K13_latam_expansion.md)
+- [403] https://www.bloomberg.com/news/articles/2026-01-20/argentina-s-pomelo-raises-55-million-in-series-c-to-boost-payment-offerings  Paywall/anti-bot; news article - not a job URL.  (source: K13_latam_expansion.md)
+- [403] https://www.businesswire.com/news/home/20260416563869/en/Wealth.com-Raises-$65-Million-Series-B-to-Power-AI-Future-of-Wealth-Management  Paywall/anti-bot; news article - not a job URL.  (source: K1_last14days_founder_hiring.md)
+- [403] https://www.crunchbase.com/organization/upstage-ai  Crunchbase auth-gated - Jeff verifies.  (source: K9_apac_bridge_expansion.md)
+- [403] https://www.crunchbase.com/organization/yalochat  Crunchbase auth-gated - Jeff verifies.  (source: K13_latam_expansion.md)
+- [403] https://www.finsmes.com/2026/04/mintlify-raises-45m-in-series-b-funding-at-500m-valuation.html  Anti-bot; news article - not a job URL.  (source: K1_last14days_founder_hiring.md)
+- [403] https://www.finsmes.com/2026/04/orkes-raises-60m-in-series-b-funding.html  Anti-bot; news article - not a job URL.  (source: K1_last14days_founder_hiring.md)
+- [401] https://www.indeed.com/viewjob?jk=02ddb813bdb06fbc  Indeed login required - Jeff verifies.  (source: J8_master_ranked_refresh.md)
+- [401] https://www.indeed.com/viewjob?jk=8adc05f91a60795c  Indeed login required - Jeff verifies.  (source: J8_master_ranked_refresh.md)
+- [403] https://www.ziprecruiter.com/Jobs/Fractional-Cro  ZipRecruiter blocks default fetchers - Jeff verifies.  (source: J6_fractional_platforms.md)
+
+## Section E - Verification summary
+
+| Status | Count |
+|---|---|
+| 200 LIVE direct | 355 |
+| 200 LIVE via redirect | 45 |
+| 200 but error-redirect (DEAD) | 11 |
+| 404 / 410 / 405 DEAD | 34 |
+| 403 / 401 AUTH-GATED | 19 |
+| LinkedIn AUTH-GATED | 101 |
+| 503 / 429 / TIMEOUT / DNS | 7 |
+
+### Anomalies (timeouts, DNS failures, throttle, 5xx)
+
+- 503 https://cinnamon.is/
+- https://frubana.com
+- https://jobs.ivp.com/
+- https://plata.mx
+- https://www.habi.co
+- https://www.spc.community/job-board
+- 429 https://www.tines.com/careers/jobs/5835668004/
+
+---
+
+Verification complete. 100% truth. No GitHub push.
