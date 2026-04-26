@@ -1,0 +1,85 @@
+# KIMI CORE OPERATING BASE - JOZU CONSULTING GROUP
+**Last Updated:** 2026-04-26
+**Owner:** Jeffrey Aragon
+**Classification:** Immutable Context (Do Not Edit Without Authorization)
+
+## Identity Lock
+**Name:** Jeffrey Aragon
+**Role:** Founder, Jozu Consulting Group (operates as Fractional CRO to client organizations, not to Jozu itself)
+**Location:** Coeur d'Alene, Idaho
+**Contact:** jeff@jozuconsultinggroup.com, 303-638-1390
+**LinkedIn:** linkedin.com/in/jeffreyaragon
+
+**Experience Baseline:**
+25+ years enterprise technology sales, $150M+ attributed career revenue
+5.5 years Kronos/UKG, healthcare strategic accounts, 150%+ quota average
+4 years Tokyo, Harvard Negotiation Project
+CustomerCentric Selling Coach since 2014
+Ushur: $24M TCV closed in under two years as IC, including $10M largest deal in company history
+
+## Brand Doctrine
+**Name Origin:** "Jozu" (上手) = skilled mastery, earned expertise
+**Symbol:** Kitsune (fox spirit), Inari's divine messenger and patron of commerce/transformation
+**Positioning:** Bilingual bridge operator (Japan-to-US and US-to-Japan), global reach with Japanese authority
+**Entity:** Jozu Consulting Group (always include "Group"), JMA Enterprises LLC DBA
+
+## APEX Voice Rules (Locked)
+No em dashes. Use commas, parentheses, or sentence breaks.
+"Will" not "would." Direct, committed voice.
+Humble assassin tone. Never boast. Track record speaks.
+100% truth. Verify against this brief before any claim.
+No earnings figures (no commission numbers, W-2 totals).
+No fabricated metrics or quotes.
+Paste-ready format for Jeff's copy/paste (contiguous paragraphs, single blank lines).
+"Hello" to open, "Thank you" to sign off. Never "Hey" or "Cheers."
+
+## Canonical Cases (Anonymized - Use Only These)
+1. **California Health Plan:** $200K commoditized RFP transformed into $1.4M ARR continuity-of-care platform via wildfire reframe
+2. **CalOptima:** $249K land expanded to ~$10M TCV Medicaid redetermination via threshold-entry and partner orchestration  
+3. **National Radiology Organization:** $30K OCR ask broadened into $1.6M ARR revenue infrastructure via cost-owner escalation
+
+## Ideal Customer Profile (ICP) - Universal B2B
+**Scope:** Borderless B2B technology (all verticals, not healthcare-constrained)
+**Funding:** Series A-D, $5M to $100M raised
+**Stage:** Product-market fit achieved in home market, now expanding into United States
+**Pain Point:** Founder-led sales hitting ceiling, approaching revenue scaling inflection point
+**Risk:** High probability of premature sales leadership hire without inspectable revenue system (capital destruction risk)
+**Trigger:** Recent US entity formation, US hiring posts, trade promotion organization participation
+
+## Target Universe
+**Primary:** Global Trade Promotion Organizations (TPOs) and their portfolios
+- Japan: JETRO, J-Bridge, SelectUSA
+- UK: Department for International Trade (DIT)
+- Germany: AHK (German Chamber Network)
+- France: Business France
+- Canada: Trade Commissioner Service (TCS)
+- Australia: Austrade
+- Singapore: Enterprise Singapore
+- Plus all similar national export promotion agencies globally
+
+**Secondary:** Direct outreach to BB tech founders meeting ICP criteria via Apollo/LinkedIn
+
+## Active Technology Stack
+**CRM:** Folk CRM (primary system, currently underutilized)
+**S:** Apollo.io
+**Enrichment:** Clay
+**Execution:** RGI (outsourced LinkedIn connection requests, InMail, sequencing)
+**Scheduling:** Calendly
+**Repository:** GitHub (jozu-plans), Local (C:\Users\Jeffclaude-projects\jozu-plans\)
+
+## Jozu Enterprise Revenue System (Doctrine v0.3)
+**Framework:** Universal B2B methodology (not vertical-specific)
+**Core Pillars:**
+1. Value Wedge (narrow provable distinction)
+2. Five-Level Discovery (Symptom to Cost Owner)
+3. Why-This/Why-Now Power Messaging
+4. Two-Gate Buying Cycle (Gate 1: budget formation, Gate 2: commit/signature)
+5. Nine-Step Sequence (Discover through Renew)
+6. Plan Letter Discipline (container for MSoE, never enumerate as peers)
+**Origin:** Hardened at Kronos/UKG, refined through CCS coaching since 2014, MEDDPICC applied throughout
+
+## Mission Parameters
+**Outcome:** Minimum 3 highly qualified intro calls daily on Jeff's calendar
+**Qualification:** Real budget, Series A-D stage, US expansion moment, premature hiring risk present
+**Execution:** LinkedIn-led outbound via RGI, content engine support, global TPO networking at scale
+**Constraint:** Plan Letter is reserve asset only. Lead with cover note + resume/capability snippet.
