@@ -1,7 +1,9 @@
 # Jeff Aragon — Applications Log
 
-**Last updated:** 2026-04-24 PM
+**Last updated:** 2026-04-26 ~05:30 UTC (overnight refresh; per-app rows current through 2026-04-25 PM submissions)
 **Purpose:** Single durable record of every job application submitted, drafted, or in flight. Source of truth. Maintained ongoing.
+
+**Note:** Aimfox / RGI LinkedIn outreach queue rows for every submitted application now live at `tier1/aimfox_queue_staging.csv` (23 rows for 14 applications, 21 verified URLs, 2 HOLDs as of 2026-04-26 ~05:00 UTC).
 
 ---
 
